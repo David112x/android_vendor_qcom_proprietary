@@ -6,5 +6,5 @@
 # QC specific definitions & variables
 
 export QCPATH="vendor/qcom/proprietary"
-export SDCLANG_AE_CONFIG="${QCPATH}/common-noship/etc/sdclang.json"
-export SDCLANG_CONFIG="${QCPATH}/common/config/sdclang.json"
+#export SDCLANG_AE_CONFIG="${QCPATH}/common-noship/etc/sdclang.json"
+#export SDCLANG_CONFIG="${QCPATH}/common/config/sdclang.json"
