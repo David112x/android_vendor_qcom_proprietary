@@ -1,6 +1,0 @@
-subdirs = [
-    "color",
-    "color/1.0",
-    "postproc",
-    "postproc/1.0",
-]
