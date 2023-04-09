@@ -25,6 +25,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
 
+LOCAL_SDK_VERSION := current
 LOCAL_PACKAGE_NAME := btmultisim
 LOCAL_CERTIFICATE := platform
 LOCAL_PROGUARD_ENABLED := disabled

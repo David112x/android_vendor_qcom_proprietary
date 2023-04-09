@@ -13,9 +13,10 @@ BT_QSOC_GET_ITEMS_FROM_PERSIST = 1
 include $(CLEAR_VARS)
 
 LOCAL_COPY_HEADERS_TO := bt/hci_qcomm_init
-LOCAL_COPY_HEADERS    := bt_nv.h
-LOCAL_COPY_HEADERS    += btqsocnvm.h
-LOCAL_COPY_HEADERS    += btqsocnvmutils.h
+#LOCAL_COPY_HEADERS    := bt_nv.h
+#LOCAL_COPY_HEADERS    += btqsocnvm.h
+#LOCAL_COPY_HEADERS    += btqsocnvmutils.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libbtnv
 
 LOCAL_C_INCLUDES:= $(LOCAL_PATH)
 
