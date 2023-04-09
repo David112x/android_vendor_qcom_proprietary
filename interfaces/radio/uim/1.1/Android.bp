@@ -52,10 +52,11 @@ cc_library {
     generated_sources: ["vendor.qti.hardware.radio.uim@1.1_genc++"],
     generated_headers: ["vendor.qti.hardware.radio.uim@1.1_genc++_headers"],
     export_generated_headers: ["vendor.qti.hardware.radio.uim@1.1_genc++_headers"],
-    vendor_available: true,
-    vndk: {
-        enabled: true,
-    },
+    product_specific: true,
+//    vendor_available: true,
+//    vndk: {
+//        enabled: true,
+//    },
     shared_libs: [
         "libhidlbase",
         "libhidltransport",
