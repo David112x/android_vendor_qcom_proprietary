@@ -13,7 +13,7 @@ LOCAL_PATH:= $(call my-dir)
 # app and the service
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := uimremoteclientlibrary
 LOCAL_SRC_FILES := src/com/qualcomm/uimremoteclient/IUimRemoteClientService.aidl
 LOCAL_SRC_FILES += src/com/qualcomm/uimremoteclient/IUimRemoteClientServiceCallback.aidl
@@ -24,7 +24,7 @@ include $(BUILD_JAVA_LIBRARY)
 # Build the service
 include $(CLEAR_VARS)
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 src_proto := src
 LOCAL_SRC_FILES := $(call all-subdir-java-files)
 LOCAL_SRC_FILES += $(call all-proto-files-under, $(src_proto))
@@ -45,7 +45,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := uimremoteclient.xml
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE_CLASS := ETC
 
