@@ -1,5 +1,0 @@
--keep class com.qualcomm.atfwd.* {
-  *;
-}
-
--keep public class com.qualcomm.atfwd.AtCmd
