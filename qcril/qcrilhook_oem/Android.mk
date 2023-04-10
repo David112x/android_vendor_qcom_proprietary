@@ -44,15 +44,16 @@ ifeq ($(TARGET_PRODUCT),sooner)
   LOCAL_CFLAGS += -DOMAP_CSMI_POWER_CONTROL -DUSE_TI_COMMANDS 
 endif
 
-LOCAL_MODULE:= libril-qcril-hook-oem
+LOCAL_MODULE := libril-qcril-hook-oem
 
-LOCAL_MODULE_TAGS := optional debug
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_PRELINK_MODULE := false
 
 LOCAL_MODULE_OWNER := qcom
 LOCAL_PROPRIETARY_MODULE := true
 
-LOCAL_COPY_HEADERS_TO := qcril/qcrilhook_oem
-LOCAL_COPY_HEADERS := qcrilhook_oem.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/qcrilhook_oem
+#LOCAL_COPY_HEADERS_TO := qcril/qcrilhook_oem
+#LOCAL_COPY_HEADERS := qcrilhook_oem.h
 include $(BUILD_SHARED_LIBRARY)
