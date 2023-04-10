@@ -2,8 +2,9 @@ LOCAL_PATH :=$(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := smem_log/inc
-LOCAL_COPY_HEADERS      := smem_log.h
+#LOCAL_COPY_HEADERS_TO   := smem_log/inc
+#LOCAL_COPY_HEADERS      := smem_log.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := smem_log/inc
 
 common_libsmem_log_cflags := -g
 common_libsmem_log_cflags += -O2

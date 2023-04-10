@@ -1,8 +1,9 @@
 LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO := qmi-framework/inc
-LOCAL_COPY_HEADERS    := ../inc/qmi_common.h
+#LOCAL_COPY_HEADERS_TO := qmi-framework/inc
+#LOCAL_COPY_HEADERS    := ../inc/qmi_common.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi-framework/inc
 
 common_libqmi_common_cflags := -g
 common_libqmi_common_cflags += -O2

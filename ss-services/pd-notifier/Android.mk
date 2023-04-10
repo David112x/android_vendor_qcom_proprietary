@@ -18,9 +18,10 @@ LOCAL_SHARED_LIBRARIES += libcutils \
 			  libqmi_cci \
 			  libqmi_common_so \
 			  libqmi_encdec
-LOCAL_COPY_HEADERS_TO := libpdnotifier/inc
-LOCAL_COPY_HEADERS := libpdnotifier/libpdnotifier.h
-LOCAL_COPY_HEADERS += pd-notifier-idl/service_registry_notifier_v01.h
+#LOCAL_COPY_HEADERS_TO := libpdnotifier/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libpdnotifier/inc
+#LOCAL_COPY_HEADERS := libpdnotifier/libpdnotifier.h
+#LOCAL_COPY_HEADERS += pd-notifier-idl/service_registry_notifier_v01.h
 LOCAL_MODULE_TAG := optional
 LOCAL_CFLAGS += -Wall
 LOCAL_MODULE_OWNER := qti

@@ -2,8 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := qmi-framework/inc
-LOCAL_COPY_HEADERS      := ../inc/qmi_csi_common.h
+#LOCAL_COPY_HEADERS_TO   := qmi-framework/inc
+#LOCAL_COPY_HEADERS      := ../inc/qmi_csi_common.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi-framework/inc
 
 common_libqcsi_cflags := -g
 common_libqcsi_cflags += -O2

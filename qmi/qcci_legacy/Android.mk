@@ -2,9 +2,9 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := qmi/inc
-
-LOCAL_COPY_HEADERS      := ../src/qmi_client.h
+#LOCAL_COPY_HEADERS_TO   := qmi/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi/inc
+#LOCAL_COPY_HEADERS      := ../src/qmi_client.h
 
 LOCAL_CFLAGS += -DFEATURE_QMI_ANDROID
 
@@ -50,9 +50,9 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := qmi/inc
-
-LOCAL_COPY_HEADERS      := ../inc/qmi_csvt_srvc.h
+#LOCAL_COPY_HEADERS_TO   := qmi/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi/inc
+#LOCAL_COPY_HEADERS      := ../inc/qmi_csvt_srvc.h
 
 LOCAL_CFLAGS += -DFEATURE_QMI_ANDROID
 

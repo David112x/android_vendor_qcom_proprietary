@@ -63,8 +63,9 @@ LOCAL_SHARED_LIBRARIES += libcutils \
 			  libqmi_common_so \
 			  libqmi_encdec
 
-LOCAL_COPY_HEADERS := libpdmapper/libpdmapper.h
-LOCAL_COPY_HEADERS += pd-mapper-idl/service_registry_locator_v01.h
+#LOCAL_COPY_HEADERS := libpdmapper/libpdmapper.h
+#LOCAL_COPY_HEADERS += pd-mapper-idl/service_registry_locator_v01.h
+
 LOCAL_MODULE_TAG := optional
 LOCAL_CFLAGS += -Wall
 LOCAL_MODULE_OWNER := qti

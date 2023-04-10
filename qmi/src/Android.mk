@@ -2,40 +2,40 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := qmi/inc
+#LOCAL_COPY_HEADERS_TO   := qmi/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi/inc
+#LOCAL_COPY_HEADERS      += qmi_i.h
+#LOCAL_COPY_HEADERS      += qmi_qmux.h
+#LOCAL_COPY_HEADERS      += qmi_qmux_if.h
+#LOCAL_COPY_HEADERS      += qmi_qos_srvc_i.h
+#LOCAL_COPY_HEADERS      += qmi_service.h
+#LOCAL_COPY_HEADERS      += qmi_wds_srvc_i.h
 
-LOCAL_COPY_HEADERS      += qmi_i.h
-LOCAL_COPY_HEADERS      += qmi_qmux.h
-LOCAL_COPY_HEADERS      += qmi_qmux_if.h
-LOCAL_COPY_HEADERS      += qmi_qos_srvc_i.h
-LOCAL_COPY_HEADERS      += qmi_service.h
-LOCAL_COPY_HEADERS      += qmi_wds_srvc_i.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_atcop_srvc.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_eap_srvc.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_errors.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_nas_srvc.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_qos_srvc.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_wds_srvc.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_wds_utils.h
+#LOCAL_COPY_HEADERS      += ../inc/qmi_port_defs.h
 
-LOCAL_COPY_HEADERS      += ../inc/qmi_atcop_srvc.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_eap_srvc.h
-LOCAL_COPY_HEADERS      += ../inc/qmi.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_errors.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_nas_srvc.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_qos_srvc.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_wds_srvc.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_wds_utils.h
-LOCAL_COPY_HEADERS      += ../inc/qmi_port_defs.h
+#LOCAL_COPY_HEADERS      += ../platform/qmi_platform_config.h
+#LOCAL_COPY_HEADERS      += ../platform/qmi_platform.h
+#LOCAL_COPY_HEADERS      += ../platform/qmi_platform_qmux_if.h
+#LOCAL_COPY_HEADERS      += ../platform/qmi_platform_qmux_io.h
 
-LOCAL_COPY_HEADERS      += ../platform/qmi_platform_config.h
-LOCAL_COPY_HEADERS      += ../platform/qmi_platform.h
-LOCAL_COPY_HEADERS      += ../platform/qmi_platform_qmux_if.h
-LOCAL_COPY_HEADERS      += ../platform/qmi_platform_qmux_io.h
+#LOCAL_COPY_HEADERS      += ../qmi_client_helper/qmi_client_helper.h
 
-LOCAL_COPY_HEADERS      += ../qmi_client_helper/qmi_client_helper.h
-
-LOCAL_COPY_HEADERS      += ../services/common_v01.h
-LOCAL_COPY_HEADERS      += ../services/qmi_adc_service_v01.h
-LOCAL_COPY_HEADERS      += ../services/sar_vs_service_v01.h
-LOCAL_COPY_HEADERS      += ../core/lib/inc/qmi_idl_lib.h
-LOCAL_COPY_HEADERS      += ../core/lib/inc/qmi_idl_lib_internal.h
-LOCAL_COPY_HEADERS      += ../services/lowi_service_v01.h
-LOCAL_COPY_HEADERS      += ../services/secure_filesystem_service_v01.h
-LOCAL_COPY_HEADERS      += ../services/bandwidth_limits_management_v01.h
+#LOCAL_COPY_HEADERS      += ../services/common_v01.h
+#LOCAL_COPY_HEADERS      += ../services/qmi_adc_service_v01.h
+#LOCAL_COPY_HEADERS      += ../services/sar_vs_service_v01.h
+#LOCAL_COPY_HEADERS      += ../core/lib/inc/qmi_idl_lib.h
+#LOCAL_COPY_HEADERS      += ../core/lib/inc/qmi_idl_lib_internal.h
+#LOCAL_COPY_HEADERS      += ../services/lowi_service_v01.h
+#LOCAL_COPY_HEADERS      += ../services/secure_filesystem_service_v01.h
+#LOCAL_COPY_HEADERS      += ../services/bandwidth_limits_management_v01.h
 
 
 LOCAL_CFLAGS += -DFEATURE_QMI_ANDROID

@@ -2,8 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := system_health_monitor/inc
-LOCAL_COPY_HEADERS      += sys_health_mon.h
+#LOCAL_COPY_HEADERS_TO   := system_health_monitor/inc
+#LOCAL_COPY_HEADERS      += sys_health_mon.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := system_health_monitor/inc
 
 common_shm_cflags := -g
 common_shm_cflags += -O2

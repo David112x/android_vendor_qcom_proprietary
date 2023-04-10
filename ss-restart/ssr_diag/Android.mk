@@ -23,7 +23,7 @@ commonSharedLibraries :=libdiag
 
 LDLIBS += -lpthread
 LOCAL_MODULE:= ssr_diag
-LOCAL_MODULE_TAGS := optional eng
+LOCAL_MODULE_TAGS := optional
 LOCAL_SHARED_LIBRARIES += $(commonSharedLibraries) libcutils libutils liblog
 
 LOCAL_MODULE_OWNER := qcom

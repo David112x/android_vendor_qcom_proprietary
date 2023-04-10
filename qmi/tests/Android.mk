@@ -45,8 +45,8 @@ LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/inc
 
 LOCAL_CLANG := true
 
-LOCAL_MODULE:= qmi_simple_ril_test
+LOCAL_MODULE := qmi_simple_ril_test
 LOCAL_MODULE_OWNER := qti
 LOCAL_PROPRIETARY_MODULE := true
-LOCAL_MODULE_TAGS := optional debug
+LOCAL_MODULE_TAGS := optional
 include $(BUILD_EXECUTABLE)
