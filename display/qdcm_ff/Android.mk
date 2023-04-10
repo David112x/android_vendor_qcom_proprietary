@@ -16,5 +16,6 @@ LOCAL_JAVA_LIBRARIES := framework android.hidl.base-V1.0-java android.hidl.manag
 LOCAL_PACKAGE_NAME := QdcmFF
 LOCAL_CERTIFICATE  := platform
 LOCAL_MODULE_OWNER := qti
+LOCAL_SDK_VERSION := current
 
 include $(BUILD_PACKAGE)

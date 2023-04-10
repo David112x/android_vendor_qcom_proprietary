@@ -4,16 +4,17 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := data/inc
-LOCAL_COPY_HEADERS      += ../inc/ds_cmdq.h
-LOCAL_COPY_HEADERS      += ../inc/ds_list.h
-LOCAL_COPY_HEADERS      += ../inc/ds_string.h
-LOCAL_COPY_HEADERS      += ../inc/ds_util.h
-LOCAL_COPY_HEADERS      += ../inc/ds_sl_list.h
-LOCAL_COPY_HEADERS      += ../inc/ds_trace.h
-LOCAL_COPY_HEADERS      += ../inc/queue.h
-LOCAL_COPY_HEADERS      += ../inc/stm2.h
-LOCAL_COPY_HEADERS      += ../inc/stm2_os.h
+#LOCAL_COPY_HEADERS_TO   := data/inc
+#LOCAL_COPY_HEADERS      += ../inc/ds_cmdq.h
+#LOCAL_COPY_HEADERS      += ../inc/ds_list.h
+#LOCAL_COPY_HEADERS      += ../inc/ds_string.h
+#LOCAL_COPY_HEADERS      += ../inc/ds_util.h
+#LOCAL_COPY_HEADERS      += ../inc/ds_sl_list.h
+#LOCAL_COPY_HEADERS      += ../inc/ds_trace.h
+#LOCAL_COPY_HEADERS      += ../inc/queue.h
+#LOCAL_COPY_HEADERS      += ../inc/stm2.h
+#LOCAL_COPY_HEADERS      += ../inc/stm2_os.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := data/inc
 
 # Logging Features. Enable only one at any time
 #LOCAL_CFLAGS += -DFEATURE_DATA_LOG_SYSLOG

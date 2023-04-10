@@ -21,8 +21,9 @@ endif
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/libmdmdetect \
 		    $(TARGET_OUT_HEADERS)/common/inc/
 LOCAL_SRC_FILES += $(call all-c-files-under, libmdmdetect)
-LOCAL_COPY_HEADERS_TO := libmdmdetect/inc
-LOCAL_COPY_HEADERS := libmdmdetect/mdm_detect.h
+#LOCAL_COPY_HEADERS_TO := libmdmdetect/inc
+#LOCAL_COPY_HEADERS := libmdmdetect/mdm_detect.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libmdmdetect/inc
 LOCAL_SHARED_LIBRARIES += libcutils libutils liblog
 LOCAL_MODULE_TAG := optional
 LOCAL_CFLAGS += -Wall
@@ -46,8 +47,9 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/libmdmimgload \
 		    $(TARGET_OUT_HEADERS)/common/inc/ \
 		    $(LOCAL_PATH)/libmdmdetect
 LOCAL_SRC_FILES += $(call all-c-files-under, libmdmimgload)
-LOCAL_COPY_HEADERS_TO := libmdmimgload/inc
-LOCAL_COPY_HEADERS := libmdmimgload/mdm_img_transfer.h
+#LOCAL_COPY_HEADERS_TO := libmdmimgload/inc
+#LOCAL_COPY_HEADERS := libmdmimgload/mdm_img_transfer.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libmdmimgload/inc
 LOCAL_SHARED_LIBRARIES += libcutils libutils liblog
 LOCAL_MODULE_TAG := optional
 LOCAL_CFLAGS += -Wall

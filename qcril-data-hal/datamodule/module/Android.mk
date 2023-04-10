@@ -103,13 +103,15 @@ include $(BUILD_STATIC_LIBRARY)
 
 ##################################### Export headers #############################
 include $(CLEAR_VARS)
-LOCAL_COPY_HEADERS_TO      := qcril/modules/data
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/request)
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/sync)
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/module)
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/UnSolMessages)
-LOCAL_COPY_HEADERS         += ../include/DataCommon.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/data
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/request)
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/sync)
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/module)
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/UnSolMessages)
+#LOCAL_COPY_HEADERS         += ../include/DataCommon.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/data
+
 
 $(info Headers exported...)
 
-include $(BUILD_COPY_HEADERS)
+#include $(BUILD_COPY_HEADERS)

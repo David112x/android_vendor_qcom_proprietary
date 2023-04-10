@@ -5,10 +5,11 @@ LOCAL_PATH := $(call my-dir)
 # =================================
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO := qti-utils/inc
-LOCAL_COPY_HEADERS    := qti-utils.h
+#LOCAL_COPY_HEADERS_TO := qti-utils/inc
+#LOCAL_COPY_HEADERS    := qti-utils.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qti-utils
 
-include $(BUILD_COPY_HEADERS)
+#include $(BUILD_COPY_HEADERS)
 
 # =================================
 # libqti-utils.a

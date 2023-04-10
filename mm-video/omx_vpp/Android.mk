@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 # ---------------------------------------------------------------------------------
 #               Common definitons
 # ---------------------------------------------------------------------------------
-include $(BUILD_COPY_HEADERS)
+#include $(BUILD_COPY_HEADERS)
 
 libvpp-omx-def += -g -O3
 libvpp-omx-def += -Werror

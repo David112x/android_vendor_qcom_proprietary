@@ -9,8 +9,9 @@ LOCAL_SHARED_LIBRARIES := libbinder libcutils libutils liblog
 
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/common/inc
 
-LOCAL_COPY_HEADERS_TO := command-svc
-LOCAL_COPY_HEADERS := ./CommandApi.h
+#LOCAL_COPY_HEADERS_TO := command-svc
+#LOCAL_COPY_HEADERS := ./CommandApi.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := command-svc
 
 LOCAL_MODULE:= libCommandSvc
 

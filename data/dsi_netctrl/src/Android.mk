@@ -2,9 +2,10 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := data/inc
-LOCAL_COPY_HEADERS      := ../inc/dsi_netctrl.h
-LOCAL_COPY_HEADERS      += ../inc/dsi_netctrl_qos.h
+#LOCAL_COPY_HEADERS_TO   := data/inc
+#LOCAL_COPY_HEADERS      := ../inc/dsi_netctrl.h
+#LOCAL_COPY_HEADERS      += ../inc/dsi_netctrl_qos.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := data/inc
 
 LOCAL_SRC_FILES += dsi_netctrl.c
 LOCAL_SRC_FILES += dsi_netctrl_init.c
@@ -68,7 +69,7 @@ LOCAL_CFLAGS += -DFEATURE_DATA_LOG_ADB
 
 LOCAL_MODULE := libdsi_netctrl
 
-LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE_TAGS := optional
 
 LOCAL_CLANG := true
 
@@ -81,7 +82,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := dsi_config.xml
 LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_ETC)/data
-LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE_TAGS := optional
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 LOCAL_MODULE_OWNER := qti
 include $(BUILD_PREBUILT)

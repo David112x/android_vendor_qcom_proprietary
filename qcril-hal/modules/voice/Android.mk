@@ -12,9 +12,10 @@ LOCAL_MODULE               := qcrilVoiceModule
 LOCAL_MODULE_OWNER         := qti
 LOCAL_PROPRIETARY_MODULE   := true
 LOCAL_MODULE_TAGS          := optional
-LOCAL_COPY_HEADERS_TO      := qcril/modules/voice
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/voice)
-LOCAL_SHARED_LIBRARIES     += libril-qc-hal-qmi
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/voice
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/voice
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/voice)
+#LOCAL_SHARED_LIBRARIES     += libril-qc-hal-qmi
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

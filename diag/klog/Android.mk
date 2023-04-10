@@ -15,7 +15,7 @@ LOCAL_SRC_FILES:= \
 commonSharedLibraries :=libdiag \
 
 LOCAL_MODULE:= diag_klog
-LOCAL_MODULE_TAGS := optional debug
+#LOCAL_MODULE_TAGS := optional debug
 LOCAL_SHARED_LIBRARIES := $(commonSharedLibraries)
 
 LOCAL_MODULE_OWNER := qti

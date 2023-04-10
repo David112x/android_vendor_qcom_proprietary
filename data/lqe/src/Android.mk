@@ -2,8 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := data/inc
-LOCAL_COPY_HEADERS      := ../inc/lqe.h
+#LOCAL_COPY_HEADERS_TO   := data/inc
+#LOCAL_COPY_HEADERS      := ../inc/lqe.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := data
 
 LOCAL_SRC_FILES := lqe.c
 LOCAL_SRC_FILES += lqe_cmdq.c

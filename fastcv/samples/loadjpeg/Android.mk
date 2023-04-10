@@ -34,6 +34,7 @@ include $(CLEAR_VARS)
 
 LOCAL_JNI_SHARED_LIBRARIES  := libloadjpeg
 LOCAL_SRC_FILES             := $(call all-subdir-java-files)
+LOCAL_SDK_VERSION           := current
 LOCAL_PACKAGE_NAME          := LoadJpeg
 
 include $(BUILD_PACKAGE)
@@ -56,6 +57,7 @@ include $(CLEAR_VARS)
 LOCAL_JNI_SHARED_LIBRARIES   := libloadjpeg
 LOCAL_SRC_FILES              := $(call all-subdir-java-files)
 LOCAL_PACKAGE_NAME           := LoadJpeg64
+LOCAL_SDK_VERSION            := current
 #TARGET_BUILD_APPS            := true
 LOCAL_MODULE_STEM_32         := LoadJpeg
 LOCAL_MODULE_STEM_64         := LoadJpeg64

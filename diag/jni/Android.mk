@@ -21,7 +21,7 @@ LOCAL_SHARED_LIBRARIES := \
 	liblog
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE:= libdiagjni
-LOCAL_MODULE_TAGS := optional debug
+#LOCAL_MODULE_TAGS := optional debug
 
 LOCAL_MODULE_OWNER := qti
 LOCAL_PROPRIETARY_MODULE := true
@@ -48,7 +48,7 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_PRELINK_MODULE := false
 LOCAL_MODULE:= libdiagjni
-LOCAL_MODULE_TAGS := optional debug
+#LOCAL_MODULE_TAGS := optional debug
 
 LOCAL_MODULE_OWNER := qti
 LOCAL_PROPRIETARY_MODULE := true

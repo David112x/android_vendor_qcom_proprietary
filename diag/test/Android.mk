@@ -12,9 +12,9 @@ LOCAL_SRC_FILES:= \
 	test_diag.c \
 
 commonSharedLibraries :=libdiag \
-	
-LOCAL_MODULE:= test_diag
-LOCAL_MODULE_TAGS := optional debug
+
+LOCAL_MODULE := test_diag
+#LOCAL_MODULE_TAGS := optional debug
 LOCAL_SHARED_LIBRARIES := $(commonSharedLibraries)
 
 LOCAL_MODULE_OWNER := qti

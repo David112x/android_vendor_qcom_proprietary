@@ -25,8 +25,9 @@ LOCAL_SHARED_LIBRARIES += libdiag \
 
 LOCAL_SHARED_LIBRARIES += libsettings
 
-LOCAL_COPY_HEADERS_TO      := qcril/framework
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/framework)
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/framework
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../include/framework)
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/framework
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_SHARED_LIBRARY)

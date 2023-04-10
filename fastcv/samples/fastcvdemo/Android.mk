@@ -142,6 +142,7 @@ include $(CLEAR_VARS)
 
 LOCAL_JNI_SHARED_LIBRARIES  := libfastcvFeatDetect libfastcvImgProc libfastcvImgTransform
 LOCAL_SRC_FILES             := $(call all-subdir-java-files)
+LOCAL_SDK_VERSION           := current
 LOCAL_PACKAGE_NAME          := FastCVDemo
 
 
@@ -151,6 +152,7 @@ include $(CLEAR_VARS)
 
 LOCAL_JNI_SHARED_LIBRARIES  := libfastcvFeatDetect libfastcvImgProc libfastcvImgTransform
 LOCAL_SRC_FILES             := $(call all-subdir-java-files)
+LOCAL_SDK_VERSION           := current
 LOCAL_PACKAGE_NAME          := FastCVDemo64
 #TARGET_BUILD_APPS           := true
 LOCAL_MODULE_STEM_32        := FastCVDemo

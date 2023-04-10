@@ -7,11 +7,11 @@ else
 endif
 
 REMOTE_APIS_PATH := ../../../modem-apis/$(MODEM_APIS_DIR)/api/libs/remote_apis
-ONCRPC_PATH := vendor/qcom/proprietary/oncrpc
+#ONCRPC_PATH := vendor/qcom/proprietary/oncrpc
 
 include vendor/qcom/proprietary/common/build/remote_api_makefiles/target_api_enables.mk
 include $(LOCAL_PATH)/remote_api_defines.mk
-include vendor/qcom/proprietary/oncrpc/oncrpc_defines.mk
+#include vendor/qcom/proprietary/oncrpc/oncrpc_defines.mk
 
 # functions
 #$(call library-variables,library-prefix)

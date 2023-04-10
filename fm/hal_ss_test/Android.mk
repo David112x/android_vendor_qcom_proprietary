@@ -19,7 +19,7 @@ LOCAL_SRC_FILES:= \
         ConfFileParser.cpp \
 
 LOCAL_MODULE:= hal_ss_test_manual
-LOCAL_MODULE_TAGS := debug
+#LOCAL_MODULE_TAGS := debug
 LOCAL_SHARED_LIBRARIES  := libcutils liblog
 
 include $(BUILD_EXECUTABLE)

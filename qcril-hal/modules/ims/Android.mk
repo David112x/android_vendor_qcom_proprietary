@@ -38,18 +38,19 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/diag/include/
 LOCAL_C_INCLUDES           += $(LOCAL_PATH)/../../common/uim/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qcril/modules/nas
 
-LOCAL_COPY_HEADERS_TO      := qcril/modules/ims
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/ims)
-LOCAL_COPY_HEADERS         += src/ims_socket/imsIF.pb.h
-LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_radio_agent.h
-LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_misc.h
-LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_flow_control.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_ims.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_imsa.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_imss.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_v02.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_qmi.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_internal.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/ims
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/ims)
+#LOCAL_COPY_HEADERS         += src/ims_socket/imsIF.pb.h
+#LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_radio_agent.h
+#LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_misc.h
+#LOCAL_COPY_HEADERS         += src/ims_socket/qcril_qmi_ims_flow_control.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_ims.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_imsa.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_imss.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_v02.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_qmi.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_imss_internal.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/ims
 
 include $(BUILD_STATIC_LIBRARY)

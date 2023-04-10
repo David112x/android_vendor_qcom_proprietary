@@ -2,16 +2,16 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO := qmi/inc
-
-LOCAL_COPY_HEADERS := qmi_ims_vt_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_video_telephony_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_presence_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_settings_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_application_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_rtp_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_dcm_v01.h
-LOCAL_COPY_HEADERS += ip_multimedia_subsystem_ims_common_v01.h
+#LOCAL_COPY_HEADERS_TO := qmi/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi/inc
+#LOCAL_COPY_HEADERS := qmi_ims_vt_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_video_telephony_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_presence_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_settings_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_application_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_rtp_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_dcm_v01.h
+#LOCAL_COPY_HEADERS += ip_multimedia_subsystem_ims_common_v01.h
 
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/inc
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qmi/src

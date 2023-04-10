@@ -5,13 +5,14 @@ include $(CLEAR_VARS)
 # ---------------------------------------------------------------------------------
 #                 Exporting MM-Parser include files to public folder(s)
 # ---------------------------------------------------------------------------------
-LOCAL_COPY_HEADERS_TO := mm-parser/include
-LOCAL_COPY_HEADERS += inc/parserdatadef.h
-LOCAL_COPY_HEADERS += inc/DataSourcePort.h
-LOCAL_COPY_HEADERS += inc/SourceBase.h
-LOCAL_COPY_HEADERS += inc/filesourcetypes.h
-LOCAL_COPY_HEADERS += inc/filesource.h
-LOCAL_COPY_HEADERS += inc/sidxparserdatatypes.h
-LOCAL_COPY_HEADERS += inc/sidxparser.h
+#LOCAL_COPY_HEADERS_TO := mm-parser/include
+#LOCAL_COPY_HEADERS += inc/parserdatadef.h
+#LOCAL_COPY_HEADERS += inc/DataSourcePort.h
+#LOCAL_COPY_HEADERS += inc/SourceBase.h
+#LOCAL_COPY_HEADERS += inc/filesourcetypes.h
+#LOCAL_COPY_HEADERS += inc/filesource.h
+#LOCAL_COPY_HEADERS += inc/sidxparserdatatypes.h
+#LOCAL_COPY_HEADERS += inc/sidxparser.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := mm-parser/include
 
-include $(BUILD_COPY_HEADERS)
+#include $(BUILD_COPY_HEADERS)

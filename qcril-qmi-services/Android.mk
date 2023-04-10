@@ -2,29 +2,30 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO := qmi/inc
+#LOCAL_COPY_HEADERS_TO := qmi/inc
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qmi/inc
 
-LOCAL_COPY_HEADERS := access_terminal_service_v01.h
-LOCAL_COPY_HEADERS += card_application_toolkit_v02.h
-LOCAL_COPY_HEADERS += circuit_switched_video_telephony_v01.h
-LOCAL_COPY_HEADERS += coexistence_manager_v01.h
-LOCAL_COPY_HEADERS += coexistence_service_v01.h
-LOCAL_COPY_HEADERS += device_management_service_v01.h
-LOCAL_COPY_HEADERS += network_access_service_common_v01.h
-LOCAL_COPY_HEADERS += network_access_service_v01.h
-LOCAL_COPY_HEADERS += persistent_device_configuration_v01.h
-LOCAL_COPY_HEADERS += phonebook_manager_service_v01.h
-LOCAL_COPY_HEADERS += radio_frequency_radiated_performance_enhancement_v01.h
-LOCAL_COPY_HEADERS += specific_absorption_rate_v01.h
-LOCAL_COPY_HEADERS += subsystem_control_v02.h
-LOCAL_COPY_HEADERS += user_identity_module_remote_v01.h
-LOCAL_COPY_HEADERS += user_identity_module_v01.h
-LOCAL_COPY_HEADERS += user_identity_module_http_v01.h
-LOCAL_COPY_HEADERS += voice_service_common_v02.h
-LOCAL_COPY_HEADERS += voice_service_v02.h
-LOCAL_COPY_HEADERS += voice_nas_services_common_v01.h
-LOCAL_COPY_HEADERS += wireless_messaging_service_v01.h
-LOCAL_COPY_HEADERS += lte_v01.h
+#LOCAL_COPY_HEADERS := access_terminal_service_v01.h
+#LOCAL_COPY_HEADERS += card_application_toolkit_v02.h
+#LOCAL_COPY_HEADERS += circuit_switched_video_telephony_v01.h
+#LOCAL_COPY_HEADERS += coexistence_manager_v01.h
+#LOCAL_COPY_HEADERS += coexistence_service_v01.h
+#LOCAL_COPY_HEADERS += device_management_service_v01.h
+#LOCAL_COPY_HEADERS += network_access_service_common_v01.h
+#LOCAL_COPY_HEADERS += network_access_service_v01.h
+#LOCAL_COPY_HEADERS += persistent_device_configuration_v01.h
+#LOCAL_COPY_HEADERS += phonebook_manager_service_v01.h
+#LOCAL_COPY_HEADERS += radio_frequency_radiated_performance_enhancement_v01.h
+#LOCAL_COPY_HEADERS += specific_absorption_rate_v01.h
+#LOCAL_COPY_HEADERS += subsystem_control_v02.h
+#LOCAL_COPY_HEADERS += user_identity_module_remote_v01.h
+#LOCAL_COPY_HEADERS += user_identity_module_v01.h
+#LOCAL_COPY_HEADERS += user_identity_module_http_v01.h
+#LOCAL_COPY_HEADERS += voice_service_common_v02.h
+#LOCAL_COPY_HEADERS += voice_service_v02.h
+#LOCAL_COPY_HEADERS += voice_nas_services_common_v01.h
+#LOCAL_COPY_HEADERS += wireless_messaging_service_v01.h
+#LOCAL_COPY_HEADERS += lte_v01.h
 
 LOCAL_SHARED_LIBRARIES := libidl
 

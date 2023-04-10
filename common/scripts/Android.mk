@@ -1,10 +1,10 @@
 # Enable RTIC MPGen. Below ENV will trigger RTIC self configuration during the kernel build
 current_makefile_dir:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-ifeq ($(filter msm8937_32 msm8953_32, $(PREBUILT_BOARD_PLATFORM_DIR)),)
-RTIC_MPGEN := python ${current_makefile_dir}/mpgen/mpgen.py
-export RTIC_MPGEN
-endif
+#ifeq ($(filter msm8937_32 msm8953_32, $(PREBUILT_BOARD_PLATFORM_DIR)),)
+#RTIC_MPGEN := python ${current_makefile_dir}/mpgen/mpgen.py
+#export RTIC_MPGEN
+#endif
 
 ifneq ($(strip $(TARGET_NO_BOOTLOADER)),true)
 ifneq ($(strip $(QTI_GENSECIMAGE_MSM_IDS)),)

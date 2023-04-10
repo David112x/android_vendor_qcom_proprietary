@@ -16,9 +16,10 @@ LOCAL_C_INCLUDES           += hardware/ril/include/telephony
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qcril
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/common/inc
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/diag/include
-LOCAL_COPY_HEADERS_TO      := qcril/modules/cellinfo
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/cellinfo)
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/cellinfo
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/cellinfo)
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/cellinfo
 LOCAL_SHARED_LIBRARIES     += libril-qc-hal-qmi
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

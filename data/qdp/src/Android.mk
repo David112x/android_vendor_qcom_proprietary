@@ -2,8 +2,9 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := data/inc
-LOCAL_COPY_HEADERS      := ../inc/qdp.h
+#LOCAL_COPY_HEADERS_TO   := data/inc
+#LOCAL_COPY_HEADERS      := ../inc/qdp.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := data/inc
 
 LOCAL_SRC_FILES := qdp.c
 LOCAL_SRC_FILES += qdp_platform.c

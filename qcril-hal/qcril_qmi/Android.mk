@@ -289,7 +289,7 @@ LOCAL_CFLAGS += -O0
 LOCAL_CFLAGS += -fno-inline
 LOCAL_CFLAGS += -fno-short-enums
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_PRELINK_MODULE := false 
 
@@ -297,24 +297,24 @@ LOCAL_MODULE_OWNER := qcom
 LOCAL_PROPRIETARY_MODULE := true
 
 LOCAL_REQUIRED_MODULES     += qcril_features_def.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 LOCAL_REQUIRED_MODULES     += qcril.db
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril.db
-
-LOCAL_COPY_HEADERS_TO      := qcril/framework
-LOCAL_COPY_HEADERS         += qcrili.h
-LOCAL_COPY_HEADERS         += oem_socket/qcril_qmi_oem_events.h
-LOCAL_COPY_HEADERS         += oem_socket/qcril_qmi_oem_eventlist.h
-LOCAL_COPY_HEADERS         += qcril_eventlist.h
-LOCAL_COPY_HEADERS         += qcril_am.h
-LOCAL_COPY_HEADERS         += qcrili.h
-LOCAL_COPY_HEADERS         += ./radio_config/qcril_qmi_radio_config_meta.h
-LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_encode.h 
-LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_decode.h 
-LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_utils.h 
-LOCAL_COPY_HEADERS         += qcril_log.h
-LOCAL_COPY_HEADERS         += qcril_reqlist.h
-LOCAL_COPY_HEADERS         += qcril_qmi_singleton_agent.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril.db
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/framework
+#LOCAL_COPY_HEADERS_TO      := qcril/framework
+#LOCAL_COPY_HEADERS         += qcrili.h
+#LOCAL_COPY_HEADERS         += oem_socket/qcril_qmi_oem_events.h
+#LOCAL_COPY_HEADERS         += oem_socket/qcril_qmi_oem_eventlist.h
+#LOCAL_COPY_HEADERS         += qcril_eventlist.h
+#LOCAL_COPY_HEADERS         += qcril_am.h
+#LOCAL_COPY_HEADERS         += qcrili.h
+#LOCAL_COPY_HEADERS         += ./radio_config/qcril_qmi_radio_config_meta.h
+#LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_encode.h
+#LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_decode.h
+#LOCAL_COPY_HEADERS         += nanopb_utils/qcril_qmi_npb_utils.h
+#LOCAL_COPY_HEADERS         += qcril_log.h
+#LOCAL_COPY_HEADERS         += qcril_reqlist.h
+#LOCAL_COPY_HEADERS         += qcril_qmi_singleton_agent.h
 
 LOCAL_CLANG := true
 ifndef QCRIL_DSDA_INSTANCE

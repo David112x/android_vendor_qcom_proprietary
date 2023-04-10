@@ -18,7 +18,7 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/common/inc/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qcril
 LOCAL_SHARED_LIBRARIES     += librilutils
 
-LOCAL_REQUIRED_MODULES     += qcril_features_def.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_REQUIRED_MODULES     += qcril_features_def.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

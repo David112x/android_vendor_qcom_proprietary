@@ -41,6 +41,7 @@ include $(CLEAR_VARS)
 
 LOCAL_JNI_SHARED_LIBRARIES  := libfastcvsample
 LOCAL_SRC_FILES             := $(call all-subdir-java-files)
+LOCAL_SDK_VERSION           := current
 LOCAL_PACKAGE_NAME          := FastCVSample
 
 
@@ -63,6 +64,7 @@ include $(CLEAR_VARS)
 LOCAL_JNI_SHARED_LIBRARIES  := libfastcvsample
 LOCAL_SRC_FILES                    := $(call all-subdir-java-files)
 LOCAL_PACKAGE_NAME           := FastCVSample64
+LOCAL_SDK_VERSION            := current
 #TARGET_BUILD_APPS               := true
 LOCAL_MODULE_STEM_32         := FastCVSample
 LOCAL_MODULE_STEM_64         := FastCVSample64

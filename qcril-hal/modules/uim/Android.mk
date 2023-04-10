@@ -24,8 +24,9 @@ LOCAL_SHARED_LIBRARIES     += vendor.qti.hardware.radio.uim@1.0_vendor
 LOCAL_SHARED_LIBRARIES     += vendor.qti.hardware.radio.uim@1.1_vendor
 LOCAL_SHARED_LIBRARIES     += vendor.qti.hardware.radio.uim_remote_server@1.0_vendor
 
-LOCAL_COPY_HEADERS_TO      := qcril/modules/uim
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/uim)
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/uim
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/uim)
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/uim
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

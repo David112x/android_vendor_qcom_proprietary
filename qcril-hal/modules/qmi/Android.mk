@@ -19,8 +19,9 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qcril
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi-framework/inc/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi/inc
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/common/inc/
-LOCAL_COPY_HEADERS_TO      := qcril/modules/qmi
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/qmi)
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/qmi
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/qmi)
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/qmi
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

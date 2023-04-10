@@ -4,8 +4,9 @@ LOCAL_PATH:= $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_COPY_HEADERS_TO   := data/inc
-LOCAL_COPY_HEADERS      := ../inc/configdb.h
+#LOCAL_COPY_HEADERS_TO   := data/inc
+#LOCAL_COPY_HEADERS      := ../inc/configdb.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := data
 
 # Logging Features. Enable only one at any time
 #LOCAL_CFLAGS += -DFEATURE_DATA_LOG_STDERR

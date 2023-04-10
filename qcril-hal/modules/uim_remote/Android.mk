@@ -19,9 +19,10 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi-framework/inc/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi/inc/
 LOCAL_SHARED_LIBRARIES     += vendor.qti.hardware.radio.uim_remote_client@1.0_vendor
 
-LOCAL_COPY_HEADERS_TO      := qcril/modules/uim_remote
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/uim_remote)
-LOCAL_REQUIRED_MODULES     += qcril_feature_def.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/uim_remote
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/uim_remote)
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/uim_remote
+#LOCAL_REQUIRED_MODULES     += qcril_feature_def.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)

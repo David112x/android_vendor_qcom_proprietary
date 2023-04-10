@@ -31,11 +31,12 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/time-services/
 LOCAL_C_INCLUDES           += external/nanopb-c
 LOCAL_C_INCLUDES           += external/sqlite/dist/
 LOCAL_SHARED_LIBRARIES     += libsqlite
-LOCAL_COPY_HEADERS_TO      := qcril/modules/nas
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/nas)
-LOCAL_REQUIRED_MODULES     += qcril_features_def.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/nas
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/nas)
+#LOCAL_REQUIRED_MODULES     += qcril_features_def.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/nas
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 #LOCAL_WHOLE_STATIC_LIBRARIES += qcrilQmiModule
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril.db
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril.db
 
 include $(BUILD_STATIC_LIBRARY)

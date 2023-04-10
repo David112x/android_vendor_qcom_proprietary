@@ -41,8 +41,10 @@ LOCAL_GENERATED_SOURCES += $(RPCGEN_APIS_PATH)/src/$2_rpcgen_xdr.c
 LOCAL_GENERATED_SOURCES += $(RPCGEN_APIS_PATH)/src/$2_rpcgen_clnt.c
 
 LOCAL_SHARED_LIBRARIES := librpc
-LOCAL_COPY_HEADERS_TO := libcommondefs/rpcgen/inc
-LOCAL_COPY_HEADERS := $(RPCGEN_APIS_PATH_FL)/inc/commondefs_rpcgen_rpc.h
+#LOCAL_COPY_HEADERS_TO := libcommondefs/rpcgen/inc
+#LOCAL_COPY_HEADERS := $(RPCGEN_APIS_PATH_FL)/inc/commondefs_rpcgen_rpc.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := libcommondefs
+
 
 LOCAL_MODULE := libcommondefs
 

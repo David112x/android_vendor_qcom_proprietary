@@ -29,12 +29,13 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi-framework/inc/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi/inc
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/diag/include
 
-LOCAL_COPY_HEADERS_TO      := qcril/modules/sms
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/sms)
-LOCAL_COPY_HEADERS         += src/qcril_qmi_sms.h
-LOCAL_COPY_HEADERS         += src/qcril_qmi_sms_errors.h
-LOCAL_COPY_HEADERS         += src/qcril_sms_legacy.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/sms
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/sms)
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_sms.h
+#LOCAL_COPY_HEADERS         += src/qcril_qmi_sms_errors.h
+#LOCAL_COPY_HEADERS         += src/qcril_sms_legacy.h3
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/sms
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
 
 include $(BUILD_STATIC_LIBRARY)
 

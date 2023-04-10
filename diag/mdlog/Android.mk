@@ -14,7 +14,7 @@ LOCAL_SRC_FILES := \
 commonSharedLibraries :=libdiag liblog
 
 LOCAL_MODULE := diag_mdlog
-LOCAL_MODULE_TAGS := optional debug
+#LOCAL_MODULE_TAGS := optional debug
 LOCAL_SHARED_LIBRARIES := $(commonSharedLibraries)
 
 ifdef TARGET_FS_CONFIG_GEN

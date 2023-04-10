@@ -19,9 +19,11 @@ LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi-framework/inc/
 LOCAL_C_INCLUDES           += $(TARGET_OUT_HEADERS)/qmi/inc/
 LOCAL_SHARED_LIBRARIES     += vendor.qti.hardware.radio.lpa@1.0_vendor
 
-LOCAL_COPY_HEADERS_TO      := qcril/modules/lpa
-LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/lpa)
-LOCAL_REQUIRED_MODULES     += qcril_features_def.h
-LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+#LOCAL_COPY_HEADERS_TO      := qcril/modules/lpa
+#LOCAL_COPY_HEADERS         += $(call all-named-files-under,*.h,../../include/modules/lpa)
+#LOCAL_REQUIRED_MODULES     += qcril_features_def.h
+#LOCAL_ADDITIONAL_DEPENDENCIES += qcril_features_def.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := qcril/modules/lpa
+
 
 include $(BUILD_STATIC_LIBRARY)
