@@ -15,7 +15,7 @@ include $(CLEAR_VARS)
 
 src_proto := src
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_PROTOC_OPTIMIZE_TYPE := micro
 
@@ -62,7 +62,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := LteDirectDiscovery.xml
 
-LOCAL_MODULE_TAGS := debug
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_MODULE_CLASS := ETC
 
