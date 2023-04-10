@@ -32,8 +32,9 @@ LOCAL_SHARED_LIBRARIES += libgui
 LOCAL_SHARED_LIBRARIES += libui
 LOCAL_SHARED_LIBRARIES += libstagefright_foundation
 
-LOCAL_COPY_HEADERS_TO := wfd/include
-LOCAL_COPY_HEADERS := inc/WFDSurfaceMediaSource.h
+#LOCAL_COPY_HEADERS_TO := wfd/include
+#LOCAL_COPY_HEADERS := inc/WFDSurfaceMediaSource.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := wfd/include
 
 LOCAL_MODULE:= libwfdavenhancements
 

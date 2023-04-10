@@ -32,6 +32,7 @@ LOCAL_SRC_FILES += src/com/qualcomm/wfd/client/net/WifiWigigP2pConnectionInfo.ja
 
 LOCAL_CERTIFICATE := platform
 
+LOCAL_SDK_VERSION := current
 LOCAL_PACKAGE_NAME := WfdClient
 
 LOCAL_CERTIFICATE := platform

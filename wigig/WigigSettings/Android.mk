@@ -11,6 +11,7 @@ LOCAL_STATIC_JAVA_LIBRARIES := wigig_manager
 #LOCAL_JAVA_LIBRARIES := DigitalPenService
 
 # Name of the APK to build
+LOCAL_SDK_VERSION := current
 LOCAL_PACKAGE_NAME := WigigSettings
 LOCAL_CERTIFICATE := platform
 

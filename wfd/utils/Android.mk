@@ -42,10 +42,12 @@ LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/qcom/display
 #            COPY INCLUDE FILES TO OUT
 # ---------------------------------------------------------------------------------
 
-LOCAL_COPY_HEADERS_TO := wfd/include
-LOCAL_COPY_HEADERS := inc/wfd_cfg_parser.h
-LOCAL_COPY_HEADERS += inc/wfd_netutils.h
-LOCAL_COPY_HEADERS += inc/wfd_cfg_utils.h
+#LOCAL_COPY_HEADERS_TO := wfd/include
+#LOCAL_COPY_HEADERS := inc/wfd_cfg_parser.h
+#LOCAL_COPY_HEADERS += inc/wfd_netutils.h
+#LOCAL_COPY_HEADERS += inc/wfd_cfg_utils.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := wfd/include
+
 
 # ------------------------------------------------------------------------------
 #            WFD COMMON UTILS SHARED LIB

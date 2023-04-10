@@ -26,10 +26,10 @@ LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/mm-core/omxcore
 LOCAL_C_INCLUDES += $(TARGET_OUT_HEADERS)/hdcp-mgr/inc
 LOCAL_C_INCLUDES += $(TOP)/frameworks/native/include/utils
 
-LOCAL_COPY_HEADERS_TO := wfd/include
-LOCAL_COPY_HEADERS := inc/WFD_HdcpCP.h
-LOCAL_COPY_HEADERS += inc/HDCPManager.h
-
+#LOCAL_COPY_HEADERS_TO := wfd/include
+#LOCAL_COPY_HEADERS := inc/WFD_HdcpCP.h
+#LOCAL_COPY_HEADERS += inc/HDCPManager.h
+LOCAL_EXPORT_HEADER_LIBRARY_HEADERS := wfd/include
 
 #----------------------------------------------------------------
 # Dx HDCP COMPILE TIME

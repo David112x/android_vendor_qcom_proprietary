@@ -18,8 +18,11 @@ LOCAL_SHARED_LIBRARIES := \
     libbinder \
     liblog \
     libutils \
-    libwifi-system \
+    libwifi-system
+
+LOCAL_STATIC_LIBRARIES := \
     libwificond_ipc
+
 include $(BUILD_EXECUTABLE)
 
 endif#SDM845_DISABLE_MODULE
