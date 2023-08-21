@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afextensionelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"B"</revision>
+  </parameter_version>
+  <extensionParam>
+    <ID>0</ID>
+    <Name>Extension feature</Name>
+    <enableFlag>false</enableFlag>
+    <data>0</data>
+  </extensionParam>
+</chromatixAFExtension>

@@ -1,0 +1,138 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxifecc12titan17x.h
+/// @brief IFE CC12 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef CAMXIFECC12TITAN17X_H
+#define CAMXIFECC12TITAN17X_H
+
+#include "titan170_ife.h"
+#include "camxisphwsetting.h"
+
+CAMX_NAMESPACE_BEGIN
+
+CAMX_BEGIN_PACKED
+
+/// @brief IFE Color Correction Module Register Set
+struct IFECC12RegCmd
+{
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_0  coefficientRegister0;    ///< Coefficient Register 0
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_1  coefficientRegister1;    ///< Coefficient Register 1
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_2  coefficientRegister2;    ///< Coefficient Register 2
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_3  coefficientRegister3;    ///< Coefficient Register 3
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_4  coefficientRegister4;    ///< Coefficient Register 4
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_5  coefficientRegister5;    ///< Coefficient Register 5
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_6  coefficientRegister6;    ///< Coefficient Register 6
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_7  coefficientRegister7;    ///< Coefficient Register 7
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_8  coefficientRegister8;    ///< Coefficient Register 8
+    IFE_IFE_0_VFE_COLOR_CORRECT_OFFSET_0 offsetRegister0;         ///< Offset Register 0
+    IFE_IFE_0_VFE_COLOR_CORRECT_OFFSET_1 offsetRegister1;         ///< Offset Register 1
+    IFE_IFE_0_VFE_COLOR_CORRECT_OFFSET_2 offsetRegister2;         ///< Offset Register 2
+    IFE_IFE_0_VFE_COLOR_CORRECT_COEFF_Q  coefficientQRegister;    ///< Coefficient Q Register
+} CAMX_PACKED;
+
+CAMX_END_PACKED
+
+static const UINT32 IFECC12RegLengthDWord = sizeof(IFECC12RegCmd) / sizeof(UINT32);
+static const UINT32 CC12QFactor = 7;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief IFE CC12 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class IFECC12Titan17x final : public ISPHWSetting
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateCmdList
+    ///
+    /// @brief  Generate the Command List
+    ///
+    /// @param  pInputData       Pointer to the Inputdata
+    /// @param  pDMIBufferOffset Pointer for DMI Buffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult CreateCmdList(
+        VOID*   pInputData,
+        UINT32* pDMIBufferOffset);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdateTuningMetadata
+    ///
+    /// @brief  Update Tuning Metadata
+    ///
+    /// @param  pTuningMetadata      Pointer to the Tuning Metadata
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult UpdateTuningMetadata(
+        VOID*  pTuningMetadata);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PackIQRegisterSetting
+    ///
+    /// @brief  Packing register setting based on calculation data
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    /// @param  pOutput      Pointer to the Output data to the module for DMI buffer
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult PackIQRegisterSetting(
+        VOID* pInput,
+        VOID* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetupRegisterSetting
+    ///
+    /// @brief  Setup register value based on CamX Input
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult SetupRegisterSetting(
+        VOID*  pInput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~IFECC12Titan17x
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual ~IFECC12Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IFECC12Titan17x
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    IFECC12Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpRegConfig
+    ///
+    /// @brief  Print register configuration of Crop module for debug
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DumpRegConfig();
+
+private:
+    IFECC12RegCmd    m_regCmd; ///< Register List of this Module
+
+    IFECC12Titan17x(const IFECC12Titan17x&)            = delete; ///< Disallow the copy constructor
+    IFECC12Titan17x& operator=(const IFECC12Titan17x&) = delete; ///< Disallow assignment operator
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXIFECC12TITAN17X_H

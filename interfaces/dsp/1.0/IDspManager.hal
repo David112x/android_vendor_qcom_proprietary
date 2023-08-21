@@ -1,0 +1,32 @@
+/*!
+ * @file dspmanager.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for DSP manager.
+ */
+
+package vendor.qti.hardware.dsp@1.0;
+
+interface IDspManager {
+    /*!
+     * @brief        Synchronous. Opens DSP device node
+     * @description  Opens the device node for a given DSP domain
+     *
+     * @input        DSPDomain    Remote domain ID
+     * @return       FastrpcDev   adsprpc device fd and error code, if any
+     */
+     openSession (DSPDomain domain) generates (FastrpcDev fastrpc_dev);
+
+    /*!
+     * @brief       Synchronous. Closes device fd
+     * @description Closes device fd for given DSP domain
+     *
+     * @input       DSPDomain    Remote domain ID
+     * @return      DSPError     Error if any
+     */
+    closeSession (DSPDomain domain) generates (DSPError error);
+};

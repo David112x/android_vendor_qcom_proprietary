@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<upscale20_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\upscale_2_0_0.xsd">
+  <enable_section>
+    <upscale_enable>1</upscale_enable>
+  </enable_section>
+  <module_version major_revision="2" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_total_scale_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+  </control_method>
+  <chromatix_upscale20_reserve>
+    <enable type='int' range="[0,1]" length="1">1</enable>
+    <de_clip_shift type='int' range="[0,7]" length="1">0</de_clip_shift>
+    <sharpening_strength1 type='int' range="[-32,160]" length="1">32</sharpening_strength1>
+    <sharpening_strength2 type='int' range="[-32,160]" length="1">32</sharpening_strength2>
+    <tquiet type='int' range="[0,255]" length="1">0</tquiet>
+    <decurvet1 type='int' range="[0,255]" length="1">0</decurvet1>
+    <decurvet2 type='int' range="[0,1023]" length="1">512</decurvet2>
+    <curverange type='int' range="[0,1023]" length="1">1023</curverange>
+    <delimiter type='int' range="[0,15]" length="1">5</delimiter>
+    <blend_filter type='int' range="[0,1]" length="1">0</blend_filter>
+    <comp0_filter_method type='int' range="[0,3]" length="1">0</comp0_filter_method>
+    <comp1_2_filter_method type='int' range="[0,3]" length="1">0</comp1_2_filter_method>
+  </chromatix_upscale20_reserve>
+  <chromatix_upscale20_core>
+    <mod_upscale20_total_scale_ratio_data>
+      <total_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </total_scale_ratio_trigger>
+      <total_scale_ratio_data>
+        <mod_upscale20_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1</gain_start>
+            <gain_end>200</gain_end>
+          </aec_trigger>
+          <upscale20_rgn_data>
+            <sharp_factor type='float' range="[-100,100]" length="1">0</sharp_factor>
+          </upscale20_rgn_data>
+        </mod_upscale20_aec_data>
+      </total_scale_ratio_data>
+    </mod_upscale20_total_scale_ratio_data>
+  </chromatix_upscale20_core>
+</upscale20_ipe>

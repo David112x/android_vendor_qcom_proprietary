@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+</xs:schema>

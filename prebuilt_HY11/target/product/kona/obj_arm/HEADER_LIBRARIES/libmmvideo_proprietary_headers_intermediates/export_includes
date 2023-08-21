@@ -1,0 +1,1 @@
+-I vendor/qcom/proprietary/mm-video-utils/common-headers/utils -I vendor/qcom/proprietary/mm-video-utils/common-headers/fastcrc -I vendor/qcom/proprietary/mm-video-utils/common-headers/streamparser

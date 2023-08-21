@@ -1,0 +1,2 @@
+ISPName=Spectra380
+CurrentProjectScenarioName=Default

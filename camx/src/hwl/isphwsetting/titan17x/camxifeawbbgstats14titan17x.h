@@ -1,0 +1,139 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxifeawbbgstats14titan17x.h
+/// @brief IFE AWBBGStat14 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef CAMXIFEAWBBGSTATS14TITAN17X_H
+#define CAMXIFEAWBBGSTATS14TITAN17X_H
+
+#include "titan170_ife.h"
+#include "camxdefs.h"
+#include "camxisphwsetting.h"
+#include "camxispstatsmodule.h"
+#include "camxifeawbbgstats14.h"
+
+CAMX_NAMESPACE_BEGIN
+
+CAMX_BEGIN_PACKED
+/// @brief AWB BG Stats Configuration
+struct IFEAWBBG14RegionConfig
+{
+    IFE_IFE_0_VFE_STATS_AWB_BG_RGN_OFFSET_CFG        regionOffset;     ///< AWB BG stats region offset config
+    IFE_IFE_0_VFE_STATS_AWB_BG_RGN_NUM_CFG           regionNumber;     ///< AWB BG stats region number config
+    IFE_IFE_0_VFE_STATS_AWB_BG_RGN_SIZE_CFG          regionSize;       ///< AWB BG stats region size config
+    IFE_IFE_0_VFE_STATS_AWB_BG_HI_THRESHOLD_CFG_0    highThreshold0;   ///< AWB BG stats pixel upper threshold config
+    IFE_IFE_0_VFE_STATS_AWB_BG_HI_THRESHOLD_CFG_1    highThreshold1;   ///< AWB BG stats pixel upper threshold config
+    IFE_IFE_0_VFE_STATS_AWB_BG_LO_THRESHOLD_CFG_0    lowThreshold0;    ///< AWB BG stats pixel lower threshold config
+    IFE_IFE_0_VFE_STATS_AWB_BG_LO_THRESHOLD_CFG_1    lowThreshold1;    ///< AWB BG stats pixel lower threshold config
+} CAMX_PACKED;
+
+CAMX_END_PACKED
+
+struct IFEAWBBG14RegCmd
+{
+    IFEAWBBG14RegionConfig                 regionConfig;       ///< AWB BG stats region and threshold config
+    IFE_IFE_0_VFE_STATS_AWB_BG_CH_Y_CFG    lumaConfig;         ///< AWB BG stats luma channel config
+    IFE_IFE_0_VFE_STATS_AWB_BG_CFG         AWBBGStatsconfig;   ///< AWB BG stats config
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief IFE AWBBGSTATS14 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class IFEAWBBGStats14Titan17x final : public ISPHWSetting
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateCmdList
+    ///
+    /// @brief  Generate the Command List
+    ///
+    /// @param  pInputData       Pointer to the Inputdata
+    /// @param  pDMIBufferOffset Pointer for DMI Buffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult CreateCmdList(
+        VOID*   pInputData,
+        UINT32* pDMIBufferOffset);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PackIQRegisterSetting
+    ///
+    /// @brief  Calculate register settings based on common library result
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    /// @param  pOutput      Pointer to the Output data to the module for DMI buffer
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult PackIQRegisterSetting(
+        VOID* pInput,
+        VOID* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetupRegisterSetting
+    ///
+    /// @brief  Setup register value based on CamX Input
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult SetupRegisterSetting(
+        VOID*  pInput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~IFEAWBBGStats14Titan17x
+    ///
+    /// @brief  Destructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual ~IFEAWBBGStats14Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IFEAWBBGStats14Titan17x
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    IFEAWBBGStats14Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpRegConfig
+    ///
+    /// @brief  Print register configuration of Crop module for debug
+    ///
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DumpRegConfig();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CopyRegCmd
+    ///
+    /// @brief  Copy register settings to the input buffer
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return Number of bytes copied
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 CopyRegCmd(
+        VOID* pData);
+
+private:
+    IFEAWBBG14RegCmd    m_regCmd; ///< Register List of this Module
+
+    IFEAWBBGStats14Titan17x(const IFEAWBBGStats14Titan17x&)            = delete; ///< Disallow the copy constructor
+    IFEAWBBGStats14Titan17x& operator=(const IFEAWBBGStats14Titan17x&) = delete; ///< Disallow assignment operator
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXIFEAWBBGSTATS14TITAN17X_H

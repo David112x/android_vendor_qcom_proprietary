@@ -1,0 +1,51 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="JPEGSegment2">
+  <CamxInclude segment="JPEGSegmentBase2" />
+  <NodesList>
+    <Node>
+      <NodeName>JPEG</NodeName>
+      <NodeId>65537</NodeId>
+      <NodeInstance>JPEGInstanceName4</NodeInstance>
+      <NodeInstanceId>4</NodeInstanceId>
+      <NodeProperty>
+        <NodePropertyName>ProfileId</NodePropertyName>
+        <NodePropertyId>2</NodePropertyId>
+        <NodePropertyDataType>UINT</NodePropertyDataType>
+        <NodePropertyValue>1</NodePropertyValue>
+      </NodeProperty>
+    </Node>
+  </NodesList>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>JPEGOutputPort0</PortName>
+        <PortId>1</PortId>
+        <NodeName>JPEG</NodeName>
+        <NodeId>65537</NodeId>
+        <NodeInstance>JPEGInstanceName4</NodeInstance>
+        <NodeInstanceId>4</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>JPEGAggregatorInputPort1</PortName>
+        <PortId>1</PortId>
+        <NodeName>JPEGAggregator</NodeName>
+        <NodeId>6</NodeId>
+        <NodeInstance>JPEGAggregatorInstanceName3</NodeInstance>
+        <NodeInstanceId>3</NodeInstanceId>
+      </DstPort>
+      <BufferProperties>
+        <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+        <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+        <BufferQueueDepth>8</BufferQueueDepth>
+        <BufferHeap>Ion</BufferHeap>
+        <BufferFlags>BufferMemFlagHw</BufferFlags>
+        <BufferFlags>BufferMemFlagLockable</BufferFlags>
+        <BufferFlags>BufferMemFlagCache</BufferFlags>
+      </BufferProperties>
+    </Link>
+  </PortLinkages>
+</CamxSegment>

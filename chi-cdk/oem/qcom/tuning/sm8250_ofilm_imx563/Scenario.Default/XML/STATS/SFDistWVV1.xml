@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SFDistWVV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\moddistwvv1.xsd">
+  <moduleID>
+    <moduleID type="int" range="[1,1000]">54</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <triggerPt>
+    <start type="float" range="[-100.0,15000.0]">0</start>
+    <end type="float" range="[-100.0,15000.0]">0</end>
+  </triggerPt>
+  <triggerData>
+    <triggerPt>
+      <start type="float" range="[-100.0,15000.0]">0</start>
+      <end type="float" range="[-100.0,15000.0]">191</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.08447487</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">2400</start>
+        <end type="float" range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.07147873</start>
+          <end type="float" range="[-100.0,15000.0]">-0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0389884</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.06498067</start>
+          <end type="float" range="[-100.0,15000.0]">0.07147873</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">3600</start>
+        <end type="float" range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.103969067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.097471</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0682297</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0812258348</start>
+          <end type="float" range="[-100.0,15000.0]">0.0877239</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0942219645</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">4100</start>
+        <end type="float" range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.120214231</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.11371617</start>
+          <end type="float" range="[-100.0,15000.0]">-0.1072181</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0682297</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.06498067</start>
+          <end type="float" range="[-100.0,15000.0]">0.07147873</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">5000</start>
+        <end type="float" range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0682297</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0617316328</start>
+          <end type="float" range="[-100.0,15000.0]">-0.055233568</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0389884</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.06498067</start>
+          <end type="float" range="[-100.0,15000.0]">0.07147873</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">9000</start>
+        <end type="float" range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0584826</start>
+          <end type="float" range="[-100.0,15000.0]">-0.055233568</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+  <triggerData>
+    <triggerPt>
+      <start type="float" range="[-100.0,15000.0]">270</start>
+      <end type="float" range="[-100.0,15000.0]">290</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.08447487</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">2400</start>
+        <end type="float" range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.07147873</start>
+          <end type="float" range="[-100.0,15000.0]">-0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0389884</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.097471</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.103969067</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">3600</start>
+        <end type="float" range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.103969067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.097471</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0682297</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.1072181</start>
+          <end type="float" range="[-100.0,15000.0]">0.11371617</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.120214231</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">4100</start>
+        <end type="float" range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.120214231</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.11371617</start>
+          <end type="float" range="[-100.0,15000.0]">-0.1072181</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.097471</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.103969067</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">5000</start>
+        <end type="float" range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.07147873</start>
+          <end type="float" range="[-100.0,15000.0]">-0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0454864651</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.097471</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.103969067</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">9000</start>
+        <end type="float" range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0584826</start>
+          <end type="float" range="[-100.0,15000.0]">-0.055233568</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.06498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+  <triggerData>
+    <triggerPt>
+      <start type="float" range="[-100.0,15000.0]">347</start>
+      <end type="float" range="[-100.0,15000.0]">939</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">0</start>
+        <end type="float" range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.08447487</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0454864651</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">2400</start>
+        <end type="float" range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.092762</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.082699</start>
+          <end type="float" range="[-100.0,15000.0]">-0.070635</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.046381</start>
+          <end type="float" range="[-100.0,15000.0]">0.04850821</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.06063526</start>
+          <end type="float" range="[-100.0,15000.0]">0.09095289</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.103969067</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">3600</start>
+        <end type="float" range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.107016</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.097471</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0682297</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.100048177</start>
+          <end type="float" range="[-100.0,15000.0]">0.106111705</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.112175234</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">4100</start>
+        <end type="float" range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.113214</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.106111705</start>
+          <end type="float" range="[-100.0,15000.0]">-0.100048177</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.06366702</start>
+          <end type="float" range="[-100.0,15000.0]">0.04850821</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.08488937</start>
+          <end type="float" range="[-100.0,15000.0]">0.09095289</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.103969067</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">5000</start>
+        <end type="float" range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.124889</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.098826</start>
+          <end type="float" range="[-100.0,15000.0]">-0.07276231</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0424446836</start>
+          <end type="float" range="[-100.0,15000.0]">0.06063526</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09701642</start>
+          <end type="float" range="[-100.0,15000.0]">0.103079945</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.109143466</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start type="float" range="[-100.0,15000.0]">9000</start>
+        <end type="float" range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.6498067</start>
+          <end type="float" range="[-100.0,15000.0]">-0.09097294</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.08447487</start>
+          <end type="float" range="[-100.0,15000.0]">-0.0779768</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">-0.0519845337</start>
+          <end type="float" range="[-100.0,15000.0]">0.0519845337</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.0779768</start>
+          <end type="float" range="[-100.0,15000.0]">0.08447487</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0.09097294</start>
+          <end type="float" range="[-100.0,15000.0]">0.6498067</end>
+        </triggerPt>
+        <triggerData>
+          <data type="float" range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+</SFDistWVV1>

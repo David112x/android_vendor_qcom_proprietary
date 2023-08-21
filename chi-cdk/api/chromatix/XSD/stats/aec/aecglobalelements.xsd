@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<!--
+
+	AEC Tuning: Key metering structures
+
+	-->
+	<xs:complexType name="LuxLumaTargetZoneDataType">
+		<xs:sequence>
+			<xs:element name="lumaTarget">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Luma target value for each zone with 8 bit range."/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxLumaTargetZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TriggerPointType">
+							<xs:attribute name="description" type="xs:string" default="lux level start and end values that define trigger region"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="zoneData">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="LuxLumaTargetZoneDataType">
+							<xs:attribute name="description" type="xs:string" default="Triggered data: Luma targets that will be adjusted based on lux level"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxLumaTargetType">
+		<xs:sequence>
+			<xs:element name="luxLumaTargetZone" type="LuxLumaTargetZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Luma target tuning structure, which is shared between normal and flash use case."/>
+	</xs:complexType>
+	<xs:complexType name="LuxFaceWeightZoneDataType">
+		<xs:sequence>
+			<xs:element name="LuxFaceWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Min and Max face luma weight wrt face size."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxFaceWeightZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TriggerPointType">
+							<xs:attribute name="description" type="xs:string" default="lux level start and end values that define trigger region"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="zoneData">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="LuxFaceWeightZoneDataType">
+							<xs:attribute name="description" type="xs:string" default="Triggered data: face weight that will be adjusted based on lux level"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxFaceWeightType">
+		<xs:sequence>
+			<xs:element name="LuxFaceWeightZone" type="LuxFaceWeightZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Face weight tuning structure, which is shared between normal and flash use case."/>
+	</xs:complexType>
+	<xs:complexType name="LuxTrackerWeightZoneDataType">
+		<xs:sequence>
+			<xs:element name="LuxTrackerWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Min and Max tracker luma weight wrt tracker size."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxTrackerWeightZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TriggerPointType">
+							<xs:attribute name="description" type="xs:string" default="lux level start and end values that define trigger region"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="zoneData">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="LuxTrackerWeightZoneDataType">
+							<xs:attribute name="description" type="xs:string" default="Triggered data: tracker weight that will be adjusted based on lux level"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LuxTrackerWeightType">
+		<xs:sequence>
+			<xs:element name="LuxTrackerWeightZone" type="LuxTrackerWeightZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Tracker weight tuning structure, which is shared between normal and flash use case."/>
+	</xs:complexType>
+	<xs:complexType name="AECValueMonitorType">
+		<xs:sequence>
+			<xs:element name="detectionType" type="AECDetectorTypeEnum"/>
+			<xs:element name="absoluteModeCfg" type="AECAbsoluteModeCfgType"/>
+			<xs:element name="sensProfileLow" type="AECSensProfileType"/>
+			<xs:element name="sensProfileMed" type="AECSensProfileType"/>
+			<xs:element name="sensProfileHigh" type="AECSensProfileType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECAbsoluteModeCfgType">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="baseline">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline."/>
+							<xs:attribute name="range" type="xs:string" default="[unbounded,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECSensProfileType">
+		<xs:sequence>
+			<xs:element name="triggerThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline."/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="consecutiveCountThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Counting threshold for the residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold."/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frameToArmed">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of frames for starting the scene change detection."/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="medianFltrCfg" type="AECMedianFltrCfgType"/>
+			<xs:element name="mvavgFltrCfg" type="AECMvavgFltrCfgType"/>
+			<xs:element name="IIRFltrCfg" type="AECIirFltrCfgType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECMedianFltrCfgType">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Flag to enable median filter or not."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfSamples">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Length of the median filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 10]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECMvavgFltrCfgType">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Flag to enable moving average filter or not."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfSamples">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Length of the moving average filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 10]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECIirFltrCfgType">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Flag to enable IIR filter or not."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfSamples">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Length of the IIR filter"/>
+							<xs:attribute name="range" type="xs:string" default="[2,2]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="coeffNumerator">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator."/>
+							<xs:attribute name="range" type="xs:string" default="[unbounded,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="coeffDenominator">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator."/>
+							<xs:attribute name="range" type="xs:string" default="[unbounded,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="AECDetectorTypeEnum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="VMDetectorStable"/>
+			<xs:enumeration value="VMDetectorUnstable"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="HistTargetAdjustParamType">
+		<xs:sequence>
+			<xs:element name="minTargetAdjRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="This value overrides the minimal target adjust ratio in normal histogram AEC."/>
+							<xs:attribute name="range" type="xs:string" default="[0.1,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxTargetAdjRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="This value overrides the maximal target adjust ratio in normal histogram AEC."/>
+							<xs:attribute name="range" type="xs:string" default="[1.0,2.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="darkRefLow">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="This value overrides the darkRefLow in normal histogram AEC."/>
+							<xs:attribute name="range" type="xs:string" default="[0,50]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="satRefHigh">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="This value overrides the satRefHigh in normal histogram AEC."/>
+							<xs:attribute name="range" type="xs:string" default="[100,500]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="ROIHistAdjZoneDataType">
+		<xs:sequence>
+			<xs:element name="darkLumaRatioRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="The ratio between ROI and frame luma to determine if an ROI is dark ROI."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="darkROIAdjustParams" type="HistTargetAdjustParamType"/>
+			<xs:element name="brightLumaRatioRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="The ratio between ROI and frame luma to determine if an ROI is bright ROI."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="brightROIAdjustParams" type="HistTargetAdjustParamType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ROIHistAdjZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" type="ROIHistAdjZoneDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!--
+
+Base Type Tuning Definition
+
+-->
+	<xs:complexType name="StartEndType">
+		<xs:sequence>
+			<xs:element name="start" type="xs:float"/>
+			<xs:element name="end" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TriggerPointType">
+		<xs:sequence>
+			<xs:element name="start">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="tool_hint" default="range_low"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="end">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="tool_hint" default="range_high"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="tool_hint" default="trigger"/>
+	</xs:complexType>
+	<xs:simpleType name="AECExpIncPrioType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AECExpIncGain"/>
+			<xs:enumeration value="AECExpIncExpTime"/>
+			<xs:enumeration value="AECExpIncPrioMax"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ExposureTableIDType">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:simpleType name="AECBayerGridSubsmplType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Off"/>
+			<xs:enumeration value="SW2"/>
+			<xs:enumeration value="SW4"/>
+			<xs:enumeration value="Max"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECColorChannelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AECColorChannelR"/>
+			<xs:enumeration value="AECColorChannelG"/>
+			<xs:enumeration value="AECColorChannelB"/>
+			<xs:enumeration value="AECColorChannelMax"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECConvAlgoType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AECConvSlowConv"/>
+			<xs:enumeration value="AECConvFastConv"/>
+			<xs:enumeration value="AECConvMaxConv"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECAntibandingVsFPSMethod">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LegacyAllowFPSToDrop"/>
+			<xs:enumeration value="StrictlyEnforceFPS"/>
+			<xs:enumeration value="MaximizeExposureTime"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="ConvFrameSkipType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SmoothNoSkip"/>
+			<xs:enumeration value="SkipOne"/>
+			<xs:enumeration value="SkipSystemLatency"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECStatsHistogramType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HistogramHDRBHIST"/>
+			<xs:enumeration value="HistogramBHIST"/>
+			<xs:enumeration value="HistogramIHIST"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECStatsHistogramChannelType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="ChannelR"/>
+			<xs:enumeration value="ChannelGr"/>
+			<xs:enumeration value="ChannelGb"/>
+			<xs:enumeration value="ChannelG"/>
+			<xs:enumeration value="ChannelB"/>
+			<xs:enumeration value="ChannelY"/>
+			<xs:enumeration value="ChannelCb"/>
+			<xs:enumeration value="ChannelCr"/>
+			<xs:enumeration value="ChannelRGrB"/>
+			<xs:enumeration value="ChannelRGbB"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECStatsSiteSelection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="BeforeHDRFusion"/>
+			<xs:enumeration value="BeforeDemosaic"/>
+			<xs:enumeration value="BeforeGammaLUT"/>
+			<xs:enumeration value="AfterGammaLUT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECStatsPixelExpSelect">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AllPixels"/>
+			<xs:enumeration value="LongPixels"/>
+			<xs:enumeration value="ShortPixels"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECStatsHistogramUniformityType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Even"/>
+			<xs:enumeration value="Uneven"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HistogramTargetEVMethodType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Legacy"/>
+			<xs:enumeration value="Compensated"/>
+			<xs:enumeration value="Freeze"/>
+			<xs:enumeration value="Advanced1"/>
+			<xs:enumeration value="Advanced2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECMtrAndExpoConfigType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="MtrIndepExpIndep"/>
+			<xs:enumeration value="MtrIndepExpFollow"/>
+			<xs:enumeration value="MtrMixExpIndep"/>
+			<xs:enumeration value="MtrIndepExpDynamic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECDualCamSlaveLuxType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Independent"/>
+			<xs:enumeration value="UseMaster"/>
+			<xs:enumeration value="UseSensAdjMaster"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECMultiCamMixingType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Static"/>
+			<xs:enumeration value="Dynamic"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECDepthLUTType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DepthLUTDistance"/>
+			<xs:enumeration value="DepthLUTDepth"/>
+			<xs:enumeration value="DepthLUTConfidence"/>
+			<xs:enumeration value="DepthLUTReserved1"/>
+			<xs:enumeration value="DepthLUTReserved2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECSwitchCounterEnumType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SwitchCounterSystemDelay"/>
+			<xs:enumeration value="SwitchCounterDisable"/>
+			<xs:enumeration value="SwitchCounterCustomInteger"/>
+			<xs:enumeration value="SwitchCounterAdvanced1"/>
+			<xs:enumeration value="SwitchCounterAdvanced2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECGyroExpCtrlTriggerDataType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GyroExpCtrlTriggerDataTargetExpoTime"/>
+			<xs:enumeration value="GyroExpCtrlTriggerDataAdjRatio"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AECGyroExpCtrlKeyLevelZoneType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="GyroExpCtrlKeyCurExpTimeType"/>
+			<xs:enumeration value="GyroExpCtrlKeyLuxIndexType"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!--
+
+Rapid Startup is used by both Startup and Flash algorithms
+
+-->
+	<xs:complexType name="FirstFrameBiasType">
+		<xs:sequence>
+			<xs:element name="enableStartUpBias">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable biasing to converge faster in the first frame in the presence of saturated regions"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="firstFrameStepSizeDarkMax">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="When converging from dark to bright: maximum absolute exposure index step size for first frame"/>
+							<xs:attribute name="range" type="xs:string" default="[0,200]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="stepSizeBrightAdjRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="When converging from bright to dark: Exposure index step size range within which a factor will be applied to converge faster in the first frame"/>
+							<xs:attribute name="range" type="xs:string" default="[20,80]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxAdjFactor">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Max factor to boost exposure adjustment in the first frame"/>
+							<xs:attribute name="range" type="xs:string" default="[1.5,3.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Heuristics to speed up convergence in first frame"/>
+	</xs:complexType>
+	<xs:complexType name="RapidConvType">
+		<xs:sequence>
+			<xs:element name="firstFrameBias" type="FirstFrameBiasType"/>
+			<xs:element name="startExpIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Preferred initial exposure index"/>
+							<xs:attribute name="range" type="xs:string" default="[0,500]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolMultUnitStepSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Tolerance expressed as a multiple of unitStepSize"/>
+							<xs:attribute name="range" type="xs:string" default="[1,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frameSkipInit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Initial frame skip"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frameSkip">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="How many frames to skip between two adjustments. Depends on sensor sync"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minSettledCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="How many frames without any adjustments before declaring the algorithm is settled"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxFrameConvTimeOut">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Maximum duration of convergence, in frames"/>
+							<xs:attribute name="range" type="xs:string" default="[1,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Tuning settings for initial convergence algorithms: FastAEC and AggressiveAEC"/>
+	</xs:complexType>
+	<xs:complexType name="SwitchCounterType">
+		<xs:sequence>
+			<xs:element name="type" default="SwitchCounterSystemDelay">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="AECSwitchCounterEnumType">
+							<xs:attribute name="description" type="xs:string" default="Type of frame counter delay"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="customInteger">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="custom frame count delay"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Flash measurement configuration. These parameters apply to both flash tuning and flash calibration"/>
+	</xs:complexType>
+	<!--
+
+Global Tuning Definition
+
+-->
+	<xs:complexType name="ModuleVersionType">
+		<xs:sequence>
+			<xs:element name="major_revision">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Major revision number"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minor_revision">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Minor revision number"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="incr_revision">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Incremental revision number"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" default="define major, minor, incremental revision -"/>
+	</xs:complexType>
+</xs:schema>

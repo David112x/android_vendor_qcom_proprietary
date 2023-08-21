@@ -1,0 +1,30 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.lpa@1.1;
+
+import @1.0::UimLpaUserEventId;
+import @1.0::UimLpaAddProfileStatus;
+import @1.0::UimLpaUserReq;
+import @1.0::UimLpaAddProfileProgressInd;
+
+enum UimLpaUserEventId : @1.0::UimLpaUserEventId {
+    UIM_LPA_CONFIRM_CODE       = 11
+};
+
+enum UimLpaAddProfileStatus : @1.0::UimLpaAddProfileStatus {
+    UIM_LPA_ADD_PROFILE_STATUS_SEND_CONF_CODE_REQ                       = 6,
+};
+
+struct UimLpaUserReq {
+    @1.0::UimLpaUserReq base;
+    int32_t            nok_reason;       /* UIM_USER_NOK_REASON */
+};
+struct UimLpaAddProfileProgressIndV1_1 {
+    @1.0::UimLpaAddProfileProgressInd base;
+    string                        profileName;
+};

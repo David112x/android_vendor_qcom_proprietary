@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<resources>
+    <color name="colorPrimary">#5654f7</color>
+    <color name="colorPrimaryDark">#5654f7</color>
+    <color name="colorAccent">#5654f7</color>
+    <color name="colorTab">#ff483d8b</color>
+    <color name="colorBackgroundSegment">#50ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#5654f7</color>
+    <color name="softBlue">#885654f7</color>
+    <color name="bluePressed">#CECEF8</color>
+    <color name="pink">#AF7AC5</color>
+    <color name="white">#ffffffff</color>
+    <color name="whiteCover">#7fffffff</color>
+    <color name="textShadow">#7F000000</color>
+    <color name="textShadowWhite">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="controlsBackground">#99ffffff</color>
+    <color name="controlsHeaderBackground">#662e7d32</color>
+    <color name="chipUnchecked">#f0f0f0</color>
+    <color name="videoBackground">#87CEEB</color>
+</resources>

@@ -1,0 +1,25 @@
+/*!
+ * @file IDSPService.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for DSP service.
+ */
+
+package vendor.qti.hardware.dsp@1.0;
+
+import vendor.qti.hardware.dsp@1.0::IDspManager;
+
+interface IDspService {
+    /*!
+     * @brief        Synchronous. Gets new DSPmanager instance
+     * @description  Gets new DSPmanager instance that can be used to open DSP sessions
+     *
+     * @input        flags                Session parameters
+     * @return       dspManagerInstance   DSPmanager instance
+     */
+    getNewDSPSession (uint32_t flags) generates (IDspManager dspManagerInstance);
+};

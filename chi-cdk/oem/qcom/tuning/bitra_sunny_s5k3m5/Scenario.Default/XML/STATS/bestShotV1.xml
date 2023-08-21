@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<bestShotV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modawbbestshotv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID type="int" range="[1,1000]">9</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag description="module enable flag" tuning_parameter_level="must_tune">0</enableFlag>
+  <ConvSpeed type="float" range="[0.0,1.0]">0.2</ConvSpeed>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>ManualWB</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">0.5192233</rg>
+      <bg type="float" range="[0.0,15000.0]">0.662587762</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">4800</start>
+      <end type="float" range="[0.0,15000.0]">6500</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">4950</start>
+      <end type="float" range="[0.0,15000.0]">5050</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>AWBWithGainAdjust</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">0.9</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>AWBWithGainAdjust</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1.1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>ManualWB</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">0.5192233</rg>
+      <bg type="float" range="[0.0,15000.0]">0.662587762</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>ManualWB</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">0.441163272</rg>
+      <bg type="float" range="[0.0,15000.0]">0.7746303</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">6450</start>
+      <end type="float" range="[0.0,15000.0]">6550</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>ManualWB</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">0.8572627</rg>
+      <bg type="float" range="[0.0,15000.0]">0.420947522</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">2800</start>
+      <end type="float" range="[0.0,15000.0]">2900</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">1500</start>
+      <end type="float" range="[0.0,15000.0]">12000</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">0</start>
+      <end type="float" range="[0.0,15000.0]">0</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">0</start>
+      <end type="float" range="[0.0,15000.0]">0</end>
+    </CCTRange>
+  </BestShotData>
+  <BestShotData>
+    <Operation>NoEffect</Operation>
+    <data>
+      <rg type="float" range="[0.0,15000.0]">1</rg>
+      <bg type="float" range="[0.0,15000.0]">1</bg>
+    </data>
+    <CCTRange>
+      <start type="float" range="[0.0,15000.0]">0</start>
+      <end type="float" range="[0.0,15000.0]">0</end>
+    </CCTRange>
+  </BestShotData>
+</bestShotV1>

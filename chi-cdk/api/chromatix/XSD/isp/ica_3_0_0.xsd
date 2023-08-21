@@ -1,0 +1,825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="ispglobalelements.xsd"/>
+    <xs:element name="ica30_ipe_module1" type="chromatix_ica30Type">
+        <xs:annotation>
+            <xs:documentation>ica30 ipe module1 parameters</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="ica30_ipe_module2" type="chromatix_ica30Type">
+        <xs:annotation>
+            <xs:documentation>ica30 ipe module2 parameters</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="chromatix_ica30_reserveType">
+        <xs:sequence>
+            <xs:element name="ctc_grid_transform_geometry">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0: 35x27 samples; 1: 67x51. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="2u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_invalid_output_treatment_calculate">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0: Out-of-frame pixel is populated with a predefined value. 1: Out-of-frame pixel is populated using duplication. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="1"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_invalid_output_treatment_y">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="Y Output sample values for out-of-input-frame pixels, in case calculate (bit 0) is equal to 0. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1023]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="10u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_invalid_output_treatment_cb">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="Cb Output sample values for out-of-input-frame pixels, in case calculate (bit 0) is equal to 0. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1023]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="10u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_invalid_output_treatment_cr">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="Cr Output sample values for out-of-input-frame pixels, in case calculate (bit 0) is equal to 0. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1023]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="10u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_u2i_grid_valid">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="UNDISTORTED_IPE_OUT_TO_DISTORTED_INPUT_GRID: is grid valid. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_valid">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="DISTORTED_INPUT_TO_UNDISTORTED_IPE_OUT_GRID: is grid valid. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_geometry">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0: 35x27 samples; 1: 67x51. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="2u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_full_out_width">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="The physical size of the undistorted sensor. Width is in square pixels. Can be zero if no LD is needed. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 65535]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="16u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_full_out_height">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="The physical size of the undistorted sensor. Height is in square pixels. Can be zero if no LD is needed. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 65535]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="16u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ldc_model_type">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0 = custom/no model (grid is not by any of the following models model ), 1 = regular, 2= fisheye, 3 = reserved for a new model. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 7]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="3u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="model_parameters_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="model_parameters">
+                            <xs:simpleType>
+                                <xs:restriction base="floatvar">
+                                    <xs:length value="32"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Model parameters to be used with the selected model. Parameters interpretation per model:. For model 1: [k1 k2 p1 p2 k3]. For model 2: [k1 k2 k3 k4]. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="32"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="focal_length_x">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Camera matrix \ Focal length that was extracted during camera calibration for LDC. Image sizes are as defined below and are not normilized and according to calibration images. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="focal_length_y">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Camera matrix \ Focal length that was extracted during camera calibration for LDC. Image sizes are as defined below and are not normilized and according to calibration images. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="optical_center_x">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Camera matrix \ Optical center that was extracted during camera calibration for LDC. Image sizes are as defined below and are not normilized and according to calibration images. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="optical_center_y">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Camera matrix \ Optical center that was extracted during camera calibration for LDC. Image sizes are as defined below and are not normilized and according to calibration images. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="image_size_distorted_x">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="The physical size of the distorted sensor. Can be zero if no LD is needed. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 65535]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="16u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="image_size_distorted_y">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="The physical size of the distorted sensor. Can be zero if no LD is needed. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 65535]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="16u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_1">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 1. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_2">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 2. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_3">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 3. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_4">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 4. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_5">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 5. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_6">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 6. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_7">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 7. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_8">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 8. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_9">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 9. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_10">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:float">
+                            <xs:attribute name="type" default="float"/>
+                            <xs:attribute name="description" type="xs:string" default="Reserved parameter 10. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                            <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_lut_param_1_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="res_lut_param_1">
+                            <xs:simpleType>
+                                <xs:restriction base="floatvar">
+                                    <xs:length value="32"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Reserved Lut parameter 1. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="32"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="res_lut_param_2_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="res_lut_param_2">
+                            <xs:simpleType>
+                                <xs:restriction base="floatvar">
+                                    <xs:length value="32"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Reserved Lut parameter 2. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="32"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ica30_rgn_dataType">
+        <xs:sequence>
+            <xs:element name="y_interpolation_type">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0: 4x4 kernel. 1: Bi-linear (2x2). "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                            <xs:attribute name="tool_hint" default="float"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ctc_grid_x_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ctc_grid_x">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="UNDISTORTED_IPE_OUT_TO_DISTORTED_INPUT_GRID: Grid value for x. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q4"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ctc_grid_y_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ctc_grid_y">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="UNDISTORTED_IPE_OUT_TO_DISTORTED_INPUT_GRID: Grid value for y. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q4"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_interpolation_lut_0_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="opg_interpolation_lut_0">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="16"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="LUT(0). "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0,-60,-113,-158,-196,-228,-254,-273,-288,-298,-303,-303,-300,-293,-284,-271"/>
+                    <xs:attribute name="range" type="xs:string" default="[-8192, 8191]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="14s"/>
+                    <xs:attribute name="length" type="xs:int" fixed="16"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_interpolation_lut_1_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="opg_interpolation_lut_1">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="16"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="LUT(1). "/>
+                    <xs:attribute name="default_value" type="xs:string" default="2304,4086,4058,4011,3948,3869,3777,3670,3552,3423,3284,3136,2980,2818,2651,2479"/>
+                    <xs:attribute name="range" type="xs:string" default="[-8192, 8191]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="14s"/>
+                    <xs:attribute name="length" type="xs:int" fixed="16"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="opg_interpolation_lut_2_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="opg_interpolation_lut_2">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="16"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="LUT(2) . "/>
+                    <xs:attribute name="default_value" type="xs:string" default="-256,72,159,259,372,497,632,776,928,1087,1253,1422,1596,1772,1950,2127"/>
+                    <xs:attribute name="range" type="xs:string" default="[-8192, 8191]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="14s"/>
+                    <xs:attribute name="length" type="xs:int" fixed="16"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_x_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ld_i2u_grid_x">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="DISTORTED_INPUT_TO_UNDISTORTED_IPE_OUT_GRID: Grid value for x. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q3"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_y_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ld_i2u_grid_y">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="DISTORTED_INPUT_TO_UNDISTORTED_IPE_OUT_GRID: Grid value for y. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q3"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ldc_calib_domain">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="0: LDC calibration is done on Sensor full FOV; . 1: LDC calibration is done on Sensor mode output FOV (==IFE Input FOV); . 2: LDC calibration is done on Use case FOV based on IFE output @DZX1. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 2]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="2u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                            <xs:attribute name="tool_hint" default="float"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ica30_aec_dataType">
+       <xs:sequence>
+           <xs:element name="aec_trigger" type="trigger_pt_type_aec"/>
+           <xs:element name="ica30_rgn_data" type="ica30_rgn_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ica30_lens_zoom_dataType">
+       <xs:sequence>
+           <xs:element name="lens_zoom_trigger" type="trigger_pt_type"/>
+           <xs:element name="lens_zoom_data">
+               <xs:complexType>
+                   <xs:sequence maxOccurs="unbounded">
+                       <xs:element name="mod_ica30_aec_data" type="mod_ica30_aec_dataType"/>
+                   </xs:sequence>
+               </xs:complexType>
+           </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ica30_lens_posn_dataType">
+       <xs:sequence>
+           <xs:element name="lens_posn_trigger" type="trigger_pt_type"/>
+           <xs:element name="lens_posn_data">
+               <xs:complexType>
+                   <xs:sequence maxOccurs="unbounded">
+                       <xs:element name="mod_ica30_lens_zoom_data" type="mod_ica30_lens_zoom_dataType"/>
+                   </xs:sequence>
+               </xs:complexType>
+           </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_ica30_coreType">
+                   <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_ica30_lens_posn_data" type="mod_ica30_lens_posn_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_ica30Type">
+        <xs:sequence>
+            <xs:element name="enable_section">
+                <xs:complexType>
+                    <xs:sequence>
+                            <xs:element name="ctc_transform_grid_enable" type="enable_flag_type" default="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="module_version">
+                <xs:complexType>
+                    <xs:attribute name="major_revision" type="xs:int" default="3"/>
+                    <xs:attribute name="minor_revision" type="xs:int" default="0"/>
+                    <xs:attribute name="incr_revision" type="xs:int" default="0"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="parameter_version">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="revision" type="xs:string" default="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="control_variables">
+                <xs:complexType>
+                    <xs:sequence minOccurs="3" maxOccurs="3">
+                        <xs:element name="control_var_type">
+                            <xs:simpleType>
+                                <xs:restriction base="control_var_type">
+                                    <xs:pattern value="control_lens_position"/>
+                                    <xs:pattern value="control_lens_zoom"/>
+                                    <xs:pattern value="control_lux_idx"/>
+                                    <xs:pattern value="control_gain"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="default_value" type="xs:string" default="control_lens_position, control_lens_zoom, control_gain"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="control_method">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="aec_exp_control" type="tuning_control_aec_type" default="control_gain"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chromatix_ica30_reserve" type="chromatix_ica30_reserveType"/>
+            <xs:element name="chromatix_ica30_core" type="chromatix_ica30_coreType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

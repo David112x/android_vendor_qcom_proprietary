@@ -1,0 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2017-2020 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxawb.h
+/// @brief AWB algorithm interface implementation header
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXAWB_H
+#define CAMXAWB_H
+
+#include "chiawbinterface.h"
+#include "camxmoduleconfig.h"
+
+/// @brief  Represents AWB internal data
+struct AWBWrapperInternalDataType
+{
+    CHIAWBAlgorithm         AWBOps;         ///< AWB algorithm interface function pointers
+    StatsAlgorithmHandle    hAWBAlgorithm;  ///< AWB algorithm handle
+};
+
+struct AWBWrapperAlgorithmHandler
+{
+    CHIAWBAlgorithm*        pAWBAlgo;       ///< AWB algorithm interface function pointers
+    UINT8                   instanceCount;  ///< AWB algorithm instance count
+};
+
+#endif // CAMXAWB_H

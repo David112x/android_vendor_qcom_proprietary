@@ -1,0 +1,53 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="MfsrYuv2JpegSegment">
+  <CamxInclude segment="JPEGSegment"/>
+  <CamxInclude segment="YUV2JPEG_linkages"/>
+  <NodesList>
+    <Node>
+      <NodeName>IPE</NodeName>
+      <NodeId>65538</NodeId>
+      <NodeInstance>IPEInstanceName5</NodeInstance>
+      <NodeInstanceId>5</NodeInstanceId>
+      <NodeProperty>
+        <NodePropertyName>ProfileId</NodePropertyName>
+        <NodePropertyId>2</NodePropertyId>
+        <NodePropertyDataType>UINT</NodePropertyDataType>
+        <NodePropertyValue>3</NodePropertyValue>
+      </NodeProperty>
+    </Node>
+  </NodesList>
+  <PortLinkages>
+    <TargetName>TARGET_BUFFER_YUV_MFSR</TargetName>
+    <TargetDirection>TargetBidirectional</TargetDirection>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_YUV_MFSR</PortName>
+        <PortId>0</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>IPEInputPortFull</PortName>
+        <PortId>0</PortId>
+        <NodeName>IPE</NodeName>
+        <NodeId>65538</NodeId>
+        <NodeInstance>IPEInstanceName5</NodeInstance>
+        <NodeInstanceId>5</NodeInstanceId>
+      </DstPort>
+      <BufferProperties>
+        <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+        <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+        <BufferQueueDepth>1</BufferQueueDepth>
+        <BufferHeap>Ion</BufferHeap>
+        <BufferFlags>BufferMemFlagHw</BufferFlags>
+        <BufferFlags>BufferMemFlagLockable</BufferFlags>
+      </BufferProperties>
+    </Link>
+  </PortLinkages>
+</CamxSegment>

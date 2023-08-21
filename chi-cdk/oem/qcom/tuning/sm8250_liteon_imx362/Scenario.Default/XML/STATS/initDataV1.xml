@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<initDataV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modawbinitv1.xsd">
+  <moduleID>
+    <moduleID type='int' range="[1,1000]">1</moduleID>
+    <subModuleID type='int' range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>1</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <initialGain>
+    <red type='float' range="[0.0,9999.9]">1.76278</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">1.712474</blue>
+  </initialGain>
+  <initialCCT type='float' range="[2000.0,9999.9]">5000</initialCCT>
+  <BGStatConf>
+    <BGStatMode range="[0,1]">FullFOV</BGStatMode>
+  </BGStatConf>
+  <GlobalEnvConf>
+    <DepthMapEnable>1</DepthMapEnable>
+  </GlobalEnvConf>
+</initDataV1>

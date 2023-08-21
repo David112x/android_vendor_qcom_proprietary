@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<MWBGainV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modmwbv1.xsd">
+  <moduleID>
+    <moduleID type='int' range="[1,1000]">8</moduleID>
+    <subModuleID type='int' range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">4.914214</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">0.8818209</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">2.256428</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">1.317053</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">2.051744</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">1.410704</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">1.76278</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">1.712474</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">1.898606</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">2.459031</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">1.75927</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">2.408158</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">1.638988</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">2.359346</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">1.090409</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">2.822342</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">0.8722982</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">3.442917</blue>
+  </MWBData>
+  <MWBData>
+    <red type='float' range="[0.0,9999.9]">0.6757038</red>
+    <green type='float' range="[0.0,9999.9]">1</green>
+    <blue type='float' range="[0.0,9999.9]">5.061811</blue>
+  </MWBData>
+</MWBGainV1>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixDepthAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afdepthafelements.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <stats>
+    <minimalDistance type='int' range="[0,unbounded]">100</minimalDistance>
+    <maximumDistance type='int' range="[0,unbounded]">3000</maximumDistance>
+    <confidenceTable>
+      <entries>
+        <startLuxIndex type='float' range="[0,unbounded]">20</startLuxIndex>
+        <endLuxIndex type='float' range="[0,unbounded]">100</endLuxIndex>
+        <threshold type='int' range="[0,unbounded]">50</threshold>
+      </entries>
+    </confidenceTable>
+    <center>
+      <enable type='bool'>true</enable>
+      <horizontalGridCount type='int' range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type='int' range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type='int' range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type='int' range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type='int' range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type='int' range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type='float' range="[0.0, 1.0]">0</defocusPercentile>
+    </center>
+    <peripheral>
+      <enable type='bool'>true</enable>
+      <horizontalGridCount type='int' range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type='int' range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type='int' range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type='int' range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type='int' range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type='int' range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type='float' range="[0.0, 1.0]">0</defocusPercentile>
+    </peripheral>
+    <touch>
+      <enable type='bool'>true</enable>
+      <horizontalGridCount type='int' range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type='int' range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type='int' range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type='int' range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type='int' range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type='int' range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type='float' range="[0.0, 1.0]">0</defocusPercentile>
+    </touch>
+    <face>
+      <enable type='bool'>true</enable>
+      <horizontalGridCount type='int' range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type='int' range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type='int' range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type='int' range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type='int' range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type='int' range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type='float' range="[0.0, 1.0]">0</defocusPercentile>
+    </face>
+  </stats>
+  <monitor>
+    <DOFScalerTable>
+      <entries>
+        <normalizedLensPosition type='float' range="[0,1]">0</normalizedLensPosition>
+        <DOFScaler type='float' range="[1,10]">0</DOFScaler>
+      </entries>
+    </DOFScalerTable>
+  </monitor>
+  <converge>
+    <waitConfidenceRecoverCount type='int' range="[0, 8]">5</waitConfidenceRecoverCount>
+    <frameSkip type='int' range="[0,2]">0</frameSkip>
+    <normalLight>
+      <entries>
+        <startPosition type='int' range="[0, 399]">0</startPosition>
+        <endPosition type='int' range="[0, 399]">399</endPosition>
+        <focusDoneThreshold type='int' range="[0,10]">8</focusDoneThreshold>
+        <fineScanStepSize type='int' range="[0, 20]">8</fineScanStepSize>
+        <stepsRangeNear type='int' range="[0, 5]">30</stepsRangeNear>
+        <stepsRangeFar type='int' range="[0, 5]">30</stepsRangeFar>
+      </entries>
+    </normalLight>
+    <lowlight>
+      <entries>
+        <startPosition type='int' range="[0, 399]">0</startPosition>
+        <endPosition type='int' range="[0, 399]">399</endPosition>
+        <focusDoneThreshold type='int' range="[0,10]">8</focusDoneThreshold>
+        <fineScanStepSize type='int' range="[0, 20]">8</fineScanStepSize>
+        <stepsRangeNear type='int' range="[0, 5]">30</stepsRangeNear>
+        <stepsRangeFar type='int' range="[0, 5]">30</stepsRangeFar>
+      </entries>
+    </lowlight>
+  </converge>
+</chromatixDepthAF>

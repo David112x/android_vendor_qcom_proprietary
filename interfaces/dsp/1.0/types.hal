@@ -1,0 +1,29 @@
+/*!
+ * @file types.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the internal data types for DSP HAL.
+ */
+
+package vendor.qti.hardware.dsp@1.0;
+
+enum DSPDomain : int32_t {
+    ADSP_DOMAIN = 0,
+    MDSP_DOMAIN = 1,
+    SDSP_DOMAIN = 2,
+    CDSP_DOMAIN = 3
+};
+
+enum DSPError : int32_t {
+    SUCCESS = 0,
+    ERROR = -1,
+};
+
+struct FastrpcDev {
+    DSPError err;
+    handle dev_handle;
+};

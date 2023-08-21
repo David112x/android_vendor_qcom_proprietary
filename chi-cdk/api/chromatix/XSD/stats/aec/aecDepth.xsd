@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<xs:element name="aecDepth" type="AECDepthType"/>
+	<xs:complexType name="AECDepthType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="Enable Flag for Depth-based AEC Adjustments"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lumaDiffThres" default="8">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Threshold of luma difference for triggering rebasing mode from tracking mode"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="decisionMapValidGridCntThres" default="20">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="EThreshold of auto-focus selection grid count number for entering tracking mode from tracking mode"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="consecInvalidFrameCntThres" default="6">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Threshold of consecutive invalid frame for triggering rebasing mode from tracking mode"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="initValidFrameCntThres" default="4">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Threshold of valid frame for entering rebasing mode from initialization mode"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="selectMapValidGridCntThres" default="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Threshold of auto-focus selection grid count number to determine the input auto-focus selection map is valid"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="displayDebugMsg" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="Flag to display DEPTHAEC debug message for display tool"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="depthMtr" type="DepthMeteringType"/>
+			<xs:element name="depthConv" type="DepthConvergenceType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthMeteringType">
+		<xs:sequence>
+			<xs:element name="depthMeteringWeight" type="DepthWeightZoneType" maxOccurs="unbounded"/>
+			<xs:element name="mapsLUTs" type="DepthMapLUT" maxOccurs="unbounded"/>
+			<xs:element name="temporalFilter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="temporal filter for frame to frame metering of depth ROI"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthWeightZoneType">
+		<xs:sequence>
+			<xs:element name="triggerPt" type="TriggerPointType"/>
+			<xs:element name="triggerData" type="DepthWeightZoneDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthWeightZoneDataType">
+		<xs:sequence>
+			<xs:element name="weight" default="1.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float"/>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthMapLUT">
+		<xs:sequence>
+			<xs:element name="knees" type="DepthWeightZoneType" maxOccurs="unbounded"/>
+			<xs:element name="type" type="AECDepthLUTType" default="DepthLUTDistance"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthConvergenceType">
+		<xs:sequence>
+			<xs:element name="convSpeedAdjRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="specify the adjustment of convergence speed during Depth AEC convergence"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

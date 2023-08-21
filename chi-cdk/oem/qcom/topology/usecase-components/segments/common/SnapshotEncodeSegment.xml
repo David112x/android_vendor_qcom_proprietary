@@ -1,0 +1,29 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="SnapshotEncodeSegment">
+    <CamxInclude segment="JPEGSegment"/>
+    <PortLinkages>
+        <Link>
+            <SrcPort>
+                <PortName>JPEGAggregatorOutputPort0</PortName>
+                <PortId>1</PortId>
+                <NodeName>JPEGAggregator</NodeName>
+                <NodeId>6</NodeId>
+                <NodeInstance>JPEGAggregatorInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_HEIC_BLOB</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName2</NodeInstance>
+                <NodeInstanceId>2</NodeInstanceId>
+                <PrunableVariant variantGroup="Snapshot" variantType="HEIC"/>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

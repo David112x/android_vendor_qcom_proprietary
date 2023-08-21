@@ -1,0 +1,50 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>QuadCFASnapshotYuv</PipelineName>
+    <CamxInclude segment="BayerYUVSegment"/>
+    <NodesList></NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_CFA_REMOSAIC_RAW</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortDisplay</PortName>
+                <PortId>8</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_CFA_YUV</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_CFA_REMOSAIC_RAW</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>BPSInputPort</PortName>
+                <PortId>0</PortId>
+                <NodeName>BPS</NodeName>
+                <NodeId>65539</NodeId>
+                <NodeInstance>BPSInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</Pipeline>

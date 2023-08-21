@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<gamma15_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\gamma_1_5_0.xsd">
+  <enable_section>
+    <gamma_enable>1</gamma_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="5" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_gamma15_core>
+    <mod_gamma15_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_gamma15_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_gamma15_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>300</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>2100</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_R</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_G</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_B</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>320</lux_idx_start>
+                    <lux_idx_end>380</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>2100</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_R</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_G</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_B</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 10 22 34 44 54 66 76 86 96 106 116 124 134 144 152 162 172 180 188 198 208 216 224 232 240 248 256 264 272 280 288 296 302 308 316 324 332 338 344 352 358 364 372 378 384 392 398 404 410 416 422 428 434 440 446 452 458 464 470 474 480 486 490 496 502 506 513 518 522 526 533 537 542 547 551 557 561 566 571 575 579 585 589 593 597 601 606 611 615 619 623 627 631 635 639 643 647 651 655 659 663 667 670 673 677 681 685 689 691 695 699 703 706 709 713 717 719 723 726 729 733 737 739 743 746 749 751 755 758 761 765 767 770 773 777 779 782 785 787 790 793 795 799 802 805 807 810 813 815 818 821 823 825 827 830 833 835 838 841 843 845 847 850 853 855 857 859 862 864 866 869 871 873 875 878 880 882 884 886 889 891 893 895 897 899 901 903 905 907 909 911 913 915 917 919 921 923 925 927 929 931 933 935 937 938 940 942 944 946 948 950 951 953 955 957 958 960 962 963 966 967 969 970 972 974 975 977 978 980 982 984 985 986 988 990 991 993 994 996 998 1000 1001 1002 1004 1005 1006 1008 1010 1011 1014 1014 1016 1018 1018 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>400</lux_idx_start>
+                    <lux_idx_end>470</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>2100</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_R</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 11 23 35 49 61 74 87 102 116 131 146 161 175 191 205 220 233 246 258 273 285 298 309 321 332 343 354 364 373 383 392 401 410 418 427 435 442 450 458 466 473 480 487 494 500 507 513 519 525 532 537 543 549 554 559 565 570 575 580 585 590 594 599 603 608 612 617 621 625 629 634 637 641 645 649 653 657 661 664 668 671 675 678 682 685 688 691 695 698 701 704 707 710 713 716 719 722 724 727 730 733 736 738 741 743 746 748 751 754 756 759 761 763 766 768 771 773 775 778 780 783 784 787 789 791 793 795 798 800 802 804 806 808 811 813 815 817 819 821 823 825 827 829 831 833 835 837 839 841 843 845 847 849 851 853 855 856 858 860 862 864 866 868 870 871 873 875 877 879 881 882 884 886 888 890 891 893 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 924 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_G</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 11 23 35 49 61 74 87 102 116 131 146 161 175 191 205 220 233 246 258 273 285 298 309 321 332 343 354 364 373 383 392 401 410 418 427 435 442 450 458 466 473 480 487 494 500 507 513 519 525 532 537 543 549 554 559 565 570 575 580 585 590 594 599 603 608 612 617 621 625 629 634 637 641 645 649 653 657 661 664 668 671 675 678 682 685 688 691 695 698 701 704 707 710 713 716 719 722 724 727 730 733 736 738 741 743 746 748 751 754 756 759 761 763 766 768 771 773 775 778 780 783 784 787 789 791 793 795 798 800 802 804 806 808 811 813 815 817 819 821 823 825 827 829 831 833 835 837 839 841 843 845 847 849 851 853 855 856 858 860 862 864 866 868 870 871 873 875 877 879 881 882 884 886 888 890 891 893 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 924 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_B</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 11 23 35 49 61 74 87 102 116 131 146 161 175 191 205 220 233 246 258 273 285 298 309 321 332 343 354 364 373 383 392 401 410 418 427 435 442 450 458 466 473 480 487 494 500 507 513 519 525 532 537 543 549 554 559 565 570 575 580 585 590 594 599 603 608 612 617 621 625 629 634 637 641 645 649 653 657 661 664 668 671 675 678 682 685 688 691 695 698 701 704 707 710 713 716 719 722 724 727 730 733 736 738 741 743 746 748 751 754 756 759 761 763 766 768 771 773 775 778 780 783 784 787 789 791 793 795 798 800 802 804 806 808 811 813 815 817 819 821 823 825 827 829 831 833 835 837 839 841 843 845 847 849 851 853 855 856 858 860 862 864 866 868 870 871 873 875 877 879 881 882 884 886 888 890 891 893 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 924 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>480</lux_idx_start>
+                    <lux_idx_end>1000</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>2100</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_R</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 15 30 45 63 78 93 109 125 141 156 171 186 200 216 229 244 256 268 279 294 306 318 329 341 351 362 372 382 390 400 408 417 425 433 441 449 456 463 471 478 485 492 498 505 511 517 523 529 535 541 546 552 558 562 567 573 578 583 587 592 597 601 605 609 614 618 622 626 630 634 639 642 646 650 653 657 661 665 668 672 675 678 682 685 688 691 694 698 701 704 707 710 712 715 718 721 724 726 729 732 735 738 740 743 745 748 750 753 755 758 760 762 764 767 769 772 774 776 779 781 784 785 788 790 792 794 796 799 801 803 805 807 809 811 813 816 817 819 821 824 826 827 830 832 833 835 838 840 841 843 845 847 849 851 853 855 857 859 860 862 865 866 868 870 872 873 875 877 879 881 883 884 886 888 890 892 894 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 925 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_G</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 15 30 45 63 78 93 109 125 141 156 171 186 200 216 229 244 256 268 279 294 306 318 329 341 351 362 372 382 390 400 408 417 425 433 441 449 456 463 471 478 485 492 498 505 511 517 523 529 535 541 546 552 558 562 567 573 578 583 587 592 597 601 605 609 614 618 622 626 630 634 639 642 646 650 653 657 661 665 668 672 675 678 682 685 688 691 694 698 701 704 707 710 712 715 718 721 724 726 729 732 735 738 740 743 745 748 750 753 755 758 760 762 764 767 769 772 774 776 779 781 784 785 788 790 792 794 796 799 801 803 805 807 809 811 813 816 817 819 821 824 826 827 830 832 833 835 838 840 841 843 845 847 849 851 853 855 857 859 860 862 865 866 868 870 872 873 875 877 879 881 883 884 886 888 890 892 894 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 925 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_B</channel_type>
+                          <gamma15_rgn_data description="Gamma table per channel" range="[0,1023]" bit_depth="(16+2*b)sQ0" length="257" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                            <table>0 15 30 45 63 78 93 109 125 141 156 171 186 200 216 229 244 256 268 279 294 306 318 329 341 351 362 372 382 390 400 408 417 425 433 441 449 456 463 471 478 485 492 498 505 511 517 523 529 535 541 546 552 558 562 567 573 578 583 587 592 597 601 605 609 614 618 622 626 630 634 639 642 646 650 653 657 661 665 668 672 675 678 682 685 688 691 694 698 701 704 707 710 712 715 718 721 724 726 729 732 735 738 740 743 745 748 750 753 755 758 760 762 764 767 769 772 774 776 779 781 784 785 788 790 792 794 796 799 801 803 805 807 809 811 813 816 817 819 821 824 826 827 830 832 833 835 838 840 841 843 845 847 849 851 853 855 857 859 860 862 865 866 868 870 872 873 875 877 879 881 883 884 886 888 890 892 894 895 897 899 900 902 904 906 907 909 911 912 914 916 917 919 921 923 925 926 928 930 931 933 935 936 938 940 941 943 944 946 948 949 951 953 954 955 957 959 960 962 964 965 967 968 970 972 973 975 976 978 980 981 983 984 986 988 989 990 992 994 995 997 998 1000 1002 1003 1005 1006 1008 1010 1011 1012 1014 1015 1017 1019 1020 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+              </led_idx_data>
+            </mod_gamma15_led_idx_data>
+          </hdr_aec_data>
+        </mod_gamma15_hdr_aec_data>
+      </drc_gain_data>
+    </mod_gamma15_drc_gain_data>
+  </chromatix_gamma15_core>
+</gamma15_ipe>

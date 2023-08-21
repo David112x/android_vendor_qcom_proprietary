@@ -1,0 +1,13 @@
+android_library {
+    name: "libmmca",
+
+    owner: "qti",
+    proprietary: true,
+
+    sdk_version: "current",
+
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+}

@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.gnss@4.0;
+
+import @1.1::ILocHidlFlpServiceCallback;
+import LocHidlLocation;
+
+interface ILocHidlFlpServiceCallback extends @1.1::ILocHidlFlpServiceCallback {
+    gnssLocationTrackingCb_4_0(LocHidlLocation location);
+};

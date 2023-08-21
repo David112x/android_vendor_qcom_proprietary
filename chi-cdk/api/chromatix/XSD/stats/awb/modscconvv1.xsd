@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:element name="awbSceneChangeConvergeV1" type="chromatixSCConvV1Type"/>
+	<xs:simpleType name="awbFilterType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NoFilter"/>
+			<xs:enumeration value="FIRFilter"/>
+			<xs:enumeration value="medianFilter"/>
+			<xs:enumeration value="IIRFilter"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="awbSCDTriggerType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PercGain"/>
+			<xs:enumeration value="CCT"/>
+			<xs:enumeration value="Lux"/>
+			<xs:enumeration value="Gyro"/>
+      <xs:enumeration value="Res1"/>
+      <xs:enumeration value="Res2"/>
+		</xs:restriction>
+	</xs:simpleType>
+  <xs:simpleType name="awbAggregateType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SCBasedOnAnyOne"/>
+			<xs:enumeration value="SCBasedOnAll"/>
+      <xs:enumeration value="Res1"/>
+      <xs:enumeration value="Res2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="FIRFilterConfigType">
+		<xs:sequence>
+			<xs:element name="samples" default="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Number of samples to consider for FIR filtering"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+							<xs:attribute name="range" type="xs:string" default="[1,5]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="coefficient" default="1" minOccurs="1" maxOccurs="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="FIR filter coefficients. Number of coefficients should be same as number of samples."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="MedianFilterConfigType">
+		<xs:sequence>
+			<xs:element name="samples" default="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Number of samples to consider for median filtering"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+							<xs:attribute name="range" type="xs:string" default="[1,10]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="IIRFilterConfigType">
+		<xs:sequence>
+			<xs:element name="samplesInput" default="2">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Number of input samples to consider for IIR filtering"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+							<xs:attribute name="range" type="xs:string" default="[1,5]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="coeffInput" default="0.2452" minOccurs="1" maxOccurs="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="IIR filter input coefficients. IIR filter output is computed as: y[n] = (b0 * x[n] + b1 * x[n-1] + ...) - (a1 * y[n-1] + ...) b is input coefficients and a is output coefficients. Number of coefficients should be same as number of samples."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="samplesOutput" default="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Number of output samples to consider for IIR filtering"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+							<xs:attribute name="range" type="xs:string" default="[1,5]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="coeffOutput" default="-0.5095" minOccurs="1" maxOccurs="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="IIR filter output coefficients. IIR filter output is computed as: y[n] = (b0 * x[n] + b1 * x[n-1] + ...) - (a1 * y[n-1] + ...) b is input coefficients and a is output coefficients. Number of coefficients should be same as number of samples."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="FilterConfigType">
+		<xs:sequence>
+      <xs:element name="type"  default="NoFilter">
+				<xs:complexType>
+					<xs:simpleContent>
+            <xs:extension base="awbFilterType">
+							<xs:attribute name="description" type="xs:string" default="Filter type selection"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="fir" type="FIRFilterConfigType" />
+      <xs:element name="iir" type="IIRFilterConfigType" />
+      <xs:element name="median" type="MedianFilterConfigType" />
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="SCDetectorConfigType">
+		<xs:sequence>
+			<xs:element name="type">
+				<xs:complexType>
+					<xs:simpleContent>
+            <xs:extension base="awbSCDTriggerType">
+							<xs:attribute name="description" type="xs:string" default="Scene change detector input type"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="fixedBaselineEn" default="true">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="True indicates fixed value will be use, else baseline will be updated dynamically after rebase"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="fixedBaselineValue" default="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="Fixed baseline value. It will be used only if fixed baseline is enabled."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="triggerTh">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="Trigger threshold. If residual(input - baseline) is more than threshold, it will be considered as scene change."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="consCountTh" default="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Counting threshold for the residue is constantly above/below the trigger_threshold."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="postSCDFramesTh" default="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Min frames to analyze post SCD for checking scene is stable or not."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,5]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="postSCDStableTh" default="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="Percentage threshold, if variation between frames is below this threshold indicates scene is stable (post SCD)."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="holdTime" default="2">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="Post scene change, holding time will be ON for given time duration and it will be off automatically."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="strictHoldTime" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="Post scene change, scene stable, do not reset holding time, wait till its get completed."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="FilterDetectorConfigType">
+		<xs:sequence>
+      <xs:element name="enable" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="Enable scene change detector"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="filter" type="FilterConfigType"/>
+      <xs:element name="detector" type="SCDetectorConfigType"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="SceneChangeDetectorConfigType">
+		<xs:sequence>
+      <xs:element name="Aggregate" default="SCBasedOnAnyOne">
+				<xs:complexType>
+					<xs:simpleContent>
+            <xs:extension base="awbAggregateType">
+							<xs:attribute name="description" type="xs:string" default="Aggregation policy. Scene change detection state transition is controlled using this parameter."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="filterDetector" type="FilterDetectorConfigType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+  <xs:complexType name="SCConvType">
+		<xs:sequence>
+			<xs:element name="slowConvReduceFactor" default="0.4">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="In holding time, reduce the convergence by using this factor"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0.01,1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="fastConvBoostFactor" default="3">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="Post scene change, once scene is stable use this factor for faster convergence."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[1,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="fastConvergePercTh" default="0.5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="If percentage max gain change between current frame input and output of temporal filter is more than this threshold, use fast convergence boost factor."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+      <xs:element name="waitFramesBeforeSCStart" default="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="Before starting the new scene change, wait for N frames."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+    </xs:sequence>
+	</xs:complexType>
+	<xs:element name="scConv" type="chromatixSCConvV1Type"/>
+	<xs:complexType name="chromatixSCConvV1Type">
+		<xs:sequence>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="7"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enable" type="xs:boolean" default="false"/>
+      <xs:element name="detector" type="SceneChangeDetectorConfigType"/>
+      <xs:element name="converge" type="SCConvType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

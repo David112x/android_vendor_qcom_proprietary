@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="CamxPixelFormat">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CAMERA_PIXEL_FORMAT_YUV_FLEX" />
+      <xs:enumeration value="CAMERA_PIXEL_FORMAT_UBWC_FLEX" />
+      <xs:enumeration value="CAMERA_PIXEL_FORMAT_MULTIPLANAR_FLEX" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AllowedDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INT" />
+      <xs:enumeration value="UINT" />
+      <xs:enumeration value="BOOL" />
+      <xs:enumeration value="STRING" />
+      <xs:enumeration value="FLOAT" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="FormatProperties">
+    <xs:sequence>
+      <xs:element name="BufferFormat"                   type="CamxPixelFormat" />
+      <xs:element name="BufferStrideAlign"              type="xs:unsignedInt" minOccurs="1" />
+      <xs:element name="BufferScanLineAlign"            type="xs:unsignedInt" minOccurs="1" />
+      <xs:element name="BufferPlaneAlign"               type="xs:unsignedInt" minOccurs="1" />
+      <xs:element name="PrivateFormat"                  type="xs:unsignedInt" />
+      <xs:element name="BatchCount"                     type="xs:unsignedInt" minOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="MapperUtils" type="FormatProperties"/>
+
+</xs:schema>

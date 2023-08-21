@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<eis11_sw
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\eis_1_1_0.xsd">
+  <module_version major_revision="1" minor_revision="1" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <chromatix_eis11_reserve>
+    <general>
+      <minimal_total_margin_x type='float' range="[0.1, 0.6]" length="1">0.2</minimal_total_margin_x>
+      <minimal_total_margin_y type='float' range="[0.1, 0.6]" length="1">0.2</minimal_total_margin_y>
+      <focal_length type='uint' range="[0, 65535]" length="1">1477</focal_length>
+      <gyro_frequency type='uint' range="[200, 2000]" length="1">416</gyro_frequency>
+      <gyro_noise_floor type='float' range="[0, 0.1]" length="1">0.003</gyro_noise_floor>
+      <res_param_1 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_1>
+      <res_param_2 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_2>
+      <res_param_3 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_3>
+      <res_param_4 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_4>
+      <res_param_5 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_5>
+      <res_param_6 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_6>
+      <res_param_7 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_7>
+      <res_param_8 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_8>
+      <res_param_9 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_9>
+      <res_param_10 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_10>
+      <res_lut_param_1_tab range="[-99999999999, 99999999999]" length="32">
+        <res_lut_param_1>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_1>
+      </res_lut_param_1_tab>
+      <res_lut_param_2_tab range="[-99999999999, 99999999999]" length="32">
+        <res_lut_param_2>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_2>
+      </res_lut_param_2_tab>
+      <res_lut_param_3_tab range="[0, 4294967295]" length="16">
+        <res_lut_param_3>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_3>
+      </res_lut_param_3_tab>
+    </general>
+    <timing>
+      <s3d_offset_1 type='int' range="[-30000, 30000]" length="1">-1393</s3d_offset_1>
+      <s3d_offset_2 type='int' range="[-30000, 30000]" length="1">-1393</s3d_offset_2>
+      <s3d_offset_3 type='int' range="[-30000, 30000]" length="1">-1393</s3d_offset_3>
+      <s3d_offset_4 type='int' range="[-30000, 30000]" length="1">-1393</s3d_offset_4>
+      <s3d_threshold_1 type='float' range="[0, 0.03]" length="1">0.005</s3d_threshold_1>
+      <s3d_threshold_2 type='float' range="[0, 0.03]" length="1">0.01</s3d_threshold_2>
+      <s3d_threshold_3 type='float' range="[0, 0.03]" length="1">0.02</s3d_threshold_3>
+      <s3d_threshold_4_ext type='float' range="[0, 0.03]" length="1">0.03</s3d_threshold_4_ext>
+    </timing>
+    <blur_masking>
+      <enable type='uint' range="[0, 1]" length="1">1</enable>
+      <min_strength type='float' range="[0, 1]" length="1">0.85</min_strength>
+      <exposure_time_th type='float' range="[0, 0.04]" length="1">0.009</exposure_time_th>
+      <start_decrease_at_blur type='float' range="[5, 100]" length="1">7</start_decrease_at_blur>
+      <end_decrease_at_blur type='float' range="[5, 100]" length="1">15</end_decrease_at_blur>
+      <blur_masking_res1 type='float' range="[-99999999999, 99999999999]" length="1">0</blur_masking_res1>
+      <blur_masking_res2 type='float' range="[-99999999999, 99999999999]" length="1">0</blur_masking_res2>
+    </blur_masking>
+  </chromatix_eis11_reserve>
+</eis11_sw>

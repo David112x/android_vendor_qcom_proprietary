@@ -1,0 +1,3111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<triglGAV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modtrigladjv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">201</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>0</enableFlag>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>0 22 2</vertexIdx>
+    <sideIdx>2 1 255</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>23 22 2</vertexIdx>
+    <sideIdx>5 0 32</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>12 0 22</vertexIdx>
+    <sideIdx>255 0 3</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>28 12 22</vertexIdx>
+    <sideIdx>7 2 4</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>22 28 1</vertexIdx>
+    <sideIdx>3 10 5</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>22 23 1</vertexIdx>
+    <sideIdx>1 6 4</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>3 1 23</vertexIdx>
+    <sideIdx>255 5 31</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>16 12 28</vertexIdx>
+    <sideIdx>255 3 8</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>29 16 28</vertexIdx>
+    <sideIdx>11 7 9</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>28 29 13</vertexIdx>
+    <sideIdx>8 16 10</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>28 1 13</vertexIdx>
+    <sideIdx>4 255 9</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>8 16 29</vertexIdx>
+    <sideIdx>12 8 14</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>20 16 8</vertexIdx>
+    <sideIdx>17 11 19</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>31 26 29</vertexIdx>
+    <sideIdx>24 15 14</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>31 8 29</vertexIdx>
+    <sideIdx>18 11 13</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>29 26 17</vertexIdx>
+    <sideIdx>13 20 16</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>29 13 17</vertexIdx>
+    <sideIdx>9 255 15</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>6 16 20</vertexIdx>
+    <sideIdx>255 12 23</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>25 31 8</vertexIdx>
+    <sideIdx>34 14 19</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>25 20 8</vertexIdx>
+    <sideIdx>26 12 18</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>21 26 17</vertexIdx>
+    <sideIdx>22 15 25</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>20 18 30</vertexIdx>
+    <sideIdx>23 36 26</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>7 21 26</vertexIdx>
+    <sideIdx>29 20 24</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>18 6 20</vertexIdx>
+    <sideIdx>255 17 21</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>7 31 26</vertexIdx>
+    <sideIdx>27 13 22</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>21 9 17</vertexIdx>
+    <sideIdx>35 255 20</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>20 25 30</vertexIdx>
+    <sideIdx>19 28 21</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>19 7 31</vertexIdx>
+    <sideIdx>29 24 34</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>25 30 19</vertexIdx>
+    <sideIdx>26 33 34</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>21 7 19</vertexIdx>
+    <sideIdx>22 27 35</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>24 4 18</vertexIdx>
+    <sideIdx>38 255 36</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>14 3 23</vertexIdx>
+    <sideIdx>255 6 32</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>14 23 2</vertexIdx>
+    <sideIdx>31 1 255</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>5 19 30</vertexIdx>
+    <sideIdx>255 28 37</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>19 25 31</vertexIdx>
+    <sideIdx>28 18 27</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>21 9 19</vertexIdx>
+    <sideIdx>25 255 29</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>24 30 18</vertexIdx>
+    <sideIdx>37 21 30</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>5 24 30</vertexIdx>
+    <sideIdx>40 36 33</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>10 4 24</vertexIdx>
+    <sideIdx>255 30 39</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>24 10 27</vertexIdx>
+    <sideIdx>38 42 40</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>24 5 27</vertexIdx>
+    <sideIdx>37 41 39</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>11 27 5</vertexIdx>
+    <sideIdx>43 40 255</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>15 10 27</vertexIdx>
+    <sideIdx>255 39 43</sideIdx>
+  </triglData>
+  <triglData description="vertexIdx: index of each vertex of triangle , sideIdx: index of adjacent triangle" tuning_parameter_level="often_tune">
+    <vertexIdx>15 27 11</vertexIdx>
+    <sideIdx>42 41 255</sideIdx>
+  </triglData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6964532</rg>
+      <bg range="[0.0,15000.0]">0.8930388</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.4916646</rg>
+      <bg range="[0.0,15000.0]">0.75417</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6626325</rg>
+      <bg range="[0.0,15000.0]">0.9264365</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.4535725</rg>
+      <bg range="[0.0,15000.0]">0.7940854</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.995846</rg>
+      <bg range="[0.0,15000.0]">0.5898762</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.9132075</rg>
+      <bg range="[0.0,15000.0]">0.4066071</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.8718516</rg>
+      <bg range="[0.0,15000.0]">0.6416172</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.7056487</rg>
+      <bg range="[0.0,15000.0]">0.4583154</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.8052005</rg>
+      <bg range="[0.0,15000.0]">0.6361566</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6199855</rg>
+      <bg range="[0.0,15000.0]">0.4720885</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">1.109298</rg>
+      <bg range="[0.0,15000.0]">0.5585706</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">1.118224</rg>
+      <bg range="[0.0,15000.0]">0.3577299</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.7605031</rg>
+      <bg range="[0.0,15000.0]">0.7779698</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.5659301</rg>
+      <bg range="[0.0,15000.0]">0.6251162</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.3506293</rg>
+      <bg range="[0.0,15000.0]">1.226445</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">1.361772</rg>
+      <bg range="[0.0,15000.0]">0.3737124</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.8001387</rg>
+      <bg range="[0.0,15000.0]">0.7081601</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6137494</rg>
+      <bg range="[0.0,15000.0]">0.5454273</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.9073291</rg>
+      <bg range="[0.0,15000.0]">0.5955896</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.7883339</rg>
+      <bg range="[0.0,15000.0]">0.43355</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.8389207</rg>
+      <bg range="[0.0,15000.0]">0.6387498</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6624224</rg>
+      <bg range="[0.0,15000.0]">0.4653391</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.5940589</rg>
+      <bg range="[0.0,15000.0]">0.8236044</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.5581025</rg>
+      <bg range="[0.0,15000.0]">0.860261</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.9449915</rg>
+      <bg range="[0.0,15000.0]">0.4770952</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.7887501</rg>
+      <bg range="[0.0,15000.0]">0.5499663</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.712593</rg>
+      <bg range="[0.0,15000.0]">0.5541226</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">1.114791</rg>
+      <bg range="[0.0,15000.0]">0.4349763</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.6632166</rg>
+      <bg range="[0.0,15000.0]">0.701543</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.706944</rg>
+      <bg range="[0.0,15000.0]">0.6267937</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.8478315</rg>
+      <bg range="[0.0,15000.0]">0.5145698</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0.7506716</rg>
+      <bg range="[0.0,15000.0]">0.5520445</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">1</red>
+          <green range="[0.0,9999.9]">1</green>
+          <blue range="[0.0,9999.9]">1</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0</rg>
+      <bg range="[0.0,15000.0]">0</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0</rg>
+      <bg range="[0.0,15000.0]">0</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0</rg>
+      <bg range="[0.0,15000.0]">0</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0</rg>
+      <bg range="[0.0,15000.0]">0</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <vertexData description="Vertex point along with gain adjust value triggered by Lux index" tuning_parameter_level="often_tune">
+    <vertexPt>
+      <rg range="[0.0,15000.0]">0</rg>
+      <bg range="[0.0,15000.0]">0</bg>
+    </vertexPt>
+    <gainAdjData description="Gain adjust triggered by lux index">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">144</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">160</start>
+          <end range="[-100.0,15000.0]">208</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">218</start>
+          <end range="[-100.0,15000.0]">238</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">258</start>
+          <end range="[-100.0,15000.0]">282</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">295</start>
+          <end range="[-100.0,15000.0]">328</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">335</start>
+          <end range="[-100.0,15000.0]">362</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">NaN</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">NaN</blue>
+        </triggerData>
+      </triggerData>
+    </gainAdjData>
+  </vertexData>
+  <auxInfoData description="Start position of triangle search" tuning_parameter_level="often_tune">
+    <numOfStartPosition>4</numOfStartPosition>
+    <startTriangleIdx>5 19 38 41</startTriangleIdx>
+  </auxInfoData>
+  <cctAdjGainData>
+    <triggerPt description="Dummy trigger data for keeping structure consistency" tuning_parameter_level="never_tune">
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <red range="[0.0,9999.9]">0</red>
+          <green range="[0.0,9999.9]">0</green>
+          <blue range="[0.0,9999.9]">0</blue>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </cctAdjGainData>
+</triglGAV1>

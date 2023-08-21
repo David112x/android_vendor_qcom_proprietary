@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<awbSceneChangeConvergeV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modscconvv1.xsd">
+  <moduleID>
+    <moduleID type="int" range="[1,1000]">0</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>7</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enable>false</enable>
+  <detector>
+    <Aggregate>SCBasedOnAnyOne</Aggregate>
+    <filterDetector>
+      <enable>false</enable>
+      <filter>
+        <type>NoFilter</type>
+        <fir>
+          <samples range="[1,5]">3</samples>
+          <coefficient>1</coefficient>
+        </fir>
+        <iir>
+          <samplesInput range="[1,5]">2</samplesInput>
+          <coeffInput>0.2452</coeffInput>
+          <samplesOutput range="[1,5]">1</samplesOutput>
+          <coeffOutput>-0.5095</coeffOutput>
+        </iir>
+        <median>
+          <samples range="[1,10]">5</samples>
+        </median>
+      </filter>
+      <detector>
+        <type>PercGain</type>
+        <fixedBaselineEn>true</fixedBaselineEn>
+        <fixedBaselineValue>0</fixedBaselineValue>
+        <triggerTh>0</triggerTh>
+        <consCountTh range="[0,100]">5</consCountTh>
+        <postSCDFramesTh range="[0,5]">5</postSCDFramesTh>
+        <postSCDStableTh range="[0,100]">1</postSCDStableTh>
+        <holdTime range="[0,100]">2</holdTime>
+        <strictHoldTime>false</strictHoldTime>
+      </detector>
+    </filterDetector>
+  </detector>
+  <converge>
+    <slowConvReduceFactor range="[0.01,1]">0.4</slowConvReduceFactor>
+    <fastConvBoostFactor range="[1,100]">3</fastConvBoostFactor>
+    <fastConvergePercTh range="[0,100]">0.5</fastConvergePercTh>
+    <waitFramesBeforeSCStart range="[0,100]">0</waitFramesBeforeSCStart>
+  </converge>
+</awbSceneChangeConvergeV1>

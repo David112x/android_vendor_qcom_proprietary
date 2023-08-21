@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">0</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">Predictive</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">1</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">Depth AEC</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">8</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">20</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">4</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">3</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">2</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">ADRCSat</Name>
+    <enableFlag description="enable flag">false</enableFlag>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">3</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">GyroAEC</Name>
+    <enableFlag description="enable flag">false</enableFlag>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">30</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">2</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0.17</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0.2</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">100</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">3E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">3E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1.2E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1.2E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">9.9E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">9.9E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">3E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1.2E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">9.9E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1E+07</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1.2E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">9.9E+08</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">4</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">HistExt</Name>
+    <enableFlag description="enable flag">false</enableFlag>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">1.5</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">16</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">6</data>
+    <data description="tuning parameter" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+</AECParamExtension>

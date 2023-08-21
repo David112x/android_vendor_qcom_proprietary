@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="..\common\statsroipriority.xsd"/>
+	<xs:include schemaLocation="..\common\statsroidifference.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<!--
+
+Tracker Tuning Definition
+
+-->
+	<xs:element name="Tracker" type="AECTrackerType"/>
+	<xs:complexType name="AECTrackerType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerMtr" type="TrackerMeteringType"/>
+			<xs:element name="trackerConv" type="TrackerConvergenceType"/>
+			<xs:element name="statsROIProcess">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="statsROIProcessEnable" type="glbEnableFlagType" default="0"/>
+						<xs:element name="statsROIPriority" type="chromatixStatsROIPriorityType"/>
+						<xs:element name="statsROIStable" type="chromatixStatsROIDifferenceType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TrackerMeteringType">
+		<xs:sequence>
+			<xs:element name="enableTrackerROI">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable Flag for Tracker ROI AEC Adjustments"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="weightTemporalFilter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Temporal weight for Tracker Luma and Metered luma transition. Higher weight will have faster transition to Tracker Luma"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="centerWeightStrength">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify weighting of luma in the center of Tracker ROI"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableLuxTrackerTarget">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable Flag for for adjusting luma target based on lux index"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="luxTrackerLumaTarget" type="LuxLumaTargetType"/>
+			<xs:element name="statsUpdateDelayTimeEnter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in time to declare official Tracker ROI, for detection Stability"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsUpdateDelayTimeExit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in time to declare official Tracker ROI, for detection Stability"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Min and Max tracker luma weight wrt tracker size."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerLumaWeightLuxIndexTrigger">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="enableTrackerLumaTrigger">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:boolean">
+										<xs:attribute name="type" default="bool"/>
+										<xs:attribute name="description" type="xs:string" default="Enable Flag for for adjusting luma weight based on lux index"/>
+										<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+									</xs:extension>
+								</xs:simpleContent>
+							 </xs:complexType>
+						</xs:element>
+						<xs:element name="LuxTrackerLumaWeight" type="LuxTrackerWeightType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerSize">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="min and max tracker size to determine tracker weight"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerSizeWeightLuxIndexTrigger">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="enableTrackerSizeTrigger">
+							<xs:complexType>
+								<xs:simpleContent>
+									<xs:extension base="xs:boolean">
+										<xs:attribute name="type" default="bool"/>
+										<xs:attribute name="description" type="xs:string" default="Enable Flag for for adjusting Tracker size weight based on lux index"/>
+										<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+									</xs:extension>
+								</xs:simpleContent>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="LuxTrackerSizeWeight" type="LuxTrackerWeightType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableTrackerROIHistAdj">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable Flag for adjustment on Histogram AEC target calculation"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ROIHistAdjZone" type="ROIHistAdjZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TrackerConvergenceType">
+		<xs:sequence>
+			<xs:element name="convSpeedAdjRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the adjustment of convergence speed during Tracker AEC convergence"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="speedAdjDelayTimeEnter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in time to start adjusting Convergence speed"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="speedAdjDelayTimeExit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in time to start adjusting Convergence speed"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

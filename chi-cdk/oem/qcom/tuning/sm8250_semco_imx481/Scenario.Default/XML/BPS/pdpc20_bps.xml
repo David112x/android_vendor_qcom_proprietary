@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<pdpc20_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\pdpc_2_0_0.xsd">
+  <enable_section>
+    <pdpc_enable>0</pdpc_enable>
+    <dsbpc_enable>0</dsbpc_enable>
+  </enable_section>
+  <module_version major_revision="2" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <dsbpc_enable>
+      <enable type='int' range="[0,1]" length="1">0</enable>
+      <hyst_control_var type='uint' range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>0.9</start1>
+        <end1>0.91</end1>
+        <start2>0.9</start2>
+        <end2>0.91</end2>
+      </hyst_trigger>
+    </dsbpc_enable>
+  </dynamic_enable_triggers>
+  <chromatix_pdpc20_core>
+    <mod_pdpc20_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_pdpc20_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>16</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>16</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>16</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_pdpc20_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>200</gain_end>
+              </aec_trigger>
+              <pdpc20_rgn_data>
+                <fmax_pixel_q6 type='float' range="[0,127]" length="1">80</fmax_pixel_q6>
+                <fmin_pixel_q6 type='float' range="[0,127]" length="1">32</fmin_pixel_q6>
+                <hot_pixel_correction_disable type='int' range="[0,1]" length="1">0</hot_pixel_correction_disable>
+                <cold_pixel_correction_disable type='int' range="[0,1]" length="1">0</cold_pixel_correction_disable>
+                <bpc_offset type='uint' range="[0,16383]" length="1">512</bpc_offset>
+                <bcc_offset type='uint' range="[0,16383]" length="1">512</bcc_offset>
+                <bpc_offset_t2 type='uint' range="[0,16383]" length="1">512</bpc_offset_t2>
+                <bcc_offset_t2 type='uint' range="[0,16383]" length="1">512</bcc_offset_t2>
+                <correction_threshold type='uint' range="[0,16383]" length="1">128</correction_threshold>
+                <remove_along_edge type='int' range="[0,1]" length="1">0</remove_along_edge>
+                <using_cross_channel type='int' range="[0,1]" length="1">1</using_cross_channel>
+                <saturation_threshold type='uint' range="[0,16383]" length="1">1023</saturation_threshold>
+              </pdpc20_rgn_data>
+            </mod_pdpc20_aec_data>
+          </hdr_aec_data>
+        </mod_pdpc20_hdr_aec_data>
+      </drc_gain_data>
+    </mod_pdpc20_drc_gain_data>
+  </chromatix_pdpc20_core>
+</pdpc20_bps>

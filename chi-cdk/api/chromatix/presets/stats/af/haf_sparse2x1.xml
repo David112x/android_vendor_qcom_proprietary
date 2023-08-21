@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixHAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\xsd\stats\af\afhafelements.xsd">
+
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+
+  <enable_section>
+    <CAFEnable>1</CAFEnable>
+    <PDAFEnable>1</PDAFEnable>
+    <TOFEnable>0</TOFEnable>
+    <DCIAFEnable>0</DCIAFEnable>
+    <DepthAFEnable>0</DepthAFEnable>
+  </enable_section>
+  <defaultROISize>
+    <width>0.3</width>
+    <height>0.3</height>
+    <lowlightScalerRatio>1.0</lowlightScalerRatio>
+  </defaultROISize>
+  <ROIGridSetting>
+    <gridRatioH>0.2</gridRatioH>
+    <gridRatioV>0.2</gridRatioV>
+    <gridGapRatioH>0.0</gridGapRatioH>
+    <gridGapRatioV>0.0</gridGapRatioV>
+  </ROIGridSetting>
+  <statsConsumeEnable>1</statsConsumeEnable>
+  <statsConsumeEnable>1</statsConsumeEnable>
+  <statsConsumeEnable>1</statsConsumeEnable>
+  <statsSelect>AF_FV_STATS_TYPE_HW_1</statsSelect>
+  <fineSearchDropThreshold>0.99</fineSearchDropThreshold>
+  <fineStepSize>5</fineStepSize>
+  <maxMoveStep>200</maxMoveStep>
+  <maxMoveStepBuffer>200</maxMoveStepBuffer>
+  <baseFrameDelay>0</baseFrameDelay>
+  <AFFineSearchExtension>
+    <enable>1</enable>
+    <maximumFineSearchExtensionCount>3</maximumFineSearchExtensionCount>
+    <numNearSteps>3</numNearSteps>
+    <numFarSteps>3</numFarSteps>
+    <stepSize>5</stepSize>
+    <decreaseDropRatio>0.992</decreaseDropRatio>
+  </AFFineSearchExtension>
+  <sceneChangeDuringFS>0</sceneChangeDuringFS>
+  <faceCAFHighPriorityEnable>0</faceCAFHighPriorityEnable>
+  <enableInitialPosition>1</enableInitialPosition>
+  <initialLensIdx>10</initialLensIdx>
+  <depthConfidenceCountThreshold>2</depthConfidenceCountThreshold>
+  <HAFROISettings>
+    <HAFROIEnable>1</HAFROIEnable>
+    <HAFROIHNum>1</HAFROIHNum>
+    <HAFROIVNum>1</HAFROIVNum>
+    <HAFCenterROISize>0.2</HAFCenterROISize>
+    <HAFCornerROISize>0.25</HAFCornerROISize>
+    <HAFROIDelay>0</HAFROIDelay>
+    <enableROIShifting>0</enableROIShifting>
+    <ROIShiftType>0</ROIShiftType>
+  </HAFROISettings>
+  <HAFFollowerSettings>
+    <enableFollower>1</enableFollower>
+    <AFFollowerFineSearchSettings>
+      <normalLightFineSearchInfo>
+        <AFFollowerMacroRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerMacroRange>
+        <AFFollowerMidRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerMidRange>
+        <AFFollowerFarRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerFarRange>
+      </normalLightFineSearchInfo>
+      <lowLightFineSearchInfo>
+        <AFFollowerMacroRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerMacroRange>
+        <AFFollowerMidRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerMidRange>
+        <AFFollowerFarRange>
+          <stepSize>10</stepSize>
+          <numFarSteps>3</numFarSteps>
+          <numNearSteps>3</numNearSteps>
+        </AFFollowerFarRange>
+      </lowLightFineSearchInfo>
+    </AFFollowerFineSearchSettings>
+    <enableGravityCompensationForFollower>0</enableGravityCompensationForFollower>
+    <jumpToStartLimitForFollower>100</jumpToStartLimitForFollower>
+    <lowLightThresholdForFollower>3</lowLightThresholdForFollower>
+    <useFineSearchExtensionForFollower>1</useFineSearchExtensionForFollower>
+    <activeConvergenceFollowForFollower>1</activeConvergenceFollowForFollower>
+    <lensPosThresholdForActiveConvergenceFollow>0</lensPosThresholdForActiveConvergenceFollow>
+    <searchStrategy>0</searchStrategy>
+    <lensMappingStrategy>0</lensMappingStrategy>
+  </HAFFollowerSettings>
+  <macroRegionThresholdInMM>5000</macroRegionThresholdInMM>
+  <farRegionThresholdinMM>200</farRegionThresholdinMM>
+  <fineStartMoveBuffer>0</fineStartMoveBuffer>
+  <DOFMultiplier>1</DOFMultiplier>
+  <enableForceScanEnd>0</enableForceScanEnd>
+  <enablePassiveScanTimeout>0</enablePassiveScanTimeout>
+  <enableZeroTouchLag>0</enableZeroTouchLag>
+  <maxScanCountThreshold>40</maxScanCountThreshold>
+  <gyroSettings>
+    <enableGyroSamplingRateAdjustment>0</enableGyroSamplingRateAdjustment>
+    <gyroSamplingRateMonitor>33</gyroSamplingRateMonitor>
+    <gyroSamplingRateSearching>66</gyroSamplingRateSearching>
+    <gyroSamplingRateSearchingHJ>200</gyroSamplingRateSearchingHJ>
+  </gyroSettings>
+  <enableDynamicAnchorPoints>0</enableDynamicAnchorPoints>
+  <anchorPosition1>4</anchorPosition1>
+  <anchorPosition2>10</anchorPosition2>
+  <minimumFocusIndex>1</minimumFocusIndex>
+  <HJNormalizedWeightType>0</HJNormalizedWeightType>
+  <CAFHJNormalizedWeightType>280</CAFHJNormalizedWeightType>
+  <AFControlAECInfoEnable>1</AFControlAECInfoEnable>
+  <AFControlAECInfoFPS>30</AFControlAECInfoFPS>
+  <spd_stats_type>0</spd_stats_type>
+  <spd_bg_stats_thresh_auto_convert_enable>1</spd_bg_stats_thresh_auto_convert_enable>
+  <enableParallelSearch>0</enableParallelSearch>
+</chromatixHAF>

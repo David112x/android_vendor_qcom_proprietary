@@ -1,0 +1,57 @@
+{
+  "config": {
+    "hw_platform": ["MTP", "IOT", "QRD"],
+    "soc_id": ["416", "437"]
+  },
+  "sns_tilt":{
+    "owner": "sns_tilt",
+    ".algo":{
+      "owner": "sns_tilt",
+      ".config":{
+        "owner": "sns_tilt",
+        "batch_period":{ "type": "int", "ver": "0",
+          "data": "100000"
+        },
+        "sample_rate":{ "type": "flt", "ver": "0",
+          "data": "20.0"
+        },
+        "filter_window_seconds":{ "type": "flt", "ver": "0",
+          "data": "0.16"
+        },
+        "accel_window_seconds":{ "type": "flt", "ver": "0",
+          "data": "0.77"
+        },
+        "accel_sub_window_seconds":{ "type": "flt", "ver": "0",
+          "data": "0.51"
+        },
+        "window_for_end_accel_stability_check_seconds":{ "type": "flt", "ver": "0",
+          "data": "0.16"
+        },
+        "min_delta_pitch_threshold_deg":{ "type": "flt", "ver": "0",
+          "data": "50.0"
+        },
+        "max_end_pitch_threshold_deg":{ "type": "flt", "ver": "0",
+          "data": "90.0"
+        },
+        "min_end_pitch_threshold_deg":{ "type": "flt", "ver": "0",
+          "data": "-5.0"
+        },
+        "max_end_roll_threshold_deg":{ "type": "flt", "ver": "0",
+          "data": "40.0"
+        },
+        "max_end_accel_spread_threshold":{ "type": "flt", "ver": "0",
+          "data": "5.4"
+        },
+        "max_end_accel_norm_deviation_from_G_threshold":{ "type": "flt", "ver": "0",
+          "data": "3.0"
+        },
+        "adaptive_filter_tc_seconds":{ "type": "flt", "ver": "0",
+          "data": "2.5"
+        },
+        "tilt_w_threshold_motion_noise_coeff":{ "type": "flt", "ver": "0",
+          "data": "0.0"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2020 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:simpleType name="ResourceType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="ResourceTypeBW"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name = "hexInteger">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="0x[0-9A-Fa-f]+|[0-9]+"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name ="ResourceParam">
+        <xs:attribute name="type" type="ResourceType" use ="required" />
+        <xs:attribute name="value" type="xs:unsignedInt" use ="required"/>
+     </xs:complexType>
+
+    <xs:complexType name="UsecaseInfo">
+        <xs:sequence>
+            <xs:element name="ResourceParam"     type="ResourceParam"  minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="usecaseID" type="hexInteger" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="BLMConfig">
+        <xs:sequence>
+            <xs:element name="UsecaseInfo"      type="UsecaseInfo"      minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="BLMConfig" type="BLMConfig"/>
+ </xs:schema>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SensorHDRDefaultConfig
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecSensorConfig.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <SensorLumaComp type='float' range="[0,5]">0</SensorLumaComp>
+  <esRatio type='float' range="[0,5]">0</esRatio>
+  <!--
+
+Core Stats Configuration Tuning Definition
+
+ -->
+  <LumaCalculationConfig range="[0,1]">LumaCalculationTypeGridPrio</LumaCalculationConfig>
+</SensorHDRDefaultConfig>

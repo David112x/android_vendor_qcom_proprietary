@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixPDAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afpdafelements.xsd">
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <is2PDEnable type="bool">false</is2PDEnable>
+  <ROI>
+    <Configuration>
+      <ROILocationY type="int" range="[0,5]">0</ROILocationY>
+      <ROILocationX type="int" range="[0,5]">0</ROILocationX>
+      <ROINumRows type="int" range="[1,5]">1</ROINumRows>
+      <ROINumCols type="int" range="[1,5]">1</ROINumCols>
+    </Configuration>
+  </ROI>
+  <focusTable>
+    <focusEntries>
+      <defocus type="int" range="[0,500]">12</defocus>
+      <movePercent type="float" range="[0,1]">1</movePercent>
+    </focusEntries>
+    <focusEntries>
+      <defocus type="int" range="[0,500]">57</defocus>
+      <movePercent type="float" range="[0,1]">1</movePercent>
+    </focusEntries>
+    <focusEntries>
+      <defocus type="int" range="[0,500]">96</defocus>
+      <movePercent type="float" range="[0,1]">0.85</movePercent>
+    </focusEntries>
+    <focusEntries>
+      <defocus type="int" range="[0,500]">128</defocus>
+      <movePercent type="float" range="[0,1]">0.7</movePercent>
+    </focusEntries>
+    <focusEntries>
+      <defocus type="int" range="[0,500]">256</defocus>
+      <movePercent type="float" range="[0,1]">0.6</movePercent>
+    </focusEntries>
+  </focusTable>
+  <noiseTable>
+    <noiseEntries>
+      <noiseGain type="float" range="[0,40]">0</noiseGain>
+      <noiseGainMultiplier type="float" range="[1,10]">1</noiseGainMultiplier>
+    </noiseEntries>
+    <noiseEntries>
+      <noiseGain type="float" range="[0,40]">10</noiseGain>
+      <noiseGainMultiplier type="float" range="[1,10]">1.1</noiseGainMultiplier>
+    </noiseEntries>
+    <noiseEntries>
+      <noiseGain type="float" range="[0,40]">15</noiseGain>
+      <noiseGainMultiplier type="float" range="[1,10]">1.2</noiseGainMultiplier>
+    </noiseEntries>
+    <noiseEntries>
+      <noiseGain type="float" range="[0,40]">20</noiseGain>
+      <noiseGainMultiplier type="float" range="[1,10]">1.4</noiseGainMultiplier>
+    </noiseEntries>
+    <noiseEntries>
+      <noiseGain type="float" range="[0,40]">30</noiseGain>
+      <noiseGainMultiplier type="float" range="[1,10]">1.5</noiseGainMultiplier>
+    </noiseEntries>
+  </noiseTable>
+  <confidenceTable>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">0</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">150</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">6</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">150</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">12</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">150</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">18</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">150</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">24</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">200</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">35</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">350</minimumConfidence>
+    </confidenceEntries>
+  </confidenceTable>
+  <confidenceHighTable>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">0</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">180</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">6</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">180</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">9.1</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">180</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">12</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">200</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">17</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">240</minimumConfidence>
+    </confidenceEntries>
+    <confidenceEntries>
+      <noiseGain type="float" range="[0,40]">23</noiseGain>
+      <minimumConfidence type="int" range="[0,1023]">240</minimumConfidence>
+    </confidenceEntries>
+  </confidenceHighTable>
+  <fallbackConfidence type="uint" range="[0,1023]">10</fallbackConfidence>
+  <stableTable>
+    <stableEntries>
+      <FPS type="int" range="[0,120]">10</FPS>
+      <minimumStableCount type="int" range="[0,30]">0</minimumStableCount>
+    </stableEntries>
+    <stableEntries>
+      <FPS type="int" range="[0,120]">14</FPS>
+      <minimumStableCount type="int" range="[0,30]">0</minimumStableCount>
+    </stableEntries>
+    <stableEntries>
+      <FPS type="int" range="[0,120]">24</FPS>
+      <minimumStableCount type="int" range="[0,30]">0</minimumStableCount>
+    </stableEntries>
+  </stableTable>
+  <dofScalerTable>
+    <dofScalerEntries>
+      <normalizedLensPosition type="float" range="[0,1]">0</normalizedLensPosition>
+      <dofScaler type="float" range="[1,unbounded]">1</dofScaler>
+    </dofScalerEntries>
+    <dofScalerEntries>
+      <normalizedLensPosition type="float" range="[0,1]">1</normalizedLensPosition>
+      <dofScaler type="float" range="[1,unbounded]">1.1</dofScaler>
+    </dofScalerEntries>
+  </dofScalerTable>
+  <focusScan>
+    <focusConvergeFrameSkip type="int" range="[0,5]">1</focusConvergeFrameSkip>
+    <enableFineScan type="int" range="[0,1]">0</enableFineScan>
+    <minimumFineScanRange type="int" range="[1,2]">1</minimumFineScanRange>
+    <fineScanStepSize type="int" range="[1,50]">8</fineScanStepSize>
+    <focusDoneThreshold type="int" range="[0,50]">10</focusDoneThreshold>
+    <enableFineScanExtension type="int" range="[0,1]">1</enableFineScanExtension>
+    <firstRunNotConfidenceAdd type="int" range="[0,5]">0</firstRunNotConfidenceAdd>
+  </focusScan>
+  <sceneMonitor>
+    <waitAfterFocusCount type="int" range="[0,10]">4</waitAfterFocusCount>
+    <waitConfidenceRecoverCount type="int" range="[0,10]">4</waitConfidenceRecoverCount>
+    <defocusedThreshold type="float" range="[0,50]">25</defocusedThreshold>
+    <depthStableThreshold type="float" range="[0,50]">20</depthStableThreshold>
+    <defocusStableFilterLength type="int" range="[0,5]">3</defocusStableFilterLength>
+    <enableTriggerSuppressionBySceneChange type="int" range="[0,1]">1</enableTriggerSuppressionBySceneChange>
+    <defocusDOFMultiplier type="float" range="[0,2]">1.2</defocusDOFMultiplier>
+    <defocusThresholdScaler type="float" range="[0,5]">0</defocusThresholdScaler>
+  </sceneMonitor>
+  <PDPreprocessing>
+    <enable type="int" range="[0,1]">1</enable>
+    <enableDoNotUseDefocusSampleByPD type="int" range="[0,1]">1</enableDoNotUseDefocusSampleByPD>
+    <enableIncMinConfidenceThresholdByPD type="int" range="[0,1]">1</enableIncMinConfidenceThresholdByPD>
+    <PDMaxLimitDoNotUseDefocusSample type="float" range="[12,32]">616</PDMaxLimitDoNotUseDefocusSample>
+    <PDMaxLimitIncMinConfidenceThreshold type="float" range="[0,5]">422</PDMaxLimitIncMinConfidenceThreshold>
+    <incMinConfidenceThresholdByPDScaler type="float" range="[0,5]">1.25</incMinConfidenceThresholdByPDScaler>
+    <PDStdThreshold type="float" range="[0,8]">5</PDStdThreshold>
+    <PDDefocusHighErrorScCheck type="int" range="[2,30]">30</PDDefocusHighErrorScCheck>
+    <PDAverageDefocusHighErrScCheck type="int" range="[2,30]">30</PDAverageDefocusHighErrScCheck>
+    <PDLowlightGainThresholdScCheck type="int" range="[2,30]">20</PDLowlightGainThresholdScCheck>
+    <PDDefocusHighScCheck type="int" range="[2,30]">5</PDDefocusHighScCheck>
+    <PDDefocusHighScCheck type="int" range="[2,30]">5</PDDefocusHighScCheck>
+    <PDDefocusHighScCheck type="int" range="[2,30]">8</PDDefocusHighScCheck>
+    <PDDefocusHighScCheck type="int" range="[2,30]">5</PDDefocusHighScCheck>
+    <PDAverageDefocusHighScCheck type="int" range="[2,30]">5</PDAverageDefocusHighScCheck>
+    <PDAverageDefocusHighScCheck type="int" range="[2,30]">5</PDAverageDefocusHighScCheck>
+    <PDAverageDefocusHighScCheck type="int" range="[2,30]">8</PDAverageDefocusHighScCheck>
+    <PDAverageDefocusHighScCheck type="int" range="[2,30]">5</PDAverageDefocusHighScCheck>
+    <PDLowlightDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightDefocusHighScCheck>
+    <PDLowlightDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightDefocusHighScCheck>
+    <PDLowlightDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightDefocusHighScCheck>
+    <PDLowlightDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightDefocusHighScCheck>
+    <PDLowlightAverageDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightAverageDefocusHighScCheck>
+    <PDLowlightAverageDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightAverageDefocusHighScCheck>
+    <PDLowlightAverageDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightAverageDefocusHighScCheck>
+    <PDLowlightAverageDefocusHighScCheck type="int" range="[2,30]">4</PDLowlightAverageDefocusHighScCheck>
+  </PDPreprocessing>
+  <PDInternal>
+    <type type="int" range="[1,3]">2</type>
+    <initialPosition type="int" range="[0,500]">10</initialPosition>
+    <PDAFEnableFaceCAFPriority type="int" range="[0,1]">1</PDAFEnableFaceCAFPriority>
+    <incDefocusThresholdPreviousError type="float" range="[0,20]">5</incDefocusThresholdPreviousError>
+    <fineScanRangeEnhance type="int" range="[0,1]">1</fineScanRangeEnhance>
+    <softRegionThresholdMultiplier type="float" range="[0,1]">0.6</softRegionThresholdMultiplier>
+    <enableSoftConfidenceThreshold type="int">1</enableSoftConfidenceThreshold>
+    <softConfidenceThresholdDelta type="float" range="[0,200]">50</softConfidenceThresholdDelta>
+    <softConfidenceFocus_pnt type="float" range="[0,1]">0.6</softConfidenceFocus_pnt>
+    <enableSoftRegionThresholdHigh type="int">1</enableSoftRegionThresholdHigh>
+    <softRegionThresholdHighMultiplier type="float" range="[2,6]">4</softRegionThresholdHighMultiplier>
+    <softSceneChangeCount type="int" range="[1,6]">1</softSceneChangeCount>
+    <cafStableFrameAllow>
+      <enable type="int" range="[0,1]">0</enable>
+      <frameCount type="uint" range="[1,200]">0</frameCount>
+    </cafStableFrameAllow>
+  </PDInternal>
+  <PDMultiWindow>
+    <enable type="int">1</enable>
+    <HClipRatioNormalLight type="float" range="[0,1]">0.4</HClipRatioNormalLight>
+    <VClipRatioNormalLight type="float" range="[0,1]">0.4</VClipRatioNormalLight>
+    <HClipRatioLowLight type="float" range="[0,1]">0.4</HClipRatioLowLight>
+    <VClipRatioLowLight type="float" range="[0,1]">0.4</VClipRatioLowLight>
+    <HNumWindows type="float" range="[1,5]">3</HNumWindows>
+    <VNumWindows type="float" range="[1,5]">3</VNumWindows>
+    <PDPercentile type="float" range="[0,1]">0.2</PDPercentile>
+    <defocusThreshold type="int" range="[0,50]">10</defocusThreshold>
+    <confidenceThMultiple type="float" range="[0,10]">1.5</confidenceThMultiple>
+    <multiDepthDetect>
+      <percentile type="float" range="[0,1]">0.2</percentile>
+      <detectThLow type="float" range="[0,500]">20</detectThLow>
+      <detectThHigh type="float" range="[0,500]">30</detectThHigh>
+    </multiDepthDetect>
+    <lowLightDetect>
+      <gainThLow type="float" range="[0,60]">10</gainThLow>
+      <gainThHigh type="float" range="[0,60]">12</gainThHigh>
+    </lowLightDetect>
+    <lockToPeripheralDuringSearch type="int">0</lockToPeripheralDuringSearch>
+    <activZoomControl>
+      <enable type="int">0</enable>
+      <zoomThreshold type="float">0.4</zoomThreshold>
+    </activZoomControl>
+  </PDMultiWindow>
+  <enableCheckVHStatsRatio type="int" range="[0,1]">0</enableCheckVHStatsRatio>
+  <VHStatsRatioUnconfidentThreshold type="int" range="[0,20]">4</VHStatsRatioUnconfidentThreshold>
+  <enablePDEarlyInterrupt type="int" range="[0,1]">1</enablePDEarlyInterrupt>
+  <dynamicFrameSkipVBlankThreshold type="float" range="[0.0, 30.0]">0</dynamicFrameSkipVBlankThreshold>
+  <ledPdafMaxFrameAllow>
+    <enable type="int" range="[0,1]">0</enable>
+    <maxFrameCnt type="uint" range="[1,200]">50</maxFrameCnt>
+  </ledPdafMaxFrameAllow>
+  <sparsePDTouchFaceConfidenceThreshold type="int" range="[0,1023]">400</sparsePDTouchFaceConfidenceThreshold>
+  <sparsePDTouchFaceLowDefocusConfidenceThreshold type="int" range="[0,1023]">500</sparsePDTouchFaceLowDefocusConfidenceThreshold>
+  <enableEnterLSPLowConfidenceHunting type="int" range="[0,1]">1</enableEnterLSPLowConfidenceHunting>
+  <LSPLowConfidenceHuntingThreshold type="int" range="[0,10]">2</LSPLowConfidenceHuntingThreshold>
+  <face>
+    <faceROIProcess>
+      <ROIProcessEnable>1</ROIProcessEnable>
+      <ROIRoughStable>
+        <statsROIDiffEnable>1</statsROIDiffEnable>
+        <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+        <statsROIDiffThreshold>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">8</start>
+              <end type="float" range="[-100.0,15000.0]">8</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">4</start>
+              <end type="float" range="[-100.0,15000.0]">4</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">1</start>
+              <end type="float" range="[-100.0,15000.0]">1</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+        </statsROIDiffThreshold>
+      </ROIRoughStable>
+      <ROIStrictStable>
+        <statsROIDiffEnable>1</statsROIDiffEnable>
+        <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+        <statsROIDiffThreshold>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">8</start>
+              <end type="float" range="[-100.0,15000.0]">8</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">4</start>
+              <end type="float" range="[-100.0,15000.0]">4</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">1</start>
+              <end type="float" range="[-100.0,15000.0]">1</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+        </statsROIDiffThreshold>
+      </ROIStrictStable>
+    </faceROIProcess>
+    <minMoveThreshold type="uint" range="[0,7]">3</minMoveThreshold>
+    <ROIMoveConvergeSuppress>
+      <enable type="bool">false</enable>
+      <stableCountThreshold type="uint" range="[1,100]">3</stableCountThreshold>
+      <moveThresholdInX type="float" range="[0.1,1.0]">0.5</moveThresholdInX>
+      <moveThresholdInY type="float" range="[0.1,1.0]">0.5</moveThresholdInY>
+    </ROIMoveConvergeSuppress>
+    <defocusFilter>
+      <enable type="bool">true</enable>
+      <length type="uint" range="[1,10]">3</length>
+      <confidenceHighThreshold type="uint" range="[0,1023]">700</confidenceHighThreshold>
+    </defocusFilter>
+    <fallback>
+      <enable type="bool">false</enable>
+      <fallbackROISizeThreshold type="uint" range="[0,4032]">200</fallbackROISizeThreshold>
+    </fallback>
+    <faceChangeRefocusTrigger>
+      <enable type="bool">false</enable>
+      <roiChangeThreshPercentage type="float" range="[0,1]">0.1</roiChangeThreshPercentage>
+      <roiSizeStableThresh type="uint" range="[0,100]">10</roiSizeStableThresh>
+    </faceChangeRefocusTrigger>
+  </face>
+  <touch>
+    <offCenterThreshold type="float" range="[0,1]">0.33</offCenterThreshold>
+    <skipSearchIfSceneInFocus type="int" range="[0,1]">0</skipSearchIfSceneInFocus>
+  </touch>
+  <track>
+    <trackROIProcess>
+      <trackROIRoughStable>
+        <statsROIDiffEnable>1</statsROIDiffEnable>
+        <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+        <statsROIDiffThreshold>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">8</start>
+              <end type="float" range="[-100.0,15000.0]">8</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">4</start>
+              <end type="float" range="[-100.0,15000.0]">4</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">1</start>
+              <end type="float" range="[-100.0,15000.0]">1</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+        </statsROIDiffThreshold>
+      </trackROIRoughStable>
+      <trackROIStrictStable>
+        <statsROIDiffEnable>1</statsROIDiffEnable>
+        <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+        <statsROIDiffThreshold>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">8</start>
+              <end type="float" range="[-100.0,15000.0]">8</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">4</start>
+              <end type="float" range="[-100.0,15000.0]">4</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+          <triggerData>
+            <triggerPt>
+              <start type="float" range="[-100.0,15000.0]">1</start>
+              <end type="float" range="[-100.0,15000.0]">1</end>
+            </triggerPt>
+            <triggerData>
+              <locationThreshold type="float" range="[0.0,100.0]">0.5</locationThreshold>
+              <sizeThreshold type="float" range="[0.0,100.0]">0.5</sizeThreshold>
+              <countThreshold type="int" range="[0,100]">3</countThreshold>
+            </triggerData>
+          </triggerData>
+        </statsROIDiffThreshold>
+      </trackROIStrictStable>
+    </trackROIProcess>
+    <minMoveThreshold type="uint" range="[0,7]">3</minMoveThreshold>
+    <defocusFilter>
+      <enable type="bool">true</enable>
+      <length type="uint" range="[1,10]">3</length>
+      <confidenceHighThreshold type="uint" range="[0,1023]">700</confidenceHighThreshold>
+    </defocusFilter>
+    <fallback>
+      <enable type="bool">false</enable>
+      <fallbackROISizeThreshold type="uint" range="[0,4032]">200</fallbackROISizeThreshold>
+    </fallback>
+  </track>
+  <convergeDoneFilter>
+    <enable type="bool">true</enable>
+    <length type="uint" range="[1,5]">3</length>
+    <threshold type="uint" range="[1,900]">8</threshold>
+  </convergeDoneFilter>
+  <forceEnterFineSearch>
+    <enable type="bool">false</enable>
+    <directionReverseCountThreshold type="uint" range="[0,10]">2</directionReverseCountThreshold>
+  </forceEnterFineSearch>
+  <advancedSparseControl>
+    <enableForSparsePD type="bool">false</enableForSparsePD>
+    <skipFineScan type="int" range="[0,1]">1</skipFineScan>
+    <focusDoneThreshold type="int" range="[0,50]">10</focusDoneThreshold>
+    <focusTable>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">8</defocus>
+        <movePercent type="float" range="[0,1]">0</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">16</defocus>
+        <movePercent type="float" range="[0,1]">1</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">32</defocus>
+        <movePercent type="float" range="[0,1]">0.95</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">64</defocus>
+        <movePercent type="float" range="[0,1]">0.9</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">128</defocus>
+        <movePercent type="float" range="[0,1]">0.85</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">256</defocus>
+        <movePercent type="float" range="[0,1]">0.7</movePercent>
+      </focusEntries>
+      <focusEntries>
+        <defocus type="int" range="[0,500]">399</defocus>
+        <movePercent type="float" range="[0,1]">0.6</movePercent>
+      </focusEntries>
+    </focusTable>
+  </advancedSparseControl>
+</chromatixPDAF>

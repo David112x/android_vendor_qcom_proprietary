@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<eis10_sw
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\eis_1_0_0.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <chromatix_eis10_reserve>
+    <general>
+      <virtual_margin type='float' range="[0, 0.75]" length="1">0</virtual_margin>
+      <focal_length type='uint' range="[0, 65535]" length="1">1755</focal_length>
+      <gyro_frequency type='uint' range="[200, 2000]" length="1">400</gyro_frequency>
+      <gyro_noise_floor type='float' range="[0, 0.1]" length="1">0.003</gyro_noise_floor>
+      <gyro_pixel_scale type='float' range="[20, 40]" length="1">30</gyro_pixel_scale>
+      <res_param_1 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_1>
+      <res_param_2 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_2>
+      <res_param_3 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_3>
+      <res_param_4 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_4>
+      <res_param_5 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_5>
+      <res_param_6 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_6>
+      <res_param_7 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_7>
+      <res_param_8 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_8>
+      <res_param_9 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_9>
+      <res_param_10 type='float' range="[-99999999999, 99999999999]" length="1">0</res_param_10>
+      <res_lut_param_1_tab range="[-99999999999, 99999999999]" length="32">
+        <res_lut_param_1>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_1>
+      </res_lut_param_1_tab>
+      <res_lut_param_2_tab range="[-99999999999, 99999999999]" length="32">
+        <res_lut_param_2>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_2>
+      </res_lut_param_2_tab>
+    </general>
+    <timing>
+      <s3d_offset_1 type='int' range="[-30000, 30000]" length="1">5500</s3d_offset_1>
+      <s3d_offset_2 type='int' range="[-30000, 30000]" length="1">500</s3d_offset_2>
+      <s3d_offset_3 type='int' range="[-30000, 30000]" length="1">-4500</s3d_offset_3>
+      <s3d_offset_4 type='int' range="[-30000, 30000]" length="1">-7500</s3d_offset_4>
+      <s3d_threshold_1 type='float' range="[0, 0.03]" length="1">0.005</s3d_threshold_1>
+      <s3d_threshold_2 type='float' range="[0, 0.03]" length="1">0.01</s3d_threshold_2>
+      <s3d_threshold_3 type='float' range="[0, 0.03]" length="1">0.02</s3d_threshold_3>
+      <s3d_threshold_4_ext type='float' range="[0, 0.03]" length="1">0.02</s3d_threshold_4_ext>
+      <rs_offset_1 type='int' range="[-30000, 30000]" length="1">5500</rs_offset_1>
+      <rs_offset_2 type='int' range="[-30000, 30000]" length="1">500</rs_offset_2>
+      <rs_offset_3 type='int' range="[-30000, 30000]" length="1">-4500</rs_offset_3>
+      <rs_offset_4 type='int' range="[-30000, 30000]" length="1">-7500</rs_offset_4>
+      <rs_threshold_1 type='float' range="[0, 0.03]" length="1">0.005</rs_threshold_1>
+      <rs_threshold_2 type='float' range="[0, 0.03]" length="1">0.01</rs_threshold_2>
+      <rs_threshold_3 type='float' range="[0, 0.03]" length="1">0.02</rs_threshold_3>
+      <rs_threshold_4_ext type='float' range="[0, 0.03]" length="1">0.02</rs_threshold_4_ext>
+    </timing>
+  </chromatix_eis10_reserve>
+</eis10_sw>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cc12_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cc_1_2_0.xsd">
+  <enable_section>
+    <cc_enable>1</cc_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="2" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_cc12_reserve>
+    <q_factor type='uint' range="[0,3]" length="1">0</q_factor>
+  </chromatix_cc12_reserve>
+  <chromatix_cc12_core>
+    <mod_cc12_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_cc12_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_cc12_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_cc12_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_cc12_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <cc12_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1 0 0 0 1 0 0 0 1</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc12_rgn_data>
+                    </mod_cc12_cct_data>
+                  </aec_data>
+                </mod_cc12_aec_data>
+              </led_idx_data>
+            </mod_cc12_led_idx_data>
+          </hdr_aec_data>
+        </mod_cc12_hdr_aec_data>
+      </drc_gain_data>
+    </mod_cc12_drc_gain_data>
+  </chromatix_cc12_core>
+</cc12_ife>

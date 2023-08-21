@@ -1,0 +1,213 @@
+/*
+ * Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.ims@1.6;
+
+import @1.0::CallDomain;
+import @1.0::CallModifyFailCause;
+import @1.0::CallState;
+import @1.0::CallType;
+import @1.0::ConfigFailureCause;
+import @1.0::Extra;
+import @1.0::HandoverType;
+import @1.0::RadioTechType;
+import @1.0::RegState;
+import @1.0::RttMode;
+import @1.0::ServiceType;
+import @1.0::StatusType;
+import @1.0::IpPresentation;
+import @1.2::VerificationStatus;
+import @1.3::VerstatInfo;
+import @1.4::MultiIdentityLineInfoHal;
+import @1.5::CallFailCause;
+import @1.5::CallFailCauseResponse;
+import @1.5::ConfigItem;
+import @1.5::TirMode;
+
+enum ConfigItem : @1.5::ConfigItem {
+    CONFIG_ITEM_SET_AUTO_REJECT_CALL_MODE_CONFIG,
+    CONFIG_ITEM_VOWIFI_FQDN,
+    CONFIG_ITEM_MMTEL_CALL_COMPOSER_CONFIG,
+};
+
+struct ConfigInfo {
+    ConfigItem item;
+    bool hasBoolValue;
+    bool boolValue;
+    uint32_t intValue;
+    string stringValue;
+    ConfigFailureCause errorCause;
+};
+
+enum RadioTechType : @1.0::RadioTechType {
+    RADIO_TECH_NR5G,
+};
+
+struct RegistrationInfo {
+    RegState state;
+    uint32_t errorCode;
+    string errorMessage;
+    RadioTechType radioTech;
+    string pAssociatedUris;
+};
+
+struct StatusForAccessTech {
+    RadioTechType networkMode;
+    StatusType status;
+    uint32_t restrictCause;
+    bool hasRegistration;
+    RegistrationInfo registration;
+};
+
+enum CallType : @1.0::CallType {
+    CALL_TYPE_USSD,
+    CALL_TYPE_CALLCOMPOSER,
+};
+
+struct ServiceStatusInfo {
+    bool hasIsValid;
+    bool isValid;
+    ServiceType type;
+    CallType callType;
+    StatusType status;
+    vec<uint8_t> userdata;
+    uint32_t restrictCause;
+    vec<StatusForAccessTech> accTechStatus;
+    RttMode rttMode;
+};
+
+struct DialRequest {
+    string address;
+    uint32_t clirMode;
+    IpPresentation presentation;
+    bool hasCallDetails;
+    CallDetails callDetails;
+    bool hasIsConferenceUri;
+    bool isConferenceUri;
+    bool hasIsCallPull;
+    bool isCallPull;
+    bool hasIsEncrypted;
+    bool isEncrypted;
+    MultiIdentityLineInfoHal multiLineInfo;
+    /*
+     * redialInfo will be sent when lower layers end the call asking
+     * Android Telephony to redial. Decision to redial the call or not
+     * is dependent on specific call fail causes that are agreed
+     * with modem.
+     */
+    RedialInfo redialInfo;
+};
+
+struct RedialInfo {
+    /*
+     * Holds the reason why the call is redialed
+     * Default Value: CALL_FAIL_ERROR_UNSPECIFIED
+     */
+    CallFailCause callFailReason;
+    /*
+     * Holds the radioTech on which lower layers may
+     * attempt redialing the call
+     * Default Value: RADIO_TECH_UNKNOWN
+     */
+    RadioTechType callFailRadioTech;
+};
+
+struct CallDetails {
+    CallType callType;
+    CallDomain callDomain;
+    uint32_t extrasLength;
+    vec<string> extras;
+    vec<ServiceStatusInfo> localAbility;
+    vec<ServiceStatusInfo> peerAbility;
+    uint32_t callSubstate;
+    uint32_t mediaId;
+    uint32_t causeCode;
+    RttMode rttMode;
+    string sipAlternateUri;
+};
+
+struct CallInfo {
+    CallState state;
+    uint32_t index;
+    uint32_t toa;
+    bool hasIsMpty;
+    bool isMpty;
+    bool hasIsMT;
+    bool isMT;
+    MultiIdentityLineInfoHal mtMultiLineInfo;
+    uint32_t als;
+    bool hasIsVoice;
+    bool isVoice;
+    bool hasIsVoicePrivacy;
+    bool isVoicePrivacy;
+    string number;
+    uint32_t numberPresentation;
+    string name;
+    uint32_t namePresentation;
+    bool hasCallDetails;
+    CallDetails callDetails;
+    bool hasFailCause;
+    CallFailCauseResponse failCause;
+    bool hasIsEncrypted;
+    bool isEncrypted;
+    bool hasIsCalledPartyRinging;
+    bool isCalledPartyRinging;
+    string historyInfo;
+    bool hasIsVideoConfSupported;
+    bool isVideoConfSupported;
+    VerstatInfo verstatInfo;
+    TirMode tirMode;
+};
+
+struct HandoverInfo {
+    HandoverType type;
+    RadioTechType srcTech;
+    RadioTechType targetTech;
+    bool hasHoExtra;
+    Extra hoExtra;
+    string errorCode;
+    string errorMessage;
+};
+
+struct CallLocation {
+    float radius; // 0 for point location, and -1 if location is not set
+    double latitude;
+    double longitude;
+};
+
+enum CallPriority : int32_t {
+    URGENT,
+    NORMAL,
+};
+
+struct CallComposerInfo {
+    uint32_t callId;
+    CallPriority priority;
+    vec<uint16_t> subject;
+    CallLocation location;
+    string imageUrl;
+};
+
+struct AutoCallRejectionInfo {
+    /**Mandatory */
+    CallType callType;
+    CallFailCause autoRejectionCause;
+    uint16_t sipErrorCode;
+    /**Optional */
+    string number;
+    VerificationStatus verificationStatus;
+};
+
+enum GeoLocationDataStatus : int32_t {
+    TIMEOUT,          /* Received when time out to get the Longitude and Latitude
+                         from GPS engine. */
+    NO_CIVIC_ADDRESS, /* Received when Telephony is unable to provide the relevant
+                         information (ex: country code) when sending geo location information
+                         with sendGeolocationInfo_1_2. */
+    ENGINE_LOCK,      /* Received if GPS is disabled from UI. */
+    RESOLVED,         /* Received when there are no GPS errors. */
+};

@@ -1,0 +1,102 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.qconfig@1.0;
+import vendor.qti.hardware.qconfig@1.0::IQConfigListener;
+
+interface IQConfig {
+    /*!
+     * @brief       Set the configs for the users in the specified module.
+     *
+     * @description Register the vector of key-value pairs in the specified module.
+     *              They will be persisted in QConfig service. If the QConfig service
+     *              dies, they will be lost and the client should invoke this API to
+     *              register them again.
+     *              This API will overwrite the value of the previous configs with
+     *              the same module name and the key.
+     *
+     * @input       moduleName      Indicate the module field
+     * @input       configs         The set of key-value pairs
+     *
+     *
+     * @return      result          Indicate the result of API
+     *
+     */
+    setUserConfigs(string moduleName, vec<QConfigUserParam> configs) generates (Result result);
+
+    /*!
+     * @brief       Clear the config for the user in the specified module.
+     *
+     * @description Remove the config (key-value pair) in the specified module.
+     *
+     *
+     * @input       moduleName      Indicates the module field
+     * @input       key             It is the key to the previously sent QConfigUserParam
+     *
+     * @return      result          Indicate the result of API
+     *
+     */
+    clearUserConfig(string moduleName, string key) generates (Result result);
+
+    /*!
+     * @brief       Get the value based on <module name and user key id>.
+     *
+     *
+     * @input       moduleName      The name of module
+     * @input       key             It is the key to the previously sent QConfigUserParam
+     *
+     * @return      result          Indicate the result of API
+     *              value           The string of value. The value could be a preset id.
+     *                              if Result is NOT Success, the string of value is NULL.
+     *
+     */
+    getUserConfigValue(string moduleName, string key) generates (Result result, string value);
+
+    /*!
+     * @brief       Add the callback for the interested modules to monitor their changed configs.
+     *
+     * @description The client could register one listener for multiple interested modules.
+     *              When the module's config is changed, the client will get the callback.
+     *
+     * @input       moduleNameList  The list of the interested module names
+     * @input       cb              The callback object for the changed configs
+     *
+     * @return      result          Indicate the result of API
+     *
+     */
+    addUserConfigListener(vec<string> moduleNameList, IQConfigListener cb) generates (Result result);
+
+    /*!
+     * @brief       Remove the callback from service
+     *
+     * @description The client could remove the callback from service side.
+     *              When the module's config is changed, the client will not get the callback.
+     *
+     * @input       cb              The callback object to be removed
+     *
+     * @return      result          Indicate the result of API
+     *
+     */
+    removeUserConfigListener(IQConfigListener cb) generates (Result result);
+
+    /*!
+     * @brief       Get the preset list based on <module name and preset id>.
+     *
+     * @description The preset parameters are preloaded by QConfigService. Each module has
+     *              a list of presetIds and each presetId whill contain the list of QConfigPresetParam.
+     *              This function could query the list of QConfigPresetParam by the module name
+     *              and preset id.
+     *
+     * @input       moduleName      The name of module
+     * @input       presetId        The preset id
+     *
+     * @return      result          Indicate the result of API
+     *              presets:        The vector of key-value pairs for the parameters.
+     *                              if Result is NOT Success, the size of presets is zero.
+     *
+     */
+    getPresets(string moduleName, string presetId) generates (Result result, vec<QConfigPresetParam> presets);
+};

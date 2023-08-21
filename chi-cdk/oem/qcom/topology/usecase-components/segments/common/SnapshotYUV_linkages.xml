@@ -1,0 +1,27 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="SnapshotYUV_linkages">
+    <PortLinkages>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortDisplay</PortName>
+                <PortId>8</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_YUV</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="ispglobalelements.xsd"/>
+  <xs:element name="video10_sw" type="chromatix_video10Type">
+    <xs:annotation>
+      <xs:documentation>chromatix video10 module parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="chromatix_video10_reserveType">
+    <xs:sequence>
+      <xs:element name="general">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="res_param_1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 1. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Linear interpolation."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_2">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 2. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Linear interpolation."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_3">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 3. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Linear interpolation."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_4">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 4. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Nearest neighbor interpolation: discrete values allowed."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_5">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 5. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Nearest neighbor interpolation: discrete values allowed."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_param_6">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Reserved parameter 6. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Nearest neighbor interpolation: discrete values allowed."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_lut_param_1_tab">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="res_lut_param_1">
+                    <xs:simpleType>
+                      <xs:restriction base="floatvar">
+                        <xs:length value="32"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="description" type="xs:string" default="Reserved Lut parameter 1. "/>
+                <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                <xs:attribute name="length" type="xs:int" fixed="32"/>
+                <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Linear interpolation."/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_lut_param_2_tab">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="res_lut_param_2">
+                    <xs:simpleType>
+                      <xs:restriction base="floatvar">
+                        <xs:length value="32"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="description" type="xs:string" default="Reserved Lut parameter 2. "/>
+                <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                <xs:attribute name="length" type="xs:int" fixed="32"/>
+                <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Nearest neighbor interpolation: discrete values allowed."/>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="res_lut_param_3_tab">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="res_lut_param_3">
+                    <xs:simpleType>
+                      <xs:restriction base="uintvar">
+                        <xs:length value="16"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="description" type="xs:string" default="Reserved Lut parameter 3. "/>
+                <xs:attribute name="default_value" type="xs:string" default="0"/>
+                <xs:attribute name="range" type="xs:string" default="[0, 4294967295]"/>
+                <xs:attribute name="bit_depth" type="xs:string" default="32u"/>
+                <xs:attribute name="length" type="xs:int" fixed="16"/>
+                <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+                <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Nearest neighbor interpolation: discrete values allowed."/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fusion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mode">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:unsignedInt">
+                    <xs:attribute name="type" default="uint"/>
+                    <xs:attribute name="description" type="xs:string" default="Alignment mode. 0: image based only. 1: gyro based only. 2: auto calculate. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="2"/>
+                    <xs:attribute name="range" type="xs:string" default="[0, 2]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="2u"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="sat">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="sat_enable">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:unsignedInt">
+                    <xs:attribute name="type" default="uint"/>
+                    <xs:attribute name="description" type="xs:string" default="SAT mode indication. 0: SAT is disabled. 1: SAT is enabled. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="min_margin_ratio">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Min margin ratio at sensor DZ = 1. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[0.0, 0.1]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="max_margin_ratio">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Max margin at sensor dz_for_max_margin_ratio. Should be bigger than min_margin_ratio . "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0.1"/>
+                    <xs:attribute name="range" type="xs:string" default="[0.0, 0.1]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="dz_for_max_margin_ratio">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="If digital zoom is higher that dz_for_max_margin_ratio, . sat_margin = max_margin_ratio. Else if digital zoom is equal to 1, . sat_margin = min_margin_ratio. Else, use linear interpolation. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="2.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[1.0, 16.0]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Constant: no dynamic configuration even when control variable change."/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="video10_rgn_dataType">
+    <xs:sequence>
+      <xs:element name="general">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="max_vsr">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="The max ICA1 scale ratio in VSR mode. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="1.0"/>
+                    <xs:attribute name="range" type="xs:string" default="[1.0, 3.0]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fusion">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="image_conf_high_threshold">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:int">
+                    <xs:attribute name="type" default="int"/>
+                    <xs:attribute name="description" type="xs:string" default="RANSAC confidence high threshold. . Will switch from  gyro to image based only if RANSAC confidence is above this threshold. If both image_conf_high_threshold and image_conf_low_threshold are both equal to 257, gyro based alignment is always taken. If both of these parameters are set to -1, image based alignment  is always taken. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="150"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1, 257]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="10s"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="image_conf_low_threshold">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:int">
+                    <xs:attribute name="type" default="int"/>
+                    <xs:attribute name="description" type="xs:string" default="Low threshold of RANSAC confidence. Will switch from image based to gyro only if RANSAC confidence is below this threshold. If both image_conf_high_threshold and image_conf_low_threshold are both equal to 257, gyro based alignment is always taken. If both of these parameters are set to -1, image based alignment  is always taken. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="100"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1, 257]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="10s"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="absolute_motion_threshold">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:float">
+                    <xs:attribute name="type" default="float"/>
+                    <xs:attribute name="description" type="xs:string" default="Threshold in pixels in 8Kx6K resolution. Absolute motion below this value will be considered as no motion. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="1"/>
+                    <xs:attribute name="range" type="xs:string" default="[-99999999999, 99999999999]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="float"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="absolute_motion_confidence_threshold">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:unsignedInt">
+                    <xs:attribute name="type" default="uint"/>
+                    <xs:attribute name="description" type="xs:string" default="Threshold above which absolute motion is valid. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="100"/>
+                    <xs:attribute name="range" type="xs:string" default="[0, 256]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="9u"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="min_age">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="xs:unsignedInt">
+                    <xs:attribute name="type" default="uint"/>
+                    <xs:attribute name="description" type="xs:string" default="Minimum alignment type frames. Will switch between gyro and image based only if did not change type for this number of frames. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="10"/>
+                    <xs:attribute name="range" type="xs:string" default="[0, 4294967295]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="32u"/>
+                    <xs:attribute name="length" type="xs:int" fixed="1"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_video10_aec_dataType">
+    <xs:sequence>
+      <xs:element name="aec_trigger" type="trigger_pt_type_aec"/>
+      <xs:element name="video10_rgn_data" type="video10_rgn_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_video10_pre_scale_ratio_dataType">
+    <xs:sequence>
+      <xs:element name="pre_scale_ratio_trigger" type="trigger_pt_type"/>
+      <xs:element name="pre_scale_ratio_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_video10_aec_data" type="mod_video10_aec_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_video10_hdr_aec_dataType">
+    <xs:sequence>
+      <xs:element name="hdr_aec_trigger" type="trigger_pt_type_aec_hdr"/>
+      <xs:element name="hdr_aec_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_video10_pre_scale_ratio_data" type="mod_video10_pre_scale_ratio_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_video10_lens_zoom_dataType">
+    <xs:sequence>
+      <xs:element name="lens_zoom_trigger" type="trigger_pt_type"/>
+      <xs:element name="lens_zoom_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_video10_hdr_aec_data" type="mod_video10_hdr_aec_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_video10_lens_posn_dataType">
+    <xs:sequence>
+      <xs:element name="lens_posn_trigger" type="trigger_pt_type"/>
+      <xs:element name="lens_posn_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_video10_lens_zoom_data" type="mod_video10_lens_zoom_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_video10_coreType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="mod_video10_lens_posn_data" type="mod_video10_lens_posn_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_video10Type">
+    <xs:sequence>
+      <xs:element name="module_version">
+        <xs:complexType>
+          <xs:attribute name="major_revision" type="xs:int" default="1"/>
+          <xs:attribute name="minor_revision" type="xs:int" default="0"/>
+          <xs:attribute name="incr_revision" type="xs:int" default="0"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="parameter_version">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="revision" type="xs:string" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_variables">
+        <xs:complexType>
+          <xs:sequence minOccurs="5" maxOccurs="5">
+            <xs:element name="control_var_type">
+              <xs:simpleType>
+                <xs:restriction base="control_var_type">
+                  <xs:pattern value="control_lens_position"/>
+                  <xs:pattern value="control_lens_zoom"/>
+                  <xs:pattern value="control_exp_time_ratio"/>
+                  <xs:pattern value="control_aec_exp_sensitivity_ratio"/>
+                  <xs:pattern value="control_pre_scale_ratio"/>
+                  <xs:pattern value="control_lux_idx"/>
+                  <xs:pattern value="control_gain"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="default_value" type="xs:string" default="control_lens_position, control_lens_zoom, control_aec_exp_sensitivity_ratio, control_pre_scale_ratio, control_gain"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_method">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="aec_exp_control" type="tuning_control_aec_type" default="control_gain"/>
+            <xs:element name="aec_hdr_control" type="tuning_control_aec_hdr_type" default="control_aec_exp_sensitivity_ratio"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chromatix_video10_reserve" type="chromatix_video10_reserveType"/>
+      <xs:element name="chromatix_video10_core" type="chromatix_video10_coreType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,1 @@
+Req_Msgs_ID:514;Client_Processor:SNS_STD_CLIENT_PROCESSOR_APSS;wakeup_delivery:SNS_CLIENT_DELIVERY_NO_WAKEUP;batch_period:null;flush_period:null;flush_only:null;max_batch:null;is_passive:null;

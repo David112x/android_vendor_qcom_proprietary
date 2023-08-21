@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecSkipCtrl
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecSkip.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <DFSEnable type="bool">true</DFSEnable>
+  <DFSExpIndexTolerance type="float" range="[0.5,3]">1</DFSExpIndexTolerance>
+  <DFSMaxHistoryCount type="int" range="[1,30]">5</DFSMaxHistoryCount>
+  <DFSSkipCountZone>
+    <zoneTrigger>
+      <start>0</start>
+      <end>15</end>
+    </zoneTrigger>
+    <zoneData>
+      <DFSSkipCount type="int" range="[0, 10]">0</DFSSkipCount>
+      <DFSMinSettleThreshold type="int" range="[1,10]">0</DFSMinSettleThreshold>
+    </zoneData>
+  </DFSSkipCountZone>
+  <DFSSkipCountZone>
+    <zoneTrigger>
+      <start>15</start>
+      <end>120</end>
+    </zoneTrigger>
+    <zoneData>
+      <DFSSkipCount type="int" range="[0, 10]">1</DFSSkipCount>
+      <DFSMinSettleThreshold type="int" range="[1,10]">2</DFSMinSettleThreshold>
+    </zoneData>
+  </DFSSkipCountZone>
+</aecSkipCtrl>

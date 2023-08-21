@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<refPtV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modrefptv1.xsd">
+  <moduleID>
+    <moduleID type="int" range="[1,1000]">2</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.1646702</rg>
+    <bg type="float" range="[0.0,15000.0]">0.9921457</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.4279</rg>
+    <bg type="float" range="[0.0,15000.0]">0.6917</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.453</rg>
+    <bg type="float" range="[0.0,15000.0]">0.6405</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.5401</rg>
+    <bg type="float" range="[0.0,15000.0]">0.5362</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.5421</rg>
+    <bg type="float" range="[0.0,15000.0]">0.3635</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.597523</rg>
+    <bg type="float" range="[0.0,15000.0]">0.375528961</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.708</rg>
+    <bg type="float" range="[0.0,15000.0]">0.3829</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.8427</rg>
+    <bg type="float" range="[0.0,15000.0]">0.3274</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0.9524</rg>
+    <bg type="float" range="[0.0,15000.0]">0.2646</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">1.26886773</rg>
+    <bg type="float" range="[0.0,15000.0]">0.204485491</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0</rg>
+    <bg type="float" range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0</rg>
+    <bg type="float" range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0</rg>
+    <bg type="float" range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0</rg>
+    <bg type="float" range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt>
+    <rg type="float" range="[0.0,15000.0]">0</rg>
+    <bg type="float" range="[0.0,15000.0]">0</bg>
+  </refPt>
+</refPtV1>

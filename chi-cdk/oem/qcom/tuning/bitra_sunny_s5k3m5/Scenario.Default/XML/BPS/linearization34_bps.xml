@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<linearization34_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\linearization_3_4_0.xsd">
+  <enable_section>
+    <linearization_enable>1</linearization_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="4" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_drc_gain, control_aec_exp_sensitivity_ratio, control_led_idx, control_lux_idx, control_cct">
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_linearization34_core>
+    <mod_linearization34_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_linearization34_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_linearization34_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>996 2919 4842 6765 8688 10611 12534 14457</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>997 2920 4843 6766 8689 10612 12535 14458</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>997 2920 4843 6766 8689 10612 12535 14458</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>997 2920 4843 6766 8689 10612 12535 14458</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1923 3846 5769 7692 9615 11538 13461</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>937 2867 4797 6727 8657 10587 12517 14447</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>937 2867 4797 6727 8657 10587 12517 14447</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>938 2868 4798 6728 8658 10588 12518 14448</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>937 2867 4797 6727 8657 10587 12517 14447</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>937 2867 4797 6727 8657 10587 12517 14447</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>937 2867 4797 6727 8657 10587 12517 14447</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>938 2868 4798 6728 8658 10588 12518 14448</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>937 2867 4797 6727 8657 10587 12517 14447</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1930 3860 5790 7720 9650 11580 13510</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>859 2799 4739 6679 8619 10559 12499 14439</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1940 3880 5820 7760 9700 11640 13580</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>858 2798 4738 6678 8618 10558 12498 14438</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1940 3880 5820 7760 9700 11640 13580</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>859 2799 4739 6679 8619 10559 12499 14439</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1940 3880 5820 7760 9700 11640 13580</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>857 2797 4737 6677 8617 10557 12497 14437</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1940 3880 5820 7760 9700 11640 13580</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>823 2768 4713 6658 8603 10548 12493 14438</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1945 3890 5835 7780 9725 11670 13615</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>822 2767 4712 6657 8602 10547 12492 14437</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1945 3890 5835 7780 9725 11670 13615</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>824 2768 4712 6656 8600 10544 12488 14432</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1944 3888 5832 7776 9720 11664 13608</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>822 2767 4712 6657 8602 10547 12492 14437</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1945 3890 5835 7780 9725 11670 13615</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>31.9</gain_start>
+                    <gain_end>32.1</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>869 2808 4747 6686 8625 10564 12503 14442</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1939 3878 5817 7756 9695 11634 13573</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>868 2807 4746 6685 8624 10563 12502 14441</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1939 3878 5817 7756 9695 11634 13573</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>869 2808 4747 6686 8625 10564 12503 14442</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1939 3878 5817 7756 9695 11634 13573</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>867 2806 4745 6684 8623 10562 12501 14440</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1939 3878 5817 7756 9695 11634 13573</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+                <mod_linearization34_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>63.9</gain_start>
+                    <gain_end>64</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_linearization34_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>10000</end>
+                      </cct_trigger>
+                      <linearization34_rgn_data>
+                        <r_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="857 2797 4738 6679 8620 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_p>890 2826 4762 6698 8634 10570 12506 14442</r_lut_p>
+                        </r_lut_p_tab>
+                        <r_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1940 3881 5822 7763 9703 11644 13585" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <r_lut_base>0 0 1936 3872 5808 7744 9680 11616 13552</r_lut_base>
+                        </r_lut_base_tab>
+                        <gr_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="854 2795 4736 6677 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_p>889 2825 4761 6697 8633 10569 12505 14441</gr_lut_p>
+                        </gr_lut_p_tab>
+                        <gr_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gr_lut_base>0 0 1936 3872 5808 7744 9680 11616 13552</gr_lut_base>
+                        </gr_lut_base_tab>
+                        <gb_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="855 2796 4737 6678 8619 10560 12501 14442" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_p>890 2826 4762 6698 8634 10570 12506 14442</gb_lut_p>
+                        </gb_lut_p_tab>
+                        <gb_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7764 9705 11646 13587" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <gb_lut_base>0 0 1936 3872 5808 7744 9680 11616 13552</gb_lut_base>
+                        </gb_lut_base_tab>
+                        <b_lut_p_tab type="uint" description="R/Gr/Gb/B channel knee points" default_value="853 2794 4735 6676 8618 10559 12500 14441" range="[0,16383]" bit_depth="(8+e)uQ0" length="8" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_p>889 2825 4761 6697 8633 10569 12505 14441</b_lut_p>
+                        </b_lut_p_tab>
+                        <b_lut_base_tab type="uint" description="R/Gr/Gb/B channel base output value" default_value="0 0 1941 3882 5823 7765 9706 11647 13588" range="[0,16383]" bit_depth="(8+e)uQ0" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                          <b_lut_base>0 0 1936 3872 5808 7744 9680 11616 13552</b_lut_base>
+                        </b_lut_base_tab>
+                      </linearization34_rgn_data>
+                    </mod_linearization34_cct_data>
+                  </aec_data>
+                </mod_linearization34_aec_data>
+              </led_idx_data>
+            </mod_linearization34_led_idx_data>
+          </hdr_aec_data>
+        </mod_linearization34_hdr_aec_data>
+      </drc_gain_data>
+    </mod_linearization34_drc_gain_data>
+  </chromatix_linearization34_core>
+</linearization34_bps>

@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixPDLib
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\xsd\stats\af\afpdlibelements.xsd">
+
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+
+  <preProcess>
+    <sparseProcessingMode>SPARSE_PD_PROC_SIMPLE</sparseProcessingMode>
+    <HDR>
+      <channelSelection>DPD_HDR_AUTO_MODE</channelSelection>
+      <longThreshold>450</longThreshold>
+    </HDR>
+    <boxFilterLength>2</boxFilterLength>
+    <antiAliasFilterThreshold>100</antiAliasFilterThreshold>
+    <saturationThreshold>5000</saturationThreshold>
+    <filterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode>8</verticalMode>
+        <horizontalMode>1</horizontalMode>
+        <boxFilterLength>2</boxFilterLength>
+        <antiAliasFilterThreshold>100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode>4</verticalMode>
+        <horizontalMode>1</horizontalMode>
+        <boxFilterLength>2</boxFilterLength>
+        <antiAliasFilterThreshold>100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode>4</verticalMode>
+        <horizontalMode>1</horizontalMode>
+        <boxFilterLength>2</boxFilterLength>
+        <antiAliasFilterThreshold>100</antiAliasFilterThreshold>
+      </filterSet>
+    </filterTrigger>
+    <lcrFilterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode>1</verticalMode>
+        <horizontalMode>2</horizontalMode>
+        <boxFilterLength>0</boxFilterLength>
+        <antiAliasFilterThreshold>0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode>1</verticalMode>
+        <horizontalMode>2</horizontalMode>
+        <boxFilterLength>0</boxFilterLength>
+        <antiAliasFilterThreshold>0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode>1</verticalMode>
+        <horizontalMode>2</horizontalMode>
+        <boxFilterLength>0</boxFilterLength>
+        <antiAliasFilterThreshold>0</antiAliasFilterThreshold>
+      </filterSet>
+    </lcrFilterTrigger>
+    <lcrChannel>PDAF_LCR_CHANNEL_G</lcrChannel>
+    <lcrBinningMode>PDAF_LCR_BINNING_DEFAULT</lcrBinningMode>
+    <lcrRawType>PDAF_CAMIF_RAW</lcrRawType>
+    <lcrMaxBinningNum>1</lcrMaxBinningNum>
+    <lcrChannelSeparated>false</lcrChannelSeparated>
+  </preProcess>
+  <preProcessVertical>
+    <sparseProcessingMode>SPARSE_PD_PROC_SIMPLE</sparseProcessingMode>
+    <HDR>
+      <channelSelection>DPD_HDR_AUTO_MODE</channelSelection>
+      <longThreshold description="Selection of PD processing on long-exposure frame (1), short-exposure frame (2), or auto selection (0)." range="[0,2]">450</longThreshold>
+    </HDR>
+    <boxFilterLength description="Box filter legenth for sparse PDAF sensors." range="[1,8]">2</boxFilterLength>
+    <antiAliasFilterThreshold description="Anti-aliasing filter threshold for sparse PDAF sensors." range="[80,120]">100</antiAliasFilterThreshold>
+    <saturationThreshold description="2PD pixel value higher than this threshold will be clipped to threshold value" range="[0,5000]">5000</saturationThreshold>
+    <filterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">8</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">1</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">4</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">1</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">4</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">1</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+    </filterTrigger>
+    <lcrFilterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">1</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">2</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">1</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">2</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode description="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row." range="[1,32]">1</verticalMode>
+        <horizontalMode description="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column." range="[1,8]">2</horizontalMode>
+        <boxFilterLength description="Not used." range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold description="Not used." range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+    </lcrFilterTrigger>
+    <lcrChannel>PDAF_LCR_CHANNEL_G</lcrChannel>
+    <lcrBinningMode description="This parameter specify LCR binning strategy." range="[0,2]">PDAF_LCR_BINNING_DEFAULT</lcrBinningMode>
+    <lcrRawType description="This parameter specify raw data type for LCR virtual pixel generation." range="[0,2]">PDAF_CAMIF_RAW</lcrRawType>
+    <lcrMaxBinningNum description="Max pixel number for generate the virtual center pixel for advanced sparse PD mode. " range="[1,4]">1</lcrMaxBinningNum>
+    <lcrChannelSeparated>false</lcrChannelSeparated>
+  </preProcessVertical>
+  <correlation>
+    <minimumConfidenceLevel>250</minimumConfidenceLevel>
+    <defocusConfidenceThreshold>250</defocusConfidenceThreshold>
+    <PDRangeControl>0.1</PDRangeControl>
+    <searchRange>
+      <from>-48</from>
+      <to>16</to>
+    </searchRange>
+    <lcrSearchRange>
+      <from>-8</from>
+      <to>8</to>
+    </lcrSearchRange>
+  </correlation>
+  <correlationVertical>
+    <minimumConfidenceLevel description="Minimum confidence level threshold for binary confidence flag provided to aut focus algorithms." range="[50,200]">250</minimumConfidenceLevel>
+    <defocusConfidenceThreshold description="Minimum confidence level threshold for triggering PD computation on additional ROI for sparse PDAF sensors." range="[50,200]">250</defocusConfidenceThreshold>
+    <PDRangeControl description="Tuning for Confident Range." range="[0.02,0.10]">0.1</PDRangeControl>
+    <searchRange>
+      <from description="PD search range near limit." range="[-48,-16]">-48</from>
+      <to description="PD search range far limit." range="[16,32]">16</to>
+    </searchRange>
+    <lcrSearchRange>
+      <from description="PD search range near limit." range="[-48,-16]">-8</from>
+      <to description="PD search range far limit." range="[16,32]">8</to>
+    </lcrSearchRange>
+  </correlationVertical>
+  <postProcess>
+    <biasVectorStrength>0.1</biasVectorStrength>
+    <temporalFilterStaticWeight>0.5</temporalFilterStaticWeight>
+    <temporalFilterDynamicWeight>1</temporalFilterDynamicWeight>
+    <temporalFilterTrigger>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <dynamicWeight>1</dynamicWeight>
+        <staticWeight>0.5</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <dynamicWeight>1</dynamicWeight>
+        <staticWeight>0.5</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <dynamicWeight>1</dynamicWeight>
+        <staticWeight>0.5</staticWeight>
+      </temporalFilterSet>
+    </temporalFilterTrigger>
+    <enableGridOverlap>1</enableGridOverlap>
+    <confIntegralWidth>24</confIntegralWidth>
+  </postProcess>
+  <postProcessVertical>
+    <biasVectorStrength description="Strength of bias to be applied to disparity vector for the case of repeating patterns." range="[0.0,0.4]">0.1</biasVectorStrength>
+    <temporalFilterStaticWeight description="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">0.5</temporalFilterStaticWeight>
+    <temporalFilterDynamicWeight description="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</temporalFilterDynamicWeight>
+    <temporalFilterTrigger>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <dynamicWeight description="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight description="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+       <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <dynamicWeight description="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight description="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+          <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <dynamicWeight description="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight description="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter." range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+    </temporalFilterTrigger>
+    <enableGridOverlap description="Enables PD statistics to be computed in overlapping grids." range="[0,1]">1</enableGridOverlap>
+    <confIntegralWidth description="Tuning parameter for confidence level. Increasing this tuning increases confidence level." range="[24,32]">24</confIntegralWidth>
+  </postProcessVertical>
+  <adaptiveK>
+    <enable>0</enable>
+    <timeoutFrameCntThres>36</timeoutFrameCntThres>
+    <filterSize>3</filterSize>
+    <state0StableCntThres>4</state0StableCntThres>
+    <state1StableCntThres>6</state1StableCntThres>
+    <minimumLensPosDelta>180</minimumLensPosDelta>
+    <state0ConfThres>250</state0ConfThres>
+    <state1ConfThres>400</state1ConfThres>
+    <state0PhaseDiffThres>6.0</state0PhaseDiffThres>
+    <state1PhaseDiffThres>1.0</state1PhaseDiffThres>
+    <tolNearTargetUpperBound>2.04</tolNearTargetUpperBound>
+    <tolNearTargetLowerBound>0.34</tolNearTargetLowerBound>
+    <tolFarTargetUpperBound>2.04</tolFarTargetUpperBound>
+    <tolFarTargetLowerBound>0.34</tolFarTargetLowerBound>
+  </adaptiveK>
+  <enablePeripheralWindows>0</enablePeripheralWindows>
+  <singleWindowProcessingLevel>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </singleWindowProcessingLevel>
+  <singleWindowProcessingLevelVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </singleWindowProcessingLevelVertical>
+  <gridProcessingLevel>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </gridProcessingLevel>
+  <gridProcessingLevelVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </gridProcessingLevelVertical>
+  <PeripheralProcessing>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </PeripheralProcessing>
+  <PeripheralProcessingVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in focusing state." range="[1,1000]">100</dynamicLevel>
+    <staticLevel description="Tuning parameter for dynamic adjustment of horizontal density at which PD is computed in monitor state." range="[1,1000]">100</staticLevel>
+  </PeripheralProcessingVertical>
+  <HVControl>
+    <PDProcessingAxis>Horizontal</PDProcessingAxis>
+    <horizontalConfWeightTuning>
+      <weight>0.1</weight>
+      <confThreshold>100</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight>1.0</weight>
+      <confThreshold>400</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight>1.0</weight>
+      <confThreshold>1000</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight>100.0</weight>
+      <confThreshold>1000</confThreshold>
+    </horizontalConfWeightTuning>
+    <verticalConfWeightTuning>
+      <weight>0.0</weight>
+      <confThreshold>50</confThreshold>
+    </verticalConfWeightTuning>
+    <verticalConfWeightTuning>
+      <weight>0.9</weight>
+      <confThreshold>500</confThreshold>
+    </verticalConfWeightTuning>
+  </HVControl>
+  <skipControl>
+    <staticFrameCountThres>8</staticFrameCountThres>
+    <maxFrameRate>30</maxFrameRate>
+  </skipControl>
+  <hardwareGeometry>
+    <enabldHardwarePDModule>1</enabldHardwarePDModule>
+    <enableOverlap>0</enableOverlap>
+    <numOfHoriGrids>1</numOfHoriGrids>
+    <numOfVertGrids>1</numOfVertGrids>
+    <horiNumOfRGNInGridUnit>4</horiNumOfRGNInGridUnit>
+    <vertNumOfRGNInGridUnit>4</vertNumOfRGNInGridUnit>
+    <horiRegionOffset>20</horiRegionOffset>
+    <vertRegionOffset>4</vertRegionOffset>
+    <widhtOfRegion>48</widhtOfRegion>
+    <heightOfRegion>8</heightOfRegion>
+    <horiNumOfRegion>10</horiNumOfRegion>
+    <vertNumOfRegion>8</vertNumOfRegion>
+  </hardwareGeometry>
+    <hardwarePattern>
+        <pixelExtractor>
+            <enable>0</enable>
+            <outputWidth>0</outputWidth>
+            <outputHeight>0</outputHeight>
+        </pixelExtractor>
+        <lineExtractor>
+            <XOffset>80</XOffset>
+            <YOffset>0</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>1</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>80</XOffset>
+            <YOffset>2</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>3</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <pixelSeparator>
+            <inputBlockWidth>2</inputBlockWidth>
+            <inputBlockHeight>4</inputBlockHeight>
+            <outputBlockWidth>4</outputBlockWidth>
+            <outputBlockHeight>1</outputBlockHeight>
+            <L_map>2</L_map>
+            <L_map>4</L_map>
+            <L_map>3</L_map>
+            <L_map>5</L_map>
+            <R_map>0</R_map>
+            <R_map>6</R_map>
+            <R_map>1</R_map>
+            <R_map>7</R_map>
+        </pixelSeparator>
+        <resampler>
+            <enable>1</enable>
+            <inputBlockWidth>4</inputBlockWidth>
+            <inputBlockHeight>1</inputBlockHeight>
+            <outputBlockWidth>4</outputBlockWidth>
+            <outputBlockHeight>1</outputBlockHeight>
+            <instructions>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>0</S>
+                <S>0</S>
+                <S>1</S>
+                <S>0</S>
+                <S>1</S>
+                <S>0</S>
+                <S>1</S>
+                <S>0</S>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.77734375</O>
+                <O>0.22265625</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>2</S>
+                <S>0</S>
+                <S>2</S>
+                <S>0</S>
+                <S>2</S>
+                <S>0</S>
+                <S>2</S>
+                <S>0</S>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>2</S>
+                <S>0</S>
+                <S>3</S>
+                <S>0</S>
+                <S>3</S>
+                <S>0</S>
+                <S>3</S>
+                <S>0</S>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.77734375</O>
+                <O>0.22265625</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+        </resampler>
+        <gridWidthScaleRatio>1</gridWidthScaleRatio>
+        <gridHeightScaleRatio>1</gridHeightScaleRatio>
+    </hardwarePattern>
+    <hardwarePattern>
+        <pixelExtractor>
+            <enable>0</enable>
+            <outputWidth>0</outputWidth>
+            <outputHeight>0</outputHeight>
+        </pixelExtractor>
+        <lineExtractor>
+            <XOffset>80</XOffset>
+            <YOffset>0</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>1</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>80</XOffset>
+            <YOffset>2</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>3</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <pixelSeparator>
+            <inputBlockWidth>2</inputBlockWidth>
+            <inputBlockHeight>4</inputBlockHeight>
+            <outputBlockWidth>4</outputBlockWidth>
+            <outputBlockHeight>1</outputBlockHeight>
+            <L_map>2</L_map>
+            <L_map>4</L_map>
+            <L_map>3</L_map>
+            <L_map>5</L_map>
+            <R_map>0</R_map>
+            <R_map>6</R_map>
+            <R_map>1</R_map>
+            <R_map>7</R_map>
+        </pixelSeparator>
+        <resampler>
+            <enable>1</enable>
+            <inputBlockWidth>4</inputBlockWidth>
+            <inputBlockHeight>1</inputBlockHeight>
+            <outputBlockWidth>4</outputBlockWidth>
+            <outputBlockHeight>1</outputBlockHeight>
+            <instructions>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>1</S>
+                <S>0</S>
+                <S>1</S>
+                <S>0</S>
+                <S>1</S>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.5</O>
+                <O>0.5</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>0</S>
+                <S>0</S>
+                <S>0</S>
+                <S>1</S>
+                <S>1</S>
+                <S>0</S>
+                <S>1</S>
+                <S>1</S>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.388671875</O>
+                <O>0.388671875</O>
+                <O>0.111328125</O>
+                <O>0.111328125</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>2</S>
+                <S>0</S>
+                <S>2</S>
+                <S>1</S>
+                <S>2</S>
+                <S>1</S>
+                <S>2</S>
+                <S>1</S>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.5</O>
+                <O>0.5</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+            <instructions>
+                <S>2</S>
+                <S>0</S>
+                <S>2</S>
+                <S>1</S>
+                <S>3</S>
+                <S>0</S>
+                <S>3</S>
+                <S>1</S>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>1</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0.388671875</O>
+                <O>0.388671875</O>
+                <O>0.111328125</O>
+                <O>0.111328125</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+                <O>0</O>
+            </instructions>
+        </resampler>
+        <gridWidthScaleRatio>1.0</gridWidthScaleRatio>
+        <gridHeightScaleRatio>1.0</gridHeightScaleRatio>
+    </hardwarePattern>
+    <enableFocusMaps>0</enableFocusMaps>
+  <extensionParam>
+    <ID>0</ID>
+    <Name>Extension feature</Name>
+    <enableFlag>false</enableFlag>
+    <data>0</data>
+  </extensionParam>
+</chromatixPDLib>

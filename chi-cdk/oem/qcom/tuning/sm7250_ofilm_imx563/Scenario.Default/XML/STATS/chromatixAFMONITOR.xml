@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFMONITOR
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afmonitorelements.xsd">
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <monitorAlgoConfig>
+    <topoCAF>
+      <profileIndex>CAFTopoProfileAdvanced</profileIndex>
+      <SADR type='int' range="[0, 100]">50</SADR>
+      <gyro type='int' range="[0, 100]">50</gyro>
+      <gyroPanning type='int' range="[0, 100]">50</gyroPanning>
+      <SADPanning type='int' range="[0, 100]">50</SADPanning>
+      <FV type='int' range="[0, 100]">50</FV>
+      <faceTriggerHold type='int' range="[0, 100]">50</faceTriggerHold>
+      <CAFSceneChangeHold type='int' range="[0, 100]">50</CAFSceneChangeHold>
+      <CAFTopoReservedSensitivity type='int' range="[0, 100]">0</CAFTopoReservedSensitivity>
+    </topoCAF>
+    <topoPDAF>
+      <profileIndex>PDAFTopoProfileSparseAdvanced</profileIndex>
+      <defocusLow type='int' range="[0, 100]">50</defocusLow>
+      <defocusHigh type='int' range="[0, 100]">50</defocusHigh>
+      <PDAFconfidence type='int' range="[0, 100]">50</PDAFconfidence>
+      <SADPanning type='int' range="[0, 100]">50</SADPanning>
+      <gyroPanning type='int' range="[0, 100]">50</gyroPanning>
+      <PDAFTopoReservedSensitivity type='int' range="[0, 100]">0</PDAFTopoReservedSensitivity>
+    </topoPDAF>
+    <topoTOF>
+      <profileIndex>TOFTopoProfileSimple</profileIndex>
+      <distance type='int' range="[0, 100]">50</distance>
+      <TOFconfidenceHigh type='int' range="[0, 100]">50</TOFconfidenceHigh>
+      <TOFconfidenceMedium type='int' range="[0, 100]">50</TOFconfidenceMedium>
+      <SADPanning type='int' range="[0, 100]">50</SADPanning>
+      <gyroPanning type='int' range="[0, 100]">50</gyroPanning>
+      <TOFTopoReservedSensitivity type='int' range="[0, 100]">50</TOFTopoReservedSensitivity>
+    </topoTOF>
+    <topoDCIAF>
+      <profileIndex>DCIAFTopoProfileAdvanced</profileIndex>
+      <distance type='int' range="[0, 100]">50</distance>
+      <confidence type='int' range="[0, 100]">50</confidence>
+      <SADR type='int' range="[0, 100]">50</SADR>
+      <gyro type='int' range="[0, 100]">50</gyro>
+      <SADPanning type='int' range="[0, 100]">50</SADPanning>
+      <gyroPanning type='int' range="[0, 100]">50</gyroPanning>
+      <DCIAFTopoReservedSensitivity type='int' range="[0, 100]">0</DCIAFTopoReservedSensitivity>
+    </topoDCIAF>
+    <topoDefaultMixer>
+      <secondarySceneChangeCntThres type='int' range="[0,10000]">5</secondarySceneChangeCntThres>
+      <secondaryUnstableCntThres type='int' range="[0,10000]">10</secondaryUnstableCntThres>
+      <gyroEnable range="[0, 1]">1</gyroEnable>
+    </topoDefaultMixer>
+    <topoDepthAF>
+      <defocusLow type='int' range="[0, 100]">50</defocusLow>
+      <defocusHigh type='int' range="[0, 100]">50</defocusHigh>
+      <defocusPanning type='int' range="[0, 100]">50</defocusPanning>
+      <sadPanning type='int' range="[0, 100]">50</sadPanning>
+      <gyroPanning type='int' range="[0, 100]">50</gyroPanning>
+      <DepthAFTopoReservedSensitivity type='int' range="[0, 100]">0</DepthAFTopoReservedSensitivity>
+    </topoDepthAF>
+  </monitorAlgoConfig>
+  <valueMonitorBank>
+    <valueMonitor>
+      <VMSetType>VmSetTypeSADR</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">100</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">10</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">9.7</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">10</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeSADPanning</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorStable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">0.05</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">5</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">1.5</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">6</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeGyro</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">8</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">0.1539</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">0.05</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeGyroPanning</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorStable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">0.01</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">0.08</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDefocusLow</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">20</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">7.5</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">4</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDefocusHigh</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">120</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">5</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">7</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">7</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">80</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">7</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">5</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeTOFConfidenceHigh</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">4</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypePDAFConfidence</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorStable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDistance</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">20</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeFV</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeTOFConfidenceMedium</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">4</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeFaceTriggerHold</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">9</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">9</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">9</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeCAFSceneChangeHold</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorUnstable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDistance</VMSetType>
+      <detectionType type='chromatixDetectorTypeEnum'>VMDetectorStable</detectionType>
+      <VMInitState type='chromatixVMStateEnum'>VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type='int' range="[0,1]">1</enable>
+        <baseline type='float' range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type='float' range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type='float' range="[0,unbounded]">5</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type='float' range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type='int' range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type='int' range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type='int' range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type='int' range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type='int' range="[0, 1]">1</enable>
+          <numOfSamples type='int' range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type='int' range="[0, 1]">0</enable>
+          <numOfSamples type='int' range="[2,2]">2</numOfSamples>
+          <coeffNumerator type='float' range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type='float' range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+  </valueMonitorBank>
+</chromatixAFMONITOR>

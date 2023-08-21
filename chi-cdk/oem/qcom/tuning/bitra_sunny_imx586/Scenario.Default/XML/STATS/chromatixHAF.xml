@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixHAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afhafelements.xsd">
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <enable_section>
+    <CAFEnable type="int" description="Enable flag for CAF">1</CAFEnable>
+    <PDAFEnable type="int" description="Enable flag for PDAF">1</PDAFEnable>
+    <TOFEnable type="int" description="Enable flag for TOF">0</TOFEnable>
+    <DCIAFEnable type="int" description="Enable flag for DCIAF">0</DCIAFEnable>
+    <DepthAFEnable type="int" description="Enable flag for Dense DepthAF" default_value="0">0</DepthAFEnable>
+  </enable_section>
+  <defaultROISize>
+    <width type="float" description="width ratio for default ROI" default_value="0.3" range="[0.0, 1.0]">0.3</width>
+    <height type="float" description="width ratio for default ROI" default_value="0.3" range="[0.0, 1.0]">0.3</height>
+    <lowlightScalerRatio type="float" description="Adjust ratio from original ROI in lowlight condition" default_value="1" range="[0,1]">1</lowlightScalerRatio>
+  </defaultROISize>
+  <ROIGridSetting>
+    <gridRatioH type="float" description="ROI grid width ratio with respect to ROI width. Spectra280: Floating window is supported. Spectra540: Only fixed grid of max size 6x6 support.Hence possible minimum is 1/6" default_value="0.2" range="Spectra280:[0,1];Spectra540:[0.1666,1];[0,1]">0.2</gridRatioH>
+    <gridRatioV type="float" description="ROI grid height ratio with respect to ROI height. Spectra280: Floating window is supported. Spectra540: Only fixed grid of max size 6x6 support.Hence possible minimum is 1/6" default_value="0.2" range="Spectra280:[0,1];Spectra540:[0.1666,1];[0,1]">0.2</gridRatioV>
+    <gridGapRatioH type="float" description="ROI grid gap width ratio with respect to ROI width. Spectra280: Valid. Spectra540: Not valid for Fixed grid ROI" default_value="0" range="Spectra280:[0,1];Spectra540:[0,0];[0,1]">0</gridGapRatioH>
+    <gridGapRatioV type="float" description="ROI grid gap width ratio with respect to ROI height. Spectra280: Valid. Spectra540: Not valid for Fixed grid ROI" default_value="0" range="Spectra280:[0,1];Spectra540:[0,0];[0,1]">0</gridGapRatioV>
+  </ROIGridSetting>
+  <statsConsumeEnable type="uint" description="Array of usage enable flags for each stats. Default value: {0, 0, 0}." range="[0,1]">1</statsConsumeEnable>
+  <statsConsumeEnable type="uint" description="Array of usage enable flags for each stats. Default value: {0, 0, 0}." range="[0,1]">1</statsConsumeEnable>
+  <statsConsumeEnable type="uint" description="Array of usage enable flags for each stats. Default value: {0, 0, 0}." range="[0,1]">1</statsConsumeEnable>
+  <statsSelect>AF_FV_STATS_TYPE_HW_1</statsSelect>
+  <fineSearchDropThreshold type="float" description="FV drop ratio threshold to consider drop." range="[0.5,0.99]">0.99</fineSearchDropThreshold>
+  <fineStepSize type="int" description="Fine search step size. Should be same as single search fine step." range="[0,1000]">5</fineStepSize>
+  <maxMoveStep type="int" description="Max lens move for UX." range="[0,1000]">80</maxMoveStep>
+  <maxMoveStepBuffer type="int" description="Buffer step to avoid small lens movement." range="[0,1000]">30</maxMoveStepBuffer>
+  <baseFrameDelay type="int" description="Base frane skip for HAF." range="[0,1000]">0</baseFrameDelay>
+  <AFFineSearchExtension>
+    <enable type="uint" description="Flag to enable/disable the feature." range="[0,1]">1</enable>
+    <maximumFineSearchExtensionCount type="int" description="Maximum number of times the extension can happen, Effect: Higher the number more the search time." range="[0,10]">3</maximumFineSearchExtensionCount>
+    <numNearSteps type="int" description="Number of steps to be taken to the near end from the optimum lens position to get the near_end position. Effect: Higher the number bigger the search range." range="[0,10]">3</numNearSteps>
+    <numFarSteps type="int" description="Number of steps to be taken to the far end from the optimum lens position to get the far_end position. Effect: Higher the number bigger the search range." range="[0,10]">3</numFarSteps>
+    <stepSize type="int" description="Step size to determine the search range Effect: Higher the number bigger the search range." range="[0,100]">12</stepSize>
+    <decreaseDropRatio type="float" description="Threshold to determine the peak and stop the search. Effect: Higher the number easy to find the peak." range="[0,1]">0.992</decreaseDropRatio>
+  </AFFineSearchExtension>
+  <sceneChangeDuringFS type="int" description="Flag to indicate if scene change happens during fine search then it would trigger new search." range="[0,1]">0</sceneChangeDuringFS>
+  <faceCAFHighPriorityEnable type="int" description="Flag to indicate to give Face AF to be given priority over HAF.">0</faceCAFHighPriorityEnable>
+  <enableInitialPosition type="int" description="If this filed is enable, the initial/default lens position will be between [SINGLE_NEAR_LIMIT_IDX - SINGLE_INF_LIMIT_IDX], otherwise default lens positing will be infinity.">1</enableInitialPosition>
+  <initialLensIdx type="int" description="Index of initial lens position. This filed will be used if enableInitialPosition is enable." range="[0,11]">10</initialLensIdx>
+  <depthConfidenceCountThreshold type="int" description="The number of frames which algo should return confident in order to overwrite caf decision." range="[1,10]">2</depthConfidenceCountThreshold>
+  <HAFROISettings>
+    <HAFROIEnable type="int" description="control enabling/disabling touch and face ROI handling in HAF." range="[0,1]">1</HAFROIEnable>
+    <HAFROIHNum type="int" description="Number of Horizontal PDAF window. Constraints: PDAF Type 1,2 and 3 currently supports only 1 window." range="[1,6]">1</HAFROIHNum>
+    <HAFROIVNum type="int" description="Number of Horizontal PDAF window. Constraints: PDAF Type 1,2 and 3 currently supports only 1 window." range="[1,8]">1</HAFROIVNum>
+    <HAFCenterROISize type="float" description="Default size of PDAF window at the center, Constraints: Value has to be smaller or equal to hafCornerROISize." range="[0.2,0.3]">0.2</HAFCenterROISize>
+    <HAFCornerROISize type="float" description="Default size of PDAF window at the corner. ROI size will be interpolated between center and corner roi size. Constraints: Value has to be larger or equal to hafCenterROISize." range="[0.2,0.3]">0.25</HAFCornerROISize>
+    <HAFROIDelay type="int" description="Specifies sensor specific delay to reflect new ROI. Should be configured as 'actual sensor delay' - 1." range="[0,2]">1</HAFROIDelay>
+    <enableROIShifting type="int" description="If ROI Shifting needs to be enabled when HAF is in follow mode Constraints: should be a Boolean value.">0</enableROIShifting>
+    <ROIShiftType type="int" description="Informs HAF to do the particular ROI Shifting logic when in follow mode Constraints: should be capped to 3" range="[0,2]">0</ROIShiftType>
+  </HAFROISettings>
+  <HAFFollowerSettings>
+    <enableFollower type="int" description="Enable Follower tuning from Reserve params.">1</enableFollower>
+    <AFFollowerFineSearchSettings>
+      <normalLightFineSearchInfo>
+        <AFFollowerMacroRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerMacroRange>
+        <AFFollowerMidRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerMidRange>
+        <AFFollowerFarRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerFarRange>
+      </normalLightFineSearchInfo>
+      <lowLightFineSearchInfo>
+        <AFFollowerMacroRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerMacroRange>
+        <AFFollowerMidRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerMidRange>
+        <AFFollowerFarRange>
+          <stepSize type="int" description="Step size in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,100]">10</stepSize>
+          <numFarSteps type="int" description="Number of Far steps in normal/low light for fine search when lens is in far position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numFarSteps>
+          <numNearSteps type="int" description="Number of Near steps in normal/low light for fine search when lens is in near position in AF_FOLLOWER_MACRO_RANGE/AF_FOLLOWER_MID_RANGE/AF_FOLLOWER_FAR_RANGE." range="[0,20]">3</numNearSteps>
+        </AFFollowerFarRange>
+      </lowLightFineSearchInfo>
+    </AFFollowerFineSearchSettings>
+    <enableGravityCompensationForFollower type="int" description="Enable Gravity Compensation for Follower.">0</enableGravityCompensationForFollower>
+    <jumpToStartLimitForFollower type="int" description="Maximum lens pos that can be moved in one go. Constraints:  Value should not be more than what is supported by actuator." range="[20,300]">100</jumpToStartLimitForFollower>
+    <lowLightThresholdForFollower type="int" description="Threshold used to compare against Scene BV to check if we are in Low Light." range="[0,8]">3</lowLightThresholdForFollower>
+    <useFineSearchExtensionForFollower type="int" description="If Fine search extension needs to be enabled in HAF.">1</useFineSearchExtensionForFollower>
+    <activeConvergenceFollowForFollower type="int" description="If Follower needs to actively follow Master during convergence Constraints: Should be a Boolean value.">1</activeConvergenceFollowForFollower>
+    <lensPosThresholdForActiveConvergenceFollow type="int" description="Lets follower know if Lens position is varying by this value, it need to move the lens Constraints: should be less than max jump limit." range="[0,100]">0</lensPosThresholdForActiveConvergenceFollow>
+    <searchStrategy type="int" description="Search strategy used by Follower (0 for AF_FOLLOWER_COARSE_FOLLOW and 1 for AF_FOLLOWER_COMPLETE_FOLLOW)." range="[0,1]">0</searchStrategy>
+    <lensMappingStrategy type="int" description="Follower lens mapping strategy (0: FOLLOWER_LEGACY_MAPPING, 1: FOLLOWER_DIRECT_MAPPING)" range="[0,1]">0</lensMappingStrategy>
+  </HAFFollowerSettings>
+  <macroRegionThresholdInMM type="float" description="Macro region threshold in mm." range="[0,10000]">5000</macroRegionThresholdInMM>
+  <farRegionThresholdinMM type="float" description="Far region threshold in mm." range="[0,10000]">200</farRegionThresholdinMM>
+  <fineStartMoveBuffer type="int" description="This parameter is used to take decision in fine start pos move when frame skip is not enabled in fine search. When frame skip in fine search is not enabled and move lens to fine start location is larger than fine step size, we can move in two steps so that second step is same as fine step size. This parameter takes decision in two step movement." range="[0,10]">0</fineStartMoveBuffer>
+  <DOFMultiplier type="float" description="Represents the scaler by which the increase in lens depth-of-focus change from the far to the near focus limit is estimated. This parameter is used to adjust the step size based on current location needed for fine search extension functionality used in HAF. Constraints: Specifies a linear scaler used in modeling the change in lens depth-of-focus from the far to the near focus limit" range="[1,2]">1</DOFMultiplier>
+  <enableForceScanEnd type="int" description="This tunable flag is used to provide an option to abort the focus search based on timeout logic and the do_af_call active focus call from AP. This is mainly used for apps which rely on focus status to trigger snapshot.">1</enableForceScanEnd>
+  <enablePassiveScanTimeout type="int" description="Apart from the active scan timeout using the enableForceScanEnd, there is an option provided to timeout in general for any passive search triggered by CAF based on scene change. When this flag is enabled, counter would start for scanning and abort the search if the search continues too long. Uses the same counter threshold as enable_force_scan_end.">1</enablePassiveScanTimeout>
+  <enableZeroTouchLag type="int" description="AF will direct move lens to depth target position in touch AF scenario with zero touch lag enable">0</enableZeroTouchLag>
+  <maxScanCountThreshold type="int" description="This parameter represents the maximum numbers of frames any depth based AF can stay in focusing state. Constraints: Tuning the value to a lower threshold would result in aborting the scan frequently. Higher value would delay the snapshot trigger call for some apps." range="[0,60]">40</maxScanCountThreshold>
+  <gyroSettings>
+    <enableGyroSamplingRateAdjustment type="int" description="this is the gyro sampling rate dynamic adjustment enable flag. If enabled, gyro sampling rate will adjust according to gyroSamplingRateMonitor, gyroSamplingRateSearching or gyroSamplingRateSearchingHj">0</enableGyroSamplingRateAdjustment>
+    <gyroSamplingRateMonitor type="float" description="this is the gyro sampling rate set to in mhz when AF enters monitor state. The value should be lower than gyroSamplingRateSearching to reduce overrall power consumption." range="[0,1024]">33</gyroSamplingRateMonitor>
+    <gyroSamplingRateSearching type="float" description="this is the gyro sampling rate set to in mhz when AF enters searching state. This sampling rate is used by legacy SAF(Non-HJ Single AF)." range="[0,1024]">66</gyroSamplingRateSearching>
+    <gyroSamplingRateSearchingHJ type="float" description="this is the gyro sampling rate in mhz set to when AF enters searching state. This sampling rate is used by HJ SAF(Hand-jitter Single AF)" range="[0,1024]">200</gyroSamplingRateSearchingHJ>
+  </gyroSettings>
+  <enableDynamicAnchorPoints type="int" description="This allows anchor points which is used for calculating, focal length ratio, distance to lens position and vice versa to be tunable. Wide Lens can use anchor points of 20cm and 60cm while tele cannot use 20cm since its minimum focusing distance may be more than that. Constraints: None">0</enableDynamicAnchorPoints>
+  <anchorPosition1 type="int" description="This value maps to SINGLE_20CM_IDX which is the anchor position   Constraints: This value should be more than then minimum focusing distance of the lens" range="[0,10]">4</anchorPosition1>
+  <anchorPosition2 type="int" description="This value maps to SINGLE_HYP_F_IDX which is the anchor position  Constraints: this value should be less than infinity as we can't calculate the distance for the same" range="[0,10]">10</anchorPosition2>
+  <minimumFocusIndex type="int" description="This value maps to the minimum focusing distance of the lens which is SINGLE_7CM_IDX for most lens." range="[0,10]">1</minimumFocusIndex>
+  <HJNormalizedWeightType type="int" description="choose algorithm for HJ normalized weight value in AF single algorithm.  0 is using gyro to decide normalization weight. 1 is using gyro difference to decide normalization weight.  Constraints: tuning when HAF fine search HJ_Algorithm is enable." range="[0,1]">0</HJNormalizedWeightType>
+  <CAFHJNormalizedWeightType type="int" description="choose algorithm for HJ normalized weight value in HAF fine search algorithm.  0 is using gyro to decide normalization weight. 1 is using gyro difference to decide normalization weight. Constraints: tuning when HAF fine search HJ_Algorithm is enable." range="[0,1000]">280</CAFHJNormalizedWeightType>
+  <AFControlAECInfoEnable type="int" description="Flag to enable use fast frame rate in AF converge state. Constraints: tuning when HAF fine search HJ_Algorithm is enable.">1</AFControlAECInfoEnable>
+  <AFControlAECInfoFPS type="int" description="we use fast fps in AF converge state. This value decide how much fps in AF converge state. " range="[0,30]">30</AFControlAECInfoFPS>
+  <spd_stats_type type="int" description="Range: [0 or 1] 0 - 16x16 YSum stats 1 - 64x48 BG stats; Description: This flag determines spotlight detection algorithm stats type. When value is 0, it runs with default 16x16 YSum stats. If the value is 1, then SPD will run with 64x48 BG stats which provides finer granularity. Constraints: None" range="[0,1]">0</spd_stats_type>
+  <spd_bg_stats_thresh_auto_convert_enable type="int" description="When enable, all the YSum spotlight tuning thresholds will be auto converted to BG stats compatible thresholds. For example, if spotlight tuning thresholds are start_h = 4 and end_h = 12, then with BG auto convert, it will directly runtime change thresholds to start_h = 16 and en_h = 48(By multiplying the BG/YSum grid ratio). If it is disabled, then the grids will be use as it is, and no auto-convert will happen.">1</spd_bg_stats_thresh_auto_convert_enable>
+  <enableParallelSearch type="int" description="This control the default mixer to use parallel search or sequential search">0</enableParallelSearch>
+</chromatixHAF>

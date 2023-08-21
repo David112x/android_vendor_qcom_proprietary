@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<initDataV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modawbinitv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID type="int" range="[1,1000]">1</moduleID>
+    <subModuleID type="int" range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>1</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag description="module enable flag" tuning_parameter_level="must_tune">1</enableFlag>
+  <initialGain description="Initial/default AWB gain, will be applied when camera launches or there is no confident AWB decision" tuning_parameter_level="must_tune">
+    <red type="float" range="[0.0,9999.9]">1.95941007</red>
+    <green type="float" range="[0.0,9999.9]">1</green>
+    <blue type="float" range="[0.0,9999.9]">1.64599752</blue>
+  </initialGain>
+  <initialCCT type="float" description="Initial/default CCT value, will be applied when camera launches or if there is no confident AWB decision" range="[2000.0,9999.9]" tuning_parameter_level="must_tune">5000</initialCCT>
+  <BGStatConf>
+    <BGStatMode description="BG stats window config mode: 0 = Full FOV, 1 = Zoom FOV" range="[0,1]">FullFOV</BGStatMode>
+  </BGStatConf>
+  <GlobalEnvConf>
+    <DepthMapEnable description="All depth map modules and info enable/disable" tuning_parameter_level="must_tune">0</DepthMapEnable>
+  </GlobalEnvConf>
+</initDataV1>

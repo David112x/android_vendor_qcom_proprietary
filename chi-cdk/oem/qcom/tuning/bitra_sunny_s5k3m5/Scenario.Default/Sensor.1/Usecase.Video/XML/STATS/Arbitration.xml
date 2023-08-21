@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Arbitration
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecArbitration.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="1"/>
+  <parameter_version>
+    <revision>B</revision>
+  </parameter_version>
+  <expTables>
+    <sensitivityCorrectionFactor>1</sensitivityCorrectionFactor>
+    <expKneeEntries>
+      <gain>1</gain>
+      <expTime>10040</expTime>
+      <incrementPriority>AECExpIncExpTime</incrementPriority>
+      <expIndex>0</expIndex>
+    </expKneeEntries>
+    <expKneeEntries>
+      <gain>96</gain>
+      <expTime>16666667</expTime>
+      <incrementPriority>AECExpIncExpTime</incrementPriority>
+      <expIndex>405.2579</expIndex>
+    </expKneeEntries>
+    <thresAntiBandingMinExpTimePct>0.97</thresAntiBandingMinExpTimePct>
+  </expTables>
+  <minPreviewVertBlankTime>389000</minPreviewVertBlankTime>
+  <enableEVExpTableAdj>true</enableEVExpTableAdj>
+  <enableEVGainCapping>false</enableEVGainCapping>
+  <maxEVCappingGain>256</maxEVCappingGain>
+  <ISOData>
+    <previewISO100Gain>1</previewISO100Gain>
+    <enableAntiBandingVsISOPrio>false</enableAntiBandingVsISOPrio>
+    <enableISOQuantization>true</enableISOQuantization>
+    <thresQuantizationISOValue>11.22</thresQuantizationISOValue>
+    <thresQuantizationISOValue>14.14</thresQuantizationISOValue>
+    <thresQuantizationISOValue>17.82</thresQuantizationISOValue>
+    <thresQuantizationISOValue>22.45</thresQuantizationISOValue>
+    <thresQuantizationISOValue>28.28</thresQuantizationISOValue>
+    <thresQuantizationISOValue>35.64</thresQuantizationISOValue>
+    <thresQuantizationISOValue>44.9</thresQuantizationISOValue>
+    <thresQuantizationISOValue>56.57</thresQuantizationISOValue>
+    <thresQuantizationISOValue>71.27</thresQuantizationISOValue>
+    <thresQuantizationISOValue>89.09</thresQuantizationISOValue>
+    <thresQuantizationISOValue>112.2</thresQuantizationISOValue>
+    <thresQuantizationISOValue>141.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue>178.2</thresQuantizationISOValue>
+    <thresQuantizationISOValue>224.5</thresQuantizationISOValue>
+    <thresQuantizationISOValue>282.8</thresQuantizationISOValue>
+    <thresQuantizationISOValue>356.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue>449.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue>565.7</thresQuantizationISOValue>
+    <thresQuantizationISOValue>712.7</thresQuantizationISOValue>
+    <thresQuantizationISOValue>890.9</thresQuantizationISOValue>
+    <thresQuantizationISOValue>1122</thresQuantizationISOValue>
+    <thresQuantizationISOValue>1414</thresQuantizationISOValue>
+    <thresQuantizationISOValue>1782</thresQuantizationISOValue>
+    <thresQuantizationISOValue>2245</thresQuantizationISOValue>
+    <thresQuantizationISOValue>2828</thresQuantizationISOValue>
+    <thresQuantizationISOValue>3564</thresQuantizationISOValue>
+    <quantizedISOValue>10</quantizedISOValue>
+    <quantizedISOValue>12</quantizedISOValue>
+    <quantizedISOValue>16</quantizedISOValue>
+    <quantizedISOValue>20</quantizedISOValue>
+    <quantizedISOValue>25</quantizedISOValue>
+    <quantizedISOValue>32</quantizedISOValue>
+    <quantizedISOValue>40</quantizedISOValue>
+    <quantizedISOValue>50</quantizedISOValue>
+    <quantizedISOValue>64</quantizedISOValue>
+    <quantizedISOValue>80</quantizedISOValue>
+    <quantizedISOValue>100</quantizedISOValue>
+    <quantizedISOValue>125</quantizedISOValue>
+    <quantizedISOValue>160</quantizedISOValue>
+    <quantizedISOValue>200</quantizedISOValue>
+    <quantizedISOValue>250</quantizedISOValue>
+    <quantizedISOValue>320</quantizedISOValue>
+    <quantizedISOValue>400</quantizedISOValue>
+    <quantizedISOValue>500</quantizedISOValue>
+    <quantizedISOValue>640</quantizedISOValue>
+    <quantizedISOValue>800</quantizedISOValue>
+    <quantizedISOValue>1000</quantizedISOValue>
+    <quantizedISOValue>1250</quantizedISOValue>
+    <quantizedISOValue>1600</quantizedISOValue>
+    <quantizedISOValue>2000</quantizedISOValue>
+    <quantizedISOValue>2500</quantizedISOValue>
+    <quantizedISOValue>3200</quantizedISOValue>
+    <quantizedISOValue>6400</quantizedISOValue>
+  </ISOData>
+  <antibandingVsFPSMethod>LegacyAllowFPSToDrop</antibandingVsFPSMethod>
+  <enablePreviewManualISO>true</enablePreviewManualISO>
+  <enablePreviewManualExpTime>true</enablePreviewManualExpTime>
+  <enablePreviewManualFull>true</enablePreviewManualFull>
+  <disableBandingGainCapping>false</disableBandingGainCapping>
+</Arbitration>

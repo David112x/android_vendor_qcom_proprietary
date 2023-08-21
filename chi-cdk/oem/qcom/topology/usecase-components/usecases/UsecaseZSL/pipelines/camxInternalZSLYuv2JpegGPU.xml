@@ -1,0 +1,133 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>InternalZSLYuv2JpegGPU</PipelineName>
+    <CamxInclude segment="SnapshotEncodeSegment"/>
+    <CamxInclude segment="YUV2JPEG_linkages"/>
+    <CamxInclude segment="SnapshotEncodeSegment2"/>
+    <CamxInclude segment="YUV2JPEG_linkages2"/>
+    <NodesList>
+        <Node>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName5</NodeInstance>
+            <NodeInstanceId>5</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>ProfileId</NodePropertyName>
+                <NodePropertyId>2</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>3</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+        <Node>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName10</NodeInstance>
+            <NodeInstanceId>10</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>ProfileId</NodePropertyName>
+                <NodePropertyId>2</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>3</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+        <Node>
+            <NodeName>ChiGPUNode</NodeName>
+            <NodeId>255</NodeId>
+            <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>NodePropertyCustomLib</NodePropertyName>
+                <NodePropertyId>1</NodePropertyId>
+                <NodePropertyDataType>STRING</NodePropertyDataType>
+                <NodePropertyValue>com.qti.node.gpu</NodePropertyValue>
+            </NodeProperty>
+            <NodeProperty>
+                <NodePropertyName>Unknown</NodePropertyName>
+                <NodePropertyId>12</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>8</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_CUSTOM_YUV</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_CUSTOM_YUV</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>IPEInputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName5</NodeInstance>
+                <NodeInstanceId>5</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatUBWCTP10</BufferFormat>
+                <BufferImmediateAllocCount>8</BufferImmediateAllocCount>
+                <BufferQueueDepth>8</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+        <TargetName>TARGET_BUFFER_CUSTOM_YUV2</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_CUSTOM_YUV2</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName1</NodeInstance>
+                <NodeInstanceId>1</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>IPEInputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName10</NodeInstance>
+                <NodeInstanceId>10</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatUBWCTP10</BufferFormat>
+                <BufferImmediateAllocCount>8</BufferImmediateAllocCount>
+                <BufferQueueDepth>8</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+        <Link>
+          <SrcPort>
+            <PortName>IPEOutputPortVideo</PortName>
+            <PortId>9</PortId>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName5</NodeInstance>
+            <NodeInstanceId>5</NodeInstanceId>
+          </SrcPort>
+          <DstPort>
+            <PortName>TARGET_BUFFER_HEIC_YUV</PortName>
+            <PortId>0</PortId>
+            <NodeName>SinkBuffer</NodeName>
+            <NodeId>2</NodeId>
+            <NodeInstance>SinkInstanceName5</NodeInstance>
+            <NodeInstanceId>5</NodeInstanceId>
+            <PrunableVariant variantGroup="Snapshot" variantType="HEIC"/>
+          </DstPort>
+        </Link>
+    </PortLinkages>
+</Pipeline>

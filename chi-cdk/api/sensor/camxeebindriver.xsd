@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="camxsensorcommon.xsd"/>
+
+    <xs:complexType name="EEBinSlaveInformation">
+        <xs:annotation>
+            <xs:documentation>EEBin slave information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- element for slaveAddress -->
+            <xs:element name="slaveAddress" type="xs:unsignedShort">
+                <xs:annotation>
+                    <xs:documentation>8-bit or 10-bit I2C slave address to access EEbinData</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <!-- element for I2CFrequencyMode -->
+            <xs:element name="i2cFrequencyMode" type="I2CFrequencyMode" default="FAST" />
+
+            <!-- element for power up sequence -->
+            <xs:element name="powerUpSequence" type="PowerSequenceInfo" />
+
+            <!-- element for power down sequence -->
+            <xs:element name="powerDownSequence" type="PowerSequenceInfo" />
+        </xs:sequence>
+        <xs:attribute name="description" type="xs:string" default="EEPROM Slave Information" />
+    </xs:complexType>
+
+    <xs:complexType name="MemoryFormatInfo">
+        <xs:annotation>
+            <xs:documentation>Specifies memory offset value and length in bytes information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="offset" type="xs:unsignedShort">
+                <xs:annotation>
+                    <xs:documentation>Offset value in the memory read</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+
+            <xs:element name="lengthInBytes" type="xs:unsignedShort">
+                <xs:annotation>
+                    <xs:documentation>number of bytes of data to be read from the specified offset </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="VersionFormatInfo">
+        <xs:annotation>
+            <xs:documentation>Specifies information to format the version to identify EEBin read is needed or not and read details</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- element for formating the EEBin version read -->
+            <xs:element name="version" type="MemoryFormatInfo" />
+
+            <!-- element for formating the EEBin read start address -->
+            <xs:element name="readStartAddress" type="MemoryFormatInfo" />
+
+            <!-- element for formating the EEBin read end address-->
+            <xs:element name="readEndAddress" type="MemoryFormatInfo" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ModuleInformation">
+        <xs:annotation>
+            <xs:documentation>Specifies the file information of a Hw module</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+        <!-- element for HW Version Info -->
+        <xs:element name="HWVersion" type="xs:string" default="ABCDE">
+            <xs:annotation>
+                <xs:documentation>HW Version 5 characters</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <!-- element for SW Version Info -->
+        <xs:element name="SWVersion" type="xs:string" default="ABCD">
+            <xs:annotation>
+                <xs:documentation>SW Version 4 characters</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <!-- element for Misc Version Info -->
+        <xs:element name="MiscVersion" type="xs:string" default="AB">
+            <xs:annotation>
+                <xs:documentation>MISC Version 2 characters</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        <!-- element for Sensor Position -->
+        <xs:element name="binaryName" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Full name of the binary file in the format com.vendor.category.module.bin</xs:documentation>
+                <xs:documentation>This name is used as is to find the .bin file in the predefined device paths to load</xs:documentation>
+            </xs:annotation>
+        </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="EEbinDriver">
+        <xs:annotation>
+            <xs:documentation>EEbin Driver data</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="module_version">
+                <xs:complexType>
+                    <xs:attribute name="major_revision" type="xs:int" default="1"/>
+                    <xs:attribute name="minor_revision" type="xs:int" default="0"/>
+                    <xs:attribute name="incr_revision" type="xs:int" default="0"/>
+                </xs:complexType>
+            </xs:element>
+
+            <!-- element for slaveInfo -->
+            <xs:element name="slaveInfo" type="EEBinSlaveInformation" />
+
+            <!-- element for reading to EEBin vesrion -->
+            <xs:element name="versionReadInfo" type="SettingsInfo" />
+
+            <!-- element for formating the EEBin version read -->
+            <xs:element name="versionFormatInfo" type="VersionFormatInfo" />
+
+            <!-- element for Reading EEBin data information -->
+            <xs:element name="dataReadInfo" type="SettingsInfo" />
+
+            <!-- element for Write EEBin data information -->
+            <xs:element name="dataWriteInfo" type="SettingsInfo" />
+
+            <!-- element for module information -->
+            <xs:element name="moduleInfo" type="ModuleInformation" minOccurs="1" maxOccurs="20" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="EEbinDriver" type="EEbinDriver"/>
+</xs:schema>

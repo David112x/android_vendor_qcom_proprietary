@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<pdpc30_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\pdpc_3_0_0.xsd">
+  <enable_section>
+    <enable>1</enable>
+    <pdpc_enable>0</pdpc_enable>
+    <bpc_enable>1</bpc_enable>
+    <gic_enable>1</gic_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <bpc_enable>
+      <enable type="int" range="[0,1]" length="1">0</enable>
+      <hyst_control_var type="uint" range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>0.9</start1>
+        <end1>0.91</end1>
+        <start2>0.9</start2>
+        <end2>0.91</end2>
+      </hyst_trigger>
+    </bpc_enable>
+    <gic_enable>
+      <enable type="int" range="[0,1]" length="1">0</enable>
+      <hyst_control_var type="uint" range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>0.9</start1>
+        <end1>0.91</end1>
+        <start2>0.9</start2>
+        <end2>0.91</end2>
+      </hyst_trigger>
+    </gic_enable>
+  </dynamic_enable_triggers>
+  <chromatix_pdpc30_core>
+    <mod_pdpc30_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_pdpc30_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_pdpc30_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>200</gain_end>
+              </aec_trigger>
+              <pdpc30_rgn_data>
+                <fmax_flat type="uint" range="[0,255]" length="1">68</fmax_flat>
+                <fmin_flat type="uint" range="[0,255]" length="1">60</fmin_flat>
+                <bpc_offset_flat type="uint" range="[0,16383]" length="1">10</bpc_offset_flat>
+                <bcc_offset_flat type="uint" range="[0,16383]" length="1">10</bcc_offset_flat>
+                <fmax type="uint" range="[0,255]" length="1">96</fmax>
+                <fmin type="uint" range="[0,255]" length="1">32</fmin>
+                <bpc_offset type="uint" range="[0,16383]" length="1">20</bpc_offset>
+                <bcc_offset type="uint" range="[0,16383]" length="1">20</bcc_offset>
+                <flat_detection_en type="uint" range="[0,1]" length="1">1</flat_detection_en>
+                <flat_th_recip type="uint" range="[0,1023]" length="1">32</flat_th_recip>
+                <saturation_threshold type="uint" range="[0,16383]" length="1">1023</saturation_threshold>
+                <use_same_channel_only type="uint" range="[0,1]" length="1">0</use_same_channel_only>
+                <single_bpc_only type="uint" range="[0,1]" length="1">0</single_bpc_only>
+                <directional_bpc_en type="uint" range="[0,1]" length="1">0</directional_bpc_en>
+                <dir_tk type="uint" range="[0,511]" length="1">128</dir_tk>
+                <dir_offset type="uint" range="[0,16383]" length="1">32</dir_offset>
+                <fmax_gic type="uint" range="[0,255]" length="1">96</fmax_gic>
+                <bpc_offset_gic type="uint" range="[0,16383]" length="1">20</bpc_offset_gic>
+                <gic_thin_line_noise_offset type="uint" range="[0,16383]" length="1">100</gic_thin_line_noise_offset>
+                <gic_filter_strength type="uint" range="[0,511]" length="1">64</gic_filter_strength>
+                <noise_std_lut_tab type="uint" range="[0,512]" length="65">
+                  <noise_std_lut>0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44</noise_std_lut>
+                </noise_std_lut_tab>
+              </pdpc30_rgn_data>
+            </mod_pdpc30_aec_data>
+          </hdr_aec_data>
+        </mod_pdpc30_hdr_aec_data>
+      </drc_gain_data>
+    </mod_pdpc30_drc_gain_data>
+  </chromatix_pdpc30_core>
+</pdpc30_ife>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+
+
+<Pipeline>
+  <PipelineName>BokehSnapshot</PipelineName>
+  <NodesList>
+    <Node>
+      <NodeName>ChiExternalNode</NodeName>
+      <NodeId>255</NodeId>
+      <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+      <NodeInstanceId>0</NodeInstanceId>
+      <NodeProperty>
+        <NodePropertyName>NodePropertyCustomLib</NodePropertyName>
+        <NodePropertyId>1</NodePropertyId>
+        <NodePropertyDataType>STRING</NodePropertyDataType>
+        <NodePropertyValue>com.qti.node.dummyrtb</NodePropertyValue>
+      </NodeProperty>
+    </Node>
+  </NodesList>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_FUSION_INPUT0</PortName>
+        <PortId>0</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>ChiNodeInputPort</PortName>
+        <PortId>0</PortId>
+        <NodeName>ChiExternalNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_FUSION_INPUT1</PortName>
+        <PortId>1</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName1</NodeInstance>
+        <NodeInstanceId>1</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>ChiNodeInputPort</PortName>
+        <PortId>1</PortId>
+        <NodeName>ChiExternalNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_FUSION_INPUT2</PortName>
+        <PortId>2</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName1</NodeInstance>
+        <NodeInstanceId>1</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>ChiNodeInputPort</PortName>
+        <PortId>2</PortId>
+        <NodeName>ChiExternalNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_FUSION_INPUT3</PortName>
+        <PortId>3</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName1</NodeInstance>
+        <NodeInstanceId>1</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>ChiNodeInputPort</PortName>
+        <PortId>3</PortId>
+        <NodeName>ChiExternalNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>ChiNodeOutputPort</PortName>
+        <PortId>0</PortId>
+        <NodeName>ChiExternalNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_FUSION_SNAPSHOT</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+  </PortLinkages>
+</Pipeline>
+

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SensorInformation>
+  <MaxFPS>30</MaxFPS>
+  <MinLineCount>1</MinLineCount>
+  <FrameLengthLines>4280</FrameLengthLines>
+  <MaxLineCount>17080</MaxLineCount>
+  <MinGain>1</MinGain>
+  <MaxGain>16</MaxGain>
+  <MaxGainAfterLinearAFR>96</MaxGainAfterLinearAFR>
+  <MinVerticalBlanking>0</MinVerticalBlanking>
+  <RawImageWidth>4656</RawImageWidth>
+  <RawImageHeight>3496</RawImageHeight>
+  <Stride>0</Stride>
+  <BayerPattern>RGGB</BayerPattern>
+  <BPP>10</BPP>
+  <PackFormat>Mipi</PackFormat>
+  <CropLeft>0</CropLeft>
+  <CropRight>0</CropRight>
+  <CropTop>0</CropTop>
+  <CropBottom>0</CropBottom>
+  <RedGain>0</RedGain>
+  <BlueGain>0</BlueGain>
+  <GreenEvenGain>0</GreenEvenGain>
+  <GreenOddGain>0</GreenOddGain>
+  <Blacklevel>256</Blacklevel>
+  <BlacklevelLowlight>256</BlacklevelLowlight>
+  <BlacklevelBrightLight>256</BlacklevelBrightLight>
+</SensorInformation>

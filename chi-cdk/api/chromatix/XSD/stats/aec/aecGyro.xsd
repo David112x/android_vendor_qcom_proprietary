@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<xs:element name="aecGyro" type="AECGyroType"/>
+	<xs:complexType name="AECGyroType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="Enable Flag for Depth-based AEC Adjustments"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="movingAvgFilterLength" default="30">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:unsignedInt">
+							<xs:attribute name="description" type="xs:string" default="Number of taps for moving average process of gyro data"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="level2ZoneType" type="AECGyroExpCtrlKeyLevelZoneType" default="GyroExpCtrlKeyCurExpTimeType"/>
+			<xs:element name="triggerDataType" type="AECGyroExpCtrlTriggerDataType" default="GyroExpCtrlTriggerDataTargetExpoTime"/>
+			<xs:element name="gyroExpCtrlTrigger" type="GyroExpCtrlZoneType" maxOccurs="unbounded"/>
+			<xs:element name="gyroExpCtrlValueMonitors" type="GyroExpCtrlValueMonitorType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GyroExpCtrlZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TriggerPointType">
+							<xs:attribute name="description" type="xs:string" default="Gyro start and end values that define trigger region"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="zoneData" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="GyroExpCtrlAuxZoneType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GyroExpCtrlAuxZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TriggerPointType">
+							<xs:attribute name="description" type="xs:string" default="Second level trigger zone using gyro data"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="zoneData">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="GyroExpCtrlAuxZoneDataType">
+							<xs:attribute name="description" type="xs:string" default="Zone data and type"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GyroExpCtrlAuxZoneDataType">
+		<xs:sequence>
+			<xs:element name="data" default="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="trigger zone data depending on the type"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1000000000]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GyroExpCtrlValueMonitorType">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" default="DefaultValueMonitorName"/>
+			<xs:element name="sensitivity" type="xs:int" default="50"/>
+			<xs:element name="valueMonitor" type="AECValueMonitorType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2020 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<PDConfigData
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\api\sensor\camxpdafconfig.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+
+  <PDCommonInfo>
+    <!-- PDAF Name -->
+    <PDAFName>imx481_pdaf</PDAFName>
+    <!--PDAF Sensor Orientation
+        PDAF Sensor orientation
+        Valid values: DEFAULT, MIRROR, FLIP, MIRRORANDFLIP -->
+    <PDOrientation>DEFAULT</PDOrientation>
+    <!--Defocus confidence threshold level -->
+    <PDDefocusConfidenceThreshold>594</PDDefocusConfidenceThreshold>
+  </PDCommonInfo>
+
+  <!-- Res 0-->
+  <PDModeInfo>
+      <PDType>PDType1</PDType>
+      <PDSensorMode>0</PDSensorMode>
+    <!--Sensor PD Stats Format for Type1 -->
+    <PDSensorPDStatsFormat>SensorPDStatsRaw10Conf11BitPd10Bit</PDSensorPDStatsFormat>
+    <PDAFLibraryName>com.qti.stats.pdlibsony</PDAFLibraryName>
+  </PDModeInfo>
+  <!-- Res 1-->
+  <PDModeInfo>
+      <PDType>PDType1</PDType>
+      <PDSensorMode>1</PDSensorMode>
+    <!--Sensor PD Stats Format for Type1 -->
+    <PDSensorPDStatsFormat>SensorPDStatsRaw10Conf11BitPd10Bit</PDSensorPDStatsFormat>
+    <PDAFLibraryName>com.qti.stats.pdlibsony</PDAFLibraryName>
+  </PDModeInfo>
+</PDConfigData>

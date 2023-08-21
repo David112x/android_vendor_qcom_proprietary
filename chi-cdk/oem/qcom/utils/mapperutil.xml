@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+<MapperUtilsDef xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="mapperutil.xsd">
+
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>1</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+
+  <MapperUtils>
+    <FormatProperties>
+      <BufferFormat>CAMERA_PIXEL_FORMAT_NV21_ZSL</BufferFormat>
+      <BufferStrideAlign>64</BufferStrideAlign>
+      <BufferScanLineAlign>64</BufferScanLineAlign>
+      <BufferPlaneAlign>4096</BufferPlaneAlign>
+    </FormatProperties>
+    <FormatProperties>
+      <BufferFormat>CAMERA_PIXEL_FORMAT_YUV_FLEX</BufferFormat>
+      <BufferStrideAlign>2</BufferStrideAlign>
+      <BufferScanLineAlign>1</BufferScanLineAlign>
+      <BufferPlaneAlign>1</BufferPlaneAlign>
+    </FormatProperties>
+    <FormatProperties>
+      <BufferFormat>CAMERA_PIXEL_FORMAT_UBWC_FLEX</BufferFormat>
+      <BufferStrideAlign>128</BufferStrideAlign>
+      <BufferScanLineAlign>32</BufferScanLineAlign>
+      <BufferPlaneAlign>4096</BufferPlaneAlign>
+    </FormatProperties>
+    <FormatProperties>
+      <BufferFormat>CAMERA_PIXEL_FORMAT_MULTIPLANAR_FLEX</BufferFormat>
+      <BufferStrideAlign>32</BufferStrideAlign>
+      <BufferScanLineAlign>32</BufferScanLineAlign>
+      <BufferPlaneAlign>4096</BufferPlaneAlign>
+    </FormatProperties>
+  </MapperUtils>
+
+</MapperUtilsDef>

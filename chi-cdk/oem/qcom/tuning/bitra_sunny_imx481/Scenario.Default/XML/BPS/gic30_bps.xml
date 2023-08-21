@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<gic30_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\gic_3_0_0.xsd">
+  <enable_section>
+    <gic_global_enable>1</gic_global_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_aec_exp_sensitivity_ratio, control_gain">
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <gic_global_enable>
+      <enable type="int" description="enable GIC3.0 module" default_value="0" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</enable>
+      <hyst_control_var type="uint" description="enable GIC3.0 module" default_value="control_gain" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>5.1</start1>
+        <end1>7.3</end1>
+        <start2>8.9</start2>
+        <end2>9.6</end2>
+      </hyst_trigger>
+    </gic_global_enable>
+  </dynamic_enable_triggers>
+  <chromatix_gic30_reserve>
+    <radial_anchor_tab type="float" description="radial anchor table (distance percentage)" default_value="0 0.2 0.3 0.4 0.6 0.8 1.0" range="[0,1]" bit_depth="10uQ0" length="7" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+      <radial_anchor>0 0.2 0.3 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_gic30_reserve>
+  <chromatix_gic30_core>
+    <mod_gic30_hdr_aec_data>
+      <hdr_aec_trigger>
+        <exp_time_start>1</exp_time_start>
+        <exp_time_end>64</exp_time_end>
+        <aec_sensitivity_start>1</aec_sensitivity_start>
+        <aec_sensitivity_end>64</aec_sensitivity_end>
+        <exp_gain_start>1</exp_gain_start>
+        <exp_gain_end>64</exp_gain_end>
+      </hdr_aec_trigger>
+      <hdr_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1</gain_start>
+            <gain_end>1.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 5.09901953 7.14142847 8.774964 10.0995045 11.3137083 12.4096737 13.3790884 14.3178215 15.1657505 16 16.7630539 17.5214157 18.2482872 18.920887 19.5959187 20.22375 20.8566532 21.470911 22.0454082 22.6274166 23.17326 23.7276211 24.2693214 24.7790241 25.2982216 25.7875938 26.2868786 26.7581768 27.2396774 27.7128124 28.1602554 28.6181755 29.0516777 29.4957619 29.93326 30.3479824 30.773365 31.1769142 31.5911388 32 32.38827 32.7871933 33.16625 33.5559235 33.92639 34.3074341 34.68429 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283 35.04283</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">0.4</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.4</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1.9</gain_start>
+            <gain_end>2.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 6.708204 9.486833 11.61895 13.4536238 15.0332966 16.4620781 17.7763882 19 20.14944 21.2602921 22.2934971 23.2808933 24.2280827 25.13961 26.0192242 26.8886585 27.7128124 28.513155 29.2916374 30.04996 30.789608 31.5277653 32.2335243 32.9241562 33.6005936 34.2636833 34.91418 35.5668373 36.193924 36.8103256 37.4165726 38.0131569 38.6005173 39.1790771 39.76179 40.32369 40.87787 41.42463 41.96427 42.49706 43.03487 43.55456 44.06813 44.57578 45.07771 45.5741158 46.0760231 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867 46.5617867</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">0.45</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.45</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>3.9</gain_start>
+            <gain_end>4.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 9.219544 13.0766964 16 18.4932423 20.6639786 22.6495037 24.4540386 26.1533928 27.7308483 29.2403831 30.65942 32.0312347 33.331665 34.5976868 35.805027 36.9864845 38.1182365 39.2173424 40.29888 41.3400536 42.36744 43.3589668 44.3396 45.2879677 46.2276955 47.1380959 48.04165 48.9183 49.78956 50.6359558 51.47815 52.297226 53.1130867 53.90733 54.6900368 55.4707146 56.2316628 56.9912262 57.73214 58.4722137 59.1945953 59.9166069 60.6217766 61.326992 62.01613 62.70566 63.3798065 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646 64.0546646</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">0.6</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.5</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>7.9</gain_start>
+            <gain_end>8.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 12.9614811 18.3030052 22.4276619 25.8843575 28.9482288 31.7017345 34.24909 36.60601 38.8329773 40.93898 42.9301758 44.8441734 46.66905 48.435524 50.1298332 51.7783737 53.3666573 54.91812 56.4269447 57.88782 59.32116 60.7124367 62.0805931 63.4113541 64.72248 66 67.26069 68.4908752 69.70653 70.90134 72.06941 73.22568 74.35725 75.47848 76.57676 77.6659546 78.73373 79.79348 80.83935 81.8657455 82.88546 83.8868256 84.88227 85.86035 86.8331757 87.78952 88.7411957 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278 89.68278</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">0.8</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.55</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>15.9</gain_start>
+            <gain_end>16.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 18.35756 25.96151 31.7962265 36.71512 41.04875 44.9666557 48.56954 51.92302 55.0726776 58.0517 60.88514 63.592453 66.1891251 68.69498 71.10555 73.43705 75.69676 77.89095 80.0249939 82.10359 84.13085 86.1104 88.04544 89.9388657 91.79324 93.61089 95.39392 97.1442261 98.86354 100.553467 102.215462 103.850853 105.460892 107.046722 108.60939 110.149895 111.669151 113.168015 114.647285 116.107712 117.549988 118.978989 120.386879 121.778488 123.154373 124.51506 125.861038 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764 127.192764</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.6</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>31.9</gain_start>
+            <gain_end>32.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 26.4952831 37.46999 45.8911743 52.9905663 59.2452545 64.8999252 70.09993 74.93998 79.48585 83.77947 87.8692245 91.7769 95.5248642 99.1312256 102.610916 105.97641 109.238274 112.405518 115.485931 118.486282 121.412521 124.269867 127.062973 129.79599 132.472641 135.096268 137.669891 140.196289 142.674454 145.113754 147.512711 149.873276 152.197235 154.486252 156.741821 158.965408 161.15831 163.321762 165.45694 167.564911 169.6467 171.703232 173.735428 175.744125 177.730133 179.694183 181.637 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925 183.55925</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.75</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>63.9</gain_start>
+            <gain_end>64</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" description="GIC enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_gic>
+            <enable_pnr type="int" description="PNR enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="0x1: enable GIC/PNR. 0x0: disable GIC/PNR.">1</enable_pnr>
+            <noise_std_lut_tab type="float" description="65-entry shot noise profile (std) from measurement." default_value="0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44" range="[0,512]" bit_depth="14uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+              <noise_std_lut>0 39.6484566 56.0803 68.68042 79.30952 88.66792 97.13393 104.914253 112.1606 118.962181 125.399361 131.518066 137.368118 142.975525 148.374527 153.5806 158.615891 163.499237 168.23793 172.84964 177.338654 181.719559 185.994629 190.176239 194.265289 198.272537 202.197922 206.050964 209.830887 213.5439 217.19577 220.784958 224.31897 227.795959 231.222839 234.597534 237.926453 241.207382 244.44632 247.640869 250.796738 253.9114 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047 255.998047</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" description="noise scale factor for GIC correction" default_value="1" range="[0,15.98]" bit_depth="10uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_noise_scale increases.">1</gic_noise_scale>
+            <gic_correction_strength type="float" description="GIC correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="GIC correction will be stronger as gic_correction_strength increases. 256 means full strength.">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" description="noise offset for edge-thin line detection in GIC" default_value="400" range="[0,16383]" bit_depth="14uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="GIC correction will be stronger and less edge/thin line will be detected as thin_line_noise_offset">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" description="noise scale factor for PNR correction" default_value="1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_noise_scale increases.">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" description="PNR correction strength" default_value="0.6" range="[0,1]" bit_depth="9uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR correction will be stronger as pnr_correction_strength increases. 256 means full strength.">0.9</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" description="radial adjustment for peak noise reduction (PNR) strength" default_value="1.0 1.0 1.0 1.0 1.0 1.0 1.0" range="[0,15.98]" bit_depth="10uQ6" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="PNR will be stronger as radial_pnr_str_adj increases. In general, radial_pnr_str_adj is a monotonically increasing curve.">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+      </hdr_aec_data>
+    </mod_gic30_hdr_aec_data>
+  </chromatix_gic30_core>
+</gic30_bps>

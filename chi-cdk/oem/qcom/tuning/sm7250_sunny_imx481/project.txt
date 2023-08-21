@@ -1,0 +1,11 @@
+ISPName=Spectra355
+CurrentProjectScenarioName=Default
+SensorType=Bayer
+MFNREnable=0
+MFNRNumFrames=3
+VideoNumFrames=1
+UseCustomTriggers=False
+GenerateMeta=True
+DisablePresetWarning=False
+DisableParameterOutOfSyncWarning=False
+XMLAttribute=AddInline

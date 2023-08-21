@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<hnr10_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\hnr_1_0_0.xsd">
+  <enable_section>
+    <hnr_nr_enable type="int" description="HNR noise reduction enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</hnr_nr_enable>
+    <hnr_blend_enable type="int" description="HNR blending enable bit" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</hnr_blend_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_total_scale_ratio, control_drc_gain, control_aec_exp_sensitivity_ratio, control_gain">
+    <control_var_type>control_total_scale_ratio</control_var_type>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <hnr_nr_enable>
+      <enable type="int" description="enable HNR1.0 module" default_value="0" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</enable>
+      <hyst_control_var type="uint" description="enable HNR1.0 module" default_value="control_gain" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </hnr_nr_enable>
+  </dynamic_enable_triggers>
+  <chromatix_hnr10_reserve>
+    <lnr_en type="int" description="enable bit of luma based noise reduction" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</lnr_en>
+    <rnr_en type="int" description="enable bit of radius based noise reduction" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</rnr_en>
+    <cnr_en type="int" description="enable bit of chroma based noise reduction" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</cnr_en>
+    <snr_en type="int" description="enable bit of skin color based noise reduction" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</snr_en>
+    <fd_snr_en type="int" description="enable bit of face guided skin color based noise reduction" default_value="0" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="if fd_snr_en = 1, snr is applied on face regions; if fd_snr_en  = 0, snr is applied on both face regions and non-face regions">0</fd_snr_en>
+    <fnr_en type="int" description="enable bit of flatness based noise reduction" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_en>
+    <lpf3_en type="int" description="enable bit of low-pass filter" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</lpf3_en>
+    <blend_cnr_en type="int" description="enable bit of color based noise blending" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</blend_cnr_en>
+    <blend_snr_en type="int" description="enable bit of skin color based blending" default_value="1" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</blend_snr_en>
+    <radial_anchor_tab type="float" description="radial anchor table (distance percentage)" default_value="0.0 0.2 0.3 0.4 0.6 0.8 1.0" range="[0.0,1.0]" bit_depth="10uQ0" length="7" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+      <radial_anchor>0 0.2 0.3 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_hnr10_reserve>
+  <chromatix_hnr10_core>
+    <mod_hnr10_total_scale_ratio_data>
+      <total_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </total_scale_ratio_trigger>
+      <total_scale_ratio_data>
+        <mod_hnr10_drc_gain_data>
+          <drc_gain_trigger>
+            <start>1</start>
+            <end>100</end>
+          </drc_gain_trigger>
+          <drc_gain_data>
+            <mod_hnr10_hdr_aec_data>
+              <hdr_aec_trigger>
+                <exp_time_start>1</exp_time_start>
+                <exp_time_end>64</exp_time_end>
+                <aec_sensitivity_start>1</aec_sensitivity_start>
+                <aec_sensitivity_end>100</aec_sensitivity_end>
+                <exp_gain_start>1</exp_gain_start>
+                <exp_gain_end>64</exp_gain_end>
+              </hdr_aec_trigger>
+              <hdr_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>120</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.96 0.92 0.88 0.84 0.8</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 70 111 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">10</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16 16</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>130</lux_idx_start>
+                    <lux_idx_end>200</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.96 0.92 0.88 0.84 0.8</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 12 72 102 120 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">12</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>210</lux_idx_start>
+                    <lux_idx_end>300</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.96 0.92 0.88 0.84 0.8</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 30 84 111 127 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">14</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>150 180 210 235 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14 14</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>310</lux_idx_start>
+                    <lux_idx_end>400</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.95 0.9 0.85 0.8 0.75</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 0 39 77 100 116 126 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">16</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>150 180 210 235 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13 13</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>410</lux_idx_start>
+                    <lux_idx_end>500</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>21 22 23 24 25 26 27 28 29 30 31 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.94 0.88 0.82 0.76 0.7</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 0 0 26 59 81 97 109 118 125 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">18</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>150 180 210 235 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12 12</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>510</lux_idx_start>
+                    <lux_idx_end>1000</lux_idx_end>
+                    <gain_start>31.9</gain_start>
+                    <gain_end>32.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>14 16 18 20 22 24 26 28 29 30 31 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.93 0.86 0.79 0.72 0.65</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 0 0 0 0 30 53 70 84 95 104 111 117 123 127 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">22</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>150 180 210 235 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11 11</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>63</gain_start>
+                    <gain_end>64</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as lnr_gain_arr decreases.">
+                      <lnr_gain_arr>14 16 18 20 22 24 26 28 29 30 31 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift type="uint" description="LNR right shift used to adjust LNR LUT input value" default_value="2" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="HNR will be stronger as lnr_shift increases.">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab type="float" description="radial adjustment for noise preserving percentage" default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000" range="[0,1.0]" bit_depth="10uQ9" length="7" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger denoising as radial_noise_prsv_adj decreases. In general, radial_noise_prsv_adj is a monotonically decreasing curve.">
+                      <radial_noise_prsv_adj>1 1 0.93 0.86 0.79 0.72 0.65</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab type="uint" description="chroma based noise reduction(distance percentage) for peak noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="25" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_gain_arr decreases.">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u type="int" description="CNR low-bound threshold for U channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v type="int" description="CNR low-bound threshold for V channel" default_value="2" range="[-128,127]" bit_depth="8sQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u type="uint" description="the difference between the upper and the lower threshold values in U channel are (2^cnr_thrd_gap_u)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_u>
+                    <cnr_low_gap_v type="uint" description="the difference between the upper and the lower threshold values in V channel are (2^cnr_thrd_gap_v)" default_value="1" range="[0,7]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1</cnr_low_gap_v>
+                    <cnr_adj_gain type="uint" description="CNR adjust gain" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as cnr_adj_gain decreases.">32</cnr_adj_gain>
+                    <cnr_scale type="uint" description="scale of CNR input before the table look-up." default_value="4" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">4</cnr_scale>
+                    <fnr_gain_arr_tab type="uint" description="gain table for flatness based noise reduction" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_arr decreases.">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab type="uint" description="filtering gain clamp table for noise reduction" default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as fnr_gain_clamp_arr decreases.">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab type="uint" description="FNR activity (variance )normalization by level" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,63]" bit_depth="6uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift type="uint" description="FNR activity (variance ) shift before looking up fnr_gain_arr" default_value="1" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab type="uint" description="final noise reduction gain table" default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128" range="[0,255]" bit_depth="8uQ7" length="33" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as filtering_nr_gain_arr decreases.">
+                      <filtering_nr_gain_arr>0 0 0 0 0 0 0 0 15 35 51 64 74 83 91 98 104 109 114 118 121 125 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift type="uint" description="right shift bit applied coefficient amplitude before looking up filtering_nr_gain_arr" default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</abs_amp_shift>
+                    <lpf3_percent type="uint" description="low-pass filter threshold percentage" default_value="0" range="[0,255]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_percent increases.">24</lpf3_percent>
+                    <lpf3_offset type="uint" description="low-pass filter threshold offset" default_value="0" range="[0,255]" bit_depth="8uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer will be stronger as lpf3_offset increases.">0</lpf3_offset>
+                    <lpf3_strength type="uint" description="low-pass filter gradient smoothing strength" default_value="2" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="low-pass filer gradient smoothing will be stronger as lpf3_strength increases.">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab type="uint" description="luma based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[0,255]" bit_depth="8uQ7" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_lnr_gain_arr increases.">
+                      <blend_lnr_gain_arr>128 150 200 235 255 255 255 255 255 255 255 255 255 255 255 255 255</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain type="uint" description="CNR adjust gain for blending" default_value="32" range="[0,63]" bit_depth="6uQ5" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blend_cnr_adj_gain increases.">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab type="uint" description="skin based blending gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="more noise/details will be added back as blending_snr_gain_arr increases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <blend_snr_gain_arr>10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10 10</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min type="float" description="Min hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-1.39" range="[-3.0,-1.0]" bit_depth="10uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" description="Max hue value for skin detection. Instead of negative (Cb/Cr),  absolute value |Cb/Cr| is used in HW" default_value="-0.4" range="[-0.996,0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">-0.4</skin_hue_max>
+                    <skin_y_min type="float" description="Min Y value for skin detection." default_value="0.125" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.2</skin_y_min>
+                    <skin_y_max type="float" description="Max Y value for skin detection" default_value="1" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_y_max>
+                    <skin_saturation_min_y_max type="float" description="Min saturation value for skin when Y=Y_max" default_value="0.08" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" description="Max saturation value for skin when Y=Y_max" default_value="0.8" range="[0,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" description="Min saturation value for skin when Y=Y_min" default_value="0.32" range="[0,0.5]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" description="Max saturation value for skin when Y=Y_min" default_value="1" range="[0.2,1.0]" bit_depth="8uQ8" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" description="skin-tone probability at the boundary of skin-tone range" default_value="8" range="[1,15]" bit_depth="4uQ4" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">8</skin_boundary_probability>
+                    <skin_percent type="float" description="Percentage of skin tone region with skin-tone probability 1" default_value="12" range="[0,100]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" description="Ratio of Q_nonSkin to Q_skin" default_value="0.5" range="[0.1,10.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" description="the lower bound of face region. Full skin detection is applied within radius smaller than face_boundary * face_radius(from face detection)." default_value="1.2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1.2</face_boundary>
+                    <face_transition type="float" description="the upper bound of face region. no skin detection is applied within radius larger than face_transition * face_radius(from face detection)." default_value="2" range="[0,8]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">2</face_transition>
+                    <snr_gain_arr_tab type="uint" description="skin based noise reduction gain table" default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32" range="[1,32]" bit_depth="5uQ5" length="17" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="HNR will be stronger as snr_gain_arr decreases. SW tuning parameter need subtract by 1 and set it to HW register.">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str type="uint" description="skin map smoothing strength for SNR" default_value="2" range="[0,2]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+              </hdr_aec_data>
+            </mod_hnr10_hdr_aec_data>
+          </drc_gain_data>
+        </mod_hnr10_drc_gain_data>
+      </total_scale_ratio_data>
+    </mod_hnr10_total_scale_ratio_data>
+  </chromatix_hnr10_core>
+</hnr10_bps>

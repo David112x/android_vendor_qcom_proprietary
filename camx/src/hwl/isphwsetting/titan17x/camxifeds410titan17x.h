@@ -1,0 +1,206 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxifeds410titan17x.h
+/// @brief IFE DS410 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#ifndef CAMXIFEDS410TITAN17X_H
+#define CAMXIFEDS410TITAN17X_H
+
+#include "titan170_ife.h"
+#include "camxdefs.h"
+#include "camxisphwsetting.h"
+#include "camxispiqmodule.h"
+
+CAMX_NAMESPACE_BEGIN
+
+CAMX_BEGIN_PACKED
+
+struct IFEDS4Reg
+{
+    IFE_IFE_0_VFE_DS_4TO1_Y_1ST_CFG      lumaConfig;       ///< DS4 Luma channel configuration
+    IFE_IFE_0_VFE_DS_4TO1_Y_1ST_COEFF    coefficients;     ///< DS4 Filter coefficients
+    IFE_IFE_0_VFE_DS_4TO1_C_1ST_CFG      chromaConfig;     ///< DS4 Chroma channel configuration
+} CAMX_PACKED;
+
+struct IFEDS16Reg
+{
+    IFE_IFE_0_VFE_DS_4TO1_Y_2ND_CFG      lumaConfig;       ///< DS16 Luma channel configuration
+    IFE_IFE_0_VFE_DS_4TO1_Y_2ND_COEFF    coefficients;     ///< DS16 Filter coefficients
+    IFE_IFE_0_VFE_DS_4TO1_C_2ND_CFG      chromaConfig;     ///< DS16 Chroma channel configuration
+} CAMX_PACKED;
+
+struct IFEDisplayDS4Reg
+{
+    IFE_IFE_0_VFE_DISP_DS_4TO1_Y_1ST_CFG      lumaConfig;       ///< Display DS4 Luma channel configuration
+    IFE_IFE_0_VFE_DISP_DS_4TO1_Y_1ST_COEFF    coefficients;     ///< Display DS4 Filter coefficients
+    IFE_IFE_0_VFE_DISP_DS_4TO1_C_1ST_CFG      chromaConfig;     ///< Display DS4 Chroma channel configuration
+} CAMX_PACKED;
+
+struct IFEDisplayDS16Reg
+{
+    IFE_IFE_0_VFE_DISP_DS_4TO1_Y_2ND_CFG      lumaConfig;       ///< Display DS16 Luma channel configuration
+    IFE_IFE_0_VFE_DISP_DS_4TO1_Y_2ND_COEFF    coefficients;     ///< Display DS16 Filter coefficients
+    IFE_IFE_0_VFE_DISP_DS_4TO1_C_2ND_CFG      chromaConfig;     ///< Display DS16 Chroma channel configuration
+} CAMX_PACKED;
+
+struct IFEDS410RegCmd
+{
+    IFEDS4Reg           DS4;            ///< DS4 register configuration
+    IFEDS16Reg          DS16;           ///< DS16 register configuration
+    IFEDisplayDS4Reg    displayDS4;     ///< Display DS4 register configuration
+    IFEDisplayDS16Reg   displayDS16;    ///< Display DS16 register configuration
+} CAMX_PACKED;
+
+CAMX_END_PACKED
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief IFE DS410 register setting for Titan17x
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class IFEDS410Titan17x final : public ISPHWSetting
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateCmdList
+    ///
+    /// @brief  Generate the Command List
+    ///
+    /// @param  pInputData       Pointer to the Inputdata
+    /// @param  pDMIBufferOffset Pointer for DMI Buffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult CreateCmdList(
+        VOID*   pInputData,
+        UINT32* pDMIBufferOffset);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PackIQRegisterSetting
+    ///
+    /// @brief  Calculate register settings based on common library result
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    /// @param  pOutput      Pointer to the Output data to the module for DMI buffer
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult PackIQRegisterSetting(
+        VOID* pInput,
+        VOID* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetupRegisterSetting
+    ///
+    /// @brief  Setup register value based on CamX Input
+    ///
+    /// @param  pInput       Pointer to the Input data to the module for calculation
+    ///
+    /// @return Return CamxResult.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult SetupRegisterSetting(
+        VOID*  pInput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~IFEDS410Titan17x
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual ~IFEDS410Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IFEDS410Titan17x
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    IFEDS410Titan17x();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpRegConfig
+    ///
+    /// @brief  Print register configuration of Crop module for debug
+    ///
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DumpRegConfig();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CopyRegCmd
+    ///
+    /// @brief  Copy register settings to the input buffer
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return Number of bytes copied
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 CopyRegCmd(
+        VOID* pData);
+
+private:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ConfigureDS4Registers
+    ///
+    /// @brief  Configure DS4 module registers
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ConfigureDS4Registers(
+        DS410InputData* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ConfigureDS16Registers
+    ///
+    /// @brief  Configure DS16 module registers
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ConfigureDS16Registers(
+        DS410InputData* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ConfigureDisplayDS4Registers
+    ///
+    /// @brief  Configure Display DS4 module registers
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ConfigureDisplayDS4Registers(
+        DS410InputData* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ConfigureDisplayDS16Registers
+    ///
+    /// @brief  Configure Display DS16 module registers
+    ///
+    /// @param  pData  Pointer to the Input data buffer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ConfigureDisplayDS16Registers(
+        DS410InputData* pData);
+
+
+    IFEDS410RegCmd    m_regCmd;     ///< Register List of this Module
+    IFEPipelinePath   m_modulePath; ///< IFE pipeline path
+
+    IFEDS410Titan17x(const IFEDS410Titan17x&)            = delete; ///< Disallow the copy constructor
+    IFEDS410Titan17x& operator=(const IFEDS410Titan17x&) = delete; ///< Disallow assignment operator
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXIFEDS410TITAN17X_H

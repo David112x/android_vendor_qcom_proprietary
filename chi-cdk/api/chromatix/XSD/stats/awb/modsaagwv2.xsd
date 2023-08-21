@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:element name="SAAGWV2" type="chromatixSAAGWV2Type"/>
+	<xs:complexType name="modIlluWVCtrlV1CCTTriggerDataType">
+		<xs:sequence>
+			<xs:element name="triggerPt">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="triggerPointType">
+							<xs:attribute name="tool_hint" default="trigger"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="triggerData">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbFloatDataType"/>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="modIlluWVCtrlV1LuxTriggerDataType">
+		<xs:sequence>
+			<xs:element name="triggerPt">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="triggerPointType">
+							<xs:attribute name="tool_hint" default="trigger"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="triggerData" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modIlluWVCtrlV1CCTTriggerDataType">
+							<xs:attribute name="description" type="xs:string" default="2nd triggering level, trigger control type: CCT"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="modAGWWeightDataTypeV1">
+		<xs:sequence>
+			<xs:element name="triggerType" type="awbTriggerCtrlType" minOccurs="2" maxOccurs="2"/>
+			<xs:element name="triggerPt" type="triggerPointType"/>
+			<xs:element name="triggerData" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbSAConfidenceLevel2Type">
+							<xs:attribute name="description" type="xs:string" default="1st triggering level"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixSAAGWV2Type">
+		<xs:sequence>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="1"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="A"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" type="enableFlagType"/>
+			<xs:element name="outdoorWeightCtrl" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modIlluWVCtrlV1LuxTriggerDataType">
+							<xs:attribute name="description" type="xs:string" default="1st triggering level, trigger control type: Lux index"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AHLightWeightCtrl" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modIlluWVCtrlV1LuxTriggerDataType">
+							<xs:attribute name="description" type="xs:string" default="1st triggering level, trigger control type: Lux index"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="confidenceLevel" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbSAConfidenceDataType">
+							<xs:attribute name="description" type="xs:string" default="AGW SA confidence level,  1st trigger level control type: Lux index, 2nd trigger level control type: ratio of valid stats count"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outdoorInterpWeight" type="modAGWWeightDataTypeV1" maxOccurs="unbounded"/>
+			<xs:element name="AHLightInterpWeight" type="modAGWWeightDataTypeV1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

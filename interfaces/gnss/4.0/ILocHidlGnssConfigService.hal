@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.gnss@4.0;
+import ILocHidlGnssConfigServiceCallback;
+import @2.1::ILocHidlGnssConfigService;
+
+interface ILocHidlGnssConfigService extends @2.1::ILocHidlGnssConfigService{
+    init_4_0(ILocHidlGnssConfigServiceCallback callback) generates (bool success);
+    setGnssSvTypeConfig_4_0(vec<GnssConstellationType> disabledSvTypeList);
+    getRobustLocationConfig();
+    setRobustLocationConfig(bool enable, bool enableForE911);
+
+    struct NtripConnectionParams {
+        string hostNameOrIp;
+        string mountPoint;
+        string username;
+        string password;
+        uint32_t port;
+        bool requiresNmeaLocation;
+        bool useSSL;
+    };
+
+    updateNTRIPGGAConsent(bool consentAccepted);
+    enablePPENtripStream(NtripConnectionParams params, bool enableRTKEngine);
+    disablePPENtripStream();
+};
+

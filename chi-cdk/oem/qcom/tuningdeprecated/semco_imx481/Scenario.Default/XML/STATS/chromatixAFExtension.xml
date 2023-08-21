@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afextensionelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"B"</revision>
+  </parameter_version>
+  <extensionParam description="extension feature">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change">0</ID>
+    <Name description="extension feature name">Extension feature</Name>
+    <enableFlag description="enable flag">false</enableFlag>
+    <data description="tuning parameter">0</data>
+  </extensionParam>
+  <extensionParam description="extension feature">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change">1</ID>
+    <Name description="extension feature name">SkipFineSearchAtBoundary</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+    <data description="tuning parameter">1</data>
+  </extensionParam>
+</chromatixAFExtension>

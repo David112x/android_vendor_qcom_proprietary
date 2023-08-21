@@ -1,0 +1,21 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>ZSLYuv2Yuv</PipelineName>
+        <CamxInclude segment="YUV2YUV_linkages"/>
+    <NodesList>
+        <Node>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName20</NodeInstance>
+            <NodeInstanceId>20</NodeInstanceId>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_CUSTOM_YUV</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+    </PortLinkages>
+</Pipeline>

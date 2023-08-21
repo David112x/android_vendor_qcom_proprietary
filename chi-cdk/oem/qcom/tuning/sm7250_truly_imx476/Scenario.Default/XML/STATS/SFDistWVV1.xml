@@ -1,0 +1,962 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SFDistWVV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\moddistwvv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">54</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <triggerPt description="Dummy data for consistent data structure" tuning_parameter_level="never_tune">
+    <start range="[-100.0,15000.0]">0</start>
+    <end range="[-100.0,15000.0]">0</end>
+  </triggerPt>
+  <triggerData description="1st trigger level, Trigger control type: Lux index" tuning_parameter_level="often_tune">
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">230</end>
+    </triggerPt>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0816052556</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">2400</start>
+        <end range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0690506</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0376639664</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.06277327</start>
+          <end range="[-100.0,15000.0]">0.0690506</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">3600</start>
+        <end range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.100437239</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.09415991</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06591194</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0784665942</start>
+          <end range="[-100.0,15000.0]">0.08474392</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.09102125</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">4100</start>
+        <end range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.116130561</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.10985323</start>
+          <end range="[-100.0,15000.0]">-0.1035759</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.06591194</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.06277327</start>
+          <end range="[-100.0,15000.0]">0.0690506</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">5000</start>
+        <end range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.06591194</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05963461</start>
+          <end range="[-100.0,15000.0]">-0.0533572845</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0376639664</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.06277327</start>
+          <end range="[-100.0,15000.0]">0.0690506</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">9000</start>
+        <end range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0564959459</start>
+          <end range="[-100.0,15000.0]">-0.0533572845</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+  <triggerData description="1st trigger level, Trigger control type: Lux index" tuning_parameter_level="often_tune">
+    <triggerPt>
+      <start range="[-100.0,15000.0]">311</start>
+      <end range="[-100.0,15000.0]">331</end>
+    </triggerPt>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0816052556</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">2400</start>
+        <end range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0690506</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0376639664</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.09415991</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">3600</start>
+        <end range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.100437239</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.09415991</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06591194</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.1035759</start>
+          <end range="[-100.0,15000.0]">0.10985323</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.116130561</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">4100</start>
+        <end range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.116130561</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.10985323</start>
+          <end range="[-100.0,15000.0]">-0.1035759</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.09415991</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">5000</start>
+        <end range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0690506</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0439412929</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.09415991</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">9000</start>
+        <end range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0564959459</start>
+          <end range="[-100.0,15000.0]">-0.0533572845</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+  <triggerData description="1st trigger level, Trigger control type: Lux index" tuning_parameter_level="often_tune">
+    <triggerPt>
+      <start range="[-100.0,15000.0]">388</start>
+      <end range="[-100.0,15000.0]">980</end>
+    </triggerPt>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">1500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0816052556</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.0439412929</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">2400</start>
+        <end range="[-100.0,15000.0]">3400</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0690506</start>
+          <end range="[-100.0,15000.0]">-0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0376639664</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.06277327</start>
+          <end range="[-100.0,15000.0]">0.09415991</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">3600</start>
+        <end range="[-100.0,15000.0]">3800</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.100437239</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.09415991</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.06591194</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.1035759</start>
+          <end range="[-100.0,15000.0]">0.10985323</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.116130561</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">4100</start>
+        <end range="[-100.0,15000.0]">4300</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.116130561</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.10985323</start>
+          <end range="[-100.0,15000.0]">-0.1035759</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.06591194</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.09415991</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">5000</start>
+        <end range="[-100.0,15000.0]">6500</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0816052556</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0439412929</start>
+          <end range="[-100.0,15000.0]">0.06277327</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.100437239</start>
+          <end range="[-100.0,15000.0]">0.106714569</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.5</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.112991892</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2st trigger level, Trigger control type: CCT">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">9000</start>
+        <end range="[-100.0,15000.0]">12000</end>
+      </triggerPt>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.627732754</start>
+          <end range="[-100.0,15000.0]">-0.0878825858</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.0816052556</start>
+          <end range="[-100.0,15000.0]">-0.0753279254</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">-0.05021862</start>
+          <end range="[-100.0,15000.0]">0.05021862</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0753279254</start>
+          <end range="[-100.0,15000.0]">0.0816052556</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="3rd trigger level, Trigger control type: Distance, 7 fixed number of triggering zone">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.0878825858</start>
+          <end range="[-100.0,15000.0]">0.627732754</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </triggerData>
+</SFDistWVV1>

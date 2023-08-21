@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecDepth
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecDepth.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <enableFlag>false</enableFlag>
+  <lumaDiffThres>8</lumaDiffThres>
+  <decisionMapValidGridCntThres>20</decisionMapValidGridCntThres>
+  <consecInvalidFrameCntThres>6</consecInvalidFrameCntThres>
+  <initValidFrameCntThres>4</initValidFrameCntThres>
+  <selectMapValidGridCntThres>3</selectMapValidGridCntThres>
+  <displayDebugMsg>false</displayDebugMsg>
+  <depthMtr>
+    <depthMeteringWeight>
+      <triggerPt>
+        <start>0</start>
+        <end>0</end>
+      </triggerPt>
+      <triggerData>
+        <weight>1</weight>
+      </triggerData>
+    </depthMeteringWeight>
+    <mapsLUTs>
+      <knees>
+        <triggerPt>
+          <start>0</start>
+          <end>0</end>
+        </triggerPt>
+        <triggerData>
+          <weight>1</weight>
+        </triggerData>
+      </knees>
+      <type>DepthLUTDistance</type>
+    </mapsLUTs>
+    <temporalFilter type="float" range="[0.0,1.0]">0</temporalFilter>
+  </depthMtr>
+  <depthConv>
+    <convSpeedAdjRatio type="float" range="[0,10]">0</convSpeedAdjRatio>
+  </depthConv>
+</aecDepth>

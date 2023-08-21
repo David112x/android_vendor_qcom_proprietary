@@ -1,0 +1,15 @@
+{
+  "config":
+  {
+    "hw_platform": ["MTP"],
+    "soc_id": ["356"],
+    "platform_subtype_id":["1"],
+    "platform_version":["65536","131072"]
+  },
+  "sns_llcm": {
+    "owner": "sns_llcm",
+      "qti_vr_mode": { "type": "int", "ver": "1",
+        "data": "1"
+    }
+  }
+}

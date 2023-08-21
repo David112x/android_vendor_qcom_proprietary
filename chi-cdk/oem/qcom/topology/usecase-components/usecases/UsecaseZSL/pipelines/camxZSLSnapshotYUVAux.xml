@@ -1,0 +1,33 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>ZSLSnapshotYUVAux</PipelineName>
+    <CamxInclude segment="BayerYUVSegment"/>
+    <CamxInclude segment="SnapshotYUV_linkages"/>
+    <NodesList/>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_RAW_AUX</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_RAW_AUX</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>BPSInputPort</PortName>
+                <PortId>0</PortId>
+                <NodeName>BPS</NodeName>
+                <NodeId>65539</NodeId>
+                <NodeInstance>BPSInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</Pipeline>

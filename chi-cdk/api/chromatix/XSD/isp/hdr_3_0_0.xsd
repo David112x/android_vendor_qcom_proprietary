@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="ispglobalelements.xsd"/>
+  <xs:element name="hdr30_bps" type="chromatix_hdr30Type">
+    <xs:annotation>
+      <xs:documentation>hdr30_bps module parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="hdr30_ife" type="chromatix_hdr30Type">
+    <xs:annotation>
+      <xs:documentation>hdr30_ife module parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="chromatix_hdr30Type">
+    <xs:sequence>
+      <xs:element name="enable_section">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="hdr_enable" type="enable_flag_type" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="module_version">
+        <xs:complexType>
+          <xs:attribute name="major_revision" type="xs:int" fixed="3"/>
+          <xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+          <xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="parameter_version">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="revision" type="xs:string" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_variables">
+        <xs:complexType>
+          <xs:sequence minOccurs="2" maxOccurs="2">
+            <xs:element name="control_var_type">
+              <xs:simpleType>
+                <xs:restriction base="control_var_type">
+                  <xs:pattern value="control_exp_time_ratio"/>
+                  <xs:pattern value="control_aec_exp_sensitivity_ratio"/>
+                  <xs:pattern value="control_exp_gain_ratio"/>
+                  <xs:pattern value="control_lux_idx"/>
+                  <xs:pattern value="control_gain"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="default_value" type="xs:string" default="control_aec_exp_sensitivity_ratio, control_gain"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_method">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="aec_exp_control" type="tuning_control_aec_type" default="control_gain"/>
+            <xs:element name="aec_hdr_control" type="tuning_control_aec_hdr_type" default="control_aec_exp_sensitivity_ratio"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chromatix_hdr30_reserve" type="chromatix_hdr30_reserveType"/>
+      <xs:element name="chromatix_hdr30_core" type="chromatix_hdr30_coreType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_hdr30_reserveType">
+    <xs:sequence>
+      <xs:element name="hdr_linear_mode">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="This bit enables MAC HDR linear mode (1) or normal mode (0). When in linear mode, HDR processing is bypassed except for applying WB gain, Exposure Ratio Compensation, and inverse WB gain."/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_lsb_align">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="This bit forces HDR output LSB alignment  0x0: T2 MSB referred, 0x1: T1 LSB referred"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_scale">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Motion value scaling factor, 6uQ6"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,63]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="6uQ6"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_th1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Noise floor value for motion detection"/>
+              <xs:attribute name="default_value" type="xs:string" default="1"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for motion ( th1 = th2-(2^hdr_mac_motion_dth_log2) )"/>
+              <xs:attribute name="default_value" type="xs:string" default="4"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_g2_w_min">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Low-motion area T2 weight, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="4"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_g2_w_max">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Motion area T2 weight, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_hfs_act_weight">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Weight between hfs_act and edge map, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_hfs_act_th2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Value larger than th2 means high HFS activity"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_hfs_act_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value of HFS activity threshold range ( th1 = th2-(2^hdr_mac_hfs_act_dth_log2) )"/>
+              <xs:attribute name="default_value" type="xs:string" default="4"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_g_grad_th1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Threshold for G gradient"/>
+              <xs:attribute name="default_value" type="xs:string" default="32"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4095]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="12uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_g_grad_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for th2-th1 G gradient"/>
+              <xs:attribute name="default_value" type="xs:string" default="5"/>
+              <xs:attribute name="range" type="xs:string" default="[0,12]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_rb_grad_th1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Threshold for R/B gradient"/>
+              <xs:attribute name="default_value" type="xs:string" default="32"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4095]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="12uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_rb_grad_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for th2-th1 R/B gradient"/>
+              <xs:attribute name="default_value" type="xs:string" default="5"/>
+              <xs:attribute name="range" type="xs:string" default="[0,12]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_hdr30_coreType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="mod_hdr30_hdr_aec_data" type="mod_hdr30_hdr_aec_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_hdr30_hdr_aec_dataType">
+    <xs:sequence>
+      <xs:element name="hdr_aec_trigger" type="trigger_pt_type_aec_hdr"/>
+      <xs:element name="hdr_aec_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_hdr30_aec_data" type="mod_hdr30_aec_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_hdr30_aec_dataType">
+    <xs:sequence>
+      <xs:element name="aec_trigger" type="trigger_pt_type_aec"/>
+      <xs:element name="hdr30_rgn_data" type="hdr30_rgn_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hdr30_rgn_dataType">
+    <xs:sequence>
+      <xs:element name="hdr_mac_static_th2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Static region threshold; value larger than th2 means non-static region"/>
+              <xs:attribute name="default_value" type="xs:string" default="200"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_static_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for static switching"/>
+              <xs:attribute name="default_value" type="xs:string" default="7"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_lowlight_strength">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Weight on short exposure for lowlight, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_dark_th2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Dark threshold; intensity threshold between dark for lowlight. (Short exposure weight is 0 for dark region)"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_lowlight_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for transition between dark and lowlight"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_strictness">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Motion strictness weight,5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_hl_detail_positive_w">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Highlight region positive detail gain, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_hl_detail_negative_w">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Highlight region negative detail gain, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_hl_detail_th_w">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Highlight region detail threshold weight, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_hl_motion_th_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value of intensity to motion threshold ratio"/>
+              <xs:attribute name="default_value" type="xs:string" default="1"/>
+              <xs:attribute name="range" type="xs:string" default="[0,12]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_detail_th_w">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Detail threshold scaling factor, 6uQ6"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,63]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ8"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_detail_coring_strength">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Coring strength, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_detail_coring_th2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Threshold for coring"/>
+              <xs:attribute name="default_value" type="xs:string" default="400"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_detail_coring_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for coring threshold ( log2(th2-th1))"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_motion_dt0">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Additive term to noise estimate"/>
+              <xs:attribute name="default_value" type="xs:string" default="10"/>
+              <xs:attribute name="range" type="xs:string" default="[0,255]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_edge_scale">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Edge value scaling factor, 6uQ6"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,63]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ8"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_edge_short_exp_w">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Weight of short exposure edge map"/>
+              <xs:attribute name="default_value" type="xs:string" default="8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_edge_th1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Threshold 1 for edge switching function"/>
+              <xs:attribute name="default_value" type="xs:string" default="7"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16383]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="14uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_edge_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for edge switching function ( log2(th2-th1))"/>
+              <xs:attribute name="default_value" type="xs:string" default="4"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_blending_w_min">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Minimum edge blending weight ,5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="3"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_rec_blending_w_max">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Maximum edge blending weight,5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_highlight_strength">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Weight on short exposure for highlight, 5uQ4"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,16]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="5uQ4"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_highlight_dth_log2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Log value for highlight transition (Should be recalculated by SW as below) hdr_mac_highlight_dth_log2 = round( log2( ( (hdr_mac_highlight_dth_log2-2)* hdr_long_exp_saturation)/64 ) )"/>
+              <xs:attribute name="default_value" type="xs:string" default="10"/>
+              <xs:attribute name="range" type="xs:string" default="[2,14]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hdr_mac_dilation">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="This value represents the motion dilation max filter size; (2*hdr_mac_dilation+1 size)"/>
+              <xs:attribute name="default_value" type="xs:string" default="2"/>
+              <xs:attribute name="range" type="xs:string" default="[0,5]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="3uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

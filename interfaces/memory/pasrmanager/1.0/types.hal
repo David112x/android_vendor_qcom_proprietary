@@ -1,0 +1,57 @@
+/*!
+ * @file types.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for PASR Manager.
+ */
+
+package vendor.qti.memory.pasrmanager@1.0;
+
+enum PasrStatus : int32_t
+{
+    ERROR = -10,
+    INCOMPLETE_ONLINE = -2,
+    INCOMPLETE_OFFLINE = -1,
+    OFFLINE = 1,
+    ONLINE = 2,
+    SUCCESS = 3,
+};
+
+enum PasrState : uint8_t {
+    MEMORY_ONLINE = 0,
+    MEMORY_OFFLINE,
+    MEMORY_UNKNOWN,
+    MAX_STATE,
+};
+
+/* Source or initiator of PASR trigger */
+enum PasrSrc : uint32_t
+{
+    PASR_SRC_PSI = 0,
+    PASR_SRC_POWER,
+    PASR_SRC_MAX,
+};
+
+/* Number of blocks currently Online/Offline */
+typedef uint32_t PasrBlockCount;
+
+/* Priority levels of triggering PASR commands */
+enum PasrPriority : uint32_t
+{
+    PASR_PRI_NONE = 0,
+    PASR_PRI_LOW,
+    PASR_PRI_CRITICAL,
+};
+
+/* PASR info: DDR size, granule, total blocks */
+struct PasrInfo
+{
+    uint32_t ddr_size;        //DDR size in MB
+    uint32_t granule;         //PASR granule size in MB
+    uint32_t num_blocks;      //Total number of PASR memory blocks
+    uint64_t min_free_mem;    //Min free memory reqd. to be in Movable zone
+};

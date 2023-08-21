@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<bgStatsConfigV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modbgstatsconfigv1.xsd">
+  <moduleID>
+    <moduleID type='int' range="[1,1000]">300</moduleID>
+    <subModuleID type='int' range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <BGStatsConfig>
+    <numOfRegionsHorizontal type='ushort'>64</numOfRegionsHorizontal>
+    <numOfRegionsVertical type='ushort'>48</numOfRegionsVertical>
+    <enableStatsQuadSync type='bool'>true</enableStatsQuadSync>
+    <enableSaturatedStats type='bool'>false</enableSaturatedStats>
+    <enableYComputedStats type='bool'>false</enableYComputedStats>
+    <YComputationColorWeight type='float' range="[0, 1]">0.2988</YComputationColorWeight>
+    <YComputationColorWeight type='float' range="[0, 1]">0.5869</YComputationColorWeight>
+    <YComputationColorWeight type='float' range="[0, 1]">0.1137</YComputationColorWeight>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.9414</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.9414</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.9414</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.9414</maxStatsChannelThreshold>
+    <HWStatsSkipFactor type='byte'>0</HWStatsSkipFactor>
+    <ROIConfigControl range="[0,1]">ROIConfigTypeCroppedFOV</ROIConfigControl>
+  </BGStatsConfig>
+</bgStatsConfigV1>

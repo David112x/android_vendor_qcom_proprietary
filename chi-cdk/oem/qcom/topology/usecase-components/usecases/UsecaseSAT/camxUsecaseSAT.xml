@@ -1,0 +1,103 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2020 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Usecase>
+  <UsecaseName>UsecaseSAT</UsecaseName>
+  <Targets>
+    <Target>
+      <TargetName>TARGET_BUFFER_PREVIEW</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_SAT_INPUT_FULL</TargetName>
+      <TargetDirection>TargetBidirectional</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatP010"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_SAT_INPUT_DS4</TargetName>
+      <TargetDirection>TargetBidirectional</TargetDirection>
+      <CamxInclude target_segment="0_0_1328_864_ChiFormatPD10"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_SAT_INPUT_DS16</TargetName>
+      <TargetDirection>TargetBidirectional</TargetDirection>
+      <CamxInclude target_segment="0_0_332_216_ChiFormatPD10"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_RAW</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_4096_2448_ChiFormatRawMIPI"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_FD</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_640_512_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_RAW16</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_4096_2448_ChiFormatRawMIPI_ChiFormatRawPlain16"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_IDEALRAW</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_4096_2448_ChiFormatRawMIPI_ChiFormatRawPlain16"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_RAW16_APP</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_4096_2448_ChiFormatRawMIPI_ChiFormatRawPlain16"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_FUSION_INPUT</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_SNAPSHOT</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_THUMBNAIL</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_VIDEO</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_HEIC_YUV</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_HEIC_BLOB</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <TargetFormat>ChiFormatBlob</TargetFormat>
+      <Range>
+        <MinW>0</MinW>
+        <MinH>0</MinH>
+        <MaxW>65545</MaxW>
+        <MaxH>1</MaxH>
+      </Range>
+    </Target>
+  </Targets>
+  <StreamConfigMode>0</StreamConfigMode>
+  <SystemwideSetting>
+    <SettingName>EIS</SettingName>
+    <SettingDataType>BOOL</SettingDataType>
+    <SettingMatch>FALSE</SettingMatch>
+  </SystemwideSetting>
+  <CamxInclude href="../../pipelines/g_camxRealtimePreviewSAT0.xml"/>
+  <CamxInclude href="../../pipelines/g_camxSATOfflinePreview.xml"/>
+  <CamxInclude href="../../pipelines/g_camxSATSnapshotYUV0.xml"/>
+  <CamxInclude href="../../pipelines/g_camxSATOfflineSnapshot.xml"/>
+  <CamxInclude href="../../pipelines/g_camxSATJpegEncode.xml"/>
+  <CamxInclude href="../../pipelines/g_camxSATOfflineRAW16.xml"/>
+</Usecase>

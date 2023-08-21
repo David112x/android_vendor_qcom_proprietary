@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<PDConfigData
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\api\sensor\camxpdafconfig.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+
+  <PDCommonInfo>
+    <!-- PDAF Name -->
+    <PDAFName>imx362_pdaf</PDAFName>
+    <!--PDAF Sensor Orientation
+        PDAF Sensor orientation
+        Valid values: DEFAULT, MIRROR, FLIP, MIRRORANDFLIP -->
+    <PDOrientation>MIRRORANDFLIP</PDOrientation>
+    <!--Defocus confidence threshold level -->
+    <PDDefocusConfidenceThreshold>50</PDDefocusConfidenceThreshold>
+  </PDCommonInfo>
+  <!-- Res 0-->
+  <PDModeInfo>
+    <PDType>PDType2PD</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <PDSensorMode>0</PDSensorMode>
+    <PDPixelOrderType>RIGHTTOLEFT</PDPixelOrderType>
+    <!--Sensor Native pattern infomation
+         element for pdBlockCountHorizontal
+         element for pdBlockCountVertical
+         element for PD Block Pattern
+         element for PD Crop Region
+         element for downscale factor horizontal
+         element for downscale factor vertical  -->
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>4032</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>756</PDBlockCountVertical>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>4032</width>
+        <height>3024</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>2</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>4</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+      <!--Block Pattern Info about all the blocks
+        PDStride: This is the number of pixels in the PD stats buffer
+        after which there is a jump to a new line.
+        PDBufferDataFormat: This is the data type of output stats buffer. -->>
+    <PDBufferBlockPatternInfo>
+      <PDStride>8064</PDStride>
+      <!--PDAF Buffer Data Type
+          RAW10PACKED: compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          RAW10LSB:    Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- Res 1-->
+  <PDModeInfo>
+    <PDType>PDType2PD</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <PDSensorMode>1</PDSensorMode>
+    <PDPixelOrderType>RIGHTTOLEFT</PDPixelOrderType>
+    <PDSensorNativePatternInfo>
+    <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>4032</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>504</PDBlockCountVertical>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>4032</width>
+        <height>2016</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>2</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>4</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <PDBufferBlockPatternInfo>
+      <PDStride>8064</PDStride>
+      <!--PDAF Buffer Data Type
+          RAW10PACKED: compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          RAW10LSB:    Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- Res 2-->
+  <PDModeInfo>
+    <PDType>PDType2PD</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <PDSensorMode>2</PDSensorMode>
+    <PDPixelOrderType>RIGHTTOLEFT</PDPixelOrderType>
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>1920</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>270</PDBlockCountVertical>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>1920</width>
+        <height>1080</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>4</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>4</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <PDBufferBlockPatternInfo>
+      <PDStride>2400</PDStride>
+      <!--PDAF Buffer Data Type
+          RAW10PACKED: compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          RAW10LSB:    Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- Res 3-->
+  <PDModeInfo>
+    <PDType>PDType2PD</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <PDSensorMode>3</PDSensorMode>
+    <PDPixelOrderType>RIGHTTOLEFT</PDPixelOrderType>
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>1920</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>270</PDBlockCountVertical>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>1920</width>
+        <height>1080</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>4</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>4</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <PDBufferBlockPatternInfo>
+      <PDStride>8064</PDStride>
+      <!--PDAF Buffer Data Type
+          RAW10PACKED: compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          RAW10LSB:    Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- Res 4-->
+  <PDModeInfo>
+    <PDType>PDType2PD</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <PDSensorMode>4</PDSensorMode>
+    <PDPixelOrderType>RIGHTTOLEFT</PDPixelOrderType>
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>1920</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>270</PDBlockCountVertical>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>1920</width>
+        <height>1080</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>4</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>4</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <PDBufferBlockPatternInfo>
+      <PDStride>8064</PDStride>
+      <!--PDAF Buffer Data Type
+          RAW10PACKED: compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          RAW10LSB:    Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+
+</PDConfigData>

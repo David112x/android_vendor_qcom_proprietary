@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<abf40_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\abf_4_0_0.xsd">
+  <enable_section>
+    <bilateral_en>1</bilateral_en>
+    <minmax_en>0</minmax_en>
+    <dirsmth_en>0</dirsmth_en>
+  </enable_section>
+  <module_version major_revision="4" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <bilateral_en>
+      <enable>0</enable>
+      <hyst_control_var>control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>0.9</start1>
+        <end1>0.91</end1>
+        <start2>0.9</start2>
+        <end2>0.91</end2>
+      </hyst_trigger>
+    </bilateral_en>
+  </dynamic_enable_triggers>
+  <chromatix_abf40_reserve>
+    <cross_plane_en>1</cross_plane_en>
+    <dark_desat_en>0</dark_desat_en>
+    <dark_smooth_en>0</dark_smooth_en>
+    <act_adj_en>0</act_adj_en>
+    <blk_opt>0</blk_opt>
+    <radial_anchor_tab>
+      <radial_anchor>0 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_abf40_reserve>
+  <chromatix_abf40_core>
+    <mod_abf40_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_abf40_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>200</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft>3</minmax_maxshft>
+                <minmax_minshft>3</minmax_minshft>
+                <minmax_offset>64</minmax_offset>
+                <minmax_bls>0</minmax_bls>
+                <blkpix_lev_tab>
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab>
+                  <noise_std_lut>0 6 9 11 12 14 15 16 18 19 20 21 22 23 24 24 25 26 27 27 28 29 30 30 31 32 32 33 33 34 35 35 36 36 37 37 38 39 39 40 40 41 41 42 42 43 43 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44 44</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab>
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab>
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab>
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab>
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab>
+                  <noise_prsv_anchor>0 0.0625 0.125 0.8 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab>
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab>
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab>
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab>
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0>2048</act_fac0>
+                <act_fac1>0</act_fac1>
+                <act_thd0>0</act_thd0>
+                <act_thd1>1</act_thd1>
+                <act_smth_thd0>128</act_smth_thd0>
+                <act_smth_thd1>192</act_smth_thd1>
+                <dark_thd>32</dark_thd>
+                <dark_fac_lut_tab>
+                  <dark_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd>8</edge_detect_thd>
+                <edge_count_low>4</edge_count_low>
+                <edge_detect_noise_scaler>1</edge_detect_noise_scaler>
+                <edge_smooth_strength>0.5</edge_smooth_strength>
+                <edge_smooth_scaler_tab>
+                  <edge_smooth_scaler>1 1 1 1</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+          </hdr_aec_data>
+        </mod_abf40_hdr_aec_data>
+      </drc_gain_data>
+    </mod_abf40_drc_gain_data>
+  </chromatix_abf40_core>
+</abf40_ife>

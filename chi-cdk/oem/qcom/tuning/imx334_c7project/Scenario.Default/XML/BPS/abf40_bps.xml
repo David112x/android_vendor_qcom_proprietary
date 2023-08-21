@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<abf40_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\abf_4_0_0.xsd">
+  <enable_section>
+    <bilateral_en type='int' range="[0,1]" length="1">1</bilateral_en>
+    <minmax_en type='int' range="[0,1]" length="1">1</minmax_en>
+    <dirsmth_en type='int' range="[0,1]" length="1">1</dirsmth_en>
+  </enable_section>
+  <module_version major_revision="4" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <bilateral_en>
+      <enable type='int' range="[0,1]" length="1">0</enable>
+      <hyst_control_var type='uint' range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </bilateral_en>
+  </dynamic_enable_triggers>
+  <chromatix_abf40_reserve>
+    <cross_plane_en type='int' range="[0,1]" length="1">1</cross_plane_en>
+    <dark_desat_en type='int' range="[0,1]" length="1">0</dark_desat_en>
+    <dark_smooth_en type='int' range="[0,1]" length="1">0</dark_smooth_en>
+    <act_adj_en type='int' range="[0,1]" length="1">0</act_adj_en>
+    <blk_opt type='int' range="[0,2]" length="1">0</blk_opt>
+    <radial_anchor_tab type='float' range="[0.0,1.0]" length="5">
+      <radial_anchor>0 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_abf40_reserve>
+  <chromatix_abf40_core>
+    <mod_abf40_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_abf40_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>1.1</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 4.582576 6.557438 8 9.273619 10.34408 11.31371 12.24745 13.0767 13.85641 14.62874 15.32971 16.03122 16.67333 17.29162 17.91647 18.49324 19.07878 19.62142 20.14944 20.68816 21.18962 21.70253 22.18107 22.6495 23.13007 23.57965 24.02082 24.47448 24.8998 25.33772 25.74879 26.15339 26.57066 26.96294 27.36786 27.74887 28.12472 28.51315 28.87906 29.25748 29.61419 29.96665 30.3315 30.67572 31.01612 31.36877 31.70173 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684 32.04684</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>4</gain_start>
+                <gain_end>4.1</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 9.110434 12.92285 15.81139 18.27567 20.42058 22.38303 24.16609 25.8457 27.40438 28.87906 30.29852 31.63858 32.93934 34.17601 35.38361 36.53765 37.66962 38.75565 39.82462 40.8534 41.8569 42.84857 43.80639 44.75489 45.67275 46.58326 47.46578 48.34253 49.1935 50.02999 50.86256 51.67204 52.47857 53.2635 54.04628 54.80876 55.56977 56.31163 57.05261 57.77543 58.48932 59.20304 59.89992 60.59703 61.27805 61.95966 62.62587 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297 63.29297</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>16</gain_start>
+                <gain_end>16.1</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 18.08314 25.55387 31.30495 36.15245 40.42277 44.27189 47.82259 51.12729 54.23099 57.15768 59.94998 62.61789 65.16901 67.63136 70.00714 72.30491 74.52516 76.68768 78.79086 80.83935 82.83115 84.78207 86.6891 88.54942 90.37699 92.16833 93.9255 95.64518 97.33961 99.00505 100.6429 102.2497 103.8364 105.3992 106.9346 108.4528 109.95 111.4271 112.8805 114.3197 115.7411 117.1452 118.5285 119.9 121.2559 122.5969 123.9193 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318 125.2318</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>64</gain_start>
+                <gain_end>64.1</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 35.1852226 49.7594223 60.9425964 70.3704453 78.67655 86.1858444 93.0913544 99.5188446 105.555672 111.26545 116.69619 121.885193 126.862129 131.651047 136.27179 140.740891 145.0724 149.278259 153.368835 157.3531 161.238953 165.033325 168.7424 172.371689 175.926117 179.410141 182.827789 186.182709 189.478226 192.7174 195.90303 199.037689 202.123718 205.163345 208.1586 211.111343 214.023361 216.896286 219.731659 222.5309 225.295364 228.026321 230.724945 233.39238 236.029663 238.6378 241.217743 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386 243.770386</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>128</gain_start>
+                <gain_end>128.1</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 52.25897 73.91211 90.52071 104.5227 116.8589 128.0156 138.2715 147.8175 156.7833 165.2664 173.332 181.0387 188.4304 195.5454 202.408 209.0455 215.4785 221.7273 227.8026 233.7199 239.4911 245.1285 250.6372 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+            <mod_abf40_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>239</gain_start>
+                <gain_end>240</gain_end>
+              </aec_trigger>
+              <abf40_rgn_data>
+                <minmax_maxshft type='uint' range="[0,15]" length="1">3</minmax_maxshft>
+                <minmax_minshft type='uint' range="[0,15]" length="1">3</minmax_minshft>
+                <minmax_offset type='uint' range="[0,4095]" length="1">64</minmax_offset>
+                <minmax_bls type='int' range="[0,4095]" length="1">64</minmax_bls>
+                <blkpix_lev_tab type='uint' range="[0,4]" length="2">
+                  <blkpix_lev>0 0</blkpix_lev>
+                </blkpix_lev_tab>
+                <noise_std_lut_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_std_lut>0 67.87489 95.98438 117.5585 135.7461 151.7663 166.2528 179.5745 191.9714 203.6173 214.6322 225.1066 235.117 244.7182 253.9567 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998 255.998</noise_std_lut>
+                </noise_std_lut_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <dist_ker_tab type='uint' range="[[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1],[1,4],[0,2],[0,1]]" length="18">
+                  <dist_ker>3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1</dist_ker>
+                </dist_ker_tab>
+                <edge_softness_tab type='float' range="[0.0,15.99]" length="4">
+                  <edge_softness>3 3 3 3</edge_softness>
+                </edge_softness_tab>
+                <denoise_strength_tab type='float' range="[0.0,1.0]" length="4">
+                  <denoise_strength>1 1 1 1</denoise_strength>
+                </denoise_strength_tab>
+                <noise_prsv_anchor_tab type='float' range="[0,1.0]" length="5">
+                  <noise_prsv_anchor>0 0.16585 0.28207 0.88377 1</noise_prsv_anchor>
+                </noise_prsv_anchor_tab>
+                <noise_prsv_base_tab type='float' range="[0.0,1.0]" length="10">
+                  <noise_prsv_base>0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6</noise_prsv_base>
+                </noise_prsv_base_tab>
+                <radial_edge_softness_adj_tab type='float' range="[1.0,15.99]" length="5">
+                  <radial_edge_softness_adj>1 1 1 1 1</radial_edge_softness_adj>
+                </radial_edge_softness_adj_tab>
+                <radial_noise_prsv_adj_tab type='float' range="[0,1.0]" length="5">
+                  <radial_noise_prsv_adj>1 1 1 1 1</radial_noise_prsv_adj>
+                </radial_noise_prsv_adj_tab>
+                <act_fac_lut_tab type='uint' range="[0,256]" length="32">
+                  <act_fac_lut>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256</act_fac_lut>
+                </act_fac_lut_tab>
+                <act_fac0 type='uint' range="[0,8191]" length="1">0</act_fac0>
+                <act_fac1 type='uint' range="[0,8191]" length="1">0</act_fac1>
+                <act_thd0 type='uint' range="[1,8191]" length="1">0</act_thd0>
+                <act_thd1 type='uint' range="[1,4095]" length="1">0</act_thd1>
+                <act_smth_thd0 type='uint' range="[0,255]" length="1">0</act_smth_thd0>
+                <act_smth_thd1 type='uint' range="[0,255]" length="1">0</act_smth_thd1>
+                <dark_thd type='uint' range="[0,4095]" length="1">0</dark_thd>
+                <dark_fac_lut_tab type='uint' range="[0,256]" length="42">
+                  <dark_fac_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</dark_fac_lut>
+                </dark_fac_lut_tab>
+                <edge_detect_thd type='uint' range="[0,15]" length="1">0</edge_detect_thd>
+                <edge_count_low type='uint' range="[0,16]" length="1">0</edge_count_low>
+                <edge_detect_noise_scaler type='float' range="[0,63.99]" length="1">0</edge_detect_noise_scaler>
+                <edge_smooth_strength type='float' range="[0,1.0]" length="1">0</edge_smooth_strength>
+                <edge_smooth_scaler_tab type='float' range="[0,15.99]" length="4">
+                  <edge_smooth_scaler>0 0 0 0</edge_smooth_scaler>
+                </edge_smooth_scaler_tab>
+              </abf40_rgn_data>
+            </mod_abf40_aec_data>
+          </hdr_aec_data>
+        </mod_abf40_hdr_aec_data>
+      </drc_gain_data>
+    </mod_abf40_drc_gain_data>
+  </chromatix_abf40_core>
+</abf40_bps>

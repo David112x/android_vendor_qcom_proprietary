@@ -1,0 +1,19 @@
+android_app {
+    name: "SSMEditor",
+
+    owner: "qti",
+    proprietary: true,
+    certificate: "platform",
+
+    sdk_version: "current",
+
+    srcs: ["src/**/*.java"],
+
+    asset_dirs: ["assets"],
+    static_libs: ["libmmca"],
+    resource_dirs: ["res"],
+
+    optimize: {
+        enabled: false,
+    },
+}

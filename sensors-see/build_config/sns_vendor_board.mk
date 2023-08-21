@@ -1,0 +1,6 @@
+USE_SENSOR_MULTI_HAL := true
+USE_SENSOR_HAL_VER := 2.0
+
+ifeq ($(TARGET_BOARD_PLATFORM),kona)
+QMAA_ENABLED_HAL_MODULES += sensors
+endif

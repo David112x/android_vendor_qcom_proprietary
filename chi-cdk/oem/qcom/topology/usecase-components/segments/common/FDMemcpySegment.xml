@@ -1,0 +1,69 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="FDMemcpySegment">
+  <CamxInclude segment="FDSegment" />
+  <NodesList>
+    <Node>
+      <NodeName>ChiNode</NodeName>
+      <NodeId>255</NodeId>
+      <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+      <NodeInstanceId>0</NodeInstanceId>
+      <NodeProperty>
+        <NodePropertyName>NodePropertyCustomLib</NodePropertyName>
+        <NodePropertyId>1</NodePropertyId>
+        <NodePropertyDataType>STRING</NodePropertyDataType>
+        <NodePropertyValue>com.qti.node.memcpy</NodePropertyValue>
+      </NodeProperty>
+    </Node>
+  </NodesList>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>IFEOutputPortFD</PortName>
+        <PortId>6</PortId>
+        <NodeName>IFE</NodeName>
+        <NodeId>65536</NodeId>
+        <NodeInstance>IFEInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>ChiNodeInputPortFull-0</PortName>
+        <PortId>0</PortId>
+        <NodeName>ChiNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+      <BufferProperties>
+        <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+        <BufferImmediateAllocCount>6</BufferImmediateAllocCount>
+        <BufferQueueDepth>12</BufferQueueDepth>
+        <BufferHeap>Ion</BufferHeap>
+        <BufferFlags>BufferMemFlagHw</BufferFlags>
+        <BufferFlags>BufferMemFlagLockable</BufferFlags>
+        <BufferFlags>BufferMemFlagCache</BufferFlags>
+      </BufferProperties>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>ChiNodeOutputPortFull</PortName>
+        <PortId>0</PortId>
+        <NodeName>ChiNode</NodeName>
+        <NodeId>255</NodeId>
+        <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_BUFFER_FD</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName4</NodeInstance>
+        <NodeInstanceId>4</NodeInstanceId>
+      </DstPort>
+    </Link>
+  </PortLinkages>
+</CamxSegment>

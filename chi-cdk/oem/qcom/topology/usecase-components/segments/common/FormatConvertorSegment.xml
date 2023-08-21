@@ -1,0 +1,61 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="FormatConvertorSegment">
+    <NodesList>
+        <Node>
+            <NodeName>BPS</NodeName>
+            <NodeId>65539</NodeId>
+            <NodeInstance>BPSInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>ProfileId</NodePropertyName>
+                <NodePropertyId>2</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>5</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_RAW</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_RAW</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>BPSInputPort-0</PortName>
+                <PortId>0</PortId>
+                <NodeName>BPS</NodeName>
+                <NodeId>65539</NodeId>
+                <NodeInstance>BPSInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>BPSOutputPortDS4</PortName>
+                <PortId>2</PortId>
+                <NodeName>BPS</NodeName>
+                <NodeId>65539</NodeId>
+                <NodeInstance>BPSInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_IDEAL_RAW_OUT</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName1</NodeInstance>
+                <NodeInstanceId>1</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

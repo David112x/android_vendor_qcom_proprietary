@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<!--
+
+Core MultiCam Tuning Definition
+
+-->
+	<xs:element name="aecMultiCamSync" type="AECMultiCamType"/>
+	<xs:complexType name="AECMultiCamType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="mtrAndExpMode" type="AECMeteringAndExpModeType"/>
+			<xs:element name="luxIndexSelection" default="UseMaster">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="AECDualCamSlaveLuxType">
+							<xs:attribute name="description" type="xs:string" default="Lux index value to be assigned of slave."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="expSyncConfig" type="AECExposureSyncConfigType"/>
+			<xs:element name="mtrMixConfig" type="AECMeteringMixConfigType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECMeteringAndExpModeType">
+		<xs:sequence>
+			<xs:element name="master" default="MtrIndepExpIndep">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="AECMtrAndExpoConfigType">
+							<xs:attribute name="description" type="xs:string" default="Master mode metering and exposure configuration selected for multicam usecases."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="slave" default="MtrIndepExpFollow">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="AECMtrAndExpoConfigType">
+							<xs:attribute name="description" type="xs:string" default="Slave mode metering and exposure configuration selected for multicam usecases."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="AECExposureSyncConfigType">
+		<xs:sequence>
+			<xs:element name="enableRelSensitivity" default="true">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Setting this flag enables relative sensitivity logic for exposure sync."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableExposureTimeMatch" default="true">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Setting this flag enables the matching of slave exposure time to master exposure time."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="expCompMultiplier" default="1.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Exposure Compensation Multiplier to adjust sensitivity difference factor. "/>
+							<xs:attribute name="range" type="xs:string" default="[0.5, 2.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="refAbsSensitivity" type="AbsSensitivityValueType" maxOccurs="unbounded"/>
+			<xs:element name="enableCCTBasedExpComp" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Setting this flag enables relative sensitivity logic for exposure sync."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CCTBasedExpComp" type="MultiCamCCTExpCompType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MultiCamCCTExpCompType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" default="1.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Ratio to compensate slave camera exposure based on CCT index"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,2.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="CCT-based adjustments to make dual camera exposures similar"/>
+	</xs:complexType>
+	<xs:complexType name="AbsSensitivityValueType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" default="1.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Reference sensitivity values to be used when absolute sensitivity used for multi-cam."/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Absolute sensitivity values for different lux conditions."/>
+	</xs:complexType>
+	<xs:complexType name="AECMeteringMixConfigType">
+		<xs:sequence>
+			<xs:element name="staticMixingConfig" type="StaticMixingConfigType"/>
+			<xs:element name="dynamicMixingConfig" type="DynamicMixingConfigType" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="AEC Static and Dynamic Weight allocation tuning parameters."/>
+	</xs:complexType>
+	<xs:complexType name="StaticMixingConfigType">
+		<xs:sequence>
+			<xs:element name="lumaMixingWeight" default="0.5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="The weight given to the luma value of the self camera while mixing."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="targetMixingWeight" default="0.5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="The weight given to the target value of the self camera while mixing."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DynamicMixingZoneDataType">
+		<xs:sequence>
+			<xs:element name="weight" default="0.5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight is computed based on absolute difference between self target and peer luma. Higher the difference, greater the  weight. Weight will be used to compute the final target as: Self target * weight + (1 - weight) * peer luma."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DynamicMixingConfigType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" type="DynamicMixingZoneDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

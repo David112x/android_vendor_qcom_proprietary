@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.gnss@4.0;
+
+import @2.1::ILocHidlFlpService;
+import ILocHidlFlpServiceCallback;
+
+interface ILocHidlFlpService extends @2.1::ILocHidlFlpService {
+    init_4_0(ILocHidlFlpServiceCallback callback) generates (bool success);
+};

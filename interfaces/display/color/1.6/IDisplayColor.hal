@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.6;
+
+import @1.0::types;
+import @1.5::IDisplayColor;
+
+interface IDisplayColor extends @1.5::IDisplayColor{
+    /**
+     * Set multiple feature configs.
+     *
+     * Clients can set multiple feature configs.
+     *
+     * @param  ctxHandle is context handle.
+     * @param  disp_id is display ID.
+     * @param  feature_id is the feature ID.
+     * @param  enable is the feature config control.
+     * @param  cfg is the feature config coefficient.
+     * @return result OK on success or error if any parameter is invalid.
+     */
+    @callflow(next="*")
+    setMultiFeatureCfg(Handle ctxHandle,
+                       uint32_t disp_id,
+                       DispFeature feature_id,
+                       bool enable,
+                       vec<uint8_t> cfg) generates (Result result);
+};

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="chromatixDepthAF" type="chromatixDepthAFType"/>
+	<xs:complexType name="chromatixDepthAFType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="A"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="stats" type="chromatixDepthAFStats"/>
+			<xs:element name="monitor" type="chromatixDepthAFMonitor"/>
+			<xs:element name="converge" type="chromatixDepthAFConverge"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFStats">
+		<xs:sequence>
+			<xs:element name="minimalDistance">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Minimal distance in millimeter that sensor can provide"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="default_value" type="xs:int" default="100"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maximumDistance">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="maximum distance in millimeter that sensor can provide"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="default_value" type="xs:int" default="3000"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="fovMap" type="chromatixDepthAFFOVMapType"/>
+			<xs:element name="confidenceTable" type="chromatixDepthAFConfidenceType" />
+			<xs:element name="center" type="chromatixDepthAFWindowConfigure"/>
+			<xs:element name="peripheral" type="chromatixDepthAFWindowConfigure"/>
+			<xs:element name="touch" type="chromatixDepthAFWindowConfigure"/>
+			<xs:element name="face" type="chromatixDepthAFWindowConfigure"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFFOVMapType">
+		<xs:sequence>
+			<xs:element name="horizontalOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float" />
+							<xs:attribute name="description" type="xs:string" default="Depth stats starting point in horizontal direction in camif size"/>
+							<xs:attribute name="range" type="xs:string" default="[-2, 2]"/>
+							<xs:attribute name="default_value" type="xs:float" default="0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="verticalOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float" />
+							<xs:attribute name="description" type="xs:string" default="Depth stats starting point in vertical direction in camif size"/>
+							<xs:attribute name="range" type="xs:string" default="[-2, 2]"/>
+							<xs:attribute name="default_value" type="xs:float" default="0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horizontalCoverage">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float" />
+							<xs:attribute name="description" type="xs:string" default="Depth stats coverage in horizontal direction in camif size"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 3.0]"/>
+							<xs:attribute name="default_value" type="xs:float" default="1.0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="verticalCoverage">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float" />
+							<xs:attribute name="description" type="xs:string" default="Depth stats coverage in vertical direction in camif size"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 3.0]"/>
+							<xs:attribute name="default_value" type="xs:float" default="1.0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFConfidenceType">
+		<xs:sequence>
+			<xs:element name="entries" type="chromatixDepthAFConfidenceEntryType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFConfidenceEntryType">
+		<xs:sequence>
+			<xs:element name="startLuxIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Lux index of zone start"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="default_value" type="xs:float" default="20"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="endLuxIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Lux Index of zone end"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="default_value" type="xs:float" default="100"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="threshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="threshold that used to judge a pixel is confident or not"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="default_value" type="xs:int" default="50"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFWindowConfigure">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable for this window"/>
+							<xs:attribute name="default_value" type="xs:boolean" default="true"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horizontalGridCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Grid size in horizontal direction"/>
+							<xs:attribute name="range" type="xs:string" default="[1,15]"/>
+							<xs:attribute name="default_value" type="xs:int" default="1"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="verticalGridCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Grid size in vertical direction"/>
+							<xs:attribute name="range" type="xs:string" default="[1,12]"/>
+							<xs:attribute name="default_value" type="xs:int" default="1"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horizontalSkip">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="pixel skip count in horizontal direction for stats parsing"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 4]"/>
+							<xs:attribute name="default_value" type="xs:int" default="1"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="verticalSkip">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="line skip count in vertical direction for stats parsing"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 4]"/>
+							<xs:attribute name="default_value" type="xs:int" default="1"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minConfidentPixelPercentage">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="threshold of confident pixel percentage when a grid be selected"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 100]"/>
+							<xs:attribute name="default_value" type="xs:int" default="80"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minConfidentGridPercentage">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="threshold of confident grid percentage when window be selected"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 100]"/>
+							<xs:attribute name="default_value" type="xs:int" default="20"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="defocusPercentile">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Nth percentile of the valid grid to select for use in multi depth scene"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0, 1.0]"/>
+							<xs:attribute name="default_value" type="xs:float" default="0.0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFMonitor">
+		<xs:sequence>
+			<xs:element name="DOFScalerTable" type="chromatixDepthAFDOFScalerEntryType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFDOFScalerEntryType">
+		<xs:sequence>
+			<xs:element name="entries" type="chromatixDepthAFDOFScalerType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFDOFScalerType">
+		<xs:sequence>
+			<xs:element name="normalizedLensPosition">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Normalized lens position, if lens position is near end, the value is 1, if lens position is far end, the value is 0."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="default_value" type="xs:float" default="0.0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DOFScaler">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="DOF scaler value at the given normalized lens position, this scaler will be applied to fine scan step size, defocus threshold, focus done threshold etc./"/>
+							<xs:attribute name="range" type="xs:string" default="[1,10]"/>
+							<xs:attribute name="default_value" type="xs:float" default="0.0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFConverge">
+		<xs:sequence>
+			<xs:element name="waitConfidenceRecoverCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="frame count that algorithm wait for recorver before fallback"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 8]"/>
+							<xs:attribute name="default_value" type="xs:int" default="5"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frameSkip">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="frameSkip in converge after lens move"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2]"/>
+							<xs:attribute name="default_value" type="xs:int" default="0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="normalLight" type="chromatixDepthAFFocusType"/>
+			<xs:element name="lowlight" type="chromatixDepthAFFocusType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFFocusType">
+		<xs:sequence>
+			<xs:element name="entries" type="chromatixDepthAFFocusEntryType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDepthAFFocusEntryType">
+		<xs:sequence>
+			<xs:element name="startPosition">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="start position of the trigger zone"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 399]"/>
+							<xs:attribute name="default_value" type="xs:int" default="0"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="endPosition">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="end position of the trigger zone"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 399]"/>
+							<xs:attribute name="default_value" type="xs:int" default="399"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="focusDoneThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="threshold of defocus that indicate focus is done"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="default_value" type="xs:int" default="8"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="fineScanStepSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="defocus range in far direction when current lens position be treated as focused"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 20]"/>
+							<xs:attribute name="default_value" type="xs:int" default="8"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="stepsRangeNear">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Steps in near direction indicate fine search range"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 5]"/>
+							<xs:attribute name="default_value" type="xs:int" default="30"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="stepsRangeFar">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Steps in far direction indicate fine search range"/>
+							<xs:attribute name="range" type="xs:string" default="[0, 5]"/>
+							<xs:attribute name="default_value" type="xs:int" default="30"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

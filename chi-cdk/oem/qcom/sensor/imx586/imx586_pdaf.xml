@@ -1,0 +1,1402 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<PDConfigData
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\api\sensor\camxpdafconfig.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+
+  <PDCommonInfo>
+    <!-- PDAF Name -->
+    <PDAFName>imx586_pdaf</PDAFName>
+    <!--PDAF Sensor Orientation
+        PDAF Sensor orientation
+        Valid values: DEFAULT, MIRROR, FLIP, MIRRORANDFLIP -->
+    <PDOrientation>DEFAULT</PDOrientation>
+    <!--Defocus confidence threshold level -->
+    <PDDefocusConfidenceThreshold>200</PDDefocusConfidenceThreshold>
+  </PDCommonInfo>
+
+  <!-- RES 1 4000x3000@30fps-->
+  <PDModeInfo>
+    <PDSensorMode>1</PDSensorMode>
+    <PDType>PDType2</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <!--Sensor Native pattern infomation
+         element for pdBlockCountHorizontal
+         element for pdBlockCountVertical
+         element for PD Block Pattern
+         element for PD Crop Region
+         element for downscale factor horizontal
+         element for downscale factor vertical  -->
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>248</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>186</PDBlockCountVertical>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern.
+          PD Block Pattern -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>16</width>
+          <height>16</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>17</PDOffsetHorizontal>
+        <PDOffsetVertical>12</PDOffsetVertical>
+      </PDBlockPattern>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>4000</width>
+        <height>3000</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>1</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>1</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <!--Block Pattern Info about all the blocks
+        PDStride: This is the number of pixels in the PD stats buffer
+        after which there is a jump to a new line.
+        PDBufferDataFormat: This is the data type of output stats buffer. -->
+    <PDBufferBlockPatternInfo>
+      <PDStride>1984</PDStride>
+      <!--PDAF Buffer Data Format
+          MIPI10:   compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          PACKED10: Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern. -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>4</width>
+          <height>8</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>0</PDOffsetHorizontal>
+        <PDOffsetVertical>0</PDOffsetVertical>
+      </PDBlockPattern>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- RES 2 4000x2250@30fps-->
+  <PDModeInfo>
+    <PDSensorMode>2</PDSensorMode>
+    <PDType>PDType2</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <!--Sensor Native pattern infomation
+         element for pdBlockCountHorizontal
+         element for pdBlockCountVertical
+         element for PD Block Pattern
+         element for PD Crop Region
+         element for downscale factor horizontal
+         element for downscale factor vertical  -->
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>248</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>140</PDBlockCountVertical>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern.
+          PD Block Pattern -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>8</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>8</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>8</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>8</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>10</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>10</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>10</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>10</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>12</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>12</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>12</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>12</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>14</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>14</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>14</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>14</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>16</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>16</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>16</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>16</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>18</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>18</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>18</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>18</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>20</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>20</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>20</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>20</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>16</width>
+          <height>16</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>17</PDOffsetHorizontal>
+        <PDOffsetVertical>5</PDOffsetVertical>
+      </PDBlockPattern>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>4000</width>
+        <height>2250</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>1</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>1</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <!--Block Pattern Info about all the blocks
+        PDStride: This is the number of pixels in the PD stats buffer
+        after which there is a jump to a new line.
+        PDBufferDataFormat: This is the data type of output stats buffer. -->
+    <PDBufferBlockPatternInfo>
+      <PDStride>1984</PDStride>
+      <!--PDAF Buffer Data Format
+          MIPI10:   compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          PACKED10: Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern. -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>4</width>
+          <height>8</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>0</PDOffsetHorizontal>
+        <PDOffsetVertical>0</PDOffsetVertical>
+      </PDBlockPattern>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+  <!-- RES 3 4000x3000@60fps-->
+  <PDModeInfo>
+    <PDSensorMode>3</PDSensorMode>
+    <PDType>PDType2</PDType>
+    <PDAFLibraryName>com.qti.stats.pdlib</PDAFLibraryName>
+    <!--Sensor Native pattern infomation
+         element for pdBlockCountHorizontal
+         element for pdBlockCountVertical
+         element for PD Block Pattern
+         element for PD Crop Region
+         element for downscale factor horizontal
+         element for downscale factor vertical  -->
+    <PDSensorNativePatternInfo>
+      <PDNativeBufferFormat>MIPI10</PDNativeBufferFormat>
+      <!--Number of PD blocks in X direction
+          2PD: PD Image Width -->
+      <PDBlockCountHorizontal>248</PDBlockCountHorizontal>
+      <!--Number of PD blocks in Y direction
+          2PD: PD Image Height -->
+      <PDBlockCountVertical>186</PDBlockCountVertical>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern.
+          PD Block Pattern -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>13</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>15</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>17</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>19</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>19</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>20</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>27</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>28</PDXCoordinate>
+          <PDYCoordinate>21</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>17</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>18</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>25</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>26</PDXCoordinate>
+          <PDYCoordinate>23</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>21</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>22</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>29</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>30</PDXCoordinate>
+          <PDYCoordinate>25</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>23</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>24</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>31</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>32</PDXCoordinate>
+          <PDYCoordinate>27</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>16</width>
+          <height>16</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>17</PDOffsetHorizontal>
+        <PDOffsetVertical>12</PDOffsetVertical>
+      </PDBlockPattern>
+      <!--Frame dimension: contains xStart, yStart, width and height
+          In-sensor Cropped region -->
+      <PDCropRegion>
+        <xStart>0</xStart>
+        <yStart>0</yStart>
+        <width>4000</width>
+        <height>3000</height>
+      </PDCropRegion>
+      <!--Horizontal Downscale factor -->
+      <PDDownscaleFactorHorizontal>1</PDDownscaleFactorHorizontal>
+      <!--Vertical Downscale factor -->
+      <PDDownscaleFactorVertical>1</PDDownscaleFactorVertical>
+    </PDSensorNativePatternInfo>
+    <!--Block Pattern Info about all the blocks
+        PDStride: This is the number of pixels in the PD stats buffer
+        after which there is a jump to a new line.
+        PDBufferDataFormat: This is the data type of output stats buffer. -->
+    <PDBufferBlockPatternInfo>
+      <PDStride>1984</PDStride>
+      <!--PDAF Buffer Data Format
+          MIPI10:   compressed, [9:2] [9:2] [9:2] [9:2] [1:0][1:0][1:0][1:0]
+          PACKED10: Q10 format -->
+      <PDBufferFormat>UNPACKED16</PDBufferFormat>
+      <!--Block Pattern details of one block
+          PDPixelCount:  PDAF pixel number inside a window
+          PDPixelCoordinates: Pixel 2D pos, left_pixel,right_pixel
+          Should not contain the offset.
+          Offset should add back for correct skip pattern. -->
+      <PDBlockPattern>
+        <PDPixelCount>32</PDPixelCount>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>0</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>1</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>2</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>3</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>4</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>5</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>6</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>0</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>1</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>2</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>RIGHTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--One pixel coordinate in a block -->
+        <PDPixelCoordinates>
+          <PDXCoordinate>3</PDXCoordinate>
+          <PDYCoordinate>7</PDYCoordinate>
+          <PDPixelShieldInformation>LEFTSHIELDED</PDPixelShieldInformation>
+        </PDPixelCoordinates>
+        <!--Width and height of the frame or subframe -->
+        <PDBlockDimensions>
+          <width>4</width>
+          <height>8</height>
+        </PDBlockDimensions>
+        <PDOffsetHorizontal>0</PDOffsetHorizontal>
+        <PDOffsetVertical>0</PDOffsetVertical>
+      </PDBlockPattern>
+    </PDBufferBlockPatternInfo>
+  </PDModeInfo>
+ </PDConfigData>

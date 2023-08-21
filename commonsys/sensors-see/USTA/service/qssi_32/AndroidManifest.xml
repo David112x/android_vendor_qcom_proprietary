@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+========================================================================
+@file AndroidManifest.xml
+
+@brief
+Required file for Android application.
+Specifies the package name, activities/components and permissions.
+
+Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=========================================================================
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.qualcomm.qti.ustaservice"
+    android:sharedUserId="android.uid.system"
+    android:versionCode="1"
+    android:versionName="1.0">
+    <application>
+        <service android:name=".USTAServiceImpl"
+            android:exported="true"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="com.qualcomm.qti.ustaservice.USTAServiceImpl" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>

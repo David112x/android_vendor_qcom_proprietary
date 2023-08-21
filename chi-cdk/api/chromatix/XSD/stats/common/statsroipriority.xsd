@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="statsglobalelements.xsd"/>
+	<xs:complexType name="modFaceRoiTriggerDataType">
+		<xs:sequence>
+			<xs:element name="triggerPt" type="glbTriggerPointType"/>
+			<xs:element name="triggerData" type="glbTriggerDataFloatType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixStatsROIPriorityType">
+		<xs:sequence>
+			<xs:element name="dominantScoreEnhancement">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="If we have dominant face which is choose from previous frame, we enhance this dominant face score by multiple this value"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FaceROISizeWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modFaceRoiTriggerDataType">
+							<xs:attribute name="description" default="Weight vector based on (face roi diagonal)/(frame diagonal), 1 level trigger with distance trigger control type"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FaceROILocationWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modFaceRoiTriggerDataType">
+							<xs:attribute name="description" default="Weight vector based on distance from the center of FACE ROI to the center of frame, 1 level trigger with distance trigger control type"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixDCIAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afdciafelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <monitorEnable type="uint" range="[0,1]">0</monitorEnable>
+  <monitorFrequency type="int" range="[1,30]">30</monitorFrequency>
+  <searchFrequency type="int" range="[1,30]">30</searchFrequency>
+  <baselineMM type="float" range="[0,unbounded]">20</baselineMM>
+  <auxDirection>AF_CAM_ORIENT_LEFT</auxDirection>
+  <macroEstimateLimitCM type="float" range="[0,unbounded]">10</macroEstimateLimitCM>
+  <alignmentCheckEnable type="uint" range="[0,1]">0</alignmentCheckEnable>
+  <jumpToStartLimit type="int" range="[10,1024]">200</jumpToStartLimit>
+  <numNearSteps type="int" range="[0,10]">3</numNearSteps>
+  <numFarSteps type="int" range="[0,10]">3</numFarSteps>
+  <dciafStepSize type="int" range="[1,20]">10</dciafStepSize>
+  <motionDataUseEnable type="uint" range="[0,1]">1</motionDataUseEnable>
+  <sceneChangeLensPositionThreshold type="int" range="[10,40]">20</sceneChangeLensPositionThreshold>
+  <panningStableLensPositionThreshold type="int" range="[5,20]">15</panningStableLensPositionThreshold>
+  <panningStableDurationMSBright type="int" range="[66,198]">132</panningStableDurationMSBright>
+  <panningStableDurationMSLow type="int" range="[100,400]">200</panningStableDurationMSLow>
+  <maxLowLightWaitMs type="int" range="[100,400]">250</maxLowLightWaitMs>
+  <maxNormalLightWaitMs type="int" range="[50,400]">150</maxNormalLightWaitMs>
+  <jumpWithNoSkip type="int" range="[0,1000]">50</jumpWithNoSkip>
+  <skipframesBeforeFineSearch type="int" range="[0,10]">0</skipframesBeforeFineSearch>
+  <distanceThresholdMacroRegionInMM type="int" range="[100,400]">200</distanceThresholdMacroRegionInMM>
+  <distanceThresholdNonMacroFactor type="int" range="[0,100]">2</distanceThresholdNonMacroFactor>
+  <lowLightThreshold type="int" range="[0,8]">3</lowLightThreshold>
+  <useFineSearchExtension type="uint" range="[0,1]">1</useFineSearchExtension>
+  <macroRegionThresholdInMM type="int" range="[0,5000]">200</macroRegionThresholdInMM>
+  <farRegionThresholdInMM type="int" range="[0,10000]">1000</farRegionThresholdInMM>
+  <normalLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">8</stepSize>
+    <farSteps type="int" range="[0,5000]">4</farSteps>
+    <nearSteps type="int" range="[0,5000]">4</nearSteps>
+  </normalLightFineSearchInfo>
+  <normalLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">6</stepSize>
+    <farSteps type="int" range="[0,5000]">4</farSteps>
+    <nearSteps type="int" range="[0,5000]">4</nearSteps>
+  </normalLightFineSearchInfo>
+  <normalLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">6</stepSize>
+    <farSteps type="int" range="[0,5000]">4</farSteps>
+    <nearSteps type="int" range="[0,5000]">4</nearSteps>
+  </normalLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">11</stepSize>
+    <farSteps type="int" range="[0,5000]">3</farSteps>
+    <nearSteps type="int" range="[0,5000]">3</nearSteps>
+  </lowLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">9</stepSize>
+    <farSteps type="int" range="[0,5000]">3</farSteps>
+    <nearSteps type="int" range="[0,5000]">3</nearSteps>
+  </lowLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize type="int" range="[0,1000]">9</stepSize>
+    <farSteps type="int" range="[0,5000]">3</farSteps>
+    <nearSteps type="int" range="[0,5000]">3</nearSteps>
+  </lowLightFineSearchInfo>
+</chromatixDCIAF>

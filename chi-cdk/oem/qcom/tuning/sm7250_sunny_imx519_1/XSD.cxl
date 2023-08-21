@@ -1,0 +1,10 @@
+# Chromatix Project XSD Link file
+#
+# Copyright (c) 2019 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+#
+# Linked to:
+..\..\..\..\api\chromatix\XSD\
+
+# The system-wide XSD updated on 07/2018

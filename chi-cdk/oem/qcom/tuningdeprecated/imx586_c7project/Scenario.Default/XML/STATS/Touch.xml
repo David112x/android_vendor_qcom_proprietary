@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Touch
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecTouch.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="1"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <touchMtr>
+    <enableTouchROI type='bool'>true</enableTouchROI>
+    <weightTouchROI type='float' range="[0,1]">0.8</weightTouchROI>
+    <weightTemporalFilter type='float' range="[0,1]">0</weightTemporalFilter>
+    <centerWeightStrength type='float' range="[0,1]">0.5</centerWeightStrength>
+    <enableTouchLEDMetering type='bool'>false</enableTouchLEDMetering>
+    <enableTouchROIHistAdj type='bool'>false</enableTouchROIHistAdj>
+    <ROIHistAdjZone>
+      <zoneTrigger>
+        <start>0</start>
+        <end>190</end>
+      </zoneTrigger>
+      <zoneData>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <darkLumaRatioRange>
+          <start>0.15</start>
+          <end>0.3</end>
+        </darkLumaRatioRange>
+        <darkROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </darkROIAdjustParams>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <brightLumaRatioRange>
+          <start>3</start>
+          <end>6</end>
+        </brightLumaRatioRange>
+        <brightROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </brightROIAdjustParams>
+      </zoneData>
+    </ROIHistAdjZone>
+    <ROIHistAdjZone>
+      <zoneTrigger>
+        <start>230</start>
+        <end>360</end>
+      </zoneTrigger>
+      <zoneData>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <darkLumaRatioRange>
+          <start>0.15</start>
+          <end>0.3</end>
+        </darkLumaRatioRange>
+        <darkROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </darkROIAdjustParams>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <brightLumaRatioRange>
+          <start>3</start>
+          <end>6</end>
+        </brightLumaRatioRange>
+        <brightROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </brightROIAdjustParams>
+      </zoneData>
+    </ROIHistAdjZone>
+    <ROIHistAdjZone>
+      <zoneTrigger>
+        <start>420</start>
+        <end>1000</end>
+      </zoneTrigger>
+      <zoneData>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <darkLumaRatioRange>
+          <start>0.15</start>
+          <end>0.3</end>
+        </darkLumaRatioRange>
+        <darkROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </darkROIAdjustParams>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <brightLumaRatioRange>
+          <start>3</start>
+          <end>6</end>
+        </brightLumaRatioRange>
+        <brightROIAdjustParams>
+          <minTargetAdjRatio type='float' range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type='float' range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type='float' range="[0,50]">3</darkRefLow>
+          <satRefHigh type='float' range="[100,500]">350</satRefHigh>
+        </brightROIAdjustParams>
+      </zoneData>
+    </ROIHistAdjZone>
+  </touchMtr>
+  <touchConv>
+    <convSpeedAdjRatio type='float' range="[0,10]">0.5</convSpeedAdjRatio>
+  </touchConv>
+</Touch>

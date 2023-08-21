@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecDepth
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecDepth.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <enableFlag description="Enable Flag for Depth-based AEC Adjustments" tuning_parameter_level="often_tune">false</enableFlag>
+  <lumaDiffThres description="Threshold of luma difference for triggering rebasing mode from tracking mode" tuning_parameter_level="rarely_tune">8</lumaDiffThres>
+  <decisionMapValidGridCntThres description="EThreshold of auto-focus selection grid count number for entering tracking mode from tracking mode" tuning_parameter_level="rarely_tune">20</decisionMapValidGridCntThres>
+  <consecInvalidFrameCntThres description="Threshold of consecutive invalid frame for triggering rebasing mode from tracking mode" tuning_parameter_level="rarely_tune">6</consecInvalidFrameCntThres>
+  <initValidFrameCntThres description="Threshold of valid frame for entering rebasing mode from initialization mode" tuning_parameter_level="rarely_tune">4</initValidFrameCntThres>
+  <selectMapValidGridCntThres description="Threshold of auto-focus selection grid count number to determine the input auto-focus selection map is valid" tuning_parameter_level="rarely_tune">3</selectMapValidGridCntThres>
+  <displayDebugMsg description="Flag to display DEPTHAEC debug message for display tool" tuning_parameter_level="rarely_tune">false</displayDebugMsg>
+  <depthMtr>
+    <depthMeteringWeight>
+      <triggerPt>
+        <start>0</start>
+        <end>0</end>
+      </triggerPt>
+      <triggerData>
+        <weight>1</weight>
+      </triggerData>
+    </depthMeteringWeight>
+    <mapsLUTs>
+      <knees>
+        <triggerPt>
+          <start>0</start>
+          <end>0</end>
+        </triggerPt>
+        <triggerData>
+          <weight>1</weight>
+        </triggerData>
+      </knees>
+      <type>DepthLUTDistance</type>
+    </mapsLUTs>
+    <temporalFilter description="temporal filter for frame to frame metering of depth ROI" range="[0.0,1.0]" tuning_parameter_level="rarely_tune">0</temporalFilter>
+  </depthMtr>
+  <depthConv>
+    <convSpeedAdjRatio description="specify the adjustment of convergence speed during Depth AEC convergence" range="[0,10]" tuning_parameter_level="rarely_tune">0</convSpeedAdjRatio>
+  </depthConv>
+</aecDepth>

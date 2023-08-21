@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:include schemaLocation="modmlczv1.xsd"/>
+	<xs:element name="SFMLCZV2" type="chromatixMLCZV2Type"/>
+	<xs:complexType name="chromatixMLCZV2Type">
+		<xs:sequence>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="1"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="A"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" type="enableFlagType" default="0"/>
+			<xs:element name="detectionZoneV2" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbWeightedZoneDefineType">
+							<xs:attribute name="tool_hint" default="name=Detection Zone V2"/>
+							<xs:attribute name="description" type="xs:string" default="define detection zone that will be used for triggering control typ for MLCZ"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="MLCZV2" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbWeightedZoneDefineType">
+							<xs:attribute name="tool_hint" default="name=MLCZ V2"/>
+							<xs:attribute name="description" type="xs:string" default="MLC zone setting with configurable trigger control type"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

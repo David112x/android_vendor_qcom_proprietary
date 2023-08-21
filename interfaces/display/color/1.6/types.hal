@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.display.color@1.6;
+
+import @1.5::types;
+
+enum DispConfig : uint32_t {
+    LeftConfig = 0,
+    RightConfig = 1,
+    MaxNumConfig = 2
+};
+
+enum DispFeature : uint32_t {
+    FEATURE_INVALID = 0,
+    FEATURE_GLOBAL_PCC_CONFIG = 1,
+    FEATURE_MAX = 0xFF,
+};
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<resources>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+
+    <dimen name="control_holder_margin">5dp</dimen>
+    <dimen name="slider_height">20dp</dimen>
+
+    <dimen name="video_controls_margin">20dp</dimen>
+    <dimen name="video_control_button">75dp</dimen>
+
+    <dimen name="preset_change_button_height">50dp</dimen>
+
+    <dimen name="controls_padding">5dp</dimen>
+</resources>

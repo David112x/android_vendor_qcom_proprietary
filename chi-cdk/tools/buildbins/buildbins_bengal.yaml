@@ -1,0 +1,8 @@
+sensor_drivers:
+- com.qti.sensormodule.truly_imx476:
+    - sensor/imx476/imx476_sensor.xml
+    - module/truly_imx476_module.xml
+
+chromatix_projects:
+- com.qti.tuned.default:
+    - tuning/default_c7project

@@ -1,0 +1,778 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="ispglobalelements.xsd"/>
+  <xs:element name="tmc11_sw" type="chromatix_tmc11Type">
+    <xs:annotation>
+      <xs:documentation>tmc11 sw control parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="chromatix_tmc11Type">
+    <xs:sequence>
+      <xs:element name="enable_section">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tmc_enable" type="enable_flag_type" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="module_version">
+        <xs:complexType>
+          <xs:attribute name="major_revision" type="xs:int" fixed="1"/>
+          <xs:attribute name="minor_revision" type="xs:int" fixed="1"/>
+          <xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="parameter_version">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="revision" type="xs:string" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_variables">
+        <xs:complexType>
+          <xs:sequence minOccurs="3" maxOccurs="3">
+            <xs:element name="control_var_type">
+              <xs:simpleType>
+                <xs:restriction base="control_var_type">
+                  <xs:pattern value="control_drc_gain"/>
+                  <xs:pattern value="control_exp_time_ratio"/>
+                  <xs:pattern value="control_aec_exp_sensitivity_ratio"/>
+                  <xs:pattern value="control_exp_gain_ratio"/>
+                  <xs:pattern value="control_lux_idx"/>
+                  <xs:pattern value="control_gain"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="default_value" type="xs:string" default="control_drc_gain, control_exp_time_ratio, control_gain"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_method">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="aec_exp_control" type="tuning_control_aec_type" default="control_gain"/>
+            <xs:element name="aec_hdr_control" type="tuning_control_aec_hdr_type" default="control_exp_time_ratio"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chromatix_tmc11_reserve" type="chromatix_tmc11_reserveType"/>
+      <xs:element name="chromatix_tmc11_core" type="chromatix_tmc11_coreType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_tmc11_reserveType">
+    <xs:sequence>
+      <xs:element name="use_gtm">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="use gtm for tone mapping"/>
+              <xs:attribute name="default_value" type="xs:string" default="1"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="This is only applicable if chipset has GTM module support"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="use_ltm">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="use ltm for tone mapping"/>
+              <xs:attribute name="default_value" type="xs:string" default="1"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="This is only applicable if chipset has LTM module support"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="curve_model">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Curve model used to generate tone mapping model"/>
+              <xs:attribute name="default_value" type="xs:string" default="3"/>
+              <xs:attribute name="range" type="xs:string" default="[0,7]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="3uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="0: sigmoid; 1: exponential; 2: PCHIP; 3: Bezier; 4-7: others"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="curve_order">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:unsignedInt">
+              <xs:attribute name="type" default="uint"/>
+              <xs:attribute name="description" type="xs:string" default="Curve order to describe tone mapping curve"/>
+              <xs:attribute name="default_value" type="xs:string" default="5"/>
+              <xs:attribute name="range" type="xs:string" default="[0,15]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="4uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tone_max_ratio">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Max tone ratio TMC support"/>
+              <xs:attribute name="default_value" type="xs:string" default="16"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1023]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reserve_rsv_para1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reserve_rsv_para2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reserve_rsv_para3">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reserve_rsv_para4">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reserve_rsv_para5">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_tmc11_coreType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="mod_tmc11_drc_gain_data" type="mod_tmc11_drc_gain_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_tmc11_drc_gain_dataType">
+    <xs:sequence>
+      <xs:element name="drc_gain_trigger" type="trigger_pt_type"/>
+      <xs:element name="drc_gain_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_tmc11_hdr_aec_data" type="mod_tmc11_hdr_aec_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_tmc11_hdr_aec_dataType">
+    <xs:sequence>
+      <xs:element name="hdr_aec_trigger" type="trigger_pt_type_aec_hdr"/>
+      <xs:element name="hdr_aec_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_tmc11_aec_data" type="mod_tmc11_aec_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_tmc11_aec_dataType">
+    <xs:sequence>
+      <xs:element name="aec_trigger" type="trigger_pt_type_aec"/>
+      <xs:element name="tmc11_rgn_data" type="tmc11_rgn_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tmc11_rgn_dataType">
+    <xs:sequence>
+      <xs:element name="gtm_percentage">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Percentage of tone mapping curve distributed to GTM"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.2"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="sum of all percentages should be 1.0"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ltm_percentage">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Percentage of tone mapping curve distributed to LTM"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.8"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="sum of all percentages should be 1.0"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dark_boost_ratio">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Percentage of dark-boosting gain to be applied"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="more dark_boost_ratio for brighter image"/>
+              <xs:attribute name="tool_hint" default="float"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tone_target_tab">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tone_target">
+              <xs:simpleType>
+                <xs:restriction base="floatvar">
+                  <xs:length value="5"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="type" default="float"/>
+          <xs:attribute name="description" type="xs:string" default="Tone target after gamma"/>
+          <xs:attribute name="default_value" type="xs:string" default="0 0.3 0.55 0.7 1.0"/>
+          <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+          <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+          <xs:attribute name="length" type="xs:int" fixed="5"/>
+          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+          <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tone_anchors_tab">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tone_anchors">
+              <xs:simpleType>
+                <xs:restriction base="floatvar">
+                  <xs:length value="5"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="type" default="float"/>
+          <xs:attribute name="description" type="xs:string" default="fixed knee points before gamma"/>
+          <xs:attribute name="default_value" type="xs:string" default="0 0.1 0.2 0.7 1.0"/>
+          <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+          <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+          <xs:attribute name="length" type="xs:int" fixed="5"/>
+          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+          <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tone_bright_adj">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="tone adjustment for bright-dominant scene"/>
+              <xs:attribute name="default_value" type="xs:string" default="2.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tone_dark_adj">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="tone adjustment for dark-dominant scene"/>
+              <xs:attribute name="default_value" type="xs:string" default="4.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stretch_bright_str">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Stretch bright part for global tone adjustment"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stretch_dark_str">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Stretch dark part for global tone adjustment"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_supr_range_start">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage start for bins to be used to calculate bright position"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.2"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be smaller than hist_supr_range_end"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_supr_range_end">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage end for bins to be used to calculate bright position"/>
+              <xs:attribute name="default_value" type="xs:string" default="1.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be bigger than hist_supr_range_start"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_boost_range_start">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage start for bins to be used to calculate dark position"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be smaller than hist_boost_range_end"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_boost_range_end">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage end for bins to be used to calculate dark position"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.4"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be bigger than hist_boost_range_start"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_avg_range_start">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage start for bins to be used to calculate midtone position"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be smaller than hist_avg_range_end"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_avg_range_end">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="The percentage end for bins to be used to calculate midtone position"/>
+              <xs:attribute name="default_value" type="xs:string" default="1.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="should be bigger than hist_avg_range_start"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_conv_kernel_tab">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="hist_conv_kernel">
+              <xs:simpleType>
+                <xs:restriction base="floatvar">
+                  <xs:length value="5"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="type" default="float"/>
+          <xs:attribute name="description" type="xs:string" default="Convolution kernel used to smooth bins"/>
+          <xs:attribute name="default_value" type="xs:string" default="1 0 0 0 0"/>
+          <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+          <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+          <xs:attribute name="length" type="xs:int" fixed="5"/>
+          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+          <xs:attribute name="additional_notes" type="xs:string" default="sum of all coefficients should be 1.0"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_clip_slope">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Clip max bin count to avoid over-boosting"/>
+              <xs:attribute name="default_value" type="xs:string" default="16.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1023.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_enhance_clamp">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Max clamping ratio based on histogram"/>
+              <xs:attribute name="default_value" type="xs:string" default="1.5"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hist_enhance_ratio_tab">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="hist_enhance_ratio">
+              <xs:simpleType>
+                <xs:restriction base="floatvar">
+                  <xs:length value="5"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="type" default="float"/>
+          <xs:attribute name="description" type="xs:string" default="Histogram enhancing ratio to adjust tone curve by scene"/>
+          <xs:attribute name="default_value" type="xs:string" default="0 0 0 0 0"/>
+          <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+          <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+          <xs:attribute name="length" type="xs:int" fixed="5"/>
+          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+          <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="contrast_bright_clip">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Global contrast adjustment for bright part"/>
+              <xs:attribute name="default_value" type="xs:string" default="2.0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="contrast_dark_adj">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Global contrast adjustment for dark part"/>
+              <xs:attribute name="default_value" type="xs:string" default="1.3"/>
+              <xs:attribute name="range" type="xs:string" default="[0,4.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="contrast_he_bright">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Global HE contrast weight for bright part"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.4"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="contrast_he_dark">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="Global HE contrast weight for dark part"/>
+              <xs:attribute name="default_value" type="xs:string" default="0.4"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="core_rsv_para1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="core_rsv_para2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="core_rsv_para3">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="core_rsv_para4">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="core_rsv_para5">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:float">
+              <xs:attribute name="type" default="float"/>
+              <xs:attribute name="description" type="xs:string" default="none"/>
+              <xs:attribute name="default_value" type="xs:string" default="0"/>
+              <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="0uQ0"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

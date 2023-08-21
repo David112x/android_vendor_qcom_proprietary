@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="statsglobalelements.xsd"/>
+	<xs:simpleType name="faceTriggerCtrlType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TriggerCtrlLuxIdx"/>
+			<xs:enumeration value="TriggerCtrlGain"/>
+			<xs:enumeration value="TriggerCtrlTypeMax"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="modFaceRoiDiffTriggerDataType">
+		<xs:sequence>
+			<xs:element name="triggerPt" type="glbTriggerPointType"/>
+			<xs:element name="triggerData" type="FaceROIDiffThresholdType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixStatsROIDifferenceType">
+		<xs:sequence>
+			<xs:element name="statsROIDiffEnable" type="glbEnableFlagType"/>
+			<xs:element name="TriggerCtrlType" type="faceTriggerCtrlType" default="TriggerCtrlGain" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="statsROIDiffThreshold">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modFaceRoiDiffTriggerDataType">
+							<xs:attribute name="description" type="xs:string" default="statsROIDifference for location, size and count"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

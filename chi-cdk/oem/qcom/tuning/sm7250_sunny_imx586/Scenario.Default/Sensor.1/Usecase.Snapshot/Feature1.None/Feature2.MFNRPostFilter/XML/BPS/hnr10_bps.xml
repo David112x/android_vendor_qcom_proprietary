@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<hnr10_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\..\..\api\chromatix\XSD\isp\hnr_1_0_0.xsd">
+  <enable_section>
+    <hnr_nr_enable default_value="1">1</hnr_nr_enable>
+    <hnr_blend_enable default_value="1">1</hnr_blend_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_total_scale_ratio, control_drc_gain, control_aec_exp_sensitivity_ratio, control_gain">
+    <control_var_type>control_total_scale_ratio</control_var_type>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <hnr_nr_enable>
+      <enable default_value="0">0</enable>
+      <hyst_control_var default_value="control_gain">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </hnr_nr_enable>
+  </dynamic_enable_triggers>
+  <chromatix_hnr10_reserve>
+    <lnr_en default_value="1">1</lnr_en>
+    <rnr_en default_value="1">1</rnr_en>
+    <cnr_en default_value="1">1</cnr_en>
+    <snr_en default_value="1">1</snr_en>
+    <fd_snr_en default_value="0">0</fd_snr_en>
+    <fnr_en default_value="1">1</fnr_en>
+    <lpf3_en default_value="1">1</lpf3_en>
+    <blend_cnr_en default_value="1">1</blend_cnr_en>
+    <blend_snr_en default_value="1">1</blend_snr_en>
+    <radial_anchor_tab default_value="0.0 0.2 0.3 0.4 0.6 0.8 1.0">
+      <radial_anchor>0 0.2 0.3 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_hnr10_reserve>
+  <chromatix_hnr10_core>
+    <mod_hnr10_total_scale_ratio_data>
+      <total_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </total_scale_ratio_trigger>
+      <total_scale_ratio_data>
+        <mod_hnr10_drc_gain_data>
+          <drc_gain_trigger>
+            <start>1</start>
+            <end>100</end>
+          </drc_gain_trigger>
+          <drc_gain_data>
+            <mod_hnr10_hdr_aec_data>
+              <hdr_aec_trigger>
+                <exp_time_start>1</exp_time_start>
+                <exp_time_end>64</exp_time_end>
+                <aec_sensitivity_start>1</aec_sensitivity_start>
+                <aec_sensitivity_end>64</aec_sensitivity_end>
+                <exp_gain_start>1</exp_gain_start>
+                <exp_gain_end>64</exp_gain_end>
+              </hdr_aec_trigger>
+              <hdr_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>130</lux_idx_start>
+                    <lux_idx_end>200</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 0.9375 0.875 0.75 0.625 0.5</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 0.9375 0.875 0.75 0.625 0.5</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>48 48 96 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 0.9375 0.875 0.75 0.625 0.5</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>48 48 48 64 96 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>300</lux_idx_start>
+                    <lux_idx_end>350</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 1 1 1 1 1</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>36 48 96 116 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 1 1 1 1 1</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+                <mod_hnr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>410</lux_idx_start>
+                    <lux_idx_end>500</lux_idx_end>
+                    <gain_start>31</gain_start>
+                    <gain_end>32</gain_end>
+                  </aec_trigger>
+                  <hnr10_rgn_data>
+                    <lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lnr_gain_arr>
+                    </lnr_gain_arr_tab>
+                    <lnr_shift default_value="2">2</lnr_shift>
+                    <radial_noise_prsv_adj_tab default_value="1.0 1.0 0.9375 0.8750 0.7500 0.6250 0.5000">
+                      <radial_noise_prsv_adj>1 1 0.9375 0.875 0.75 0.625 0.5</radial_noise_prsv_adj>
+                    </radial_noise_prsv_adj_tab>
+                    <cnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <cnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</cnr_gain_arr>
+                    </cnr_gain_arr_tab>
+                    <cnr_low_thrd_u default_value="2">2</cnr_low_thrd_u>
+                    <cnr_low_thrd_v default_value="2">2</cnr_low_thrd_v>
+                    <cnr_low_gap_u default_value="1">1</cnr_low_gap_u>
+                    <cnr_low_gap_v default_value="1">1</cnr_low_gap_v>
+                    <cnr_adj_gain default_value="32">32</cnr_adj_gain>
+                    <cnr_scale default_value="4">4</cnr_scale>
+                    <fnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_gain_arr>
+                    </fnr_gain_arr_tab>
+                    <fnr_gain_clamp_arr_tab default_value="128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <fnr_gain_clamp_arr>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</fnr_gain_clamp_arr>
+                    </fnr_gain_clamp_arr_tab>
+                    <fnr_ac_th_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <fnr_ac_th>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</fnr_ac_th>
+                    </fnr_ac_th_tab>
+                    <fnr_ac_shift default_value="1">1</fnr_ac_shift>
+                    <filtering_nr_gain_arr_tab default_value="16 32 48 64 80 96 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128">
+                      <filtering_nr_gain_arr>36 50 57 67 86 112 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</filtering_nr_gain_arr>
+                    </filtering_nr_gain_arr_tab>
+                    <abs_amp_shift default_value="0">0</abs_amp_shift>
+                    <lpf3_percent default_value="0">0</lpf3_percent>
+                    <lpf3_offset default_value="0">0</lpf3_offset>
+                    <lpf3_strength default_value="2">2</lpf3_strength>
+                    <blend_lnr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_lnr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_lnr_gain_arr>
+                    </blend_lnr_gain_arr_tab>
+                    <blend_cnr_adj_gain default_value="32">32</blend_cnr_adj_gain>
+                    <blend_snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <blend_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</blend_snr_gain_arr>
+                    </blend_snr_gain_arr_tab>
+                    <skin_hue_min default_value="-1.39">-1.39</skin_hue_min>
+                    <skin_hue_max default_value="-0.4">-0.4</skin_hue_max>
+                    <skin_y_min default_value="0.125">0.125</skin_y_min>
+                    <skin_y_max default_value="1">1</skin_y_max>
+                    <skin_saturation_min_y_max default_value="0.08">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max default_value="0.8">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min default_value="0.32">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min default_value="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability default_value="8">8</skin_boundary_probability>
+                    <skin_percent default_value="12">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio default_value="0.5">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary default_value="1.2">1.2</face_boundary>
+                    <face_transition default_value="2">2</face_transition>
+                    <snr_gain_arr_tab default_value="32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32">
+                      <snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</snr_gain_arr>
+                    </snr_gain_arr_tab>
+                    <snr_skin_smoothing_str default_value="2">2</snr_skin_smoothing_str>
+                  </hnr10_rgn_data>
+                </mod_hnr10_aec_data>
+              </hdr_aec_data>
+            </mod_hnr10_hdr_aec_data>
+          </drc_gain_data>
+        </mod_hnr10_drc_gain_data>
+      </total_scale_ratio_data>
+    </mod_hnr10_total_scale_ratio_data>
+  </chromatix_hnr10_core>
+</hnr10_bps>

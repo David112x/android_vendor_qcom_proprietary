@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cc13_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cc_1_3_0.xsd">
+  <enable_section>
+    <cc_enable>1</cc_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="3" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_cc13_reserve>
+    <q_factor type='uint' range="[0,3]" length="1">0</q_factor>
+  </chromatix_cc13_reserve>
+  <chromatix_cc13_core>
+    <mod_cc13_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_cc13_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_cc13_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_cc13_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>350</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>2400</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.216659183 -0.390696511 0.174037237 -0.112015336 0.959818251 0.152197026 -0.130317462 -0.835301205 1.965618612</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>2600</start>
+                        <end>3100</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.214957815 -0.637756572 0.422798751 0.037039977 0.599443224 0.363516792 0.106331668 -1.524959488 2.418627739</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>3700</start>
+                        <end>4300</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.195207281 -0.387026683 0.191819444 -0.013452806 0.889924969 0.123527877 0.107662159 -0.555350929 1.447688787</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>4800</start>
+                        <end>5200</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.087059043 -0.339485225 0.252426226 0.119254922 0.764183005 0.116562067 0.236782936 -1.155282278 1.918499408</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>6000</start>
+                        <end>6600</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.058462074 -0.273994865 0.215532823 0.133294716 0.790377388 0.076327892 0.216993635 -0.946171948 1.729178396</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>7000</start>
+                        <end>15000</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.121932184 -0.163731309 0.102827658 0.107082988 0.972183124 -0.063198579 0.158442204 0.714656138 1.389191393</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                  </aec_data>
+                </mod_cc13_aec_data>
+                <mod_cc13_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>400</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>3100</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.18463037 -0.756921088 0.57229073 0.013600699 0.446501065 0.539898257 -0.055929177 -1.934348841 2.990278101</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>3700</start>
+                        <end>4300</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>1.092535725 -0.288451163 0.195915397 0.1340019 0.874066215 -0.008068138 0.20138402 -1.162024539 1.960640509</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>5000</start>
+                        <end>15000</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab type='float' range="[-15.99,15.99]" length="9">
+                          <c>0.961403661 -0.027339612 0.065935971 0.095465652 0.959154724 -0.054620336 0.199393772 -1.000332431 1.800938725</c>
+                        </c_tab>
+                        <k_tab type='int' range="[-4096,4095]" length="3">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                  </aec_data>
+                </mod_cc13_aec_data>
+              </led_idx_data>
+            </mod_cc13_led_idx_data>
+          </hdr_aec_data>
+        </mod_cc13_hdr_aec_data>
+      </drc_gain_data>
+    </mod_cc13_drc_gain_data>
+  </chromatix_cc13_core>
+</cc13_ipe>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixPDLib
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afpdlibelements.xsd">
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <preProcess>
+    <sparseProcessingMode>SPARSE_PD_PROC_SIMPLE</sparseProcessingMode>
+    <HDR>
+      <channelSelection>DPD_HDR_AUTO_MODE</channelSelection>
+      <longThreshold type='int' range="[0,2]">450</longThreshold>
+    </HDR>
+    <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+    <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+    <saturationThreshold type='int' range="[0,5000]">5000</saturationThreshold>
+    <filterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">8</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">4</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">4</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+    </filterTrigger>
+    <lcrFilterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+    </lcrFilterTrigger>
+    <lcrChannel range="[0,1]">PDAF_LCR_CHANNEL_G</lcrChannel>
+    <lcrBinningMode range="[0,2]">PDAF_LCR_BINNING_DEFAULT</lcrBinningMode>
+    <lcrRawType range="[0,2]">PDAF_CAMIF_RAW</lcrRawType>
+    <lcrMaxBinningNum type='int' range="[1,4]">1</lcrMaxBinningNum>
+    <lcrChannelSeparated type='bool'>false</lcrChannelSeparated>
+  </preProcess>
+  <preProcessVertical>
+    <sparseProcessingMode>SPARSE_PD_PROC_SIMPLE</sparseProcessingMode>
+    <HDR>
+      <channelSelection>DPD_HDR_AUTO_MODE</channelSelection>
+      <longThreshold type='int' range="[0,2]">450</longThreshold>
+    </HDR>
+    <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+    <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+    <saturationThreshold type='int' range="[0,5000]">5000</saturationThreshold>
+    <filterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">8</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">4</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">4</verticalMode>
+        <horizontalMode type='int' range="[1,8]">1</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">2</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">100</antiAliasFilterThreshold>
+      </filterSet>
+    </filterTrigger>
+    <lcrFilterTrigger>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+      <filterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <verticalMode type='int' range="[1,32]">1</verticalMode>
+        <horizontalMode type='int' range="[1,8]">2</horizontalMode>
+        <boxFilterLength type='int' range="[1,8]">0</boxFilterLength>
+        <antiAliasFilterThreshold type='int' range="[80,120]">0</antiAliasFilterThreshold>
+      </filterSet>
+    </lcrFilterTrigger>
+    <lcrChannel range="[0,1]">PDAF_LCR_CHANNEL_G</lcrChannel>
+    <lcrBinningMode range="[0,2]">PDAF_LCR_BINNING_DEFAULT</lcrBinningMode>
+    <lcrRawType range="[0,2]">PDAF_CAMIF_RAW</lcrRawType>
+    <lcrMaxBinningNum type='int' range="[1,4]">1</lcrMaxBinningNum>
+    <lcrChannelSeparated type='bool'>false</lcrChannelSeparated>
+  </preProcessVertical>
+  <correlation>
+    <minimumConfidenceLevel type='float' range="[50,200]">250</minimumConfidenceLevel>
+    <defocusConfidenceThreshold type='float' range="[50,200]">250</defocusConfidenceThreshold>
+    <PDRangeControl type='float' range="[0.02,0.10]">0.1</PDRangeControl>
+    <searchRange>
+      <from type='int' range="[-48,0]">-32</from>
+      <to type='int' range="[0,32]">30</to>
+    </searchRange>
+    <lcrSearchRange>
+      <from type='int' range="[-48,0]">-8</from>
+      <to type='int' range="[0,32]">8</to>
+    </lcrSearchRange>
+  </correlation>
+  <correlationVertical>
+    <minimumConfidenceLevel type='float' range="[50,200]">250</minimumConfidenceLevel>
+    <defocusConfidenceThreshold type='float' range="[50,200]">250</defocusConfidenceThreshold>
+    <PDRangeControl type='float' range="[0.02,0.10]">0.1</PDRangeControl>
+    <searchRange>
+      <from type='int' range="[-48,0]">-48</from>
+      <to type='int' range="[0,32]">16</to>
+    </searchRange>
+    <lcrSearchRange>
+      <from type='int' range="[-48,0]">-8</from>
+      <to type='int' range="[0,32]">8</to>
+    </lcrSearchRange>
+  </correlationVertical>
+  <postProcess>
+    <biasVectorStrength type='float' range="[0.0,0.4]">0.1</biasVectorStrength>
+    <temporalFilterStaticWeight type='float' range="[0.0,1.0]">0.5</temporalFilterStaticWeight>
+    <temporalFilterDynamicWeight type='float' range="[0.0,1.0]">1</temporalFilterDynamicWeight>
+    <temporalFilterTrigger>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+    </temporalFilterTrigger>
+    <enableGridOverlap type='int' range="[0,1]">1</enableGridOverlap>
+    <confIntegralWidth type='int' range="[24,32]">24</confIntegralWidth>
+  </postProcess>
+  <postProcessVertical>
+    <biasVectorStrength type='float' range="[0.0,0.4]">0.1</biasVectorStrength>
+    <temporalFilterStaticWeight type='float' range="[0.0,1.0]">0.5</temporalFilterStaticWeight>
+    <temporalFilterDynamicWeight type='float' range="[0.0,1.0]">1</temporalFilterDynamicWeight>
+    <temporalFilterTrigger>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>8</gain_start>
+          <gain_end>8</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>4</gain_start>
+          <gain_end>4</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+      <temporalFilterSet>
+        <AECTrigger>
+          <lux_idx_start>0</lux_idx_start>
+          <lux_idx_end>0</lux_idx_end>
+          <gain_start>1</gain_start>
+          <gain_end>1</gain_end>
+        </AECTrigger>
+        <dynamicWeight type='float' range="[0.0,1.0]">1</dynamicWeight>
+        <staticWeight type='float' range="[0.0,1.0]">1</staticWeight>
+      </temporalFilterSet>
+    </temporalFilterTrigger>
+    <enableGridOverlap type='int' range="[0,1]">1</enableGridOverlap>
+    <confIntegralWidth type='int' range="[24,32]">24</confIntegralWidth>
+  </postProcessVertical>
+  <adaptiveK>
+    <enable type='int'>0</enable>
+    <timeoutFrameCntThres type='int' range="[1,255]">36</timeoutFrameCntThres>
+    <filterSize type='int' range="[1,9]">5</filterSize>
+    <state0StableCntThres type='int' range="[1,255]">4</state0StableCntThres>
+    <state1StableCntThres type='int' range="[1,255]">6</state1StableCntThres>
+    <minimumLensPosDelta type='int' range="[1,400]">180</minimumLensPosDelta>
+    <state0ConfThres type='int' range="[1,1024]">450</state0ConfThres>
+    <state1ConfThres type='int' range="[1,1024]">600</state1ConfThres>
+    <state0PhaseDiffThres type='float' range="[0,100]">6</state0PhaseDiffThres>
+    <state1PhaseDiffThres type='float' range="[0,100]">1</state1PhaseDiffThres>
+    <tolNearTargetUpperBound type='float' range="[0,100]">2.04</tolNearTargetUpperBound>
+    <tolNearTargetLowerBound type='float' range="[0,100]">0.34</tolNearTargetLowerBound>
+    <tolFarTargetUpperBound type='float' range="[0,100]">2.04</tolFarTargetUpperBound>
+    <tolFarTargetLowerBound type='float' range="[0,100]">0.34</tolFarTargetLowerBound>
+  </adaptiveK>
+  <enablePeripheralWindows>0</enablePeripheralWindows>
+  <singleWindowProcessingLevel>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </singleWindowProcessingLevel>
+  <singleWindowProcessingLevelVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </singleWindowProcessingLevelVertical>
+  <gridProcessingLevel>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </gridProcessingLevel>
+  <gridProcessingLevelVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </gridProcessingLevelVertical>
+  <PeripheralProcessing>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </PeripheralProcessing>
+  <PeripheralProcessingVertical>
+    <processingMode>PD_PROCESSING_MODE_MED</processingMode>
+    <dynamicLevel type='int' range="[1,1000]">100</dynamicLevel>
+    <staticLevel type='int' range="[1,1000]">100</staticLevel>
+  </PeripheralProcessingVertical>
+  <HVControl>
+    <PDProcessingAxis>Horizontal</PDProcessingAxis>
+    <horizontalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">0.1</weight>
+      <confThreshold type='int' range="[0,2048]">100</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">1</weight>
+      <confThreshold type='int' range="[0,2048]">400</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">1</weight>
+      <confThreshold type='int' range="[0,2048]">1000</confThreshold>
+    </horizontalConfWeightTuning>
+    <horizontalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">100</weight>
+      <confThreshold type='int' range="[0,2048]">1000</confThreshold>
+    </horizontalConfWeightTuning>
+    <verticalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">0</weight>
+      <confThreshold type='int' range="[0,2048]">50</confThreshold>
+    </verticalConfWeightTuning>
+    <verticalConfWeightTuning>
+      <weight type='float' range="[0,unbounded]">0.9</weight>
+      <confThreshold type='int' range="[0,2048]">500</confThreshold>
+    </verticalConfWeightTuning>
+  </HVControl>
+  <skipControl>
+    <staticFrameCountThres type='int' range="[3,10]">8</staticFrameCountThres>
+    <maxFrameRate type='int' range="[5,30]">30</maxFrameRate>
+  </skipControl>
+  <hardwareGeometry>
+    <enabldHardwarePDModule type='int'>1</enabldHardwarePDModule>
+    <enableOverlap type='int'>1</enableOverlap>
+    <numOfHoriGrids type='int' range="[1,20]">5</numOfHoriGrids>
+    <numOfVertGrids type='int' range="[1,20]">5</numOfVertGrids>
+    <horiNumOfRGNInGridUnit type='int' range="[1,20]">1</horiNumOfRGNInGridUnit>
+    <vertNumOfRGNInGridUnit type='int' range="[1,20]">1</vertNumOfRGNInGridUnit>
+    <horiRegionOffset type='int' range="[0,2047]">32</horiRegionOffset>
+    <vertRegionOffset type='int' range="[0,2047]">12</vertRegionOffset>
+    <widhtOfRegion type='int' range="[0,2047]">96</widhtOfRegion>
+    <heightOfRegion type='int' range="[0,2047]">16</heightOfRegion>
+    <horiNumOfRegion type='int' range="[1,20]">20</horiNumOfRegion>
+    <vertNumOfRegion type='int' range="[1,20]">16</vertNumOfRegion>
+  </hardwareGeometry>
+<hardwarePattern>
+        <pixelExtractor>
+            <enable>0</enable>
+            <outputWidth>0</outputWidth>
+            <outputHeight>0</outputHeight>
+        </pixelExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>0</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>1</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>2</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>3</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>4</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>5</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>6</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <lineExtractor>
+            <XOffset>0</XOffset>
+            <YOffset>7</YOffset>
+            <HalfLine>0</HalfLine>
+        </lineExtractor>
+        <pixelSeparator>
+            <inputBlockWidth>4</inputBlockWidth>
+            <inputBlockHeight>8</inputBlockHeight>
+            <outputBlockWidth>8</outputBlockWidth>
+            <outputBlockHeight>2</outputBlockHeight>
+            <L_map>4</L_map>
+            <L_map>0</L_map>
+            <L_map>8</L_map>
+            <L_map>12</L_map>
+            <L_map>6</L_map>
+            <L_map>2</L_map>
+            <L_map>10</L_map>
+            <L_map>14</L_map>
+            <L_map>20</L_map>
+            <L_map>16</L_map>
+            <L_map>24</L_map>
+            <L_map>28</L_map>
+            <L_map>22</L_map>
+            <L_map>18</L_map>
+            <L_map>26</L_map>
+            <L_map>30</L_map>
+            <R_map>5</R_map>
+            <R_map>1</R_map>
+            <R_map>9</R_map>
+            <R_map>13</R_map>
+            <R_map>7</R_map>
+            <R_map>3</R_map>
+            <R_map>11</R_map>
+            <R_map>15</R_map>
+            <R_map>21</R_map>
+            <R_map>17</R_map>
+            <R_map>25</R_map>
+            <R_map>29</R_map>
+            <R_map>23</R_map>
+            <R_map>19</R_map>
+            <R_map>27</R_map>
+            <R_map>31</R_map>
+        </pixelSeparator>
+        <resampler>
+            <enable>0</enable>
+            <inputBlockWidth>8</inputBlockWidth>
+            <inputBlockHeight>2</inputBlockHeight>
+            <outputBlockWidth>8</outputBlockWidth>
+            <outputBlockHeight>2</outputBlockHeight>
+            <instructions>
+                <S>0</S>
+                <S>0</S>
+                <O>0</O>
+            </instructions>
+        </resampler>
+        <gridWidthScaleRatio>1</gridWidthScaleRatio>
+        <gridHeightScaleRatio>1</gridHeightScaleRatio>
+    </hardwarePattern>
+  <enableFocusMaps>0</enableFocusMaps>
+  <extensionParam>
+    <ID>0</ID>
+    <Name>Extension feature</Name>
+    <enableFlag>false</enableFlag>
+    <data>0</data>
+  </extensionParam>
+</chromatixPDLib>

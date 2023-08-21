@@ -1,0 +1,7 @@
+USE_CAMERA_STUB := false
+
+ifeq ($(TARGET_USES_QMAA),true)
+    ifneq ($(TARGET_USES_QMAA_OVERRIDE_CAMERA),true)
+         USE_CAMERA_STUB := true
+    endif #TARGET_USES_QMAA_OVERRIDE_CAMERA
+endif #TARGET_USES_QMAA

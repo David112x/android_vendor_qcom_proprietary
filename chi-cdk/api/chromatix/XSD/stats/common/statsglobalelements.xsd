@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+    <xs:simpleType name="glbEnableFlagType">
+		<xs:restriction base="xs:int"/>
+	</xs:simpleType>
+	<xs:complexType name="glbTriggerPointType">
+		<xs:sequence>
+			<xs:element name="start">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" type="xs:string" default="float"/>
+							<xs:attribute name="range" type="xs:string" default="[-100.0,15000.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="end">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" type="xs:string" default="float"/>
+							<xs:attribute name="range" type="xs:string" default="[-100.0,15000.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="glbFloatDataType">
+		<xs:sequence>
+			<xs:element name="data">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" type="xs:string" default="float"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,9999.9]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="glbTriggerDataFloatType">
+		<xs:sequence>
+			<xs:element name="triggerPt">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="glbTriggerPointType">
+							<xs:attribute name="tool_hint" default="trigger"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="triggerData" type="glbFloatDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FaceROIDiffThresholdDataType">
+		<xs:sequence>
+			<xs:element name="locationThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="the center of face roi change threshold"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,100.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="sizeThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="the size of face roi change threshold"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,100.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="countThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="If the face roi stable keep n frame, and n bigger than this threshold, and this face roi will be set to be stable"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FaceROIDiffThresholdType">
+		<xs:sequence>
+			<xs:element name="triggerPt">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="glbTriggerPointType">
+							<xs:attribute name="tool_hint" default="trigger"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="triggerData" type="FaceROIDiffThresholdDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+  	<xs:complexType name="statsExtensionParamType">
+		<xs:sequence>
+			<xs:element name="ID" default="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="description" type="xs:string" default="extension feature ID, defined in the algorithm code so please do not change"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="Name" default="Extension feature">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="description" type="xs:string" default="extension feature name"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="description" type="xs:string" default="enable flag"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="data" default="0.0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="description" type="xs:string" default="tuning parameter"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="extension feature"/>
+		<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+	</xs:complexType>
+</xs:schema>

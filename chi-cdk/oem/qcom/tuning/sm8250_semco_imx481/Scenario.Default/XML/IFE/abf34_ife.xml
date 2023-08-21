@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<abf34_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\abf_3_4_0.xsd">
+  <enable_section>
+    <abf_enable>1</abf_enable>
+    <sbpc_enable>0</sbpc_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="4" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <abf_enable>
+      <enable type='int' range="[0,1]" length="1">0</enable>
+      <hyst_control_var type='uint' range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>3.5</start1>
+        <end1>6.5</end1>
+        <start2>8.1</start2>
+        <end2>9.5</end2>
+      </hyst_trigger>
+    </abf_enable>
+  </dynamic_enable_triggers>
+  <chromatix_abf34_reserve>
+    <cross_plane_en type='uint' range="[0,1]" length="1">1</cross_plane_en>
+    <radial_anchor_tab type='float' range="[0.0,1.0]" length="5">
+      <radial_anchor>0 0 0 0 0</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_abf34_reserve>
+  <chromatix_abf34_core>
+    <mod_abf34_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_abf34_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>250</lux_idx_start>
+                <lux_idx_end>262</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>1.1</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 5.830952 8.306623 10.14889 11.7047 13.0767 14.3527 15.49193 16.55295 17.54993 18.52026 19.41649 20.27313 21.11871 21.9089 22.67157 23.4094 24.14539 24.83949 25.5147 26.1725 26.83282 27.45906 28.07134 28.68798 29.27456 29.84962 30.41381 30.98387 31.52777 32.06244 32.58834 33.12099 33.63034 34.1321 34.64102 35.12834 35.60899 36.08324 36.56501 37.02702 37.48333 37.93415 38.39271 38.83298 39.26831 39.71146 40.13726 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586 40.5586</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.65 0.65</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.7 0.7</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">1.5</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>285</lux_idx_start>
+                <lux_idx_end>297</lux_idx_end>
+                <gain_start>1.9</gain_start>
+                <gain_end>2.1</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 7.937254 11.18034 13.71131 15.84298 17.72005 19.39072 20.95233 22.40536 23.76973 25.03997 26.26785 27.44085 28.5482 29.63107 30.67572 31.68596 32.64965 33.60059 34.52535 35.41186 36.29049 37.14835 37.98684 38.79433 39.59798 40.38564 41.15823 41.90466 42.64973 43.38202 44.09082 44.79955 45.49725 46.18441 46.85083 47.51842 48.17676 48.82622 49.45705 50.08992 50.71489 51.32251 51.93265 52.5357 53.13191 53.7122 54.29549 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258 54.87258</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.65 0.65</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.7 0.7</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">2</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>305</lux_idx_start>
+                <lux_idx_end>317</lux_idx_end>
+                <gain_start>3.9</gain_start>
+                <gain_end>4.1</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 10.77033 15.23155 18.68154 21.56386 24.10394 26.40076 28.51315 30.4795 32.34192 34.08812 35.74913 37.33631 38.85872 40.32369 41.74925 43.11612 44.44097 45.72746 46.97872 48.20788 49.39635 50.5569 51.69139 52.80151 53.88877 54.96362 56.00893 57.03508 58.04309 59.03389 60.00833 60.97541 61.9193 62.84903 63.76519 64.66839 65.56676 66.44547 67.31271 68.16891 69.01449 69.84984 70.68239 71.49825 72.30491 73.10267 73.89182 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931 74.67931</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.65 0.65</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">2.5</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>380</lux_idx_start>
+                <lux_idx_end>392</lux_idx_end>
+                <gain_start>7.9</gain_start>
+                <gain_end>8.1</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 15.13275 21.40093 26.1916 30.24897 33.82307 37.05402 40.02499 42.79018 45.37621 47.83304 50.16971 52.40229 54.54356 56.60389 58.58327 60.5062 62.36987 64.17944 65.93937 67.65353 69.31811 70.95068 72.54654 74.10803 75.63729 77.13625 78.60026 80.04374 81.46165 82.85529 84.22588 85.57453 86.89649 88.20431 89.49302 90.76343 92.0163 93.25234 94.46693 95.67131 96.86073 98.03571 99.19678 100.3444 101.4741 102.5963 103.7063 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046 104.8046</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.65 0.65</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">3</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>395</lux_idx_start>
+                <lux_idx_end>407</lux_idx_end>
+                <gain_start>15.9</gain_start>
+                <gain_end>16.1</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 21.37756 30.23243 37.02702 42.75512 47.80167 52.36411 56.5597 60.46487 64.13268 67.60178 70.90134 74.05403 77.07788 79.9875 82.79493 85.51023 88.14193 90.6973 93.18262 95.60335 97.96428 100.2696 102.5232 104.7282 106.8878 109.0046 111.0811 113.1194 115.1217 117.0897 119.0252 120.9297 122.8047 124.6515 126.4713 128.2654 130.0346 131.7801 133.5028 135.2036 136.8832 138.5424 140.182 141.8027 143.405 144.9897 146.5572 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081 148.1081</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.55 0.55</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">3</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>420</lux_idx_start>
+                <lux_idx_end>432</lux_idx_end>
+                <gain_start>31</gain_start>
+                <gain_end>64</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax type='uint' range="[0,63]" length="1">8</bpc_fmax>
+                <bpc_fmin type='uint' range="[0,63]" length="1">8</bpc_fmin>
+                <bpc_maxshft type='uint' range="[0,15]" length="1">4</bpc_maxshft>
+                <bpc_minshft type='uint' range="[0,15]" length="1">4</bpc_minshft>
+                <bpc_offset type='uint' range="[0,4095]" length="1">64</bpc_offset>
+                <blk_pix_matching_rb type='uint' range="[0,4]" length="1">0</blk_pix_matching_rb>
+                <blk_pix_matching_g type='uint' range="[0,4]" length="1">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab type='float' range="[0.0,511.0]" length="65">
+                  <noise_stdlut_level>0 21.67948 30.64311 37.53665 43.34743 48.45617 53.08484 57.34108 61.29437 65.01538 68.53466 71.87489 75.0733 78.1409 81.08637 83.9345 86.6891 89.35323 91.94563 94.46693 96.91749 99.31264 101.6514 103.9327 106.1697 108.3605 110.5034 112.6099 114.6778 116.7048 118.7013 120.6648 122.5928 124.495 126.3685 128.2108 130.0308 131.8256 133.5927 135.3403 137.0657 138.766 140.4493 142.1126 143.7533 145.3788 146.9864 148.5732 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466 150.1466</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab type='uint' range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" length="6">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab type='uint' range="[0,127]" length="4">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo type='uint' range="[0,1023]" length="1">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi type='uint' range="[0,1023]" length="1">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_lo>0.55 0.55</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab type='float' range="[0.0,1.0]" length="2">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab type='float' range="[0.0,1.0]" length="10">
+                  <radial_gain>0 0 0 0 0 0 0 0 0 0</radial_gain>
+                </radial_gain_tab>
+                <edge_softness type='float' range="[0.0,256.0]" length="1">3</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+          </hdr_aec_data>
+        </mod_abf34_hdr_aec_data>
+      </drc_gain_data>
+    </mod_abf34_drc_gain_data>
+  </chromatix_abf34_core>
+</abf34_ife>

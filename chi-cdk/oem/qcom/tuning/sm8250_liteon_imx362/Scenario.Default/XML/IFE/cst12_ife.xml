@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cst12_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cst_1_2_0.xsd">
+  <enable_section>
+    <cst_enable>1</cst_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="2" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <chromatix_cst12_reserve>
+    <c_x0_tab type='uint' range="[0,1023]" length="3">
+      <c_x0>0 0 0</c_x0>
+    </c_x0_tab>
+    <c_x1_tab type='uint' range="[0,1023]" length="3">
+      <c_x1>1023 1023 1023</c_x1>
+    </c_x1_tab>
+    <m_tab type='float' range="[-3.999,3.999]" length="9">
+      <m>0.5869 0.1142 0.2988 -0.33 0.498 -0.1679 -0.4169 -0.081 0.498</m>
+    </m_tab>
+    <o_tab type='int' range="[0,1023]" length="3">
+      <o>0 512 512</o>
+    </o_tab>
+    <s_tab type='int' range="[-1024,1023]" length="3">
+      <s>0 0 0</s>
+    </s_tab>
+  </chromatix_cst12_reserve>
+</cst12_ife>

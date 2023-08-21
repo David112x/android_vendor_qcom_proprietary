@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+
+<!-- *********************************************************************************************************************** -->
+<!-- Copyright (c) 2016-2020 Qualcomm Technologies, Inc.                                                                     -->
+<!-- All Rights Reserved.                                                                                                    -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.                                                              -->
+<!-- *********************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************** -->
+<!-- CamX Titan17x-Specific Settings Definition File                                                                        -->
+<!--                                                                                                                         -->
+<!-- Each setting definition will contain the following fields:                                                              -->
+<!--    Name:           Human readable name of the setting, used as the title of the comment block in the auto-generated     -->
+<!--                    override settings text file                                                                          -->
+<!--    Help:           The text describing the setting that is copied to the auto-generated override settings text file     -->
+<!--    VariableName:   The name of the setting as used in the auto-generated header, source, and override settings text     -->
+<!--                    files                                                                                                -->
+<!--    VariableType:   The type of the variable as used in the auto-generated header, source, and override settings         -->
+<!--                    text files. Allowable types include:                                                                 -->
+<!--                        BOOL, CHAR (string), INT, UINT, FLOAT, <User-defined enumerated type>                            -->
+<!--    SetpropKey:     (Optional for static settings, required for dynamic settings; default empty string) The key name of  -->
+<!--                    the Android System Property Store (aka setprop)                                                      -->
+<!--                    property that may optionally be used to control this setting                                         -->
+<!--    DefaultValue:   The default value for the setting that is set in the auto-generated source file                      -->
+<!--    MinimumValue:   (Optional; default FALSE/NULL/minimum integer/first enumerator, depending on type) The minimum value -->
+<!--                    for the setting                                                                                      -->
+<!--    MaximumValue:   (Optional; default TRUE/0xFFFFFFFF/maximum integer/last enumerator, depending on type) The maximum   -->
+<!--                    value for the setting                                                                                -->
+<!--    Dynamic:        (Optional; default FALSE) A Boolean flag indicating whether this setting may be dynamically updated  -->
+<!--                    using the Android System Property Store                                                              -->
+<!--    Public:         (Optional; default is FALSE, i.e. private) A Boolean flag indicating whether this setting is public  -->
+<!--                    or not. Public properties will be accessible to OEMs via friendly names.                             -->
+<!--                                                                                                                         -->
+<!-- Each user-defined enumerated type will contain the following fields:                                                    -->
+<!--    Name:           The name of the enumerated type that will appear in the auto-generated header file. Should not be    -->
+<!--                    prefixed with 'Camx' as the type is in the CamX namespace.  This much match the VariableType for the -->
+<!--                    corresponding setting.                                                                               -->
+<!--    Description:    A description of the enumerated type that will appear as a comment for the enum in the               -->
+<!--                    auto-generated header file                                                                           -->
+<!--                                                                                                                         -->
+<!-- Each user-defined enumerator will contain the following fields:                                                         -->
+<!--    Name:           The name of the enumerator                                                                           -->
+<!--    Description:    A description of the enumerator that will appear as a comment for the enumerator in the              -->
+<!--                    auto-generated header file                                                                           -->
+<!--    Number:         (Optional) Force the enumerator to this value                                                        -->
+<!-- *********************************************************************************************************************** -->
+
+<settingsGroup Name="Titan17x-Specific Settings" SettingsManagerClassNamePrefix="Titan17x">
+    <!-- User-defined enumerated type definitions                                                                            -->
+    <enum Name="IQModuleForceMode" Prefix="IQModuleForce" Description="Override default and force enable/disable an IQ module">
+        <enumerator Name="Disable" Number="0" Description="Force an IQ module to be disabled" />
+        <enumerator Name="Enable"  Number="1" Description="Force an IQ module to be enabled, if available" />
+        <enumerator Name="Default" Number="2" Description="Use driver default settings" />
+    </enum>
+
+    <!-- Settings definitions                                                                                                -->
+    <settingsSubGroup Name="Titan17x Settings">
+        <setting>
+            <Name>IPE Software Striping</Name>
+            <Help>Setting indicating if IPE striping is in UMD or in firmware</Help>
+            <VariableName>IPESwStriping</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>TRUE</DefaultValue>
+            <SetpropKey>persist.vendor.camera.IPEUmdStriping</SetpropKey>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPS Software Striping</Name>
+            <Help>Setting indicating if BPS striping is in UMD or in firmware</Help>
+            <VariableName>BPSSwStriping</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>TRUE</DefaultValue>
+            <SetpropKey>persist.vendor.camera.BPSUmdStriping</SetpropKey>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IPE ICA Dependencies MFNR</Name>
+            <Help>Setting IPE ICA Dependencies for MFNR</Help>
+            <VariableName>disableIPEICADependenciesMFNR</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>TRUE</DefaultValue>
+            <SetpropKey>persist.vendor.camera.disableIPEICADependenciesMFNR</SetpropKey>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IPE Max Input width</Name>
+            <Help>Setting of IPE max input width supported</Help>
+            <VariableName>IPEMaxInpWidth</VariableName>
+            <VariableType>UINT</VariableType>
+            <DefaultValue>16383</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IPE Max Output width</Name>
+            <Help>Setting of IPE max output width supported</Help>
+            <VariableName>IPEMaxOutWidth</VariableName>
+            <VariableType>UINT</VariableType>
+            <DefaultValue>16383</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IPE Min Input width</Name>
+            <Help>Setting of IPE min input width supported</Help>
+            <VariableName>IPEMinInpWidth</VariableName>
+            <VariableType>UINT</VariableType>
+            <DefaultValue>640</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IPE Min Output width</Name>
+            <Help>Setting of IPE min output width supported</Help>
+            <VariableName>IPEMinOutputWidth</VariableName>
+            <VariableType>UINT</VariableType>
+            <DefaultValue>160</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IFE Modules enable hardcorded stats config</Name>
+            <Help>Overwrites config with hardcoded values</Help>
+            <VariableName>IFEEnableHardcodedConfig</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.IFEEnableHardcodedConfig</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>IFE IQ Modules to use hardcorded initial values for registers</Name>
+            <Help>Initializes registers with known set of values</Help>
+            <VariableName>IFEUseHardcodedRegisterValues</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.IFEUseHardcodedRegisterValues</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>TRUE</Dynamic>
+        </setting>
+        <setting>
+            <Name>BPS IQ Modules to use hardcorded initial values for registers</Name>
+            <Help>Initializes registers with known set of values</Help>
+            <VariableName>BPSUseHardcodedRegisterValues</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.BPSUseHardcodedRegisterValues</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>TRUE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>Enable OEM IQ Setting</Name>
+            <Help>Use the IQ Interpolation data provided by OEM</Help>
+            <VariableName>IsOEMIQSettingEnable</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>disable UBWC 3.0</Name>
+            <Help>disable UBWC 3.0</Help>
+            <VariableName>disableUBWCv3</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable IFE Output Grouping</Name>
+            <Help>Group IFE output clients</Help>
+            <VariableName>enableIFEOutputGrouping</VariableName>
+            <VariableType>BOOL</VariableType>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>IFE Clock Threshold for Dual IFE Decision</Name>
+            <Help>IFE Clock Threshold for Dual IFE Decision</Help>
+            <VariableName>IFEDualClockThreshold</VariableName>
+            <VariableType>UINT</VariableType>
+            <DefaultValue>0xffffffff</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable IFE Dual Stripe library input and output</Name>
+            <Help>IFE Dual Stripe library input and output</Help>
+            <VariableName>enableIFEDualStripeInfo</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableDualIFEStripeInfo</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>TRUE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>Enable IFE Settings Dump</Name>
+            <Help>IFE Per Fraem settings dump</Help>
+            <VariableName>enableIFESettingsDump</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableIFESettingsDump</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>TRUE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+          <Name>Dump Mask for IFE IQ module Register Config</Name>
+          <Help>
+            IFE enable mask:
+            IFECAMIF              =0x1
+            IFECAMIFLite          =0x2
+            IFECAMIFDualPD        =0x4
+            IFECAMIFLCR           =0x8
+            IFECAMIFRDI0          =0x10
+            IFECAMIFRDI1          =0x20
+            IFECAMIFRDI2          =0x40
+            IFECAMIFRDI3          =0x80
+            IFEPedestalCorrection =0x100
+            IFEBLS                =0x200
+            IFELinearization      =0x400
+            IFEDemux              =0x800
+            IFEHDR                =0x1000
+            IFEPDPC               =0x2000
+            IFEBPCBCC             =0x4000
+            IFEABF                =0x8000
+            IFELSC                =0x10000
+            IFEDemosaic           =0x20000
+            IFECC                 =0x40000
+            IFEGTM                =0x80000
+            IFEGamma              =0x100000
+            IFECST                =0x200000
+            IFEMNDS               =0x400000
+            IFEPreCrop            =0x800000
+            IFEDS4                =0x1000000
+            IFECrop               =0x2000000
+            IFERoundClamp         =0x4000000
+            IFER2PD               =0x8000000
+            IFEWB                 =0x10000000
+            IFEDUALPD             =0x20000000
+            IFEPDAF               =0x40000000
+            IFELCR                =0x80000000
+            ALLIFEIQModules      = 0xFFFFFFFF
+          </Help>
+          <VariableName>dumpIFERegConfigMask</VariableName>
+          <VariableType>UINT</VariableType>
+          <SetpropKey>persist.vendor.camera.dumpIFERegConfigMask</SetpropKey>
+          <DefaultValue>0x0</DefaultValue>
+          <Dynamic>FALSE</Dynamic>
+        </setting>
+        <setting>
+            <Name>Enable OEM ICA Setting</Name>
+            <Help>Use the ICA Setings/Interpolation data provided by OEM</Help>
+            <VariableName>IsICAIQSettingEnable</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableICAIQSetting</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable ICA Common IQ</Name>
+            <Help>Enable common IQ module</Help>
+            <VariableName>enableICACommonIQModule</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableICACommonIQModule</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable ANR Common IQ</Name>
+            <Help>Enable ANR common IQ module</Help>
+            <VariableName>enableANRCommonIQModule</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableANRCommonIQModule</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable TF Common IQ</Name>
+            <Help>Enable TF  common IQ module</Help>
+            <VariableName>enableTFCommonIQModule</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableTFCommonIQModule</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable GRA Common IQ</Name>
+            <Help>Enable GRA common IQ module</Help>
+            <VariableName>enableGRACommonIQModule</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableGRACommonIQModule</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>IPE Duration in  number of frames for timeout</Name>
+            <Help>
+                  IPE Duration in number of frames for timeout for frame processing
+                  first 16 bit corresponds to realtime delay and next 16 bit for non realtime.
+            </Help>
+            <VariableName>IPEDurationInNumFrames</VariableName>
+            <VariableType>UINT</VariableType>
+            <SetpropKey>persist.vendor.camera.IPEDurationInNumFrames</SetpropKey>
+            <DefaultValue>0x4</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>disable LENR DS4Ref</Name>
+            <Help>Disable LENR dsref buffer and use BPS output</Help>
+            <VariableName>disableLENRDS4Buffer</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.disableLENRDS4Buffer</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Ignore Chromatix Reverse Gamma Flag</Name>
+            <Help>Ignore Chromatix Reverse Gamma Enable Flag</Help>
+            <VariableName>ignoreChromatixRGammaFlag</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.ignoreChromatixRGammaFlag</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Use Hardcoded Gamma</Name>
+            <Help>Use Hardcoded IFE/BPS Gamma</Help>
+            <VariableName>useHardcodedGamma</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.useHardcodedGamma</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable ICA1 grid transform</Name>
+            <Help>Enable ICA1 grid transform</Help>
+            <VariableName>enableICAInGrid</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableICAInGrid</SetpropKey>
+            <DefaultValue>TRUE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Enable ICA2 grid transform</Name>
+            <Help>Enable ICA2 grid transform</Help>
+            <VariableName>enableICARefGrid</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.enableICARefGrid</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+            <Name>Dump ICA output</Name>
+            <Help>Dump ICA output</Help>
+            <VariableName>dumpICAOut</VariableName>
+            <VariableType>BOOL</VariableType>
+            <SetpropKey>persist.vendor.camera.dumpICAOut</SetpropKey>
+            <DefaultValue>FALSE</DefaultValue>
+            <Dynamic>TRUE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+        <setting>
+          <Name>Validate And Correct TF Parameters</Name>
+          <Help>Validate And Correct TF Parameters</Help>
+          <VariableName>validateTFParams</VariableName>
+          <VariableType>BOOL</VariableType>
+          <SetpropKey>persist.vendor.camera.validateTFParams</SetpropKey>
+          <DefaultValue>TRUE</DefaultValue>
+          <Dynamic>TRUE</Dynamic>
+          <Public>TRUE</Public>
+        </setting>
+        <setting>
+          <Name>Validate ANR Settings</Name>
+          <Help>Validate ANR Settings</Help>
+          <VariableName>validateANRSettings</VariableName>
+          <VariableType>BOOL</VariableType>
+          <SetpropKey>persist.vendor.camera.validateANRSettings</SetpropKey>
+          <DefaultValue>TRUE</DefaultValue>
+          <Dynamic>TRUE</Dynamic>
+          <Public>TRUE</Public>
+        </setting>
+        <setting>
+          <Name>dump IPE reg Config</Name>
+          <Help>dump IPE reg config</Help>
+          <VariableName>dumpIPERegConfig</VariableName>
+          <VariableType>BOOL</VariableType>
+          <SetpropKey>persist.vendor.camera.dumpIPERegConfig</SetpropKey>
+          <DefaultValue>FALSE</DefaultValue>
+          <Dynamic>FALSE</Dynamic>
+          <Public>TRUE</Public>
+        </setting>
+      <setting>
+        <Name>Dump Mask for IPE IQ module Register Config</Name>
+        <Help>
+          IPE enable mask:
+          IPEICA               = 0x1
+          IPEANR               = 0x8
+          IPETF                = 0x10
+          IPECAC               = 0x20
+          IPECST               = 0x100
+          IPELTM               = 0x200
+          IPEColorCorrection   = 0x400
+          IPEGamma             = 0x800
+          IPE2DLUT             = 0x1000
+          IPEChromaEnhancement = 0x2000
+          IPEChromaSuppression = 0x4000
+          IPESCE               = 0x8000
+          IPEASF               = 0x10000
+          IPEUpscaler          = 0x20000
+          IPEGrainAdder        = 0x40000
+          IPEHNR               = 0x400000
+          IPELENR              = 0x800000
+          ALLIPEIQModules      = 0xFFFFFF
+        </Help>
+        <VariableName>dumpIPERegConfigMask</VariableName>
+        <VariableType>UINT</VariableType>
+        <SetpropKey>persist.vendor.camera.dumpIPERegConfigMask</SetpropKey>
+        <DefaultValue>0x0</DefaultValue>
+        <Dynamic>FALSE</Dynamic>
+      </setting>
+      <setting>
+        <Name>disable TF refinement</Name>
+        <Help>disable TF refinement</Help>
+        <VariableName>disableTFRefinement</VariableName>
+        <VariableType>BOOL</VariableType>
+        <SetpropKey>persist.vendor.camera.disableTFRefinement</SetpropKey>
+        <DefaultValue>FALSE</DefaultValue>
+        <Dynamic>FALSE</Dynamic>
+        <Public>TRUE</Public>
+      </setting>
+      <setting>
+        <Name>Enable HAL Output Buffer Combined</Name>
+        <Help>Enable HAL output buffer combined mode for HFR</Help>
+        <VariableName>HALOutputBufferCombined</VariableName>
+        <VariableType>BOOL</VariableType>
+        <SetpropKey>persist.vendor.camera.HALOutputBufferCombined</SetpropKey>
+        <DefaultValue>TRUE</DefaultValue>
+        <Dynamic>FALSE</Dynamic>
+        <Public>TRUE</Public>
+      </setting>
+    </settingsSubGroup>
+    <settingsSubGroup Name="Debug BPS IQ module enable/disable overrides">
+        <setting>
+            <Name>BPSPedestalCorrection</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSPedestalCorrection</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSLinearization</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSLinearization</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSBPCPDPC</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSBPCPDPC</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSDemux</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSDemux</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSHDR</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSHDR</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSABF</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSABF</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSLSC</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSLSC</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSGIC</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSGIC</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSDemosaic</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSDemosaic</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSCC</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSCC</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSGTM</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSGTM</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSGamma</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSGamma</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSCST</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSCST</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSChromaSubSample</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSChromaSubSample</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSHNR</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSHNR</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+            <Name>BPSWB</Name>
+            <Help>Use to force enable or force disable this IQ module</Help>
+            <VariableName>forceBPSWB</VariableName>
+            <VariableType>IQModuleForceMode</VariableType>
+            <DefaultValue>Default</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>FALSE</Public>
+        </setting>
+        <setting>
+          <Name>Pipeline delay</Name>
+          <Help>Stats parse node pipeline delay</Help>
+          <VariableName>pipelineDelay</VariableName>
+          <VariableType>UINT</VariableType>
+          <DefaultValue>4</DefaultValue>
+          <Dynamic>FALSE</Dynamic>
+          <Public>FALSE</Public>
+        </setting>
+      <setting>
+        <Name>Dump Mask for BPS IQ module Register Config</Name>
+        <Help>
+          BPS enable mask:
+          BPSPedestalCorrection = 0x1
+          BPSLinearization      = 0x2
+          BPSBPCPDPC            = 0x4
+          BPSDemux              = 0x8
+          BPSHDR                = 0x10
+          BPSABF                = 0x20
+          BPSLSC                = 0x40
+          BPSGIC                = 0x80
+          BPSDemosaic           = 0x100
+          BPSCC                 = 0x200
+          BPSGTM                = 0x400
+          BPSGamma              = 0x800
+          BPSCST                = 0x1000
+          BPSHNR                = 0x4000
+          BPSWB                 = 0x8000
+          ALLBPSIQModules       = 0x7FFFFF
+        </Help>
+        <VariableName>dumpBPSRegConfigMask</VariableName>
+        <VariableType>UINT</VariableType>
+        <SetpropKey>persist.vendor.camera.dumpBPSRegConfigMask</SetpropKey>
+        <DefaultValue>0x0</DefaultValue>
+        <Dynamic>FALSE</Dynamic>
+      </setting>
+    </settingsSubGroup>
+</settingsGroup>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="tintless20" xmlns:ns2="tmc12" xmlns:ns3="mf11" xmlns:ns4="eis12" xmlns:ns5="hdrvideo10" xmlns:ns6="video10" xmlns:ns7="ldc10" xmlns:ns8="shdr10">
+  <xs:include schemaLocation="tintless_2_0_0.xsd"/>
+  <xs:include schemaLocation="tmc_1_2_0.xsd"/>
+  <xs:include schemaLocation="mf_1_1_0.xsd"/>
+  <xs:include schemaLocation="eis_1_2_0.xsd"/>
+  <xs:include schemaLocation="hdrvideo_1_0_0.xsd"/>
+  <xs:include schemaLocation="video_1_0_0.xsd"/>
+  <xs:include schemaLocation="ldc_1_0_0.xsd"/>
+  <xs:include schemaLocation="shdr_1_0_0.xsd"/>
+  <xs:complexType name="chromatixSW_controlType">
+    <xs:sequence>
+      <xs:element name="tintless20_sw" type="chromatix_tintless20Type"/>
+      <xs:element name="tmc12_sw" type="chromatix_tmc12Type"/>
+      <xs:element name="mf11_sw" type="chromatix_mf11Type"/>
+      <xs:element name="eis12_sw" type="chromatix_eis12Type"/>
+      <xs:element name="hdrvideo10_sw" type="chromatix_hdrvideo10Type"/>
+      <xs:element name="video10_sw" type="chromatix_video10Type"/>
+      <xs:element name="ldc10_sw" type="chromatix_ldc10Type"/>
+      <xs:element name="shdr10_sw" type="chromatix_shdr10Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="chromatixSW_controlData" type="chromatixSW_controlType"/>
+</xs:schema>

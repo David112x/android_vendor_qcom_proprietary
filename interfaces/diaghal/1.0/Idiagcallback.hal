@@ -1,0 +1,17 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.diaghal@1.0;
+interface Idiagcallback {
+
+	/**
+	 * send  data from diag server to client
+	 * @param mem input buffer
+	 * @param len length of buffer
+	 * @return ret indicates the status of the call
+	 */
+	send_data(memory mem, uint32_t len) generates (int32_t ret);
+};

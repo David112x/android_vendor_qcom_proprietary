@@ -1,0 +1,25 @@
+{
+    "config":{
+        "hw_platform": ["MTP", "QRD", "IOT"],
+        "soc_id": ["416", "437"],
+        "platform_subtype_id": ["8","10"]
+    },
+    "pah_8131_0.offbody_detect.config":{
+        "owner":"pah_8131",
+        "is_dri":{"type":"int","ver":"0",
+            "data":"1"
+        },
+        "hw_id":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "res_idx":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "sync_stream":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "rail_on_state":{"type":"int","ver":"0",
+            "data":"1"
+        }
+    }
+}

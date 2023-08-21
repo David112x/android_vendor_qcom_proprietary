@@ -1,0 +1,126 @@
+{
+    "control-groups": [
+        {
+            "id": "hqv",
+            "display-name": "HQV",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "vpp.mode"
+            ]
+        },
+        {
+            "id": "hqv-off",
+            "display-name": "HQV",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "vpp.mode-off"
+            ]
+        },
+        {
+            "id": "aie-hcp",
+            "display-name": "AIE",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "aie.mode",
+                "aie.cade-level",
+                "aie.ltm-sat-gain",
+                "aie.ltm-sat-offset",
+                "aie.ltm-ace-str",
+                "aie.ltm-ace-brightness-low",
+                "aie.ltm-ace-brightness-high"
+            ]
+        },
+        {
+            "id": "aie-hvx",
+            "display-name": "AIE",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "aie.mode",
+                "aie.hue-mode",
+                "aie.cade-level",
+                "aie.ltm-sat-gain",
+                "aie.ltm-sat-offset",
+                "aie.ltm-ace-str",
+                "aie.ltm-ace-brightness-low",
+                "aie.ltm-ace-brightness-high"
+            ]
+        },
+        {
+            "id": "qbr",
+            "display-name": "QBR",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "qbr.mode"
+            ]
+        },
+        {
+            "id": "ear",
+            "display-name": "EAR",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "ear.mode"
+            ]
+        },
+        {
+            "id": "frc",
+            "display-name": "FRC",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "frc.mode",
+                "frc.level",
+                "frc.interp",
+                "frc.frame_copy_input",
+                "frc.frame_copy_on_fallback",
+                "frc.ts_start"
+            ]
+        },
+        {
+            "id": "split-screen",
+            "display-name": "Split Screen",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "demo.process-percent",
+                "demo.process-side"
+            ]
+        },
+        {
+            "id": "di",
+            "display-name": "DI",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "di.mode"
+            ]
+        },
+        {
+            "id": "cnr",
+            "display-name": "MCNR",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "cnr.mode",
+                "cnr.level"
+            ]
+        },
+        {
+            "id": "cade",
+            "display-name": "CADE",
+            "internal-dependencies": [],
+            "external-dependencies": [],
+            "control-field-ids": [
+                "cade.mode",
+                "cade.level",
+                "cade.contrast",
+                "cade.saturation"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="IPEYUVTOHALSegment">
+    <NodesList>
+        <Node>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_P010_UBWCTP10</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_P010_UBWCTP10</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>IPEInputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortDisplay</PortName>
+                <PortId>8</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_YUV_HAL</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

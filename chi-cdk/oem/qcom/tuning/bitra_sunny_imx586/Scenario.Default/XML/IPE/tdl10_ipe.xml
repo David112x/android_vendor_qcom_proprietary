@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<tdl10_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\tdl_1_0_0.xsd">
+  <enable_section>
+    <twodlut_enable>1</twodlut_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_drc_gain, control_aec_exp_sensitivity_ratio, control_led_idx, control_lux_idx, control_cct">
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_tdl10_reserve>
+    <lut_1d_h_tab type="float" description="knee point 1D LUT for hue which will define the original point you want to move" default_value="0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240 255 270 285 300 315 330 345 360" range="[0,360]" bit_depth="14uQ0" length="25" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="i. LUT are always programmed in ascending order. ii. No two entries for the LUT can be equal; iii. Hue's first LUT is always 0; iv. Hue's last LUT(25 for h/w) is always 360.">
+      <lut_1d_h>0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240 255 270 285 300 315 330 345 360</lut_1d_h>
+    </lut_1d_h_tab>
+    <lut_1d_s_tab type="float" description="knee point 1D LUT for saturation which will define the original point you want to move" default_value="0.0625 0.125 0.1875 0.25 0.3125 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1.0" range="[0.0,1.0]" bit_depth="12uQ0" length="16" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="i. LUT is always programmed in ascending order; ii. No two entries of LUT can be equal; iii. Saturation's first entry will define gray area which will not change at all; iv. Saturation's last LUT is always Max (2048).">
+      <lut_1d_s>0.0625 0.125 0.1875 0.25 0.3125 0.375 0.4375 0.5 0.5625 0.625 0.6875 0.75 0.8125 0.875 0.9375 1</lut_1d_s>
+    </lut_1d_s_tab>
+    <k_b_integer type="float" description="to calculate Y offset to recover Y value, RGB to Y coefficient can be tuned." default_value="0.114" range="[0.0,0.5]" bit_depth="8uQ9" length="1" conversion="no conversion needed" tuning_parameter_level="never_tune" additional_notes="none">0.114</k_b_integer>
+    <k_r_integer type="float" description="to calculate Y offset to recover Y value, RGB to Y coefficient can be tuned." default_value="0.299" range="[0.0,0.5]" bit_depth="8uQ9" length="1" conversion="no conversion needed" tuning_parameter_level="never_tune" additional_notes="none">0.299</k_r_integer>
+    <h_shift type="uint" description="adjust 2d delta hue range. When h_shift=5, delta hue range is +-360 degree. When h_shift=1, delta hue range is +-30 degree." default_value="1" range="[0,5]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="(deltaH SHIFT_LEFT h_shift) LEFT_ARROW 6*2^11=12288.">1</h_shift>
+    <s_shift type="uint" description="adjust 2d delta saturation range. When s_shift=2, delta saturation range is +-1.0. When s_shift=0, delta saturation range is +-0.25." default_value="0" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</s_shift>
+  </chromatix_tdl10_reserve>
+  <chromatix_tdl10_core>
+    <mod_tdl10_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_tdl10_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_tdl10_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_tdl10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>190</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>1000</start>
+                        <end>4200</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab type="float" range="[-360,360]">
+                          <lut_2d_h>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab type="float" range="[-1.0,1.0]">
+                          <lut_2d_s>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>4600</start>
+                        <end>4900</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 3 6 6 5 3 2 -1 -1 0 0 0 0 0 0 0 0 1 -1 0 -1 1 0 -1 -2 -3 -3 -3 -3 -3 -2 0 0 -3 -1 0 -1 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 13 12 13 13 11 8 3 1 0 0 0 0 0 0 0 10 13 13 12 12 10 7 5 3 2 0 0 0 0 0 0 4 6 7 7 6 5 5 4 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 7 8 7 7 5 3 1 2 2 1 0 0 0 0 0 9 7 9 12 13 13 11 9 7 4 3 3 0 0 0 0 7 8 9 9 9 9 8 6 5 4 2 0 0 0 0 0 0 1 1 -1 0 -1 0 0 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.002589181 0.0185588 0.00480097532 -0.0128725171 0.00559896231 0.003196776 0.003838718 0.00784421 0 0 0 0 0 0 0 0 0.00122302771 0.0219100118 0.00202181935 -0.0158353448 -0.0129360259 0.000697374344 0.0104401708 0.00174635649 -7.605553E-05 -0.007676542 -0.004554212 0.001009345 -0.003658235 -0.005724013 0 0 0.01710239 0.007009268 -0.004471302 -0.002565086 0.00423949957 0.00189679861 -0.00613158941 0.0156619549 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.009670138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00958991051 0 0 0 0 0 0 0 0 0 0.0395906866 0.02709964 0.0309041739 0.0370654762 0.0284256935 0.0210371614 0.0120121837 0.0113202929 0.00353062153 0 0 0 0 0 0 0 0.04033485 0.0454311669 0.0429721177 0.0466884971 0.04648322 0.03522986 0.0309858322 0.018135488 0.0113822818 0.0123757124 0 0 0 0 0 0 0.03241846 0.02000466 0.0220546424 0.00333505869 0.0115820765 0.02023077 0.03521216 0.0223442316 0.006716728 0.009866059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0524559021 0.04288563 0.05200386 0.04815054 0.037461102 0.03153348 0.0141726732 0.03375566 0.032871604 0.0256232023 0.014103353 0 0 0 0 0 0.08265948 0.0831749141 0.08143595 0.0843794942 0.09217775 0.08874315 0.08505136 0.06422377 0.0448346138 0.0332661867 0.016305387 0.0101720691 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.100000024 0.08676851 0.06554717 0.0374653339 0.01002562 0.00457495451 0 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09625119 0.06786406 0.06735313 0.04134649 0.0215932131 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" description="hue and saturation change can cause Y value change. To prevent Y value change, calculate Y offset between input Y and output Y and recover output Y value as same as input Y according to this factor. Lower value means less Y recovery and higher value means more Y recovery." default_value="0" range="[0.0,1.0]" bit_depth="5uQ4" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means hue and saturation will be changed as intended even though Y value changes. On the other hands, setting this value to 1.0f means hue and saturation will not be changed as intended because of Y recovery.">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>5300</start>
+                        <end>6100</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 2 1 0 2 1 1 1 0 0 0 0 0 0 0 0 0 1 2 2 3 3 0 -1 -1 -1 -1 -1 0 -1 -1 0 0 -3 -1 1 3 2 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 13 12 13 13 11 8 3 1 0 0 0 0 0 0 0 10 13 13 12 12 10 7 5 3 2 0 0 0 0 0 0 4 6 7 7 6 5 5 4 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 11 9 9 7 7 9 10 8 6 4 1 0 0 0 0 0 10 11 10 8 8 8 10 11 11 9 4 1 0 0 0 0 7 6 5 3 3 4 6 7 6 4 2 0 0 0 0 0 1 1 -3 -4 -3 -2 -1 2 3 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 0.009994477 0.01505664 0.009696335 -0.008996993 0.00296649337 0.00158113241 0.00222802162 0.00644272566 -0.0007971525 -0.00119572878 -0.000873029232 -0.0005503297 -0.000242948532 -0.00154536963 0 0 -0.006034702 -0.00511543453 0.00166288018 -0.0163429677 -0.013294965 0.000697374344 -0.00140482187 0.009846568 -0.00757044554 -0.0126948953 -0.00716716051 -0.007332027 -0.00101256371 -0.004663825 0 0 0.00403384864 0.00223785639 -0.00221705437 -0.007510662 -0.00162369013 -0.008868456 -0.00613158941 0.00322312117 -0.0007971525 -0.00119572878 -0.0003579259 0.0004799366 -0.00117778778 -0.00051510334 0 0 0 0 0 0 0 0 0 0.00947082 -0.00039857626 -0.0005978942 -5.018711E-05 0.000497460365 0.001045227 0 0 0 0 0 0 0 0 0 0 0.00958991051 0 0 0 0 0 0 0 0 0 0.0395906866 0.02709964 0.0309041739 0.0370654762 0.0284256935 0.0210371614 0.0120121837 0.0113202929 0.00353062153 0 0 0 0 0 0 0 0.04033485 0.0454311669 0.0429721177 0.0466884971 0.04648322 0.03522986 0.0309858322 0.018135488 0.0113822818 0.0123757124 0 0 0 0 0 0 0.03241846 0.02000466 0.0220546424 0.00333505869 0.0115820765 0.02023077 0.03521216 0.0223442316 0.006716728 0.009866059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03762847 0.0452170968 0.03435102 0.0155456066 0.007016659 0.00711667538 0.0124717355 0.038421154 0.0316393375 0.03075689 0.014103353 0 0 0 0 0 0.0170992613 0.0526352823 0.0530766547 0.0522895157 0.03625393 0.04902512 0.054399848 0.0538578629 0.0500115752 0.03183502 0.008035839 0.00408816338 0 0 0 0 0.01883784 0.06252384 0.0591598153 0.06673366 0.0568895936 0.06528783 0.0608133674 0.0689587 0.05176848 0.02797383 0.00226849318 0 0 0 0 0 0.01885283 0.06294608 0.0529631972 0.0550580919 0.0681256652 0.07151985 0.0541397929 0.06519359 0.0475839972 0.026003778 0.000290632248 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.00025755167 -0.00051510334 -0.000772655 -0.00051510334 0 0 0 0 0 0 0 0 0 -0.000199317932 -0.00039857626 -0.0005978942 -0.000565290451 -0.0005327463 -0.0005001426 -0.00103020668</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" description="hue and saturation change can cause Y value change. To prevent Y value change, calculate Y offset between input Y and output Y and recover output Y value as same as input Y according to this factor. Lower value means less Y recovery and higher value means more Y recovery." default_value="0" range="[0.0,1.0]" bit_depth="5uQ4" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means hue and saturation will be changed as intended even though Y value changes. On the other hands, setting this value to 1.0f means hue and saturation will not be changed as intended because of Y recovery.">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>6500</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 2 5 4 4 4 2 -1 -1 0 0 0 0 0 0 0 0 0 0 2 2 1 1 -1 -1 -1 0 -1 -1 -1 -1 0 0 -4 0 2 1 0 1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 10 13 12 13 13 11 8 3 1 0 0 0 0 0 0 0 10 13 13 12 12 10 7 5 3 2 0 0 0 0 0 0 4 6 7 7 6 5 5 4 2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 15 19 20 20 20 18 16 12 9 4 1 0 0 0 0 0 14 15 17 18 18 18 15 11 9 7 6 5 0 0 0 0 7 8 9 9 9 9 8 6 5 4 2 0 0 0 0 0 0 1 1 -1 0 -1 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.0109412521 -0.006006509 -0.005544603 -0.004801035 -0.0145584047 0.003196776 0.003838718 0.00784421 0 0 0 0 0 0 0 0 -0.008651331 -0.0056129694 -0.0170380175 -0.008652687 -0.0146732032 -0.0109593868 -0.00501018763 0.0005748868 -0.0006121397 -0.0102031827 -0.00345504284 -0.017141819 -0.0209264755 -0.014500618 0 0 -0.00297778845 0.00319612026 -0.0118866861 -0.008593142 -0.008351445 -0.0182486773 -0.00613158941 0.0156619549 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.009670138 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.00958991051 0 0 0 0 0 0 0 0 0 0.0395906866 0.02709964 0.0309041739 0.0370654762 0.0284256935 0.0210371614 0.0120121837 0.0113202929 0.00353062153 0 0 0 0 0 0 0 0.04033485 0.0454311669 0.0429721177 0.0466884971 0.04648322 0.03522986 0.0309858322 0.018135488 0.0113822818 0.0123757124 0 0 0 0 0 0 0.03241846 0.02000466 0.0220546424 0.00333505869 0.0115820765 0.02023077 0.03521216 0.0223442316 0.006716728 0.009866059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.0653122962 0.0731477737 0.06054485 0.0659697056 0.0411087275 0.0305755734 0.023519814 0.046441257 0.0514563322 0.0415506959 0.014103353 0 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.100000024 0.100000024 0.07613033 0.0560660362 0.0371030569 0.0127606988 0.0202988982 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.100000024 0.08676851 0.06554717 0.0374653339 0.01002562 0.00457495451 0 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09625119 0.06786406 0.06735313 0.04134649 0.0238639712 0.0199950337 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" description="hue and saturation change can cause Y value change. To prevent Y value change, calculate Y offset between input Y and output Y and recover output Y value as same as input Y according to this factor. Lower value means less Y recovery and higher value means more Y recovery." default_value="0" range="[0.0,1.0]" bit_depth="5uQ4" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means hue and saturation will be changed as intended even though Y value changes. On the other hands, setting this value to 1.0f means hue and saturation will not be changed as intended because of Y recovery.">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                  </aec_data>
+                </mod_tdl10_aec_data>
+                <mod_tdl10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>240</lux_idx_start>
+                    <lux_idx_end>280</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>1000</start>
+                        <end>4100</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 -1 -3 -4 -2 0 0 0 0 0 0 0 0 0 0 0 0 -2 -3 -7 -4 0 0 0 0 0 0 0 0 0 0 0 0 -1 -2 -4 -2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.034966886 -0.049479574 -0.0528637767 -0.04282552 0 0 0 0 0 0 0 0 0 0 0 0 -0.04945065 -0.06993377 -0.08360964 -0.06361538 0 0 0 0 0 0 0 0 0 0 0 0 -0.034966886 -0.04945065 -0.06673506 -0.04282552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>4600</start>
+                        <end>5500</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 0 0 -5 -5 -3 -1 -1 -1 0 1 1 0 0 0 0 0 0 0 -4 -4 -3 -3 -2 -2 -2 -3 -3 -3 -3 -2 0 0 0 0 0 -1 -2 -3 -4 -4 -4 -4 -4 -4 -4 -4 0 0 0 0 0 0 -2 -1 -3 -3 -4 -5 -5 -5 -4 -3 0 0 0 0 0 0 -1 -1 0 0 0 0 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 -1 -2 -1 -1 -1 -1 0 1 1 1 1 1 0 0 0 0 -2 -3 -2 -2 -2 -1 -1 -1 0 0 0 0 0 0 0 0 -1 -2 -1 -1 -1 -1 -1 0 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -3 -3 -2 0 0 0 0 0 0 0 0 0 0 0 0 0 -5 -6 -4 -1 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 0 -0.03477584 -0.0583004057 -0.06559664 -0.0386499763 -0.00362616777 0.0007337928 -0.004035473 -0.00600522757 -0.01571697 -0.007959485 0.00309973955 0.000230014324 0 0 0 0 -0.03488855 -0.06954573 -0.07569468 -0.0446523428 -0.0170961916 0.0101208687 0.000828504562 0.00255560875 -0.000124931335 -0.006367862 -0.00540041924 -0.0184341073 -0.0262109041 0 0 0 -0.03477584 -0.0591674745 -0.057422787 -0.0271897912 0.00459563732 -0.009269774 -0.0124839544 -0.00377970934 -0.0135802627 -0.0148525834 -0.0203889012 -0.0203684568 -0.0327069163 0 0 0 0 -0.006828487 -0.0117191672 -0.00158369541 0.0189486742 0.0139282942 0.00439596176 -0.000104188919 -0.0138469338 -0.0124607086 -0.00165510178 -0.00777202845 -0.0218974352 0 0 0 0 -0.00225609541 0.008487284 0.0151482224 0.02440679 0.0299943089 0.0195414424 0.01448065 0.0114024878 0.0135653019 0.008180618 0.00230896473 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.003180027 -0.00613278151 -0.002725482 0.00194692612 0.00343930721 0.004410565 0.00538182259 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09364003 0.0889925957 0.0927119255 0.00389379263 0.01641196 0.0218456984 0.026240766 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09682 0.09364003 0.09682 0.0074249506 0.02379024 0.0407759547 0.0414800644 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.100000024 0.100000024 0.09208304 0.010956049 0.0325396061 0.0287722349 0.0245491862 0 0 0 0 0 0 0 0 0 0 0 0 0.00547802448 0.010956049 0.007873833 0.00479161739 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0175108165 -0.0091817975 -0.020069629 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0201625824 -0.0201516449 -0.0204021335 -0.0129394531 0.003884554 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>6500</start>
+                        <end>7800</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 1 -6 -7 -4 -2 0 0 0 0 0 -1 -1 -1 0 0 0 0 -7 -8 -7 -4 -1 -1 -2 -4 -4 -4 -4 -3 -3 -2 0 0 -1 -3 -3 -3 -2 -3 -2 -2 -2 -2 -2 -2 -2 -1 0 0 0 0 0 -1 -1 -2 -3 -4 -5 -6 -6 -5 -4 -3 0 0 0 0 0 0 -1 0 0 0 0 0 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 -1 -2 -1 -1 -1 -1 0 1 1 1 1 1 0 0 0 0 -2 -3 -2 -2 -2 -1 -1 -1 0 0 0 0 0 0 0 0 -1 -2 -1 -1 -1 -1 -1 0 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 -5 -6 -4 -1 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 -0.008760348 -0.0279571563 -0.0417565852 -0.01736325 -0.01547116 0.0104217529 0.004090011 0.003001392 -0.00421285629 -0.00600522757 -0.0108360052 -0.00640434027 0.00472104549 0.000230014324 0 0 0 -0.0245462656 -0.03342466 -0.0236602426 -0.0122593939 0.008831918 0.007401526 0.00163435936 -0.0104650855 -0.008507967 -0.00117152929 -0.00163549185 0.000311374664 -0.003658235 -0.0262109041 0 0 0.00120462477 -0.00464987755 -0.0115657747 -0.000762999058 0.0158170164 0.0122421384 0.01852405 0.0165348649 0.0103948712 -0.0042206645 -0.0130894184 -0.0015027523 -0.0006349087 -0.0265638828 0 0 0 0 -0.006828487 0.018134743 0.0301517844 0.0317720771 0.0333252549 0.0210571289 0.0105569363 -0.0123358965 -0.016143024 -0.00165510178 -0.00777202845 -0.0218974352 0 0 0 0 -0.00225609541 0.008487284 0.03746015 0.0464912653 0.0299943089 0.0195414424 0.01448065 0.0114024878 0.0135653019 0.008180618 0.00230896473 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.003180027 -0.00613278151 -0.002725482 0.00194692612 0.00343930721 0.004410565 0.00538182259 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09364003 0.0889925957 0.0927119255 0.00389379263 0.01641196 0.0218456984 0.026240766 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.09682 0.09364003 0.09682 0.0074249506 0.02379024 0.0407759547 0.0414800644 0 0 0 0 0.099999994 0.099999994 0.099999994 0.100000024 0.100000024 0.100000024 0.100000024 0.09208304 0.010956049 0.0325396061 0.0287722349 0.0245491862 0 0 0 0 0 0 0 0 0 0 0 0 0.00547802448 0.010956049 0.007873833 0.00479161739 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0177112967 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0212293416 -0.04642491 -0.0245983 0 0 0 0 0 0 0 0 0 0 0 0 -0.00805831 -0.02794464 -0.0501062274 -0.0225151777 -0.0123997629 0.00776913762 0.003884554 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                  </aec_data>
+                </mod_tdl10_aec_data>
+                <mod_tdl10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>320</lux_idx_start>
+                    <lux_idx_end>490</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>3500</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 0 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 -3 -5 -3 0 0 0 0 0 0 0 0 0 0 0 0 1 -4 -4 -3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.0139886886 -0.0113530159 -0.008763194 -0.0150202811 0 0 0 0 0 0 0 0 0 0 0 0 -0.0206938833 -0.0363870263 -0.0187583566 -0.0133754313 0 0 0 0 0 0 0 0 0 0 0 0 -0.0119996369 -0.0247892737 -0.0118320882 -0.00554826856 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>3900</start>
+                        <end>4300</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 -2 -4 -5 -5 0 0 0 0 0 0 0 0 0 0 0 0 -2 -4 -7 -5 0 0 0 0 0 -2 -3 -3 -3 -3 0 0 -2 -2 -3 -2 0 0 0 0 -1 -3 -3 -3 -4 -4 0 0 0 0 0 0 0 0 0 0 -1 -3 -3 -4 -5 -5 0 0 0 0 0 0 0 0 0 0 0 -1 0 0 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.0310581177 -0.0432622135 -0.052383244 -0.04128641 0 0 0 0 -0.00296843052 -0.00320094824 0.004289508 0.009566367 0.02026248 0 0 0 -0.0439228266 -0.06408884 -0.07447904 -0.0583698452 0 0 0 0 -0.00380778313 -0.000237703323 -0.009515107 -0.01623106 -0.022149086 -0.007162988 0 0 -0.0310581177 -0.0439228266 -0.053794235 -0.0380382836 0 0 0 0 -0.00210475922 0.005078137 -0.00105530024 -0.005769849 -0.0105187893 -0.016512692 0 0 0 0 0 0 0 0 0 0 -0.004659593 8.225441E-06 -0.00621944666 -0.0199199319 -0.0352298021 -0.0285817385 0 0 0 0 0 0 0 0 0 0 -0.00339430571 -0.00360322 0.00583350658 0.008194506 0.0122075081 -0.000705182552 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" range="[0.0,1.0]">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" range="[0.0,1.0]">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" range="[0.0,1.0]">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" range="[0.0,1.0]">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" range="[0.0,1.0]">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                    <mod_tdl10_cct_data>
+                      <cct_trigger>
+                        <start>4600</start>
+                        <end>6000</end>
+                      </cct_trigger>
+                      <tdl10_rgn_data>
+                        <lut_2d_h_tab>
+                          <lut_2d_h>0 0 -7 -9 -8 -7 -4 0 0 0 0 0 0 0 0 -1 0 0 -7 -9 -7 -5 -4 0 0 0 0 0 0 0 -2 -2 0 0 -6 -5 0 0 0 0 0 0 0 0 -1 -3 -3 -3 0 0 0 0 0 0 0 0 0 0 0 0 -1 -2 -4 -3 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -2 0 0 0 0 0 0 0 0 0 0 0 0 0 -5 -6 -7 -4 -3 0 0 0 0 0 0 0 0 0</lut_2d_h>
+                        </lut_2d_h_tab>
+                        <lut_2d_s_tab>
+                          <lut_2d_s>0 0 -0.0220176578 -0.0437747836 -0.035151422 -0.0107347667 -0.00759062171 0 0 0 0 0 0 0.00288516283 0.00577724 0 0 0 -0.0189457387 -0.0365443379 -0.04084593 -0.005681604 -0.008995175 0 0 0 0 0.00115275383 0.004557252 0.0113986731 0.006225109 0 0 0 -0.0122659355 -0.0248090625 0 0 0 0 0 0 0 0.00287950039 -0.0154019 -0.0180374384 -0.0203475952 -0.01798129 0 0 0 0 0 0 0 0 0 0 0 0.00230062 -0.0242669582 -0.0375762 -0.03784269 -0.0215713978 0 0 0 0 0 0 0 0 0 0 0 0.0005739331 -0.02283585 -0.0305635929 -0.03360492 -0.02082491 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.02367875 -0.0406141132 -0.0313410163 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.0243197829 -0.040161714 -0.0417919159 -0.00759062171 -0.00536736846 0 0 0 0 0 0 0 0 0</lut_2d_s>
+                        </lut_2d_s_tab>
+                        <l_boundary_start_a type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_a>
+                        <l_boundary_start_b type="float" description="to eliminate hue and saturation change on low Luminance, set Luminance start boundary which only will not change hue and saturation by 2D LUT. Lower value make more hue and saturation change." default_value="0" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 1.0f means no hue and saturation change at all.">0</l_boundary_start_b>
+                        <l_boundary_end_a type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_a>
+                        <l_boundary_end_b type="float" description="to eliminate hue and saturation change on high Luminance, set Luminance end boundary which only will not change hue and saturation by 2D LUT. Higher value make more hue and saturation change." default_value="1" range="[0.0,1.0]" bit_depth="11uQ0" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means no hue and saturation change at all.">1</l_boundary_end_b>
+                        <y_blend_factor_integer type="float" description="hue and saturation change can cause Y value change. To prevent Y value change, calculate Y offset between input Y and output Y and recover output Y value as same as input Y according to this factor. Lower value means less Y recovery and higher value means more Y recovery." default_value="0" range="[0.0,1.0]" bit_depth="5uQ4" length="1" conversion="no conversion needed" additional_notes="Setting this value to 0.0f means hue and saturation will be changed as intended even though Y value changes. On the other hands, setting this value to 1.0f means hue and saturation will not be changed as intended because of Y recovery.">0</y_blend_factor_integer>
+                      </tdl10_rgn_data>
+                    </mod_tdl10_cct_data>
+                  </aec_data>
+                </mod_tdl10_aec_data>
+              </led_idx_data>
+            </mod_tdl10_led_idx_data>
+          </hdr_aec_data>
+        </mod_tdl10_hdr_aec_data>
+      </drc_gain_data>
+    </mod_tdl10_drc_gain_data>
+  </chromatix_tdl10_core>
+</tdl10_ipe>

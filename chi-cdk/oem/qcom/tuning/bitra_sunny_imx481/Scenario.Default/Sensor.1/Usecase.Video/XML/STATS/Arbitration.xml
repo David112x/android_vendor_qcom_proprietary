@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Arbitration
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecArbitration.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="1"/>
+  <parameter_version>
+    <revision>B</revision>
+  </parameter_version>
+  <expTables>
+    <sensitivityCorrectionFactor type="float" range="[0,16]">1</sensitivityCorrectionFactor>
+    <expKneeEntries>
+      <gain type="float" range="[1,512]">1</gain>
+      <expTime type="ulong" range="[1,60000000000]">10040</expTime>
+      <incrementPriority range="[0,2]">AECExpIncExpTime</incrementPriority>
+      <expIndex type="float" range="[-100,1000]">0</expIndex>
+    </expKneeEntries>
+    <expKneeEntries>
+      <gain type="float" range="[1,512]">4</gain>
+      <expTime type="ulong" range="[1,60000000000]">11111111</expTime>
+      <incrementPriority range="[0,2]">AECExpIncExpTime</incrementPriority>
+      <expIndex type="float" range="[-100,1000]">284.024323</expIndex>
+    </expKneeEntries>
+    <expKneeEntries>
+      <gain type="float" range="[1,512]">96</gain>
+      <expTime type="ulong" range="[1,60000000000]">16666667</expTime>
+      <incrementPriority range="[0,2]">AECExpIncExpTime</incrementPriority>
+      <expIndex type="float" range="[-100,1000]">405.2579</expIndex>
+    </expKneeEntries>
+    <thresAntiBandingMinExpTimePct type="float" range="[0.5,1.5]">0.97</thresAntiBandingMinExpTimePct>
+  </expTables>
+  <minPreviewVertBlankTime type="ulong" range="[1,60000000000]">389000</minPreviewVertBlankTime>
+  <enableEVExpTableAdj type="bool">true</enableEVExpTableAdj>
+  <enableEVGainCapping type="bool">false</enableEVGainCapping>
+  <maxEVCappingGain type="float" range="[1,512]">256</maxEVCappingGain>
+  <ISOData>
+    <previewISO100Gain type="float" range="[0,512]">1</previewISO100Gain>
+    <enableAntiBandingVsISOPrio type="bool">false</enableAntiBandingVsISOPrio>
+    <enableISOQuantization type="bool">true</enableISOQuantization>
+    <thresQuantizationISOValue type="float" range="[0,10000]">11.22</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">14.14</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">17.82</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">22.45</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">28.28</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">35.64</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">44.9</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">56.57</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">71.27</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">89.09</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">112.2</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">141.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">178.2</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">224.5</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">282.8</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">356.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">449.4</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">565.7</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">712.7</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">890.9</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">1122</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">1414</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">1782</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">2245</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">2828</thresQuantizationISOValue>
+    <thresQuantizationISOValue type="float" range="[0,10000]">3564</thresQuantizationISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">10</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">12</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">16</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">20</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">25</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">32</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">40</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">50</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">64</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">80</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">100</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">125</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">160</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">200</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">250</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">320</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">400</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">500</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">640</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">800</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">1000</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">1250</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">1600</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">2000</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">2500</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">3200</quantizedISOValue>
+    <quantizedISOValue type="float" range="[0,10000]">6400</quantizedISOValue>
+  </ISOData>
+  <antibandingVsFPSMethod range="[0,2]">LegacyAllowFPSToDrop</antibandingVsFPSMethod>
+  <enablePreviewManualISO type="bool">true</enablePreviewManualISO>
+  <enablePreviewManualExpTime type="bool">true</enablePreviewManualExpTime>
+  <enablePreviewManualFull type="bool">true</enablePreviewManualFull>
+  <disableBandingGainCapping>false</disableBandingGainCapping>
+</Arbitration>

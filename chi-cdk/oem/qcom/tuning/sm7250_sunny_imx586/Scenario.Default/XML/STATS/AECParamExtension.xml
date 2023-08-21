@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam>
+    <ID>2</ID>
+    <Name>ADRCSat</Name>
+    <enableFlag>true</enableFlag>
+    <data>0</data>
+  </extensionParam>
+  <extensionParam>
+    <ID>7</ID>
+    <Name>CamSync</Name>
+    <enableFlag>true</enableFlag>
+    <data>1</data>
+    <data>1</data>
+  </extensionParam>
+  <extensionParam>
+    <ID>5</ID>
+    <Name>InsensorHDRExt</Name>
+    <enableFlag>true</enableFlag>
+    <data>1</data>
+    <data>2</data>
+    <data>3</data>
+    <data>1000</data>
+    <data>2000</data>
+    <data>0.2</data>
+    <data>0.5</data>
+    <data>2.0</data>
+    <data>10</data>
+    <data>1000</data>
+    <data>0.01</data>
+    <data>0.05</data>
+    <data>2.0</data>
+    <data>10</data>
+    <data>1000</data>
+    <data>0.01</data>
+    <data>0.05</data>
+    <data>8</data>
+    <data>4E+07</data>
+    <data>6E+08</data>
+    <data>20</data>
+    <data>1000</data>
+    <data>1</data>
+    <data>0</data>
+    <data>40</data>
+    <data>0</data>
+    <data>2.2</data>
+    <data>1.5</data>
+    <data>1.0</data>
+    <data>0</data>
+  </extensionParam>
+</AECParamExtension>

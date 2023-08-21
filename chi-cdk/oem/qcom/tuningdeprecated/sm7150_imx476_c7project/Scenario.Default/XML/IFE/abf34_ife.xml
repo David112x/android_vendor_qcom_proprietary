@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<abf34_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\abf_3_4_0.xsd">
+  <enable_section>
+    <abf_enable>1</abf_enable>
+    <sbpc_enable>1</sbpc_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="4" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <abf_enable>
+      <enable description="enable ABF3.4 module" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">0</enable>
+      <hyst_control_var description="enable ABF3.4 module" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>0.9</start1>
+        <end1>0.91</end1>
+        <start2>0.9</start2>
+        <end2>0.91</end2>
+      </hyst_trigger>
+    </abf_enable>
+  </dynamic_enable_triggers>
+  <chromatix_abf34_reserve>
+    <cross_plane_en description="enable Gr/Gb cross processing in bilateral filtering" range="[0,1]" bit_depth="1uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="none">1</cross_plane_en>
+    <radial_anchor_tab description="anchor tables from center to frame boundary" range="[0.0,1.0]" bit_depth="0uQ0" length="5" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+      <radial_anchor>0 0.4 0.6 0.8 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_abf34_reserve>
+  <chromatix_abf34_core>
+    <mod_abf34_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_abf34_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>1.2</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 3.46410155 4.79583168 5.91608 6.78233 7.615773 8.3666 9 9.643651 10.2469511 10.7703295 11.3137083 11.7898264 12.2882061 12.7671452 13.1909056 13.6381817 14.0712471 14.4568319 14.8660688 15.2315464 15.6205 16 16.3401356 16.7032928 17.0587215 17.3781471 17.7200451 18.0277557 18.35756 18.6815414 18.9736652 19.287302 19.5959187 19.8746071 20.17424 20.4450474 20.73644 21.0237961 21.2837963 21.563858 21.84033 22.0907211 22.36068 22.6053085 22.869194 23.1300678 23.366642 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245 23.6220245</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">1.8</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>2</gain_start>
+                <gain_end>3</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 3.741657 5.196152 6.403124 7.348469 8.246211 9.055386 9.746795 10.44031 11.04536 11.6619 12.20656 12.76715 13.30413 13.78405 14.28286 14.73092 15.19868 15.65248 16.06238 16.49242 16.88194 17.29162 17.69181 18.05547 18.43909 18.78829 19.15724 19.49359 19.84943 20.19901 20.51828 20.85665 21.16601 21.49418 21.81742 22.11334 22.42766 22.71563 23.02173 23.32381 23.60085 23.89561 24.16609 24.45404 24.73863 25 25.27845 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429 25.53429</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>4</gain_start>
+                <gain_end>6</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 4.795832 6.78233 8.306623 9.591663 10.72381 11.74734 12.68858 13.56466 14.3875 15.16575 15.90597 16.61325 17.29162 17.94436 18.57417 19.18333 19.77372 20.34699 20.90454 21.44761 21.97726 22.49444 23 23.49468 23.97916 24.45404 24.91987 25.37716 25.82634 26.26785 26.70206 27.12932 27.54996 27.96426 28.37252 28.77499 29.1719 29.56349 29.94996 30.3315 30.70831 31.08054 31.44837 31.81195 32.17142 32.52691 32.87856 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649 33.22649</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2.5</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>8</gain_start>
+                <gain_end>16</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 4.690416 6.63325 8.062258 9.327379 10.44031 11.44552 12.32883 13.19091 14 14.76482 15.49193 16.15549 16.8226 17.46425 18.08314 18.68154 19.23538 19.79899 20.34699 20.88061 21.37756 21.88607 22.38303 22.86919 23.34524 23.79075 24.24871 24.69818 25.13961 25.57342 25.98076 26.40076 26.81417 27.22132 27.60435 28 28.39014 28.77499 29.15476 29.51271 29.88311 30.24897 30.61046 30.95157 31.30495 31.65438 32 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192 32.34192</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">2.5</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>22</gain_start>
+                <gain_end>36</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 5.656854 8.062258 9.848858 11.40175 12.72792 13.96424 15.06652 16.09348 17.08801 18 18.89444 19.72308 20.54264 21.30728 22.04541 22.78157 23.47339 24.16609 24.81935 25.47548 26.09598 26.70206 27.313 27.89265 28.47806 29.03446 29.5804 30.13304 30.65942 31.19295 31.70173 32.21801 32.71085 33.19638 33.68976 34.16138 34.64102 35.09986 35.56684 36.01389 36.45545 36.90528 37.33631 37.77565 38.19686 38.62642 39.03844 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617 39.44617</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+            <mod_abf34_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>46</gain_start>
+                <gain_end>48</gain_end>
+              </aec_trigger>
+              <abf34_rgn_data>
+                <bpc_fmax description="upper offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmax>
+                <bpc_fmin description="lower offset factor used in single bpc applied to center pixel" range="[0,63]" bit_depth="6uQ6" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">16</bpc_fmin>
+                <bpc_maxshft description="upper offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_maxshft>
+                <bpc_minshft description="lower offset (as right-shifting) used in single bpc applied to neighbor pixels" range="[0,15]" bit_depth="4uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</bpc_minshft>
+                <bpc_offset description="common absolute offset value used in single bpc applied to both center pixel and neighboring pixel" range="[0,4095]" bit_depth="12uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">64</bpc_offset>
+                <blk_pix_matching_rb description="R and B channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_rb>
+                <blk_pix_matching_g description="Gr and Gb channel block matching or pixel matching selection. Value 0 means block matching in determining filter coefficient. Value 4 means pixel matching" range="[0,4]" bit_depth="3uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="may use 4 for ultra low light cases">0</blk_pix_matching_g>
+                <noise_stdlut_level_tab description="noise profile in standard deviation" range="[0.0,511.0]" bit_depth="0uQ0" length="65" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="none">
+                  <noise_stdlut_level>0 6.48074055 9.165152 11.2694273 13 14.5258389 15.9059734 17.1755638 18.3847771 19.49359 20.5426388 21.540659 22.4944439 23.43075 24.3104916 25.15949 25.9807625 26.7768555 27.5499554 28.3196049 29.0516777 29.7657528 30.4630928 31.1448231 31.8276615 32.4807625 33.12099 33.749073 34.36568 34.98571 35.5808945 36.1662827 36.7423477 37.3095169 37.8813934 38.43176 38.97435 39.50949 40.0374832 40.5709267 41.0852776 41.59327 42.09513 42.59108 43.0813179 43.57752 44.05678 44.5308876 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45</noise_stdlut_level>
+                </noise_stdlut_level_tab>
+                <distance_ker_tab description="bit shifting value corresponding to distance weight; [0][] - R/B, [1][] - Gr/Gb" range="[[1,4],[1,2],[1,2],[1,4],[1,2],[1,2]]" bit_depth="3uQ0, 2uQ0, 2uQ0, 3uQ0, 2uQ0, 2uQ0" length="6" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="non-zero value n means left shift (n-1); zero value means weight of 0.  Range 0: 1-4, 1: 1-2, 2: 1-2">
+                  <distance_ker>3 2 1 3 2 1</distance_ker>
+                </distance_ker_tab>
+                <curve_offset_tab description="offset that is subtracted from normalized difference before generating bilateral coefficients" range="[0,127]" bit_depth="7uQ0" length="4" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <curve_offset>0 0 0 0</curve_offset>
+                </curve_offset_tab>
+                <noise_prsv_anchor_lo description="anchor point below which noise_preserve will be noise_prsv_lo" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">160</noise_prsv_anchor_lo>
+                <noise_prsv_anchor_hi description="anchor point above which noise_preserve will be a flat maximum value" range="[0,1023]" bit_depth="10uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="Range of 0 to 1023 corresponds to intensity level 0 to 1023">224</noise_prsv_anchor_hi>
+                <noise_prsv_lo_tab description="minimum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_lo>0.6 0.6</noise_prsv_lo>
+                </noise_prsv_lo_tab>
+                <noise_prsv_hi_tab description="maximum value for noise preserve, [0] - R/B, [1] - Gr/Gb" range="[0.0,1.0]" bit_depth="0uQ0" length="2" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <noise_prsv_hi>0.6 0.6</noise_prsv_hi>
+                </noise_prsv_hi_tab>
+                <radial_gain_tab description="base value for each anchor, [0][] for loc_fac0, [1][] for loc_fac1" range="[0.0,1.0]" bit_depth="0uQ0" length="10" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">
+                  <radial_gain>1 1 1 1 1 1 1 1 1 1</radial_gain>
+                </radial_gain_tab>
+                <edge_softness description="control bilateral filter strength together with noise_std_lut" range="[0.0,256.0]" bit_depth="0uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="often_tune" additional_notes="none">3</edge_softness>
+              </abf34_rgn_data>
+            </mod_abf34_aec_data>
+          </hdr_aec_data>
+        </mod_abf34_hdr_aec_data>
+      </drc_gain_data>
+    </mod_abf34_drc_gain_data>
+  </chromatix_abf34_core>
+</abf34_ife>

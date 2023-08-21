@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SASpatialGenV1DataArray
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modsaspatialgenv1.xsd">
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <SASpatialROIBasedAWBData>
+    <Description/>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">0</moduleID>
+      <subModuleID range="[1,1000]">0</subModuleID>
+    </moduleID>
+    <enableFlag>0</enableFlag>
+    <weight>1</weight>
+    <DefaultROIInfo>
+      <Description/>
+      <TargetColor>
+        <red range="[0.0,9999.9]">0</red>
+        <green range="[0.0,9999.9]">0</green>
+        <blue range="[0.0,9999.9]">0</blue>
+      </TargetColor>
+      <ROIPosition>
+        <startX range="[0,1]">0</startX>
+        <endX range="[0,1]">0</endX>
+        <startY range="[0,1]">0</startY>
+        <endY range="[0,1]">0</endY>
+      </ROIPosition>
+    </DefaultROIInfo>
+    <IntensityWeights>
+      <Description/>
+      <enableFlag>0</enableFlag>
+      <IntensityWeightComputationSelect>SAIntensityWeightMinimum</IntensityWeightComputationSelect>
+      <weights>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </weights>
+    </IntensityWeights>
+    <DistanceWeights>
+      <Description/>
+      <enableFlag>0</enableFlag>
+      <weights>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </weights>
+    </DistanceWeights>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">0</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <ROIAgregationWeights description="ROI Results Aggregation settings" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">0</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </ROIAgregationWeights>
+  </SASpatialROIBasedAWBData>
+  <enableFlag>1</enableFlag>
+</SASpatialGenV1DataArray>

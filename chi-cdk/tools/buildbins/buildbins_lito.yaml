@@ -1,0 +1,104 @@
+sensor_drivers:
+- com.qti.sensormodule.sunny_imx481:
+    - sensor/imx481/imx481_sensor.xml
+    - sensor/imx481/imx481_pdaf.xml
+    - module/sunny_imx481_module.xml
+    - actuator/gt9772_actuator.xml
+    - eeprom/a16n21b_imx481_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.sunny_imx586:
+    - sensor/imx586/imx586_sensor.xml
+    - sensor/imx586/imx586_pdaf.xml
+    - module/sunny_imx586_module.xml
+    - actuator/gt9764_actuator.xml
+    - eeprom/a48n01e_imx586_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.sunny_s5k3m5:
+    - sensor/s5k3m5/s5k3m5_sensor.xml
+    - sensor/s5k3m5/s5k3m5_pdaf.xml
+    - module/sunny_s5k3m5_module.xml
+    - actuator/gt9772_actuator.xml
+    - eeprom/a13s07a_s5k3m5_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.sunny_imx519:
+    - sensor/imx519/imx519_sensor.xml
+    - sensor/imx519/imx519_pdaf.xml
+    - module/sunny_imx519_module_talos.xml
+    - actuator/dw9718s_actuator.xml
+    - eeprom/gt24p64b_imx519_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.liteon_imx362:
+    - sensor/imx362/imx362_sensor.xml
+    - sensor/imx362/imx362_pdaf.xml
+    - module/liteon_imx362_module.xml
+    - actuator/lc898212xd_actuator.xml
+    - eeprom/cat24c32_imx362_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.truly_imx476:
+    - sensor/imx476/imx476_sensor.xml
+    - module/truly_imx476_module.xml
+    - eeprom/gt24c64_imx476.xml
+
+facedetection_binaries:
+- fdconfigvideo:
+    - fd/fdconfigdata.xml
+
+- fdconfigvideolite:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreview:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreviewlite:
+    - fd/fdconfigdata.xml
+
+chromatix_projects:
+- com.qti.tuned.default:
+    - tuning/default_c7project
+
+- com.qti.tuned.sunny_s5k5e9yu05:
+    - tuning/sm7250_sunny_s5k5e9_1
+
+- com.qti.tuned.sunny_imx519:
+    - tuning/sm7250_sunny_imx519_1
+
+- com.qti.tuned.liteon_imx362:
+    - tuning/imx362_c7project
+
+- com.qti.tuned.sunny_imx586:
+    - tuning/sm7250_sunny_imx586
+
+- com.qti.tuned.sunny_s5k3m5:
+    - tuning/sm7250_sunny_s5k3m5
+
+- com.qti.tuned.sunny_imx481:
+    - tuning/sm7250_sunny_imx481
+
+- com.qti.tuned.SM7150_sunny_s5k5e9yu05:
+    - tuning/sm7150_sunny_s5k5e9yu05
+
+- com.qti.tuned.SM7150_sunny_imx519:
+    - tuning/sm7150_sunny_imx519
+
+- com.qti.tuned.ofilm_imx563:
+    - tuning/sm7250_ofilm_imx563
+
+- com.qti.tuned.truly_imx476:
+    - tuning/sm7250_truly_imx476
+
+- com.qti.tuned.bitra_truly_imx476:
+    - tuning/bitra_truly_imx476
+
+- com.qti.tuned.bitra_sunny_imx481:
+    - tuning/bitra_sunny_imx481
+
+- com.qti.tuned.bitra_sunny_imx586:
+    - tuning/bitra_sunny_imx586
+
+- com.qti.tuned.bitra_sunny_s5k3m5:
+    - tuning/bitra_sunny_s5k3m5

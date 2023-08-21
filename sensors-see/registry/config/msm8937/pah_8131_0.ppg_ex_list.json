@@ -1,0 +1,15 @@
+{
+  "config":{
+    "hw_platform": ["MTP", "Surf", "QRD"],
+    "soc_id": ["416", "437"]
+  },
+  "pah_8131_0.ppg_ex_list": {
+    "owner": "pah_8131",
+    "0": {
+      "type": "str",
+      "ver": "0",
+      "data": "pah_8131_0.HRD.QC_25hz_1ch.ppg_ex"
+    }
+  }
+}
+

@@ -1,0 +1,111 @@
+/*!
+ * @file IPasrManager.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the external interface for PASR Manager.
+ */
+
+package vendor.qti.memory.pasrmanager@1.0;
+
+interface IPasrManager {
+    /**
+     * Attemt to Offline one block
+     *
+     * Selects a candidate block which has the least number of bytes allocated and attempts to Offline it.
+     * This makes sure least amount of page migration happens when we trigger Offline.
+     * Returns OFFLINE if Offline succeeds, ERROR if Offline fails
+     *
+     * @param	PasrSrc	The source ID of the initiator
+     * @param	PasrPriority	The priority level of pasr trigger
+     * @return	PasrStatus	Returns OFFLINE if Offline succeeds, ERROR if Offline fails
+     */
+    attemptOffline(PasrSrc srcId, PasrPriority pri) generates (PasrStatus status);
+
+
+    /**
+     * Attemt to Online one block
+     *
+     * Selects a candidate block and attempts to Online it.
+     * Returns ONLINE if Online succeeds, ERROR if Online fails
+     *
+     * @param	PasrSrc	The source ID of the initiator
+     * @param	PasrPriority	The priority level of pasr trigger
+     * @return	PasrStatus	Returns ONLINE if Online succeeds, ERROR if Online fails
+     */
+    attemptOnline(PasrSrc srcId, PasrPriority pri) generates (PasrStatus status);
+
+
+    /**
+     * Attemt to Offline *all* the blocks
+     *
+     * This lists through all the removable blocks in the system and attempts to Offline them all
+     * Returns OFFLINE if offlining all blocks succeeds, ERROR if failed to offline some or all blocks
+     *
+     * @param	PasrSrc	The source ID of the initiator
+     * @param	PasrPriority	The priority level of pasr trigger
+     * @return	PasrStatus	Returns OFFLINE if offlining all blocks succeeds, ERROR if failed to offline some or all blocks
+     */
+    attemptOfflineAll(PasrSrc srcId, PasrPriority pri) generates (PasrStatus status);
+
+
+    /**
+     * Attemt to Online *all* the blocks
+     *
+     * This lists through all the removable blocks in the system and attempts to Online them all
+     * Returns ONLINE if onlining all blocks succeeds, ERROR if failed to online some or all blocks
+     *
+     * @param	PasrSrc	The source ID of the initiator
+     * @param	PasrPriority	The priority level of pasr trigger
+     * @return	PasrStatus	Returns ONLINE if onlining all blocks succeeds, ERROR if failed to online some or all blocks
+     */
+    attemptOnlineAll(PasrSrc srcId, PasrPriority pri) generates (PasrStatus status);
+
+    /**
+     * Get the PASR info of the system
+     *
+     * Gets the information such as DDR size, PASR granule, number of removable blocks in the system
+     *
+     * @return	PasrInfo	Returns pasr info of the system
+     */
+    getPasrInfo() generates (PasrInfo info);
+
+
+    /**
+     * Get number of blocks currently Online
+     *
+     * Gets the total numbers of blocks under PASR region that are currently Online
+     *
+     * @return	PasrBlockCount	Returns number of blocks currently Online
+     */
+    getOnlineCount() generates (PasrBlockCount blockCount);
+
+
+    /**
+     * Get number of blocks currently Offline
+     *
+     * Gets the total numbers of blocks under PASR region that are currently Offline
+     *
+     * @return	PasrBlockCount	Returns number of blocks currently Offline
+     */
+    getOfflineCount() generates (PasrBlockCount blockCount);
+
+
+    /**
+     * Request to enter priority state for trigerring Online/Offline
+     *
+     * @return	PasrStatus
+     */
+    stateEnter(PasrSrc srcId, PasrPriority pri, PasrState mode) generates (PasrStatus status);
+
+
+    /**
+     * Request to exit the source from previous put state
+     *
+     * @return	PasrStatus
+     */
+    stateExit(PasrSrc srcId) generates (PasrStatus status);
+};

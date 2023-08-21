@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2020 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+<BLMConfig
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../tools/blmconfig/blm.xsd">
+    <Target socID="400">
+        <!-- 720p480 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001001">
+             <ResourceParam type="ResourceTypeBW"       value="1100"/>
+        </UsecaseInfo>
+
+        <!-- 1080p240 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001002">
+             <ResourceParam type="ResourceTypeBW"       value="925"/>
+        </UsecaseInfo>
+    </Target>
+    <Target socID="434">
+        <!-- RTB Snapshot usecase-->
+        <UsecaseInfo usecaseID="0x00000104">
+             <ResourceParam type="ResourceTypeBW"       value="6503"/>
+        </UsecaseInfo>
+        <!-- 32MP BurstShot-->
+        <UsecaseInfo usecaseID="0x00000105">
+             <ResourceParam type="ResourceTypeBW"       value="10941"/>
+        </UsecaseInfo>
+        <!-- 1080p120 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001005">
+            <ResourceParam type="ResourceTypeBW"       value="9598"/>
+        </UsecaseInfo>
+        <!-- DualCam 1080p60 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001006">
+             <ResourceParam type="ResourceTypeBW"       value="10744"/>
+        </UsecaseInfo>
+        <!-- 1080p 30 FPS usecase-->
+        <UsecaseInfo usecaseID="0x00002001">
+             <ResourceParam type="ResourceTypeBW"       value="8139"/>
+        </UsecaseInfo>
+        <!-- UHD 30 FPS usecase-->
+        <UsecaseInfo usecaseID="0x00002002">
+             <ResourceParam type="ResourceTypeBW"       value="9869"/>
+        </UsecaseInfo>
+        <!-- Triple camera 1080p30 FPS usecase-->
+        <UsecaseInfo usecaseID="0x00002003">
+             <ResourceParam type="ResourceTypeBW"       value="10470"/>
+        </UsecaseInfo>
+    </Target>
+</BLMConfig>

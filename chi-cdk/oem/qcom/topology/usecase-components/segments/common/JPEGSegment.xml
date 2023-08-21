@@ -1,0 +1,51 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="JPEGSegment">
+  <CamxInclude segment="JPEGSegmentBase" />
+  <NodesList>
+    <Node>
+      <NodeName>JPEG</NodeName>
+      <NodeId>65537</NodeId>
+      <NodeInstance>JPEGInstanceName1</NodeInstance>
+      <NodeInstanceId>1</NodeInstanceId>
+      <NodeProperty>
+        <NodePropertyName>ProfileId</NodePropertyName>
+        <NodePropertyId>2</NodePropertyId>
+        <NodePropertyDataType>UINT</NodePropertyDataType>
+        <NodePropertyValue>1</NodePropertyValue>
+      </NodeProperty>
+    </Node>
+  </NodesList>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>JPEGOutputPort0</PortName>
+        <PortId>1</PortId>
+        <NodeName>JPEG</NodeName>
+        <NodeId>65537</NodeId>
+        <NodeInstance>JPEGInstanceName1</NodeInstance>
+        <NodeInstanceId>1</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>JPEGAggregatorInputPort1</PortName>
+        <PortId>1</PortId>
+        <NodeName>JPEGAggregator</NodeName>
+        <NodeId>6</NodeId>
+        <NodeInstance>JPEGAggregatorInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+      <BufferProperties>
+        <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+        <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+        <BufferQueueDepth>8</BufferQueueDepth>
+        <BufferHeap>Ion</BufferHeap>
+        <BufferFlags>BufferMemFlagHw</BufferFlags>
+        <BufferFlags>BufferMemFlagLockable</BufferFlags>
+        <BufferFlags>BufferMemFlagCache</BufferFlags>
+      </BufferProperties>
+    </Link>
+  </PortLinkages>
+</CamxSegment>

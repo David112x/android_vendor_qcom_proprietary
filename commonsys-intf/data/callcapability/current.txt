@@ -1,0 +1,3 @@
+eef66d09c43e7c1b3f8d23f690d2983ed1899a34cb741e6cede27fb33a9fa33b vendor.qti.ims.callcapability@1.0::types
+9c7f2d13918bd33467a76369243a14c78e6a0c9c5625ab7226e721931a36dd6b vendor.qti.ims.callcapability@1.0::ICallCapabilityListener
+b4d24c29bc520c74ab06b42bed209cbccdacf5b8b9159a24d082474af3b33bf5 vendor.qti.ims.callcapability@1.0::ICallCapabilityService

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Tracker
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecTracker.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <trackerMtr>
+    <enableTrackerROI type="bool" description="Enable Flag for Tracker ROI AEC Adjustments" tuning_parameter_level="often_tune">false</enableTrackerROI>
+    <weightTemporalFilter type="float" description="Temporal weight for Tracker Luma and Metered luma transition. Higher weight will have faster transition to Tracker Luma" range="[0,1]" tuning_parameter_level="never_tune">0</weightTemporalFilter>
+    <centerWeightStrength type="float" description="Specify weighting of luma in the center of Tracker ROI" range="[0,1]" tuning_parameter_level="rarely_tune">0</centerWeightStrength>
+    <enableLuxTrackerTarget type="bool" description="Enable Flag for for adjusting luma target based on lux index" tuning_parameter_level="rarely_tune">false</enableLuxTrackerTarget>
+    <luxTrackerLumaTarget description="Luma target tuning structure, which is shared between normal and flash use case.">
+      <luxLumaTargetZone>
+        <zoneTrigger description="lux level start and end values that define trigger region">
+          <start>0</start>
+          <end>0</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData description="Triggered data: Luma targets that will be adjusted based on lux level">
+          <lumaTarget type="float" description="Luma target value for each zone with 8 bit range." range="[0,255]" tuning_parameter_level="often_tune">0</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+    </luxTrackerLumaTarget>
+    <statsUpdateDelayTimeEnter type="float" description="Specify the delay in time to declare official Tracker ROI, for detection Stability" range="[0,10]" tuning_parameter_level="rarely_tune">0</statsUpdateDelayTimeEnter>
+    <statsUpdateDelayTimeExit type="float" description="Specify the delay in time to declare official Tracker ROI, for detection Stability" range="[0,10]" tuning_parameter_level="rarely_tune">0</statsUpdateDelayTimeExit>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <trackerWeight description="Min and Max tracker luma weight wrt tracker size." tuning_parameter_level="never_tune">
+      <start>0</start>
+      <end>0</end>
+    </trackerWeight>
+    <trackerLumaWeightLuxIndexTrigger>
+      <enableTrackerLumaTrigger type="bool" description="Enable Flag for for adjusting luma weight based on lux index" tuning_parameter_level="rarely_tune">false</enableTrackerLumaTrigger>
+      <LuxTrackerLumaWeight description="Tracker weight tuning structure, which is shared between normal and flash use case.">
+        <LuxTrackerWeightZone>
+          <zoneTrigger description="lux level start and end values that define trigger region">
+            <start>0</start>
+            <end>0</end>
+          </zoneTrigger>
+          <zoneData description="Triggered data: tracker weight that will be adjusted based on lux level">
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <LuxTrackerWeight description="Min and Max tracker luma weight wrt tracker size." tuning_parameter_level="rarely_tune">
+              <start>0</start>
+              <end>0</end>
+            </LuxTrackerWeight>
+          </zoneData>
+        </LuxTrackerWeightZone>
+      </LuxTrackerLumaWeight>
+    </trackerLumaWeightLuxIndexTrigger>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <trackerSize description="min and max tracker size to determine tracker weight" tuning_parameter_level="never_tune">
+      <start>0</start>
+      <end>0</end>
+    </trackerSize>
+    <trackerSizeWeightLuxIndexTrigger>
+      <enableTrackerSizeTrigger type="bool" description="Enable Flag for for adjusting Tracker size weight based on lux index" tuning_parameter_level="rarely_tune">false</enableTrackerSizeTrigger>
+      <LuxTrackerSizeWeight description="Tracker weight tuning structure, which is shared between normal and flash use case.">
+        <LuxTrackerWeightZone>
+          <zoneTrigger description="lux level start and end values that define trigger region">
+            <start>0</start>
+            <end>0</end>
+          </zoneTrigger>
+          <zoneData description="Triggered data: tracker weight that will be adjusted based on lux level">
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <LuxTrackerWeight description="Min and Max tracker luma weight wrt tracker size." tuning_parameter_level="rarely_tune">
+              <start>0</start>
+              <end>0</end>
+            </LuxTrackerWeight>
+          </zoneData>
+        </LuxTrackerWeightZone>
+      </LuxTrackerSizeWeight>
+    </trackerSizeWeightLuxIndexTrigger>
+    <enableTrackerROIHistAdj type="bool" description="Enable Flag for adjustment on Histogram AEC target calculation" tuning_parameter_level="often_tune">false</enableTrackerROIHistAdj>
+    <ROIHistAdjZone>
+      <zoneTrigger>
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <darkLumaRatioRange description="The ratio between ROI and frame luma to determine if an ROI is dark ROI." tuning_parameter_level="rarely_tune">
+          <start>0</start>
+          <end>0</end>
+        </darkLumaRatioRange>
+        <darkROIAdjustParams>
+          <minTargetAdjRatio type="float" description="This value overrides the minimal target adjust ratio in normal histogram AEC." range="[0.1,1.0]" tuning_parameter_level="often_tune">0</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" description="This value overrides the maximal target adjust ratio in normal histogram AEC." range="[1.0,2.0]" tuning_parameter_level="often_tune">0</maxTargetAdjRatio>
+          <darkRefLow type="float" description="This value overrides the darkRefLow in normal histogram AEC." range="[0,50]" tuning_parameter_level="rarely_tune">0</darkRefLow>
+          <satRefHigh type="float" description="This value overrides the satRefHigh in normal histogram AEC." range="[100,500]" tuning_parameter_level="rarely_tune">0</satRefHigh>
+        </darkROIAdjustParams>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <brightLumaRatioRange description="The ratio between ROI and frame luma to determine if an ROI is bright ROI." tuning_parameter_level="rarely_tune">
+          <start>0</start>
+          <end>0</end>
+        </brightLumaRatioRange>
+        <brightROIAdjustParams>
+          <minTargetAdjRatio type="float" description="This value overrides the minimal target adjust ratio in normal histogram AEC." range="[0.1,1.0]" tuning_parameter_level="often_tune">0</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" description="This value overrides the maximal target adjust ratio in normal histogram AEC." range="[1.0,2.0]" tuning_parameter_level="often_tune">0</maxTargetAdjRatio>
+          <darkRefLow type="float" description="This value overrides the darkRefLow in normal histogram AEC." range="[0,50]" tuning_parameter_level="rarely_tune">0</darkRefLow>
+          <satRefHigh type="float" description="This value overrides the satRefHigh in normal histogram AEC." range="[100,500]" tuning_parameter_level="rarely_tune">0</satRefHigh>
+        </brightROIAdjustParams>
+      </zoneData>
+    </ROIHistAdjZone>
+  </trackerMtr>
+  <trackerConv>
+    <convSpeedAdjRatio type="float" description="Specify the adjustment of convergence speed during Tracker AEC convergence" range="[0,10]" tuning_parameter_level="often_tune">0</convSpeedAdjRatio>
+    <speedAdjDelayTimeEnter type="float" description="Specify the delay in time to start adjusting Convergence speed" range="[0,10]" tuning_parameter_level="rarely_tune">0</speedAdjDelayTimeEnter>
+    <speedAdjDelayTimeExit type="float" description="Specify the delay in time to start adjusting Convergence speed" range="[0,10]" tuning_parameter_level="rarely_tune">0</speedAdjDelayTimeExit>
+  </trackerConv>
+  <statsROIProcess>
+    <statsROIProcessEnable>0</statsROIProcessEnable>
+    <statsROIPriority>
+      <dominantScoreEnhancement type="float" description="If we have dominant face which is choose from previous frame, we enhance this dominant face score by multiple this value" range="[0.0,1.0]">0</dominantScoreEnhancement>
+      <FaceROISizeWeight description="Weight vector based on (face roi diagonal)/(frame diagonal), 1 level trigger with distance trigger control type" tuning_parameter_level="rarely_tune">
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data type="float" range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </FaceROISizeWeight>
+      <FaceROILocationWeight description="Weight vector based on distance from the center of FACE ROI to the center of frame, 1 level trigger with distance trigger control type" tuning_parameter_level="rarely_tune">
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <data type="float" range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </FaceROILocationWeight>
+    </statsROIPriority>
+    <statsROIStable>
+      <statsROIDiffEnable>0</statsROIDiffEnable>
+      <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+      <statsROIDiffThreshold description="statsROIDifference for location, size and count" tuning_parameter_level="rarely_tune">
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0</start>
+            <end type="float" range="[-100.0,15000.0]">0</end>
+          </triggerPt>
+          <triggerData>
+            <locationThreshold type="float" description="the center of face roi change threshold" range="[0.0,100.0]">0</locationThreshold>
+            <sizeThreshold type="float" description="the size of face roi change threshold" range="[0.0,100.0]">0</sizeThreshold>
+            <countThreshold type="int" description="If the face roi stable keep n frame, and n bigger than this threshold, and this face roi will be set to be stable" range="[0,100]">0</countThreshold>
+          </triggerData>
+        </triggerData>
+      </statsROIDiffThreshold>
+    </statsROIStable>
+  </statsROIProcess>
+</Tracker>

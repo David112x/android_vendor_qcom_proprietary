@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFTuningSoftwareStatistics
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afsoftwarestatelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <SWFilterDefault>
+    <enable type="bool" description="Enable Software Stats Filter" default_value="False">false</enable>
+    <filterType type="int" description="Specify Choice of filter used for SW Stats. Data range: AFS_ON_IIR (1), AFS_ON_FIR (2). Constraints: DO NOT USE AFS_OFF. Effect: Specifies to use FIR or IIR fitler." range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterDefault>
+  <SWFilterFace>
+    <enable type="bool" description="Enable Software Stats Filter" default_value="False">false</enable>
+    <filterType type="int" description="Specify Choice of filter used for SW Stats. Data range: AFS_ON_IIR (1), AFS_ON_FIR (2). Constraints: DO NOT USE AFS_OFF. Effect: Specifies to use FIR or IIR fitler." range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterFace>
+  <SWFilterLowLight>
+    <enable type="bool" description="Enable Software Stats Filter" default_value="False">false</enable>
+    <filterType type="int" description="Specify Choice of filter used for SW Stats. Data range: AFS_ON_IIR (1), AFS_ON_FIR (2). Constraints: DO NOT USE AFS_OFF. Effect: Specifies to use FIR or IIR fitler." range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass FIR filter coeffs used for focus value calculation. For 1x11 kernel. Only 11 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" description="High pass IIR filter coeffs used for focus value calculation. For 2x6 kernel, all 6 parameters are configurable." range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" description="Minimum FV value to be accumulated with respect to the filter. Effect: Higher value will result in a sharper FV curve but it might filter out low contrast context or missing peak. Lower Value will have flatter curve due to noise." range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" description="Length of the filter coefficients used. Constraints: Should not modify randomly; should match the filter entries used. Effect: For different camera use case, different kernel is used." range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterLowLight>
+  <SWFVMinimumLuxTriggerHigh type="float" description="Lux trigger to use normal FV_min. Effect: Lower value will activate normal light fv_min at a brighter condition." range="[0,500]">0</SWFVMinimumLuxTriggerHigh>
+  <SWFVMinimumLuxTriggerLow type="float" description="Lux trigger to use lowlight FV_min. Effect: Lower value will activate normal light fv_min at a brighter condition." range="[0,500]">0</SWFVMinimumLuxTriggerLow>
+</chromatixAFTuningSoftwareStatistics>

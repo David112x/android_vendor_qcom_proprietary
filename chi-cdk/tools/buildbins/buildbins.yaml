@@ -1,0 +1,246 @@
+sensor_drivers:
+- com.qti.sensormodule.altek_imx577:
+    - sensor/imx577/imx577_sensor.xml
+    - module/altek_imx577_module.xml
+    - eeprom/gt24c64_eeprom.xml
+
+- com.qti.sensormodule.altek1_imx577:
+    - sensor/imx577/imx577_sensor.xml
+    - module/altek1_imx577_module.xml
+    - eeprom/gt24c64_eeprom.xml
+
+- com.qti.sensormodule.altek2_imx577:
+    - sensor/imx577/imx577_sensor.xml
+    - module/altek2_imx577_module.xml
+    - eeprom/gt24c64_eeprom.xml
+
+- com.qti.sensormodule.sunny_imx576:
+    - sensor/imx576/imx576_sensor.xml
+    - module/sunny_imx576_module.xml
+    - eeprom/a24n02a_eeprom.xml
+
+- com.qti.sensormodule.liteon_imx318:
+    - sensor/imx318/imx318_sensor.xml
+    - sensor/imx318/imx318_pdaf.xml
+    - module/liteon_imx318_module.xml
+    - actuator/lc898212xd_actuator.xml
+    - eeprom/at24c32e_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.truly_imx476:
+    - sensor/imx476/imx476_sensor.xml
+    - module/truly_imx476_module.xml
+    - eeprom/gt24c64_imx476.xml
+
+- com.qti.sensormodule.liteon_max7366_eyetrack:
+    - sensor/max7366_eyetrack/max7366_sensor.xml
+    - module/liteon_max7366_eyetrack_module.xml
+
+- com.qti.sensormodule.liteon_max7366_6dof:
+    - sensor/max7366_6dof/max7366_sensor.xml
+    - module/liteon_max7366_6dof_module.xml
+
+- com.qti.sensormodule.semco_imx258:
+    - sensor/imx258/imx258_sensor.xml
+    - sensor/imx258/imx258_pdaf.xml
+    - module/semco_imx258_module.xml
+    - actuator/lc898217xc_actuator.xml
+    - flash/front_sensor_flash.xml
+    - eeprom/brcg064gwz_3_eeprom.xml
+
+- com.qti.sensormodule.sony_imx334:
+    - sensor/imx334/imx334_sensor.xml
+    - module/sony_imx334_module.xml
+
+- com.qti.sensormodule.sunny_ov2281:
+    - sensor/ov2281/ov2281_sensor.xml
+    - module/sunny_ov2281_module.xml
+    - flash/front_sensor_flash.xml
+
+- com.qti.sensormodule.ofilm_ov12a10:
+    - sensor/ov12a10/ov12a10_sensor.xml
+    - module/ofilm_ov12a10_ov13880_module.xml
+    - actuator/dw9763_actuator.xml
+    - eeprom/ohs0443_ov12a10_eeprom.xml
+    - flash/back_sensor_flash.xml
+    - sensor/ov12a10/ov12a10_pdaf.xml
+
+- com.qti.sensormodule.ofilm_ov13880:
+    - sensor/ov13880/ov13880_sensor.xml
+    - module/ofilm_ov12a10_ov13880_module.xml
+    - actuator/dw9763b_actuator.xml
+    - eeprom/ohs0443_ov13880_eeprom.xml
+    - flash/back_sensor_flash.xml
+    - sensor/ov13880/ov13880_pdaf.xml
+
+- com.qti.sensormodule.ofilm_ov13855:
+    - sensor/ov13855/ov13855_sensor.xml
+    - module/ofilm_ov13855_module.xml
+    - actuator/dw9767_actuator.xml
+    - eeprom/ofilm_dw9767_eeprom.xml
+
+- com.qti.sensormodule.pmd_irs1645:
+    - sensor/irs1645/irs1645_sensor.xml
+    - module/pmd_irs1645_module.xml
+    - eeprom/irs1645_polar_eeprom.xml
+
+- com.qti.sensormodule.pmd_irs2381c:
+    - sensor/irs2381c/irs2381c_sensor.xml
+    - module/pmd_irs2381c_module.xml
+
+- com.qti.sensormodule.liteon_imx362:
+    - sensor/imx362/imx362_sensor.xml
+    - sensor/imx362/imx362_pdaf.xml
+    - module/liteon_imx362_module.xml
+    - actuator/lc898212xd_actuator.xml
+    - eeprom/cat24c32_imx362_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.ofilm_imx376:
+    - sensor/imx376/imx376_sensor.xml
+    - module/ofilm_imx376_module.xml
+    - actuator/dw9800_actuator.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.truly_ov8856:
+    - sensor/ov8856/ov8856_sensor.xml
+    - module/truly_ov8856_module.xml
+    - eeprom/cmb433_eeprom.xml
+
+- com.qti.sensormodule.semco_imx386:
+    - sensor/imx386/imx386_sensor.xml
+    - module/semco_imx386_module.xml
+    - actuator/lc898217xc_actuator.xml
+    - eeprom/gt24c64ah_eeprom.xml
+
+- com.qti.sensormodule.sunny_s5k2l7:
+    - sensor/s5k2l7/s5k2l7_sensor.xml
+    - module/sunny_s5k2l7_module.xml
+    - actuator/ak7371_actuator.xml
+    - eeprom/gt24c64a_s5k2l7_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.liteon_max7366_ov6211:
+    - sensor/max7366_ov6211/max7366_ov6211_sensor.xml
+    - module/liteon_max7366_ov6211_module.xml
+    - flash/pmic_flash.xml
+
+- com.qti.sensormodule.liteon_max7366_ov9282:
+    - sensor/max7366_ov9282/max7366_ov9282_sensor.xml
+    - module/liteon_max7366_ov9282_module.xml
+
+- com.qti.sensormodule.ofilm_ov12a10_front:
+    - sensor/ov12a10_front/ov12a10_front_sensor.xml
+    - sensor/ov12a10_front/ov12a10_front_pdaf.xml
+    - module/ofilm_ov12a10_front_module.xml
+    - actuator/dw9763_actuator.xml
+    - eeprom/ohs0443_ov12a10_eeprom.xml
+
+- com.qti.sensormodule.sunny_imx519:
+    - sensor/imx519/imx519_sensor.xml
+    - sensor/imx519/imx519_pdaf.xml
+    - module/sunny_imx519_module.xml
+    - actuator/dw9718s_actuator.xml
+    - eeprom/cat24c64_imx519_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.sunny_s5k5e9yu05:
+    - sensor/s5k5e9yu05/s5k5e9yu05_sensor.xml
+    - module/sunny_s5k5e9yu05_module.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.liteon_ov7251:
+    - sensor/ov7251/ov7251_sensor.xml
+    - module/liteon_ov7251_module.xml
+
+- com.qti.sensormodule.semco_imx481:
+    - sensor/imx481_xm/imx481_sensor.xml
+    - sensor/imx481_xm/imx481_pdaf.xml
+    - module/semco_imx481_module.xml
+    - actuator/ak7374_actuator.xml
+    - eeprom/cat24c64_imx481_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.semco_imx586:
+    - sensor/imx586_xm/imx586_sensor.xml
+    - sensor/imx586_xm/imx586_pdaf.xml
+    - module/semco_imx586_module.xml
+    - flash/back_sensor_flash.xml
+    - actuator/lc898217xc_actuator.xml
+    - eeprom/cat24c64_imx586_eeprom.xml
+
+- com.qti.sensormodule.semco_s5k3m5:
+    - sensor/s5k3m5_xm/s5k3m5_sensor.xml
+    - sensor/s5k3m5_xm/s5k3m5_pdaf.xml
+    - module/semco_s5k3m5_module.xml
+    - actuator/ak7374_actuator.xml
+    - eeprom/cat24c64_s5k3m5_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+facedetection_binaries:
+- fdconfigvideo:
+    - fd/fdconfigdata.xml
+
+- fdconfigvideolite:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreview:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreviewlite:
+    - fd/fdconfigdata.xml
+
+chromatix_projects:
+- com.qti.tuned.default:
+    - tuning/default_c7project
+
+- com.qti.tuned.liteon_imx362:
+    - tuning/sm8250_liteon_imx362
+
+- com.qti.tuned.sunny_s5k5e9yu05:
+    - tuning/sm8250_sunny_s5k5e9yu05
+
+- com.qti.tuned.ofilm_imx376:
+    - tuning/imx376_c7project
+
+- com.qti.tuned.semco_imx586:
+    - tuning/sm8250_semco_imx586
+
+- com.qti.tuned.ofilm_ov12a10:
+    - tuning/sm8250_sunny_imx519
+
+- com.qti.tuned.ofilm_ov12a10_front:
+    - tuning/sm8250_truly_imx476
+
+- com.qti.tuned.ofilm_ov13880:
+    - tuning/sm8250_sunny_imx519
+
+- com.qti.tuned.ofilm_ov13855:
+    - tuning/ov13855_c7project
+
+- com.qti.tuned.altek_imx577:
+    - tuning/imx577_c7project
+
+- com.qti.tuned.altek1_imx577:
+    - tuning/imx577_c7project
+
+- com.qti.tuned.semco_s5k3m5:
+    - tuning/sm8250_semco_s5k3m5
+
+- com.qti.tuned.sunny_imx519:
+    - tuning/sm8250_sunny_imx519
+
+- com.qti.tuned.sunny_imx576:
+    - tuning/imx576_c7project
+
+- com.qti.tuned.truly_ov8856:
+    - tuning/ov8856_c7project
+
+- com.qti.tuned.semco_imx481:
+    - tuning/sm8250_semco_imx481
+
+- com.qti.tuned.sony_imx334:
+    - tuning/imx334_c7project
+
+- com.qti.tuned.truly_imx476:
+    - tuning/sm8250_truly_imx476

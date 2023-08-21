@@ -1,0 +1,9 @@
+========================================================================
+   Copyright (c) 2017-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+
+/* Chromatix xsd 1.10 xml Rev A  */
+/* ISP     xsd 4.8.4 xml REV A  */
+/* 3A      xsd 9.0.4 xml REV A  */

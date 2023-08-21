@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AWBExtensionParam
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\modparamextv1.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <moduleID>
+    <moduleID>0</moduleID>
+    <subModuleID>0</subModuleID>
+  </moduleID>
+  <extensionParam>
+    <ID>0</ID>
+    <Name>Extension feature</Name>
+    <enableFlag>false</enableFlag>
+    <data>0</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">1</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">TemporalFilterCtrlForExtensionTriggerData</Name>
+    <enableFlag description="Temporal filter control for extension trigger enable flag">false</enableFlag>
+    <data description="NormalConvSpeed" range="[0.0, 1.0]" tuning_parameter_level="rarely_tune">0.3</data>
+    <data description="LockThreshold" range="[0, 10000]" tuning_parameter_level="rarely_tune">20</data>
+    <data description="LockFrameNumber" range="[0, 1000]" tuning_parameter_level="rarely_tune">3</data>
+    <data description="LockConvSpeed" range="[0.0, 1.0]" tuning_parameter_level="rarely_tune">0.03</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">2</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">DebugDataSizeCtrl</Name>
+    <enableFlag description="AWB Debug data control enable flag">false</enableFlag>
+    <data description="disableDebugDataForIlluAndDistWVFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForMLCZDataFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForMLCZV2DataFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForMLCZV3DataFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForSAGen1DataFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForSAGen2DataFlag" tuning_parameter_level="rarely_tune">1</data>
+    <data description="disableDebugDataForSpectralWVFlag" tuning_parameter_level="rarely_tune">1</data>
+  </extensionParam>
+</AWBExtensionParam>

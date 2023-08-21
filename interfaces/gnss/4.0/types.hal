@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.gnss@4.0;
+
+import @1.1::types;
+import @1.0::types;
+
+enum LocHidlLocationFlagsBits : uint16_t {
+    LAT_LONG_BIT          = (1<<0), // location has valid latitude and longitude
+    ALTITUDE_BIT          = (1<<1), // location has valid altitude
+    SPEED_BIT             = (1<<2), // location has valid speed
+    BEARING_BIT           = (1<<3), // location has valid bearing
+    ACCURACY_BIT          = (1<<4), // location has valid accuracy
+    VERTICAL_ACCURACY_BIT = (1<<5), // location has valid vertical accuracy
+    SPEED_ACCURACY_BIT    = (1<<6), // location has valid speed accuracy
+    BEARING_ACCURACY_BIT  = (1<<7), // location has valid bearing accuracy
+    SPOOF_MASK_BIT        = (1<<8), // location has valid spoof mask
+    ELAPSED_REAL_TIME_BIT = (1<<9), // location has valid elapsed real time
+    CONFORMITY_INDEX_BIT  = (1<<10), // location has valid conformity index
+};
+
+struct LocHidlLocation {
+    @1.0::LocHidlLocation v1_0;
+    float conformityIndex;
+};

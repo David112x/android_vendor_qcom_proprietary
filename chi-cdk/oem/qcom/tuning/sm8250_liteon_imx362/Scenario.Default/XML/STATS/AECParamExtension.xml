@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam>
+    <ID>1</ID>
+    <Name>Depth AEC</Name>
+    <enableFlag>true</enableFlag>
+    <data>8</data>
+    <data>20</data>
+    <data>6</data>
+    <data>4</data>
+    <data>3</data>
+    <data>0</data>
+  </extensionParam>
+</AECParamExtension>

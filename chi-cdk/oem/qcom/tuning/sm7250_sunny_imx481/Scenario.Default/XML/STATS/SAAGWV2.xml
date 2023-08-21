@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SAAGWV2
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modsaagwv2.xsd">
+  <moduleID>
+    <moduleID type='int' range="[1,1000]">0</moduleID>
+    <subModuleID type='int' range="[1,1000]">0</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <enableFlag>0</enableFlag>
+  <outdoorWeightCtrl>
+    <triggerPt>
+      <start type='float' range="[-100.0,15000.0]">0</start>
+      <end type='float' range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <data type='float' range="[0.0,9999.9]">0</data>
+      </triggerData>
+    </triggerData>
+  </outdoorWeightCtrl>
+  <AHLightWeightCtrl>
+    <triggerPt>
+      <start type='float' range="[-100.0,15000.0]">0</start>
+      <end type='float' range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <data type='float' range="[0.0,9999.9]">0</data>
+      </triggerData>
+    </triggerData>
+  </AHLightWeightCtrl>
+  <confidenceLevel>
+    <commonData>
+      <attribute type='float' range="[0.0,100.0]">0</attribute>
+      <triggerType>TriggerCtrlLuxIdx</triggerType>
+      <triggerType>TriggerCtrlLuxIdx</triggerType>
+    </commonData>
+    <triggerPt>
+      <start type='float' range="[-100.0,15000.0]">0</start>
+      <end type='float' range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <data type='float' range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </confidenceLevel>
+  <outdoorInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerPt>
+      <start type='float' range="[-100.0,15000.0]">0</start>
+      <end type='float' range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <data type='float' range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </outdoorInterpWeight>
+  <AHLightInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerPt>
+      <start type='float' range="[-100.0,15000.0]">0</start>
+      <end type='float' range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <data type='float' range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </AHLightInterpWeight>
+</SAAGWV2>

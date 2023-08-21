@@ -1,0 +1,14 @@
+{
+  "config":{
+    "hw_platform": ["MTP"],
+    "soc_id": ["356"],
+    "platform_subtype_id":["1"],
+    "platform_version":["65536","131072"]
+  },
+  "dae":{
+    "owner": "sns_dae",
+    "use_sdc":{ "type": "int", "ver": "1",
+      "data": "0"
+    }
+  }
+}

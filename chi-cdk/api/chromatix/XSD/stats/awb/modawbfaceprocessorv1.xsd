@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:include schemaLocation="..\common\statsroipriority.xsd"/>
+	<xs:include schemaLocation="..\common\statsroidifference.xsd"/>
+	<xs:element name="faceROIProcessorV1" type="chromatixAWBFaceROIProcessorV1Type"/>
+	<xs:complexType name="chromatixAWBFaceROIProcessorV1Type">
+		<xs:sequence>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="1"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsROIProcessEnable" type="glbEnableFlagType" default="0"/>
+			<xs:element name="statsROIPriority" type="chromatixStatsROIPriorityType"/>
+			<xs:element name="statsROIStable" type="chromatixStatsROIDifferenceType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

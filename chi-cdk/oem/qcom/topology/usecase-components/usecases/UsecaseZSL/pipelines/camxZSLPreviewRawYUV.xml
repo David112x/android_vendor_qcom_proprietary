@@ -1,0 +1,54 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>ZSLPreviewRawYUV</PipelineName>
+    <CamxInclude segment="RealTimeSegmentZSL"/>
+    <CamxInclude segment="FDSegment"/>
+    <CamxInclude segment="MCTFSegment"/>
+    <CamxInclude segment="PreviewRaw_linkages"/>
+    <NodesList>
+        <Node>
+            <NodeName>IPE</NodeName>
+            <NodeId>65538</NodeId>
+            <NodeInstance>IPEInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>NodePropertyStabilizationType</NodePropertyName>
+                <NodePropertyId>3</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>3</NodePropertyValue>
+            </NodeProperty>
+            <NodeProperty>
+                <NodePropertyName>enableFOVC</NodePropertyName>
+                <NodePropertyId>16</NodePropertyId>
+                <NodePropertyDataType>UINT</NodePropertyDataType>
+                <NodePropertyValue>0</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <SourceNode>Sensor</SourceNode>
+        <SourceNodeInstance>SensorInstanceName0</SourceNodeInstance>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortVideo</PortName>
+                <PortId>9</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_VIDEO</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName1</NodeInstance>
+                <NodeInstanceId>1</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</Pipeline>

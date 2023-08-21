@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="cvp10" xmlns:ns2="ica30" xmlns:ns3="anr10" xmlns:ns4="tf20" xmlns:ns5="hnr10" xmlns:ns6="lenr10"  xmlns:ns7="cac23" xmlns:ns8="cst12" xmlns:ns9="ltm14" xmlns:ns10="cc13" xmlns:ns11="glut15" xmlns:ns12="tdl10" xmlns:ns13="cv12" xmlns:ns14="cs20" xmlns:ns15="sce11" xmlns:ns16="asf30" xmlns:ns17="upscale20" xmlns:ns18="gra10">
+  <xs:include schemaLocation="cvp_1_0_0.xsd"/>
+  <xs:include schemaLocation="ica_3_0_0.xsd"/>
+  <xs:include schemaLocation="anr_1_0_0.xsd"/>
+  <xs:include schemaLocation="tf_2_0_0.xsd"/>
+  <xs:include schemaLocation="ds4to1_1_1_0.xsd"/>
+  <xs:include schemaLocation="hnr_1_0_0.xsd"/>
+  <xs:include schemaLocation="lenr_1_0_0.xsd"/>
+  <xs:include schemaLocation="cac_2_3_0.xsd"/>
+  <xs:include schemaLocation="cst_1_2_0.xsd"/>
+  <xs:include schemaLocation="ltm_1_4_0.xsd"/>
+  <xs:include schemaLocation="cc_1_3_0.xsd"/>
+  <xs:include schemaLocation="gamma_1_5_0.xsd"/>
+  <xs:include schemaLocation="tdl_1_0_0.xsd"/>
+  <xs:include schemaLocation="cv_1_2_0.xsd"/>
+  <xs:include schemaLocation="cs_2_0_0.xsd"/>
+  <xs:include schemaLocation="sce_1_1_0.xsd"/>
+  <xs:include schemaLocation="asf_3_0_0.xsd"/>
+  <xs:include schemaLocation="upscale_2_0_0.xsd"/>
+  <xs:include schemaLocation="gra_1_0_0.xsd"/>
+  <xs:complexType name="chromatixIPEType">
+    <xs:sequence>
+      <xs:element name="cvp10_ipe" type="chromatix_cvp10Type"/>
+      <xs:element name="ica30_ipe_module1" type="chromatix_ica30Type"/>
+      <xs:element name="ica30_ipe_module2" type="chromatix_ica30Type"/>
+      <xs:element name="anr10_ipe" type="chromatix_anr10Type"/>
+      <xs:element name="tf20_ipe" type="chromatix_tf20Type"/>
+      <xs:element name="ds4to1v11_ipe" type="chromatix_ds4to1v11Type"/>
+      <xs:element name="hnr10_ipe" type="chromatix_hnr10Type"/>
+      <xs:element name="lenr10_ipe" type="chromatix_lenr10Type"/>
+      <xs:element name="cac23_ipe" type="chromatix_cac23Type"/>
+      <xs:element name="cst12_ipe" type="chromatix_cst12Type"/>
+      <xs:element name="ltm14_ipe" type="chromatix_ltm14Type"/>
+      <xs:element name="cc13_ipe" type="chromatix_cc13Type"/>
+      <xs:element name="gamma15_ipe" type="chromatix_gamma15Type"/>
+      <xs:element name="tdl10_ipe" type="chromatix_tdl10Type"/>
+      <xs:element name="cv12_ipe" type="chromatix_cv12Type"/>
+      <xs:element name="cs20_ipe" type="chromatix_cs20Type"/>
+      <xs:element name="sce11_ipe" type="chromatix_sce11Type"/>
+      <xs:element name="asf30_ipe" type="chromatix_asf30Type"/>
+      <xs:element name="upscale20_ipe" type="chromatix_upscale20Type"/>
+      <xs:element name="gra10_ipe" type="chromatix_gra10Type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="chromatixIPEData" type="chromatixIPEType"/>
+</xs:schema>

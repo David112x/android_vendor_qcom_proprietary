@@ -1,0 +1,291 @@
+##############################################################################
+# Copyright (c) 2016-2020 Qualcomm Technologies, Inc.
+# All Rights Reserved
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+##############################################################################
+
+# Configuration parameters for qvr service for Morpheus device.
+
+# Calibration data path
+# If device-specific calibration data is present in an alternate location
+# (typically one that wouldn't get wiped during a build update), specify
+# that path here and the VR service will attempt to load calibration data
+# from that path first before loading it from its default location.
+#calibration_path =
+
+# 3D Reconstruction
+3dr_enabled = true
+
+# Size of the samples stored in the 3D reconstruction in meters.
+#   Type: float
+#   Suggested Value: 0.01 to 0.1 meter
+3dr_config_sample_distance = 0.05
+
+# Size of the samples stored in the 3D reconstruction in meters.
+#   Type: float
+#   Suggested Value: At least 5 * 3dr_config_sample_distance
+3dr_config_integration_distance = 0.25
+
+# Max std error acceptable for a fitted/merged plane in meters.
+#   Type: float
+#   Suggested Value: 3dr_config_sample_distance * 5
+3dr_config_plane_detection_max_std_error = 0.25
+
+# Max angular error acceptable for a merged plane in radians.
+#   Type: float
+#   Suggested Value: 0.2 radians
+3dr_config_plane_detection_max_angle_error = 0.2
+
+# Number of iterations for the plane refinement algorithm.
+#   Type: unsigned integer
+#   Suggested Value: 5
+3dr_config_plane_detection_l1_fitting_iterations = 5
+
+# Alpha value in shape plane contour extraction algorithm. Set to zero for convex hull.
+#   Type: float
+3dr_config_plane_detection_alpha = 0
+
+# Max angle tolerance to determine whether a plane is horizontal or vertical.
+#	Type: float
+3dr_config_plane_orientation_max_angle_tolerance = 5.0
+
+# External Sensor related configurations
+#external_sensor_lib =
+
+# External Camera related configurations
+#external_camera_lib =
+
+# EyeTracking Plugin related configurations
+plugin_eye_tracking_lib = libqvr_eyetracking_plugin.so
+
+# Controls how/when eye tracking is started/stopped:
+#   "default"    : eye tracking mode (enable/disable) must be set prior to
+#                  starting VR mode.
+#                  if enabled, eye tracking will start when VR mode is started.
+#                  if enabled, eye tracking will stop when VR mode is stopped.
+#   "standalone" : eye tracking will start when eye tracking mode is enabled.
+#                  eye tracking will stop when eye tracking mode is disabled,
+#                  or when VR mode stops.
+plugin_eye_tracking_operating_mode = default
+
+# Tracker library
+6dof_tracker_lib = libtracker_6dof_skel_8250.so
+
+# Sensor orientation: default is: 1 2 3 (Android Portrait)
+# 1 represents x, 2 represents y and 3 represents z
+# The 3DOF and 6DOF tracking algorithms require IMU data
+# to be in Android Portrait orientation. If the device's
+# default orientation is *not* Android Portrait, these values
+# are used to convert from device orientation to Android
+# Portrait orientation.
+# For Android landscape sensor orientation, use 2 -1 3
+#sensor_orientation = 2 -1 3
+sensor_orientation = 1 2 3
+
+# tracking camera properties
+tracking_camera_id                  = 0,2
+tracking_camera_sensor              = ov9282_stereo
+tracking_camera_driver              = native_pair
+tracking_camera_res                 = 1280 400 30 90
+tracking_camera_quarter_res         = 1280 400 30 90
+tracking_camera_frame_rdi_mode      = true
+tracking_camera_frame_rdi_bit_depth = 10
+tracking_camera_rdi_frame_format    = raw16
+tracking_camera_auto_exposure       = true
+tracking_camera_hvx_mode            = false
+tracking_camera_hvx_algo            = qvrcam_receiver
+tracking_camera_master_only         = false
+tracking_camera_control_protected   = true
+tracking_camera_privileged_client   = 0
+tracking_camera_frame_logging_mode  = disabled
+tracking_camera_hvx_sensor          = ov9282
+tracking_camera_default_flash_mode  = off
+tracking_camera_hvx_stereo_slave_camera_id = -1
+tracking_camera_default_resolution_mode  = full
+tracking_camera_supported_formats        = y8 depth16
+tracking_camera_default_frame_format     = y8
+
+# eye camera properties
+eye-tracking_camera_id                  = 5,4
+eye-tracking_camera_sensor              = ov6211_stereo
+eye-tracking_camera_driver              = native_pair
+eye-tracking_camera_res                 = 800 400 60 220
+eye-tracking_camera_quarter_res         = 400 200 60 220
+eye-tracking_camera_frame_rdi_mode      = true
+eye-tracking_camera_frame_rdi_bit_depth = 10
+eye-tracking_camera_rdi_frame_format    = raw10
+eye-tracking_camera_auto_exposure       = false
+eye-tracking_camera_hvx_mode            = false
+eye-tracking_camera_hvx_algo            = qvrcam_receiver
+eye-tracking_camera_master_only         = true
+eye-tracking_camera_control_protected   = true
+eye-tracking_camera_privileged_client   = 0
+eye-tracking_camera_frame_logging_mode  = disabled
+eye-tracking_camera_hvx_sensor          = ov6211
+eye-tracking_camera_default_flash_mode  = torch
+eye-tracking_camera_hvx_stereo_slave_camera_id = -1
+eye-tracking_camera_default_resolution_mode  = full
+eye-tracking_camera_supported_formats        = y8
+eye-tracking_camera_default_frame_format     = y8
+
+# RGB left camera properties
+rgb-left_camera_id                      = 3
+rgb-left_camera_sensor                  = ov8856
+rgb-left_camera_driver                  = native
+rgb-left_camera_res                     = 1280 720 30 30
+rgb-left_camera_quarter_res             = 320 240 30 30
+rgb-left_camera_frame_rdi_mode          = false
+rgb-left_camera_frame_rdi_bit_depth     = 10
+rgb-left_camera_rdi_frame_format        = raw10
+rgb-left_camera_auto_exposure           = true
+rgb-left_camera_hvx_mode                = false
+rgb-left_camera_hvx_algo                = qvrcam_receiver
+rgb-left_camera_master_only             = false
+rgb-left_camera_control_protected       = false
+rgb-left_camera_privileged_client       = 0
+# camera logging (disabled, continuous, oneshot)
+rgb-left_camera_frame_logging_mode      = disabled
+rgb-left_camera_hvx_sensor              = ov8856
+rgb-left_camera_default_flash_mode      = off
+rgb-left_camera_hvx_stereo_slave_camera_id = -1
+rgb-left_camera_default_resolution_mode    = full
+rgb-left_camera_supported_formats          = yuv420
+rgb-left_camera_default_frame_format       = yuv420
+
+# RGB right camera properties
+rgb-right_camera_id                      = 1
+rgb-right_camera_sensor                  = ov8856
+rgb-right_camera_driver                  = native
+rgb-right_camera_res                     = 1280 720 30 30
+rgb-right_camera_quarter_res             = 320 240 30 30
+rgb-right_camera_frame_rdi_mode          = false
+rgb-right_camera_frame_rdi_bit_depth     = 10
+rgb-right_camera_rdi_frame_format        = raw10
+rgb-right_camera_auto_exposure           = true
+rgb-right_camera_hvx_mode                = false
+rgb-right_camera_hvx_algo                = qvrcam_receiver
+rgb-right_camera_master_only             = false
+rgb-right_camera_control_protected       = false
+rgb-right_camera_privileged_client       = 0
+# camera logging (disabled, continuous, oneshot)
+rgb-right_camera_frame_logging_mode      = disabled
+rgb-right_camera_hvx_sensor              = ov8856
+rgb-right_camera_default_flash_mode      = off
+rgb-right_camera_hvx_stereo_slave_camera_id = -1
+rgb-right_camera_default_resolution_mode    = full
+rgb-right_camera_supported_formats          = yuv420
+rgb-right_camera_default_frame_format       = yuv420
+
+# RGB sync camera properties
+rgb_camera_id                      = 3,1
+rgb_camera_sensor                  = ov8856_stereo
+rgb_camera_driver                  = native_pair
+rgb_camera_calibration_name        = rgb-left,rgb-right
+rgb_camera_res                     = 2560 720 30 30
+rgb_camera_quarter_res             = 640 240 30 30
+rgb_camera_frame_rdi_mode          = false
+rgb_camera_frame_rdi_bit_depth     = 10
+rgb_camera_rdi_frame_format        = raw10
+rgb_camera_auto_exposure           = true
+rgb_camera_hvx_mode                = false
+rgb_camera_hvx_algo                = qvrcam_receiver
+rgb_camera_master_only             = false
+rgb_camera_control_protected       = false
+rgb_camera_privileged_client       = 0
+# camera logging (disabled, continuous, oneshot)
+rgb_camera_frame_logging_mode      = disabled
+rgb_camera_hvx_sensor              = ov8856
+rgb_camera_default_flash_mode      = off
+rgb_camera_hvx_stereo_slave_camera_id = -1
+rgb_camera_default_resolution_mode    = full
+rgb_camera_supported_formats          = yuv420
+rgb_camera_default_frame_format       = yuv420
+
+
+# 6dof pose logging (disabled, continuous, oneshot)
+tracking_6dof_pose_logging_mode    = disabled
+
+
+# the service will expose display interrupts to its clients from
+# /dev/graphics/fb[display_id] (default is fb0)
+#display_id = 0
+
+# vblank off delay
+disp_vblank_off_delay = 20
+
+# QVRService display lineptr interrupt is not supported on SM8150/SDM845
+# and later platforms. Set this config to true to handle linePtr interrupt by VSYNC
+# interrupt. This config only need to be enable to support apps built with older VR
+# SDKs that do not support using vsync callback via svrapi_config.txt.
+disp_lineptr_override_to_vsync = false
+
+#force to mag sensor based drift free 3dof
+#force_drift_free_3dof = true
+
+#Received mag sensor data should be in the range of Earth's magnetic field magnitude range (0.25 to 0.65 gauss)
+#if not, then either mag is not calibrated or indicates presence of external noise
+#use (0 0) to disable this checking
+mag_validity_range_gauss = 0.25 0.65
+
+# performance: thread_attributes<_optional soc id>
+# format -> [thread type]:[cpu performance level]>[sched_policy],[priority],[cpu_affinity];[cpu performance level]>[sched_policy],[priority],[cpu_affinity];
+# cpu_affinity is given as bit mask
+performance_thread_attributes = render:0>SCHED_FIFO,48,0xFF;1>SCHED_FIFO,48,0xF0;2>SCHED_FIFO,48,0xF0;3>SCHED_FIFO,48,0xF0
+performance_thread_attributes = warp:0>SCHED_FIFO,49,0xFF;1>SCHED_FIFO,49,0xF0;2>SCHED_FIFO,49,0xF0;3>SCHED_FIFO,49,0xF0
+performance_thread_attributes = controller:0>SCHED_OTHER,0,0xFF;1>SCHED_OTHER,0,0xF;2>SCHED_OTHER,0,0xF0;3>SCHED_OTHER,0,0xF0
+performance_thread_attributes = normal:0>SCHED_OTHER,0,0xFF;1>SCHED_OTHER,0,0xF;2>SCHED_OTHER,0,0xF0;3>SCHED_OTHER,0,0xF0
+
+# performance: hints for gpu and cpu levels
+# format -> [cpu_level gpu_level]:[hint id in powerhint.xml] [cpu_level gpu_level]:[hint id in powerhint.xml]
+# format -> [cpu_level gpu_level] - lower byte for gpu level and next higher byte for cpu_level. Max level 255
+performance_perf_hints = 0x0101:0x0000130A 0x0102:0x0000130B 0x0103:0x0000130C
+performance_perf_hints = 0x0201:0x0000130D 0x0202:0x0000130E 0x0203:0x0000130F
+performance_perf_hints = 0x0301:0x00001310 0x0302:0x00001311 0x0303:0x00001312
+
+# performance thermal rules to be enabled
+# format -> [thermal rule name]:[algo type]>[hardware type]
+performance_thermal_rules = QVR_Rule_G:monitor>gpu QVR_Rule_C:monitor>cpu
+
+# performance: temperature to temperature level mapping
+# format -> [hardware type]:[temperature]>[temperature level];[temperature]>[temperature level]
+performance_temp_levels = gpu:30000>1;32000>2;34000>3;36000>4 cpu:38000>1;41000>2;42000>3;43000>4
+
+# performance: thermal rule threshold index to mitigation actions mapping
+# format -> [thermal rule name]:[threshold index]>[mit_action1,mit_action2];[threshold index]>[mit_action1,mit_action2]
+# mit_actions: fpsup & fpsdown -> increase & decrease fps , resup & reddown -> increase & decrease eye buffer resolution
+performance_mitigation_actions = QVR_Rule_G:1>fpsdown,resup;2>fpsdown,resdown;3>fpsdown,resup;4>fpsup,resdown;5>fpsdown,resdown;6>fpsdown,resup;7>fpsup,resup QVR_Rule_C:1>fpsdown,resup;2>fpsup,resup
+
+# A hw_transform setting defines a physical transform between two hardware
+# components in the Android Portrait coordinate system. The format is as follows:
+#   hw_transform = [from] [to] [4x3 float matrix]
+# The values of the matrix are in meters and are flattened as follows:
+#   R00 R01 R02 T1
+#   R10 R11 R12 T2  --> [ R00 R01 R02 T1 R10 R11 R12 T2 R20 R21 R22 T3 ]
+#   R20 R21 R22 T3
+# Valid values for [from] and [to] are:
+#   hmd  = virtual HMD reference point
+#   imu  = IMU
+#   eyeL = left eye tracking camera
+#   eyeR = right eye tracking camera
+hw_transform = imu hmd  1.0 0.0 0.0 0.095 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0
+hw_transform = imu eyeL 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0
+hw_transform = imu eyeR 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0
+
+# Early initialization of the Tracker module
+6dof_tracker_early_init = true
+
+# Reload the service when the app closes
+reload_when_closed = true
+
+# Synchronizer config
+# sync_config_eye_pose options: 1=get_eye_pose 2=vsync
+# sync_config_tracker options:  1=get_frame    2=vsync
+#sync_config_eye_pose = 1
+sync_config_tracker  = 1
+
+#device mode (default, host, gadget)
+device-mode = default
+
+# When set to a non-zero value, the service's main thread will run at SCHED_FIFO
+# with the specified priority value.
+sched_prio = 42

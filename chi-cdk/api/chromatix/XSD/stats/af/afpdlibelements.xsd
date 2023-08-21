@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="afglobalelements.xsd"/>
+	<xs:include schemaLocation="..\common\statsglobalelements.xsd"/>
+	<xs:element name="chromatixPDLib" type="chromatixPDLibType"/>
+	<xs:complexType name="chromatixPDLibType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="9"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="A"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="preProcess" type="chromatixTuningPreProcess"/>
+			<xs:element name="preProcessVertical" type="chromatixTuningPreProcess"/>
+			<xs:element name="correlation" type="chromatixTuningCorrelation"/>
+			<xs:element name="correlationVertical" type="chromatixTuningCorrelation"/>
+			<xs:element name="postProcess" type="chromatixTuningPostProcess"/>
+			<xs:element name="postProcessVertical" type="chromatixTuningPostProcess"/>
+			<xs:element name="adaptiveK" type="chromatixTuningAdaptiveK"/>
+			<xs:element name="enablePeripheralWindows" type="enable_flag_type" default="0"/>
+			<xs:element name="singleWindowProcessingLevel" type="chromatixTuningProcessLevel"/>
+			<xs:element name="singleWindowProcessingLevelVertical" type="chromatixTuningProcessLevel"/>
+			<xs:element name="gridProcessingLevel" type="chromatixTuningProcessLevel"/>
+			<xs:element name="gridProcessingLevelVertical" type="chromatixTuningProcessLevel"/>
+			<xs:element name="PeripheralProcessing" type="chromatixTuningProcessLevel"/>
+			<xs:element name="PeripheralProcessingVertical" type="chromatixTuningProcessLevel"/>
+			<xs:element name="HVControl" type="chromatixHVControl"/>
+			<xs:element name="skipControl" type="chromatixTuningSkipControl"/>
+			<xs:element name="hardwareGeometry" type="chromatixTuningHardwareGeometry"/>
+			<xs:element name="hardwarePattern" type="chromatixTuningHardwarePattern" maxOccurs="3"/>
+			<xs:element name="enableFocusMaps" type="enable_flag_type" default="0" />
+			<xs:element name="extensionParam" type="statsExtensionParamType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDRange">
+		<xs:sequence>
+			<xs:element name="from">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="PD search range near limit."/>
+							<xs:attribute name="range" type="xs:string" default="[-48,0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="to">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="PD search range far limit."/>
+							<xs:attribute name="range" type="xs:string" default="[0,32]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixHVControl">
+		<xs:sequence>
+			<xs:element name="PDProcessingAxis" type="chromatixPDAxisControl"/>
+			<xs:element name="horizontalConfWeightTuning" type="chromatixHVConfWeight" maxOccurs="4"/>
+			<xs:element name="verticalConfWeightTuning" type="chromatixHVConfWeight" maxOccurs="4"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixHVConfWeight">
+		<xs:sequence>
+			<xs:element name="weight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight at specific confidence"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="confThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Confidence threshold for HV"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2048]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDLIBPreprocessingFilterSettings">
+		<xs:sequence>
+			<xs:element name="AECTrigger" type="trigger_pt_type_aec"/>
+			<xs:element name="verticalMode">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Vertical skip for preprocessing. Use of 2 means process 1 row and skip 1 row."/>
+							<xs:attribute name="range" type="xs:string" default="[1,32]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horizontalMode">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Horizontal skip for preprocessing. Use of 2 means process 2 columns to generate 1 column."/>
+							<xs:attribute name="range" type="xs:string" default="[1,8]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="boxFilterLength">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Not used."/>
+							<xs:attribute name="range" type="xs:string" default="[1,8]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="antiAliasFilterThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Not used."/>
+							<xs:attribute name="range" type="xs:string" default="[80,120]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixDPDFilterTrigger">
+		<xs:sequence>
+			<xs:element name="filterSet" type="chromatixPDLIBPreprocessingFilterSettings" minOccurs="3" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixLCRFilterTrigger">
+		<xs:sequence>
+			<xs:element name="filterSet" type="chromatixPDLIBPreprocessingFilterSettings" minOccurs="3" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="chromatixSparsePDProcMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SPARSE_PD_PROC_SIMPLE"/>
+			<xs:enumeration value="SPARSE_PD_PROC_LCR"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="chromatixPDAxisControl">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Horizontal"/>
+			<xs:enumeration value="Vertical"/>
+			<xs:enumeration value="HorizontalVertical"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="chromatixHDRChannelSelection">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DPD_HDR_AUTO_MODE"/>
+			<xs:enumeration value="DPD_HDR_LONG_MODE"/>
+			<xs:enumeration value="DPD_HDR_SHORT_MODE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="chromatixTuningHDRCfg">
+		<xs:sequence>
+			<xs:element name="channelSelection" type="chromatixHDRChannelSelection"/>
+			<xs:element name="longThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Selection of PD processing on long-exposure frame (1), short-exposure frame (2), or auto selection (0)."/>
+							<xs:attribute name="range" type="xs:string" default="[0,2]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="chromatixLCRBinningMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PDAF_LCR_BINNING_DEFAULT"/>
+			<xs:enumeration value="PDAF_LCR_BINNING_ALL"/>
+			<xs:enumeration value="PDAF_LCR_BINNING_SHIELD"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="chromatixLCRRawType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PDAF_BAYER_RAW"/>
+			<xs:enumeration value="PDAF_IDEAL_RAW"/>
+			<xs:enumeration value="PDAF_CAMIF_RAW"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="chromatixLCRChannel">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PDAF_LCR_CHANNEL_G"/>
+			<xs:enumeration value="PDAF_LCR_CHANNEL_Y"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="chromatixTuningPreProcess">
+		<xs:sequence>
+			<xs:element name="sparseProcessingMode" type="chromatixSparsePDProcMode"/>
+			<xs:element name="HDR" type="chromatixTuningHDRCfg"/>
+			<xs:element name="boxFilterLength">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Box filter legenth for sparse PDAF sensors."/>
+							<xs:attribute name="range" type="xs:string" default="[1,8]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="antiAliasFilterThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Anti-aliasing filter threshold for sparse PDAF sensors."/>
+							<xs:attribute name="range" type="xs:string" default="[80,120]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="saturationThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="2PD pixel value higher than this threshold will be clipped to threshold value"/>
+							<xs:attribute name="range" type="xs:string" default="[0,5000]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="filterTrigger" type="chromatixDPDFilterTrigger"/>
+			<xs:element name="lcrFilterTrigger" type="chromatixLCRFilterTrigger"/>
+			<xs:element name="lcrChannel">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="chromatixLCRChannel">
+							<xs:attribute name="description" type="xs:string" default="This parameter specify LCR channel."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lcrBinningMode">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="chromatixLCRBinningMode">
+							<xs:attribute name="description" type="xs:string" default="This parameter specify LCR binning strategy."/>
+							<xs:attribute name="range" type="xs:string" default="[0,2]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lcrRawType">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="chromatixLCRRawType">
+							<xs:attribute name="description" type="xs:string" default="This parameter specify raw data type for LCR virtual pixel generation."/>
+							<xs:attribute name="range" type="xs:string" default="[0,2]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lcrMaxBinningNum">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Max pixel number for generate the virtual center pixel for advanced sparse PD mode. "/>
+							<xs:attribute name="range" type="xs:string" default="[1,4]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lcrChannelSeparated">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="indicated to use separate channel or not"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDLIBPostprocessingTemporalFilterSetting">
+		<xs:sequence>
+			<xs:element name="AECTrigger" type="trigger_pt_type_aec"/>
+			<xs:element name="dynamicWeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="staticWeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTemporalFilterTrigger">
+		<xs:sequence>
+			<xs:element name="temporalFilterSet" type="chromatixPDLIBPostprocessingTemporalFilterSetting" minOccurs="3" maxOccurs="3"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningPostProcess">
+		<xs:sequence>
+			<xs:element name="biasVectorStrength">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Strength of bias to be applied to disparity vector for the case of repeating patterns."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,0.4]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="temporalFilterStaticWeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight of temporal filter while lens is not moving. Weight=1.0 disables temporal filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="temporalFilterDynamicWeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Weight of temporal filter while lens is moving. Weight=1.0 disables temporal filter."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="temporalFilterTrigger" type="chromatixTemporalFilterTrigger"/>
+			<xs:element name="enableGridOverlap">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Enables PD statistics to be computed in overlapping grids."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="confIntegralWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Tuning parameter for confidence level. Increasing this tuning increases confidence level."/>
+							<xs:attribute name="range" type="xs:string" default="[24,32]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningAdaptiveK">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="A flag for enabling adaptive k feature or not."/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="timeoutFrameCntThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="A timeout frame number. If frame counter meets the threshold as adaptive k is in state 1, it will return to state 0."/>
+							<xs:attribute name="range" type="xs:string" default="[1,255]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="filterSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Size of the median filter. The median filter process is utilized as estimating DCC value from adaptive k data history."/>
+							<xs:attribute name="range" type="xs:string" default="[1,9]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state0StableCntThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Stable count threshold as adaptive k is in state 0. Before entering state 1, all adaptive k input stats should meet state-0-requirements for at least state0StableCntThres frames."/>
+							<xs:attribute name="range" type="xs:string" default="[1,255]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state1StableCntThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Stable count threshold as adaptive k is in state 1. Before entering state 2, all adaptive k input stats should meet state-2-requirements for at least state1StableCntThres frames."/>
+							<xs:attribute name="range" type="xs:string" default="[1,255]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minimumLensPosDelta">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum number of lens position delta as estimating K value in state 2. If the lens position delta is less than the value, the K estimate will be abandoned."/>
+							<xs:attribute name="range" type="xs:string" default="[1,400]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state0ConfThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum confidence value before entering state 1 as adaptive k is in state 0."/>
+							<xs:attribute name="range" type="xs:string" default="[1,1024]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state1ConfThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum confidence value before entering state 2 as adaptive k is in state 1."/>
+							<xs:attribute name="range" type="xs:string" default="[1,1024]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state0PhaseDiffThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum phase difference value before entering state 1 as adaptive k is in state 0."/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="state1PhaseDiffThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum phase difference value before entering state 2 as adaptive k is in state 1."/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolNearTargetUpperBound">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Upper bound ratio with respect to golden module K value as target is at near end (MACRO). If estimated K is within the bound, this means K value is valid for proper AF behavior."/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolNearTargetLowerBound">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Lower bound ratio with respect to golden module K value as target is at near end (MACRO). If estimated K is within the bound, this means K value is valid for proper AF behavior."/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolFarTargetUpperBound">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Upper bound ratio with respect to golden module K value as target is at far end (INFINITY). If estimated K is within the bound, this means K value is valid for proper AF behavior."/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolFarTargetLowerBound">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Lower bound ratio with respect to golden module K value as target is at far end (INFINITY). If estimated K is within the bound, this means K value is valid for proper AF behavior.   "/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="chromatixPDProcessingMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PD_PROCESSING_MODE_DYNAMIC"/>
+			<xs:enumeration value="PD_PROCESSING_MODE_LOW"/>
+			<xs:enumeration value="PD_PROCESSING_MODE_MED"/>
+			<xs:enumeration value="PD_PROCESSING_MODE_HIGH"/>
+			<xs:enumeration value="PD_PROCESSING_MODE_CONSTANT_QUALITY"/>
+			<xs:enumeration value="PD_PROCESSING_MODE_CONSTANT_COST"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="chromatixTuningProcessLevel">
+		<xs:sequence>
+			<xs:element name="processingMode">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="chromatixPDProcessingMode">
+							<xs:attribute name="description" type="xs:string" default="Specify the PD processing Mode, Dynamic/LOW/MED/HIGH is deprecate, use const_quality/cost instead"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dynamicLevel">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in focusing state"/>
+							<xs:attribute name="range" type="xs:string" default="[1,1000]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="staticLevel">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Tuning parameter for dynamic adjustment of vertical density at which PD is computed in monitor state"/>
+							<xs:attribute name="range" type="xs:string" default="[1,1000]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningCorrelation">
+		<xs:sequence>
+			<xs:element name="minimumConfidenceLevel">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum confidence level threshold for binary confidence flag provided to aut focus algorithms."/>
+							<xs:attribute name="range" type="xs:string" default="[50,200]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="defocusConfidenceThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum confidence level threshold for triggering PD computation on additional ROI for sparse PDAF sensors."/>
+							<xs:attribute name="range" type="xs:string" default="[50,200]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="PDRangeControl">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Tuning for Confident Range."/>
+							<xs:attribute name="range" type="xs:string" default="[0.02,0.10]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="searchRange" type="chromatixPDRange"/>
+			<xs:element name="lcrSearchRange" type="chromatixPDRange"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningSkipControl">
+		<xs:sequence>
+			<xs:element name="staticFrameCountThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Frame count thres for static lens to trigger PD processing skip logic"/>
+							<xs:attribute name="range" type="xs:string" default="[3,10]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxFrameRate">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the PD processing frame rate when PD processing skip logic kick in, 30 means no skip."/>
+							<xs:attribute name="range" type="xs:string" default="[5,30]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningHardwareGeometry">
+		<xs:sequence>
+			<xs:element name="enabldHardwarePDModule" default="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="A flag indicating hardware PD module is enabled or not."/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableOverlap">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="A flag indicating overlap in postprocess grid in enabled or not."/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfHoriGrids">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of horizontal grids for the postprocess grids (multiwindow)"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfVertGrids">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of vertical grids for the postprocess grids (multiwindow)"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horiNumOfRGNInGridUnit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of horizontal HW RGN in the grid unit"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="vertNumOfRGNInGridUnit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of vertical HW RGN in the grid unit"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horiRegionOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="horizontal offset for the HWGrid configuration"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2047]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="vertRegionOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="vertical offset for the HWGrid configuration"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2047]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="widhtOfRegion">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="width of each HWGrid size"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2047]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="heightOfRegion">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="height of each HWGrid size"/>
+							<xs:attribute name="range" type="xs:string" default="[0,2047]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="horiNumOfRegion">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="number of HWGRid in horizontal direction"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="vertNumOfRegion">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="number of HWGrid in vertical direction"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDAFHardwarePixelExtractor">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Enabling pixel extractor"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Expected output width"/>
+							<xs:attribute name="range" type="xs:string" default="[0,63]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputHeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Expected output height"/>
+							<xs:attribute name="range" type="xs:string" default="[0,63]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDAFHardwareLineExtractor">
+		<xs:sequence>
+			<xs:element name="XOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Horizontal offset for each line"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1451]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="YOffset">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Vertical offset for each line"/>
+							<xs:attribute name="range" type="xs:string" default="[0,127]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="HalfLine">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Half line indication for each line"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDAFHardwarePixelSeparator">
+		<xs:sequence>
+			<xs:element name="inputBlockWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Input block width for pixel separator"/>
+							<xs:attribute name="range" type="xs:string" default="[0,15]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="inputBlockHeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Input block height for pixel separator"/>
+							<xs:attribute name="range" type="xs:string" default="[0,15]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputBlockWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Output block width for each buffer (L/R) outputted from pixel separator"/>
+							<xs:attribute name="range" type="xs:string" default="[0,31]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputBlockHeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Output block height for each buffer (L/R) outputted from pixel separator"/>
+							<xs:attribute name="range" type="xs:string" default="[0,3]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="L_map" maxOccurs="128">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Array of indices indicating where L pixels are located for incoming buffer"/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="R_map" maxOccurs="128">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Array of indices indicating where R pixels are located for incoming buffer"/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDAFHardwareResampler">
+		<xs:sequence>
+			<xs:element name="enable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="enable_flag_type">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Enables resampler block in PD Hardware."/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="inputBlockWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Input block width for resampler"/>
+							<xs:attribute name="range" type="xs:string" default="[0,31]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="inputBlockHeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Input block height for resampler"/>
+							<xs:attribute name="range" type="xs:string" default="[0,3]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputBlockWidth">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Output block width for resampler"/>
+							<xs:attribute name="range" type="xs:string" default="[0,31]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="outputBlockHeight">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Output block height for resampler"/>
+							<xs:attribute name="range" type="xs:string" default="[0,31]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="instructions" type="chromatixPDAFHardwareResamplerInstruction" maxOccurs="32"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixPDAFHardwareResamplerInstruction">
+		<xs:sequence>
+			<xs:element name="S" maxOccurs="8">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Array of indices indicating the coordinates of pixels that resampler will use for calculation in the form of [S0x, S0y...S4x, S4y]"/>
+							<xs:attribute name="range" type="xs:string" default="[-3,34]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="O" maxOccurs="16">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Array of resampler coefficients in the form of [OP0-OP3][K0-K3]"/>
+							<xs:attribute name="range" type="xs:string" default="[-2,2]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixTuningHardwarePattern">
+		<xs:sequence>
+			<xs:element name="pixelExtractor" type="chromatixPDAFHardwarePixelExtractor"/>
+			<xs:element name="lineExtractor" type="chromatixPDAFHardwareLineExtractor" maxOccurs="unbounded"/>
+			<xs:element name="pixelSeparator" type="chromatixPDAFHardwarePixelSeparator"/>
+			<xs:element name="resampler" type="chromatixPDAFHardwareResampler"/>
+			<xs:element name="gridWidthScaleRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Ratio of HW grid width for different sets of hardwarePattern"/>
+							<xs:attribute name="range" type="xs:string" default="[0,4]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="gridHeightScaleRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Ratio of HW grid height for different sets of hardwarePattern"/>
+							<xs:attribute name="range" type="xs:string" default="[0,4]"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

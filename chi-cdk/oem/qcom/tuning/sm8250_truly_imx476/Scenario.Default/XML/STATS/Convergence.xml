@@ -1,0 +1,846 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Convergence
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecConvergence.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="1"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <algoSelect>AECConvFastConv</algoSelect>
+  <fastConv>
+    <tolMultUnitStepSize type='int' range="[1,5]">2</tolMultUnitStepSize>
+    <frameSkipMethod>SmoothNoSkip</frameSkipMethod>
+    <aggressiveness type='float' range="[0.0,1.0]">0.8</aggressiveness>
+    <enableBrightDarkSpeedAdj type='bool'>false</enableBrightDarkSpeedAdj>
+    <darkRatioAdjStrength type='float' range="[0,1.0]">1.5</darkRatioAdjStrength>
+    <brightRatioAdjStrength type='float' range="[0,1.0]">0.4</brightRatioAdjStrength>
+    <thresDarkExpIndexDelta type='float' range="[40,80]">50</thresDarkExpIndexDelta>
+    <thresBrightExpIndexDelta type='float' range="[10,30]">50</thresBrightExpIndexDelta>
+    <ADRCConvSpeed type='float' range="[0.0,0.5]">0.15</ADRCConvSpeed>
+    <predictiveConvergence>
+      <enablePredictiveConvergence type='bool'>true</enablePredictiveConvergence>
+      <FPSThreshold type='float' range="[1.0,240.0]">12</FPSThreshold>
+      <disableWhenDRC type='bool'>false</disableWhenDRC>
+      <maxGain type='float' range="[1.0,32.0]">6</maxGain>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>0</start>
+          <end>190</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>230</start>
+          <end>360</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>420</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+    </predictiveConvergence>
+    <brightDarkConvAdj>
+      <enableBrightDarkConvergence type='bool'>true</enableBrightDarkConvergence>
+      <darkAdjustment>
+        <zoneTrigger>
+          <start>0</start>
+          <end>0.01</end>
+        </zoneTrigger>
+        <zoneData>
+          <darkRatioAdjStrength type='float' range="[0.0,1.0]">0</darkRatioAdjStrength>
+        </zoneData>
+      </darkAdjustment>
+      <darkAdjustment>
+        <zoneTrigger>
+          <start>0.2</start>
+          <end>0.4</end>
+        </zoneTrigger>
+        <zoneData>
+          <darkRatioAdjStrength type='float' range="[0.0,1.0]">0.1</darkRatioAdjStrength>
+        </zoneData>
+      </darkAdjustment>
+      <darkAdjustment>
+        <zoneTrigger>
+          <start>0.6</start>
+          <end>1</end>
+        </zoneTrigger>
+        <zoneData>
+          <darkRatioAdjStrength type='float' range="[0.0,1.0]">0.15</darkRatioAdjStrength>
+        </zoneData>
+      </darkAdjustment>
+      <brightAdjustment>
+        <zoneTrigger>
+          <start>0</start>
+          <end>0.01</end>
+        </zoneTrigger>
+        <zoneData>
+          <brightRatioAdjStrength type='float' range="[0.0,1.0]">0</brightRatioAdjStrength>
+        </zoneData>
+      </brightAdjustment>
+      <brightAdjustment>
+        <zoneTrigger>
+          <start>0.2</start>
+          <end>0.4</end>
+        </zoneTrigger>
+        <zoneData>
+          <brightRatioAdjStrength type='float' range="[0.0,1.0]">0.25</brightRatioAdjStrength>
+        </zoneData>
+      </brightAdjustment>
+      <brightAdjustment>
+        <zoneTrigger>
+          <start>0.6</start>
+          <end>1</end>
+        </zoneTrigger>
+        <zoneData>
+          <brightRatioAdjStrength type='float' range="[0.0,1.0]">0.35</brightRatioAdjStrength>
+        </zoneData>
+      </brightAdjustment>
+    </brightDarkConvAdj>
+  </fastConv>
+  <slowConv>
+    <tolMultUnitStepSize type='int' range="[1,5]">2</tolMultUnitStepSize>
+    <frameSkipMethod>SmoothNoSkip</frameSkipMethod>
+    <stepFactorWhenFrameSkipEnabled type='float' range="[1.5,2.5]">2</stepFactorWhenFrameSkipEnabled>
+    <convSpeed type='float' range="[0.0,1.0]">0.8</convSpeed>
+    <refFrameRate type='float' range="[15.0,120.0]">30</refFrameRate>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <stepRegular range="[2.0,6.0]">
+      <start>3</start>
+      <end>5</end>
+    </stepRegular>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <stepDark range="[6.0,30.0]">
+      <start>10</start>
+      <end>22</end>
+    </stepDark>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <stepBright range="[5.0,18.0]">
+      <start>8</start>
+      <end>16</end>
+    </stepBright>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <thresSlowDownAbsExpIndexDeltaDark range="[6.0,20.0]">
+      <start>17.3</start>
+      <end>7.55</end>
+    </thresSlowDownAbsExpIndexDeltaDark>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <thresSlowDownAbsExpIndexDeltaBright range="[6.0,20.0]">
+      <start>7.55</start>
+      <end>4.73</end>
+    </thresSlowDownAbsExpIndexDeltaBright>
+    <maxRawStepAdj type='float' range="[1.0,2.5]">2</maxRawStepAdj>
+    <tolExpIndexDeltaForceAdj type='float' range="[2,4]">4</tolExpIndexDeltaForceAdj>
+    <thresNumBrightRgn type='float' range="[0.03,0.1]">0.05</thresNumBrightRgn>
+    <thresNumDarkRgn type='float' range="[0.03,0.2]">0.05</thresNumDarkRgn>
+    <holdTimeTuning>
+      <enableHoldTime type='bool'>false</enableHoldTime>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <thresAbsExpDelta range="[2.0,6.0]">
+        <start>13.7</start>
+        <end>18</end>
+      </thresAbsExpDelta>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <expDeltaBasedHTAdjFactor range="[1.0,0.3]">
+        <start>1</start>
+        <end>0.7</end>
+      </expDeltaBasedHTAdjFactor>
+      <tolAdjFactor type='int' range="[1,4]">2</tolAdjFactor>
+      <holdTimeEnterDelay type='float' range="[1.0,10.0]">3</holdTimeEnterDelay>
+      <maxHoldTime type='float' range="[0,3]">1</maxHoldTime>
+      <enableGyroBasedHT type='bool'>false</enableGyroBasedHT>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <thresGyroMagnitude range="[0.1,10.0]">
+        <start>0.5</start>
+        <end>4</end>
+      </thresGyroMagnitude>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <gyroBasedHTAdjFactor range="[1.0,0.3]">
+        <start>1</start>
+        <end>0.4</end>
+      </gyroBasedHTAdjFactor>
+    </holdTimeTuning>
+    <ADRCConvSpeed type='float' range="[0.0,0.5]">0.15</ADRCConvSpeed>
+    <predictiveConvergence>
+      <enablePredictiveConvergence type='bool'>true</enablePredictiveConvergence>
+      <FPSThreshold type='float' range="[1.0,240.0]">12</FPSThreshold>
+      <disableWhenDRC type='bool'>false</disableWhenDRC>
+      <maxGain type='float' range="[1.0,32.0]">6</maxGain>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>0</start>
+          <end>190</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>230</start>
+          <end>360</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+      <predictiveTrigger>
+        <zoneTrigger>
+          <start>420</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <zoneData>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.2</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.3</start>
+            <end>0.3</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+        <zoneData>
+          <zoneTrigger>
+            <start>0.8</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <stepSize>
+              <start>3</start>
+              <end>5</end>
+            </stepSize>
+            <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+            <decay type='float' range="[0.0,1.0]">0.5</decay>
+          </zoneData>
+        </zoneData>
+      </predictiveTrigger>
+    </predictiveConvergence>
+  </slowConv>
+  <unitStepSize type='float' range="[0.1,1.0]">0.5</unitStepSize>
+  <enableConvergeGainFirst type='bool'>false</enableConvergeGainFirst>
+  <settledMultiplier type='float' range="[1.0,10.0]">2</settledMultiplier>
+  <torchConv>
+    <enableTorchOffOn type='bool'>true</enableTorchOffOn>
+    <enableTorchOnOff type='bool'>true</enableTorchOnOff>
+    <minFrameCount type='int' range="[1,20]">4</minFrameCount>
+    <conv>
+      <tolMultUnitStepSize type='int' range="[1,5]">2</tolMultUnitStepSize>
+      <frameSkipMethod>SmoothNoSkip</frameSkipMethod>
+      <aggressiveness type='float' range="[0.0,1.0]">0.9</aggressiveness>
+      <enableBrightDarkSpeedAdj type='bool'>false</enableBrightDarkSpeedAdj>
+      <darkRatioAdjStrength type='float' range="[0,1.0]">0.25</darkRatioAdjStrength>
+      <brightRatioAdjStrength type='float' range="[0,1.0]">0.25</brightRatioAdjStrength>
+      <thresDarkExpIndexDelta type='float' range="[40,80]">0.45</thresDarkExpIndexDelta>
+      <thresBrightExpIndexDelta type='float' range="[10,30]">0.45</thresBrightExpIndexDelta>
+      <ADRCConvSpeed type='float' range="[0.0,0.5]">0.15</ADRCConvSpeed>
+      <predictiveConvergence>
+        <enablePredictiveConvergence type='bool'>true</enablePredictiveConvergence>
+        <FPSThreshold type='float' range="[1.0,240.0]">12</FPSThreshold>
+        <disableWhenDRC type='bool'>false</disableWhenDRC>
+        <maxGain type='float' range="[1.0,32.0]">6</maxGain>
+        <predictiveTrigger>
+          <zoneTrigger>
+            <start>0</start>
+            <end>190</end>
+          </zoneTrigger>
+          <zoneData>
+            <zoneTrigger>
+              <start>0</start>
+              <end>0.2</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.3</start>
+              <end>0.3</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.8</start>
+              <end>1</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+        </predictiveTrigger>
+        <predictiveTrigger>
+          <zoneTrigger>
+            <start>230</start>
+            <end>360</end>
+          </zoneTrigger>
+          <zoneData>
+            <zoneTrigger>
+              <start>0</start>
+              <end>0.2</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.3</start>
+              <end>0.3</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.8</start>
+              <end>1</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+        </predictiveTrigger>
+        <predictiveTrigger>
+          <zoneTrigger>
+            <start>420</start>
+            <end>1000</end>
+          </zoneTrigger>
+          <zoneData>
+            <zoneTrigger>
+              <start>0</start>
+              <end>0.2</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">0</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.3</start>
+              <end>0.3</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">1</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+          <zoneData>
+            <zoneTrigger>
+              <start>0.8</start>
+              <end>1</end>
+            </zoneTrigger>
+            <zoneData>
+              <!--
+
+Base Type Tuning Definition
+
+ -->
+              <stepSize>
+                <start>3</start>
+                <end>5</end>
+              </stepSize>
+              <predictiveFactor type='float' range="[0.0,32.0]">2</predictiveFactor>
+              <decay type='float' range="[0.0,1.0]">0.5</decay>
+            </zoneData>
+          </zoneData>
+        </predictiveTrigger>
+      </predictiveConvergence>
+      <brightDarkConvAdj>
+        <enableBrightDarkConvergence type='bool'>true</enableBrightDarkConvergence>
+        <darkAdjustment>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.01</end>
+          </zoneTrigger>
+          <zoneData>
+            <darkRatioAdjStrength type='float' range="[0.0,1.0]">0</darkRatioAdjStrength>
+          </zoneData>
+        </darkAdjustment>
+        <darkAdjustment>
+          <zoneTrigger>
+            <start>0.2</start>
+            <end>0.4</end>
+          </zoneTrigger>
+          <zoneData>
+            <darkRatioAdjStrength type='float' range="[0.0,1.0]">0.1</darkRatioAdjStrength>
+          </zoneData>
+        </darkAdjustment>
+        <darkAdjustment>
+          <zoneTrigger>
+            <start>0.6</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <darkRatioAdjStrength type='float' range="[0.0,1.0]">0.15</darkRatioAdjStrength>
+          </zoneData>
+        </darkAdjustment>
+        <brightAdjustment>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0.01</end>
+          </zoneTrigger>
+          <zoneData>
+            <brightRatioAdjStrength type='float' range="[0.0,1.0]">0</brightRatioAdjStrength>
+          </zoneData>
+        </brightAdjustment>
+        <brightAdjustment>
+          <zoneTrigger>
+            <start>0.2</start>
+            <end>0.4</end>
+          </zoneTrigger>
+          <zoneData>
+            <brightRatioAdjStrength type='float' range="[0.0,1.0]">0.25</brightRatioAdjStrength>
+          </zoneData>
+        </brightAdjustment>
+        <brightAdjustment>
+          <zoneTrigger>
+            <start>0.6</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <brightRatioAdjStrength type='float' range="[0.0,1.0]">0.35</brightRatioAdjStrength>
+          </zoneData>
+        </brightAdjustment>
+      </brightDarkConvAdj>
+    </conv>
+  </torchConv>
+</Convergence>

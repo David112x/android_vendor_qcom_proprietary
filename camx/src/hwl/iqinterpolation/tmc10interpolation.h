@@ -1,0 +1,146 @@
+// NOWHINE NC009 <- Shared file with system team so uses non-CamX file naming
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2017 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  tmc10interpolation.h
+/// @brief TMC10 Tuning Data Interpolation
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef TMC10INTERPOLATION_H
+#define TMC10INTERPOLATION_H
+
+#include "iqcommondefs.h"
+#include "iqsettingutil.h"
+#include "tmc_1_0_0.h"
+
+/// @brief Trigger information from 3A
+// NOWHINE NC004c: Share code with system team
+struct TMC10TriggerList
+{
+    tmc_1_0_0::chromatix_tmc10Type::control_methodStruct controlType;    ///< chromatix data
+    FLOAT                                                triggerAEC;     ///< AEC trigger
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Class that implements TMC10 module setting calculation
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// NOWHINE NC004c: Share code with system team
+class TMC10Interpolation
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckUpdateTrigger
+    ///
+    /// @brief  Check and update the Trigger Status
+    ///
+    /// @param  pInput       Pointer to the input data from Node
+    /// @param  pTriggerData Pointer to the Trigger data set of this IQ module
+    ///
+    /// @return TRUE if trigger data has changed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL CheckUpdateTrigger(
+        ISPIQTriggerData* pInput,
+        TMC10InputData*   pTriggerData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RunInterpolation
+    ///
+    /// @brief  Perform the interpolation.
+    ///
+    /// @param  pInput Input data to the TMC10 Module
+    /// @param  pData  The output of the interpolation algorithem
+    ///
+    /// @return TRUE for success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL RunInterpolation(
+        const TMC10InputData*          pInput,
+        tmc_1_0_0::tmc10_rgn_dataType* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DoInterpolation
+    ///
+    /// @brief  TMC10 Interpolation function
+    ///
+    /// @param  pData1   Pointer to the input data set 1
+    /// @param  pData2   Pointer to the input data set 2
+    /// @param  ratio    Interpolation Ratio
+    /// @param  pOutput  Pointer to the result set
+    ///
+    /// @return BOOL     return TRUE on success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL DoInterpolation(
+        VOID* pData1,
+        VOID* pData2,
+        FLOAT ratio,
+        VOID* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AECSearchNode
+    ///
+    /// @brief  Search Function for AEC Nodes
+    ///
+    /// @param  pParentNode     Pointer to the Parent Node
+    /// @param  pTriggerData    Pointer to the Trigger Value List
+    /// @param  pChildNode      Pointer to the Child Node
+    ///
+    /// @return Number of Child Node
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static UINT AECSearchNode(
+        TuningNode* pParentNode,
+        VOID*       pTriggerData,
+        TuningNode* pChildNode);
+
+private:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// InterpolationData
+    ///
+    /// @brief  Interpolation Function for TMC10 Module
+    ///
+    /// @param  pInput1     Pointer to input1
+    /// @param  pInput2     Pointer to input2
+    /// @param  ratio       Interpolation ratio to be used
+    /// @param  pOutput     Interpolated output based on input1 and input2
+    ///
+    /// @return BOOL        Return TRUE on success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL InterpolationData(
+        tmc_1_0_0::tmc10_rgn_dataType* pInput1,
+        tmc_1_0_0::tmc10_rgn_dataType* pInput2,
+        FLOAT                          ratio,
+        tmc_1_0_0::tmc10_rgn_dataType* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CalculateKneePoints
+    ///
+    /// @brief  Knee point calculation function.
+    ///
+    /// @param  pIn    Pointer to input
+    /// @param  pOut   Pointer to Output
+    /// @param  pCoef  Pointer to Coef
+    ///
+    /// @return BOOL   Return TRUE on success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL CalculateKneePoints(
+        FLOAT* pIn,
+        FLOAT* pOut,
+        FLOAT* pCoef);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CalcGainCurve
+    ///
+    /// @brief  Calculate ADRC Gain curve values
+    ///
+    /// @param  pInput     Pointer to input data
+    /// @param  pTmcData   Pointer to rgn data
+    ///
+    /// @return BOOL       Return TRUE on success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static BOOL CalcGainCurve(
+        const TMC10InputData*          pInput,
+        tmc_1_0_0::tmc10_rgn_dataType* pTmcData);
+};
+#endif // TMC10INTERPOLATION_H

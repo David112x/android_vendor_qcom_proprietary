@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecMultiCamSync
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecSync.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>B</revision>
+  </parameter_version>
+  <mtrAndExpMode>
+    <master>MtrIndepExpIndep</master>
+    <slave>MtrIndepExpFollow</slave>
+  </mtrAndExpMode>
+  <luxIndexSelection>UseMaster</luxIndexSelection>
+  <expSyncConfig>
+    <enableRelSensitivity type='bool'>false</enableRelSensitivity>
+    <enableExposureTimeMatch type='bool'>false</enableExposureTimeMatch>
+    <expCompMultiplier type='float' range="[0.5, 2.0]">1</expCompMultiplier>
+    <refAbsSensitivity>
+      <zoneTrigger>
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0,unbounded]">1.01916385</zoneData>
+    </refAbsSensitivity>
+    <enableCCTBasedExpComp type="bool">true</enableCCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>2100</start>
+        <end>2300</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">1.435542</zoneData>
+    </CCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>2600</start>
+        <end>3000</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">0.700894</zoneData>
+    </CCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>3700</start>
+        <end>3950</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">1.734825</zoneData>
+    </CCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>4000</start>
+        <end>4200</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">1.75828</zoneData>
+    </CCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>4800</start>
+        <end>5200</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">1</zoneData>
+    </CCTBasedExpComp>
+    <CCTBasedExpComp>
+      <zoneTrigger>
+        <start>6200</start>
+        <end>6700</end>
+      </zoneTrigger>
+      <zoneData type="float" range="[0.0,2.0]">1.718634</zoneData>
+    </CCTBasedExpComp>
+  </expSyncConfig>
+  <mtrMixConfig>
+    <staticMixingConfig>
+      <lumaMixingWeight type='float' range="[0,1]">0.5</lumaMixingWeight>
+      <targetMixingWeight type='float' range="[0,1]">0.5</targetMixingWeight>
+    </staticMixingConfig>
+    <dynamicMixingConfig>
+      <zoneTrigger>
+        <start>0</start>
+        <end>10</end>
+      </zoneTrigger>
+      <zoneData>
+        <weight type='float' range="[0, 1.0]">0</weight>
+      </zoneData>
+    </dynamicMixingConfig>
+    <dynamicMixingConfig>
+      <zoneTrigger>
+        <start>40</start>
+        <end>500</end>
+      </zoneTrigger>
+      <zoneData>
+        <weight type='float' range="[0, 1.0]">1</weight>
+      </zoneData>
+    </dynamicMixingConfig>
+  </mtrMixConfig>
+</aecMultiCamSync>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/secondaryProgress">
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.5"
+            android:thickness="10dp"
+            android:useLevel="true" >
+
+            <solid android:color="#80808080" />
+        </shape>
+    </item>
+    <item android:id="@android:id/progress">
+        <shape
+            android:shape="ring"
+            android:innerRadiusRatio="2.5"
+            android:thickness="10dp"
+            android:useLevel="true" >
+
+            <solid android:color="@color/colorAccent" />
+            <gradient
+                android:type="sweep"
+                android:startColor="#FF0000"
+                android:centerColor="#EEFF00"
+                android:endColor="#FF00FF00" />
+        </shape>
+    </item>
+</layer-list>

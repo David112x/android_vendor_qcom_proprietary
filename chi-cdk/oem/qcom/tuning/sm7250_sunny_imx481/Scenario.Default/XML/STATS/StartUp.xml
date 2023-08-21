@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<StartUp
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecStartUp.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <StartUpConv>
+    <generic>
+      <startExpIndex type="float" range="[0,500]">240</startExpIndex>
+      <startUpAggressiveness type="float" range="[0,1]">0.95</startUpAggressiveness>
+    </generic>
+    <warmStartUp>
+      <enableWarmStartUp type="bool">true</enableWarmStartUp>
+      <startExpIndexRangePct type="float" range="[50,100]">60</startExpIndexRangePct>
+    </warmStartUp>
+    <fastAEC>
+      <!--
+
+Rapid Startup is used by both Startup and Flash algorithms
+
+ -->
+      <firstFrameBias>
+        <enableStartUpBias type="bool">true</enableStartUpBias>
+        <firstFrameStepSizeDarkMax type="float" range="[0,200]">100</firstFrameStepSizeDarkMax>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <stepSizeBrightAdjRange range="[20,80]">
+          <start>30</start>
+          <end>50</end>
+        </stepSizeBrightAdjRange>
+        <maxAdjFactor type="float" range="[1.5,3.0]">2</maxAdjFactor>
+      </firstFrameBias>
+      <startExpIndex type="float" range="[0,500]">220</startExpIndex>
+      <tolMultUnitStepSize type="int" range="[1,100]">3</tolMultUnitStepSize>
+      <frameSkipInit type="int" range="[0,100]">3</frameSkipInit>
+      <frameSkip type="int" range="[0,10]">2</frameSkip>
+      <minSettledCount type="int" range="[0,100]">4</minSettledCount>
+      <maxFrameConvTimeOut type="int" range="[1,100]">20</maxFrameConvTimeOut>
+    </fastAEC>
+    <aggressive>
+      <!--
+
+Rapid Startup is used by both Startup and Flash algorithms
+
+ -->
+      <firstFrameBias>
+        <enableStartUpBias type="bool">true</enableStartUpBias>
+        <firstFrameStepSizeDarkMax type="float" range="[0,200]">100</firstFrameStepSizeDarkMax>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <stepSizeBrightAdjRange range="[20,80]">
+          <start>30</start>
+          <end>50</end>
+        </stepSizeBrightAdjRange>
+        <maxAdjFactor type="float" range="[1.5,3.0]">2</maxAdjFactor>
+      </firstFrameBias>
+      <startExpIndex type="float" range="[0,500]">220</startExpIndex>
+      <tolMultUnitStepSize type="int" range="[1,100]">8</tolMultUnitStepSize>
+      <frameSkipInit type="int" range="[0,100]">3</frameSkipInit>
+      <frameSkip type="int" range="[0,10]">2</frameSkip>
+      <minSettledCount type="int" range="[0,100]">4</minSettledCount>
+      <maxFrameConvTimeOut type="int" range="[1,100]">13</maxFrameConvTimeOut>
+    </aggressive>
+    <removePreviousEV type="bool">false</removePreviousEV>
+  </StartUpConv>
+  <StartUpArb>
+    <expTableIDAggressive range="[0,unbounded]">0</expTableIDAggressive>
+    <expTableIDFastAEC range="[0,unbounded]">0</expTableIDFastAEC>
+  </StartUpArb>
+</StartUp>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<!--
+
+Core Stats Configuration Tuning Definition
+
+-->
+	<xs:element name="SensorHDRDefaultConfig" type="AECSensorHDRConfig"/>
+    <xs:simpleType name="LumaCalculationType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="LumaCalculationTypeGridPrio"/>
+			<xs:enumeration value="LumaCalculationTypeHistPrio"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="AECSensorHDRConfig">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SensorLumaComp">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="factor to do luma compensation due to LSC loss"/>
+							<xs:attribute name="range" type="xs:string" default="[0,5]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		<xs:element name="esRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="ratio of L/M and M/S"/>
+							<xs:attribute name="range" type="xs:string" default="[0,5]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		<xs:element name="LumaCalculationConfig">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="LumaCalculationType">
+					<xs:attribute name="description" type="xs:string" default="Select Type2 Luma calculation configuration type. LumaCalculationTypeGridPrio means use grid stats; LumaCalculationTypeHistPrio means use histogram stats. Default value: LumaCalculationTypeHistPrio"/>
+					<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+					<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	   </xs:element>
+	</xs:sequence>
+	</xs:complexType>
+</xs:schema>

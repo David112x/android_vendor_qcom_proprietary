@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Flash
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecFlash.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="2"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <flashMtr>
+    <flashLumaTarget>
+      <enableFlashTarget type="bool">false</enableFlashTarget>
+      <flashTarget>
+        <luxLumaTargetZone>
+          <zoneTrigger>
+            <start>0</start>
+            <end>190</end>
+          </zoneTrigger>
+          <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+          <zoneData>
+            <lumaTarget type="float" range="[0,255]">45</lumaTarget>
+          </zoneData>
+        </luxLumaTargetZone>
+        <luxLumaTargetZone>
+          <zoneTrigger>
+            <start>230</start>
+            <end>360</end>
+          </zoneTrigger>
+          <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+          <zoneData>
+            <lumaTarget type="float" range="[0,255]">45</lumaTarget>
+          </zoneData>
+        </luxLumaTargetZone>
+        <luxLumaTargetZone>
+          <zoneTrigger>
+            <start>420</start>
+            <end>1000</end>
+          </zoneTrigger>
+          <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+          <zoneData>
+            <lumaTarget type="float" range="[0,255]">25</lumaTarget>
+          </zoneData>
+        </luxLumaTargetZone>
+      </flashTarget>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <flashInfluenceTargetInterpolation range="[1.0,7.0]">
+        <start>2</start>
+        <end>5</end>
+      </flashInfluenceTargetInterpolation>
+    </flashLumaTarget>
+    <smartFlash>
+      <enableSmartFlashEst type="bool">true</enableSmartFlashEst>
+      <smartFlashEstStrength type="float" range="[0.0,10.0]">1</smartFlashEstStrength>
+      <minOffStats type="int" range="[1,10]">3</minOffStats>
+      <kFloorPct type="float" range="[0.0,0.95]">0.8</kFloorPct>
+      <satPreventStrength type="float" range="[0.0,1.0]">0</satPreventStrength>
+      <enableSpeckleHandling type="bool">true</enableSpeckleHandling>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <speckleSatPctRange range="[0.01,1.0]">
+        <start>0.05</start>
+        <end>0.35</end>
+      </speckleSatPctRange>
+    </smartFlash>
+    <statsPreprocessing>
+      <thresBrightLevelDiff type="int" range="[5,50]">30</thresBrightLevelDiff>
+      <thresBrightLevel type="int" range="[0,255]">190</thresBrightLevel>
+      <thresBrightSatDiff type="float" range="[0.0,1.0]">0.1</thresBrightSatDiff>
+      <thresBrightSat type="float" range="[0.0,1.0]">0</thresBrightSat>
+      <minLuma type="int" range="[1,50]">15</minLuma>
+      <minLumaAdj type="float" range="[0.001,1.0]">0.55</minLumaAdj>
+      <minLumaAdjDynamic>
+        <enableDynamicMinAdj>false</enableDynamicMinAdj>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <percThresh>
+          <start>0.1</start>
+          <end>0.7</end>
+        </percThresh>
+        <minLumaAdjEnd type="float" range="[0,1]">0.1</minLumaAdjEnd>
+      </minLumaAdjDynamic>
+    </statsPreprocessing>
+    <FDFlash>
+      <enableFDFlash type="bool">true</enableFDFlash>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <ledFaceWeight range="[0.0,1.0]">
+        <start>0.6</start>
+        <end>0.9</end>
+      </ledFaceWeight>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <ledFaceSize range="[0.0,1.0]">
+        <start>0.1</start>
+        <end>0.3</end>
+      </ledFaceSize>
+      <FDFlashFrameCount type="int" range="[0,100]">5</FDFlashFrameCount>
+      <FDFlashLumaTarget type="float" range="[0,255]">45</FDFlashLumaTarget>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <faceSizeExpEffect range="[0,1.0]">
+        <start>0.1</start>
+        <end>0.2</end>
+      </faceSizeExpEffect>
+      <statsUpdateDelayTimeEnter type="float" range="[0,10]">0</statsUpdateDelayTimeEnter>
+      <statsUpdateDelayTimeExit type="float" range="[0,10]">3</statsUpdateDelayTimeExit>
+      <dynamicDelay>
+        <enableFDDynamicDelay type="bool">false</enableFDDynamicDelay>
+        <minLumaToSkipPreFD type="float" range="[0.0,256.0]">25</minLumaToSkipPreFD>
+      </dynamicDelay>
+    </FDFlash>
+    <TrackerFlash>
+      <enableTrackerFlash type="bool">false</enableTrackerFlash>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <ledTrackerWeight range="[0.0,1.0]">
+        <start>0</start>
+        <end>0</end>
+      </ledTrackerWeight>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <ledTrackerSize range="[0.0,1.0]">
+        <start>0</start>
+        <end>0</end>
+      </ledTrackerSize>
+      <TrackerFlashFrameCount type="int" range="[0,100]">0</TrackerFlashFrameCount>
+      <TrackerFlashLumaTarget type="float" range="[0,255]">0</TrackerFlashLumaTarget>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <trackerSizeExpEffect range="[0,1.0]">
+        <start>0</start>
+        <end>0</end>
+      </trackerSizeExpEffect>
+      <statsUpdateDelayTimeEnter type="float" range="[0,10]">0</statsUpdateDelayTimeEnter>
+      <statsUpdateDelayTimeExit type="float" range="[0,10]">0</statsUpdateDelayTimeExit>
+      <dynamicTrackerDelay>
+        <enableTrackerDynamicDelay type="bool">false</enableTrackerDynamicDelay>
+        <minLumaToSkipPreTracker type="float" range="[0.0,256.0]">25</minLumaToSkipPreTracker>
+      </dynamicTrackerDelay>
+    </TrackerFlash>
+  </flashMtr>
+  <flashConv>
+    <flashTuningBreak type="int" range="[1,7]">4</flashTuningBreak>
+    <preflashConv>
+      <frameSkipMethod>SmoothNoSkip</frameSkipMethod>
+      <aggressiveness type="float" range="[0.0,1.0]">1</aggressiveness>
+      <settledFrameCountThres type="int" range="[0,100]">2</settledFrameCountThres>
+      <preflashFrameCounterEnter>
+        <type>SwitchCounterSystemDelay</type>
+        <customInteger range="[0,100]">0</customInteger>
+      </preflashFrameCounterEnter>
+      <preflashFrameCounterExit>
+        <type>SwitchCounterSystemDelay</type>
+        <customInteger range="[0,100]">0</customInteger>
+      </preflashFrameCounterExit>
+      <dynamicEnterSkip>
+        <enableDynamicEnterSkip type="bool">false</enableDynamicEnterSkip>
+        <preflashMinFrameSkip type="int" range="[0,100]">2</preflashMinFrameSkip>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <FPSRange>
+          <start>10</start>
+          <end>30</end>
+        </FPSRange>
+      </dynamicEnterSkip>
+    </preflashConv>
+    <flashMeasurementConv>
+      <!--
+
+Rapid Startup is used by both Startup and Flash algorithms
+
+ -->
+      <firstFrameBias>
+        <enableStartUpBias type="bool">true</enableStartUpBias>
+        <firstFrameStepSizeDarkMax type="float" range="[0,200]">100</firstFrameStepSizeDarkMax>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <stepSizeBrightAdjRange range="[20,80]">
+          <start>30</start>
+          <end>50</end>
+        </stepSizeBrightAdjRange>
+        <maxAdjFactor type="float" range="[1.5,3.0]">2.3</maxAdjFactor>
+      </firstFrameBias>
+      <startExpIndex type="float" range="[0,500]">220</startExpIndex>
+      <tolMultUnitStepSize type="int" range="[1,100]">3</tolMultUnitStepSize>
+      <frameSkipInit type="int" range="[0,100]">2</frameSkipInit>
+      <frameSkip type="int" range="[0,10]">2</frameSkip>
+      <minSettledCount type="int" range="[0,100]">4</minSettledCount>
+      <maxFrameConvTimeOut type="int" range="[1,100]">12</maxFrameConvTimeOut>
+    </flashMeasurementConv>
+    <torchConv>
+      <enableTorchConvergence type="bool">false</enableTorchConvergence>
+      <tolMultUnitStepSize type="int" range="[1,5]">2</tolMultUnitStepSize>
+      <frameSkipMethod>SmoothNoSkip</frameSkipMethod>
+      <aggressiveness type="float" range="[0.0,1.0]">0.9</aggressiveness>
+      <startupAggressiveness type="float" range="[0,10]">4</startupAggressiveness>
+      <ADRCConvSpeed type="float" range="[0.0,0.5]">0.15</ADRCConvSpeed>
+    </torchConv>
+  </flashConv>
+  <flashArb>
+    <expTableIDPreFlash range="[0,unbounded]">0</expTableIDPreFlash>
+    <expTableIDMainFlash range="[0,unbounded]">0</expTableIDMainFlash>
+    <expTableIDFlashMeasurement range="[0,unbounded]">0</expTableIDFlashMeasurement>
+  </flashArb>
+  <flashExt>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <flashLuxTrigger range="[0,unbounded]">
+      <start>410</start>
+      <end>420</end>
+    </flashLuxTrigger>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <flashFDRequestDelayLuxTrigger range="[0,unbounded]">
+      <start>500</start>
+      <end>510</end>
+    </flashFDRequestDelayLuxTrigger>
+    <LEDTable>
+      <enableDualLED type="bool">true</enableDualLED>
+      <dualLEDIntersectSlope type="float" range="[0.0,10.0]">1</dualLEDIntersectSlope>
+      <LEDPowerSize type="int" range="[2,6]">2</LEDPowerSize>
+      <LEDMixSize type="int" range="[1,16]">11</LEDMixSize>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">120</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">0</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.488409</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.623894</BGRatio>
+        <flux type="float" range="[0.0,100.0]">1</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">108</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">12</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.529736</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.603243</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.982919</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">96</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">24</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.561705</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.577514</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.974835</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">84</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">36</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.605786</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.548306</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.954848</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">72</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">48</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.643168</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.519336</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.939866</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">60</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">60</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.687379</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.48676</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.914543</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">48</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">72</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.750334</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.45096</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.878786</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">36</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">84</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.825545</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.411787</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.837713</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">24</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">96</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.930948</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.367886</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.802068</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">12</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">108</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">1.007783</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.316366</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.765532</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">0</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">120</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">1.061542</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.259066</BGRatio>
+        <flux type="float" range="[0.0,100.0]">0.730403</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">900</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">0</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.451326</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.736424</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.54592</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">810</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">90</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.526343</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.672161</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.727188</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">720</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">180</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.555967</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.636292</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.922972</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">630</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">270</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.618011</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.591208</BGRatio>
+        <flux type="float" range="[0.0,100.0]">5.046337</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">540</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">360</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.637407</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.560403</BGRatio>
+        <flux type="float" range="[0.0,100.0]">5.115359</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">450</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">450</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.665737</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.529082</BGRatio>
+        <flux type="float" range="[0.0,100.0]">5.053915</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">360</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">540</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.693242</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.49813</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.876629</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">270</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">630</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.730433</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.466276</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.569588</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">180</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">720</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.822366</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.423019</BGRatio>
+        <flux type="float" range="[0.0,100.0]">4.046103</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">90</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">810</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">0.928906</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.371897</BGRatio>
+        <flux type="float" range="[0.0,100.0]">3.565475</flux>
+      </CCTTables>
+      <CCTTables>
+        <LED1Setting type="int" range="[0,unbounded]">0</LED1Setting>
+        <LED2Setting type="int" range="[0,unbounded]">900</LED2Setting>
+        <RGRatio type="float" range="[0.0,10.0]">1.034213</RGRatio>
+        <BGRatio type="float" range="[0.0,10.0]">0.291338</BGRatio>
+        <flux type="float" range="[0.0,100.0]">2.818177</flux>
+      </CCTTables>
+      <CCTTableCalibration>
+        <numOfCalibration type="int" range="[0,12]">4</numOfCalibration>
+        <enableCornerSampleScreen type="bool">true</enableCornerSampleScreen>
+        <calibEntries>
+          <LEDPowerIndex type="int" range="[0,5]">0</LEDPowerIndex>
+          <LEDMixIndex type="int" range="[0,15]">0</LEDMixIndex>
+        </calibEntries>
+        <calibEntries>
+          <LEDPowerIndex type="int" range="[0,5]">0</LEDPowerIndex>
+          <LEDMixIndex type="int" range="[0,15]">10</LEDMixIndex>
+        </calibEntries>
+        <calibEntries>
+          <LEDPowerIndex type="int" range="[0,5]">4</LEDPowerIndex>
+          <LEDMixIndex type="int" range="[0,15]">0</LEDMixIndex>
+        </calibEntries>
+        <calibEntries>
+          <LEDPowerIndex type="int" range="[0,5]">4</LEDPowerIndex>
+          <LEDMixIndex type="int" range="[0,15]">10</LEDMixIndex>
+        </calibEntries>
+        <statsRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <RGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </RGRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <BGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </BGRatioOKRange>
+        </statsRatioOKRange>
+        <statsRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <RGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </RGRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <BGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </BGRatioOKRange>
+        </statsRatioOKRange>
+        <statsRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <RGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </RGRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <BGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </BGRatioOKRange>
+        </statsRatioOKRange>
+        <statsRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <RGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </RGRatioOKRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <BGRatioOKRange range="[0.0,10.0]">
+            <start>0.8</start>
+            <end>1.2</end>
+          </BGRatioOKRange>
+        </statsRatioOKRange>
+        <fixedExpIndex type="float" range="[0,500]">375</fixedExpIndex>
+        <fixedExpIndex type="float" range="[0,500]">375</fixedExpIndex>
+        <fixedExpIndex type="float" range="[0,500]">325</fixedExpIndex>
+        <fixedExpIndex type="float" range="[0,500]">325</fixedExpIndex>
+      </CCTTableCalibration>
+      <LEDMeasConfig>
+        <frameErrAllowance type="float" range="[0.001,1.0]">0.015</frameErrAllowance>
+        <numOfFrames type="int" range="[2,100]">3</numOfFrames>
+        <maxNumOfFrames type="int" range="[1,100]">15</maxNumOfFrames>
+        <maxNumOfExtraAttempts type="int" range="[1,100]">3</maxNumOfExtraAttempts>
+      </LEDMeasConfig>
+      <enableDerating type="bool">true</enableDerating>
+    </LEDTable>
+    <enableForceAFInLEDOnMode type="bool">true</enableForceAFInLEDOnMode>
+    <LEDInlineCalib>
+      <triggerIndex type="float" range="[0,unbounded]">380</triggerIndex>
+      <refRange type="float" range="[0,unbounded]">0.01</refRange>
+      <refRegionPCT type="float" range="[0.0,1.0]">0.8</refRegionPCT>
+      <validRefCount type="int" range="[0,unbounded]">10</validRefCount>
+      <distanceRatioMin type="float" range="[0.0,1.0]">0.7</distanceRatioMin>
+      <distanceRatioMax type="float" range="[1.0,unbounded]">1.2</distanceRatioMax>
+      <angleShiftMax type="float" range="[0,unbounded]">0.05</angleShiftMax>
+      <minKneeCnt type="int" range="[0,50]">30</minKneeCnt>
+      <maxZoneCnt type="int" range="[0,50]">50</maxZoneCnt>
+      <confidencePctThr type="float" range="[0,1]">0.85</confidencePctThr>
+      <numOfFactoringRegions type="int" range="[1,20]">10</numOfFactoringRegions>
+      <LEDInlineCalibTarget>
+        <LEDInlineCalibTargetZone>
+          <zoneTrigger>
+            <start>0</start>
+            <end>1</end>
+          </zoneTrigger>
+          <zoneData>
+            <distancePCT>1</distancePCT>
+            <angleShiftPCT>0</angleShiftPCT>
+          </zoneData>
+        </LEDInlineCalibTargetZone>
+        <LEDInlineCalibTargetZone>
+          <zoneTrigger>
+            <start>4</start>
+            <end>6</end>
+          </zoneTrigger>
+          <zoneData>
+            <distancePCT>1</distancePCT>
+            <angleShiftPCT>1</angleShiftPCT>
+          </zoneData>
+        </LEDInlineCalibTargetZone>
+        <LEDInlineCalibTargetZone>
+          <zoneTrigger>
+            <start>9</start>
+            <end>10</end>
+          </zoneTrigger>
+          <zoneData>
+            <distancePCT>1</distancePCT>
+            <angleShiftPCT>0</angleShiftPCT>
+          </zoneData>
+        </LEDInlineCalibTargetZone>
+      </LEDInlineCalibTarget>
+    </LEDInlineCalib>
+  </flashExt>
+</Flash>

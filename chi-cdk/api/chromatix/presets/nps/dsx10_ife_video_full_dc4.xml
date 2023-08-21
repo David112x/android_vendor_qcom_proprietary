@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<dsx10_ife_video_full_dc4
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\xsd\isp\dsx_1_0_0.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_sr_scale_ratio</control_var_type>
+  </control_variables>
+  <chromatix_dsx10_reserve>
+    <param_calc_mode type="uint" range="[0, 1]" length="1">0</param_calc_mode>
+  </chromatix_dsx10_reserve>
+  <chromatix_dsx10_core>
+    <mod_dsx10_sr_scale_ratio_data>
+      <sr_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </sr_scale_ratio_trigger>
+      <dsx10_rgn_data>
+        <luma_kernel_weights_unpacked_horiz_tab range="[-1024, 1024]" length="192">
+          <luma_kernel_weights_unpacked_horiz>152 153 153 153 153 153 153 152 153 152 153 153 152 152 152 152 152 152 152 152 152 152 152 151 152 151 152 152 152 152 151 151 151 151 151 151 151 150 150 150 149 149 148 148 147 147 146 145 144 143 142 140 139 137 136 134 132 130 128 126 124 121 119 117 115 113 111 109 106 105 103 101 99 98 96 95 94 93 92 91 91 91 91 91 92 93 94 96 97 99 101 102 104 106 108 110 113 115 116 118 120 122 123 125 126 127 127 128 128 128 127 126 125 123 121 119 116 113 110 106 102 98 93 89 84 79 75 70 65 60 55 50 45 40 35 31 26 22 18 14 11 8 5 2 0 -2 -3 -5 -6 -7 -8 -8 -9 -9 -9 -9 -9 -9 -9 -8 -8 -7 -7 -6 -5 -5 -4 -4 -3 -2 -2 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_kernel_weights_unpacked_horiz>
+        </luma_kernel_weights_unpacked_horiz_tab>
+        <luma_kernel_weights_unpacked_vert_tab range="[-1024, 1024]" length="192">
+          <luma_kernel_weights_unpacked_vert>152 153 153 153 153 153 153 152 153 152 153 153 152 152 152 152 152 152 152 152 152 152 152 151 152 151 152 152 152 152 151 151 151 151 151 151 151 150 150 150 149 149 148 148 147 147 146 145 144 143 142 140 139 137 136 134 132 130 128 126 124 121 119 117 115 113 111 109 106 105 103 101 99 98 96 95 94 93 92 91 91 91 91 91 92 93 94 96 97 99 101 102 104 106 108 110 113 115 116 118 120 122 123 125 126 127 127 128 128 128 127 126 125 123 121 119 116 113 110 106 102 98 93 89 84 79 75 70 65 60 55 50 45 40 35 31 26 22 18 14 11 8 5 2 0 -2 -3 -5 -6 -7 -8 -8 -9 -9 -9 -9 -9 -9 -9 -8 -8 -7 -7 -6 -5 -5 -4 -4 -3 -2 -2 -1 -1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_kernel_weights_unpacked_vert>
+        </luma_kernel_weights_unpacked_vert_tab>
+        <chroma_kernel_weights_unpacked_horiz_tab range="[-1024, 1024]" length="96">
+          <chroma_kernel_weights_unpacked_horiz>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 248 240 232 224 216 208 200 192 184 176 168 160 152 144 136 128 120 112 104 96 88 80 72 64 56 48 40 32 24 16 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</chroma_kernel_weights_unpacked_horiz>
+        </chroma_kernel_weights_unpacked_horiz_tab>
+        <chroma_kernel_weights_unpacked_vert_tab range="[-1024, 1024]" length="96">
+          <chroma_kernel_weights_unpacked_vert>256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 256 248 240 232 224 216 208 200 192 184 176 168 160 152 144 136 128 120 112 104 96 88 80 72 64 56 48 40 32 24 16 8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</chroma_kernel_weights_unpacked_vert>
+        </chroma_kernel_weights_unpacked_vert_tab>
+        <luma_padding_weights_en type="uint" range="[0, 1]" length="1">0</luma_padding_weights_en>
+        <chroma_padding_weights_en type="uint" range="[0, 1]" length="1">0</chroma_padding_weights_en>
+        <luma_padding_weights_top_tab range="[-4096, 4095]" length="24">
+          <luma_padding_weights_top>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_padding_weights_top>
+        </luma_padding_weights_top_tab>
+        <luma_padding_weights_bot_tab range="[-4096, 4095]" length="24">
+          <luma_padding_weights_bot>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_padding_weights_bot>
+        </luma_padding_weights_bot_tab>
+        <luma_padding_weights_left_tab range="[-4096, 4095]" length="24">
+          <luma_padding_weights_left>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_padding_weights_left>
+        </luma_padding_weights_left_tab>
+        <luma_padding_weights_right_tab range="[-4096, 4095]" length="24">
+          <luma_padding_weights_right>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</luma_padding_weights_right>
+        </luma_padding_weights_right_tab>
+        <chroma_padding_weights_top_tab range="[-4096, 4095]" length="8">
+          <chroma_padding_weights_top>0 0 0 0 0 0 0 0</chroma_padding_weights_top>
+        </chroma_padding_weights_top_tab>
+        <chroma_padding_weights_bot_tab range="[-4096, 4095]" length="8">
+          <chroma_padding_weights_bot>0 0 0 0 0 0 0 0</chroma_padding_weights_bot>
+        </chroma_padding_weights_bot_tab>
+        <chroma_padding_weights_left_tab range="[-4096, 4095]" length="8">
+          <chroma_padding_weights_left>0 0 0 0 0 0 0 0</chroma_padding_weights_left>
+        </chroma_padding_weights_left_tab>
+        <chroma_padding_weights_right_tab range="[-4096, 4095]" length="8">
+          <chroma_padding_weights_right>0 0 0 0 0 0 0 0</chroma_padding_weights_right>
+        </chroma_padding_weights_right_tab>
+      </dsx10_rgn_data>
+    </mod_dsx10_sr_scale_ratio_data>
+  </chromatix_dsx10_core>
+</dsx10_ife_video_full_dc4>

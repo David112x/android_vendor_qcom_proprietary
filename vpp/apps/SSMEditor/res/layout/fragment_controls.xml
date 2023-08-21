@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.qualcomm.qti.mmca.vppp.ui.ControlsFragment">
+
+    <com.qualcomm.qti.mmca.vppp.ui.ControlsView
+        android:id="@+id/controls_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>
+

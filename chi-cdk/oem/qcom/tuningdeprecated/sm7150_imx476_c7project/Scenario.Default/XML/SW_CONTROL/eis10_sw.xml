@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<eis10_sw
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\eis_1_0_0.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <chromatix_eis10_reserve>
+    <general>
+      <virtual_margin>0</virtual_margin>
+      <focal_length>1755</focal_length>
+      <gyro_frequency>400</gyro_frequency>
+      <gyro_noise_floor>0.003</gyro_noise_floor>
+      <gyro_pixel_scale>30</gyro_pixel_scale>
+      <res_param_1>0</res_param_1>
+      <res_param_2>0</res_param_2>
+      <res_param_3>0</res_param_3>
+      <res_param_4>0</res_param_4>
+      <res_param_5>0</res_param_5>
+      <res_param_6>0</res_param_6>
+      <res_param_7>0</res_param_7>
+      <res_param_8>0</res_param_8>
+      <res_param_9>0</res_param_9>
+      <res_param_10>0</res_param_10>
+      <res_lut_param_1_tab>
+        <res_lut_param_1>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_1>
+      </res_lut_param_1_tab>
+      <res_lut_param_2_tab>
+        <res_lut_param_2>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</res_lut_param_2>
+      </res_lut_param_2_tab>
+    </general>
+    <timing>
+      <s3d_offset_1>5500</s3d_offset_1>
+      <s3d_offset_2>500</s3d_offset_2>
+      <s3d_offset_3>-4500</s3d_offset_3>
+      <s3d_offset_4>-7500</s3d_offset_4>
+      <s3d_threshold_1>0.005</s3d_threshold_1>
+      <s3d_threshold_2>0.01</s3d_threshold_2>
+      <s3d_threshold_3>0.02</s3d_threshold_3>
+      <s3d_threshold_4_ext>0.02</s3d_threshold_4_ext>
+      <rs_offset_1>5500</rs_offset_1>
+      <rs_offset_2>500</rs_offset_2>
+      <rs_offset_3>-4500</rs_offset_3>
+      <rs_offset_4>-7500</rs_offset_4>
+      <rs_threshold_1>0.005</rs_threshold_1>
+      <rs_threshold_2>0.01</rs_threshold_2>
+      <rs_threshold_3>0.02</rs_threshold_3>
+      <rs_threshold_4_ext>0.02</rs_threshold_4_ext>
+    </timing>
+  </chromatix_eis10_reserve>
+</eis10_sw>

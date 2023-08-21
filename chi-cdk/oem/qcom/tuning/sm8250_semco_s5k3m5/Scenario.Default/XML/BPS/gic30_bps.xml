@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<gic30_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\gic_3_0_0.xsd">
+  <enable_section>
+    <gic_global_enable>1</gic_global_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <gic_global_enable>
+      <enable type="int" range="[0,1]" length="1">0</enable>
+      <hyst_control_var type="uint" range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>5.1</start1>
+        <end1>7.3</end1>
+        <start2>8.9</start2>
+        <end2>9.6</end2>
+      </hyst_trigger>
+    </gic_global_enable>
+  </dynamic_enable_triggers>
+  <chromatix_gic30_reserve>
+    <radial_anchor_tab type="float" range="[0,1]" length="7">
+      <radial_anchor>0 0.25 0.3402582 0.4443996 0.5622773 0.6940056 1</radial_anchor>
+    </radial_anchor_tab>
+  </chromatix_gic30_reserve>
+  <chromatix_gic30_core>
+    <mod_gic30_hdr_aec_data>
+      <hdr_aec_trigger>
+        <exp_time_start>1</exp_time_start>
+        <exp_time_end>64</exp_time_end>
+        <aec_sensitivity_start>1</aec_sensitivity_start>
+        <aec_sensitivity_end>64</aec_sensitivity_end>
+        <exp_gain_start>1</exp_gain_start>
+        <exp_gain_end>64</exp_gain_end>
+      </hdr_aec_trigger>
+      <hdr_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1</gain_start>
+            <gain_end>1.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 3.60555124 5.09901953 6.244998 7.21110249 8.062258 8.83176 9.539392 10.1980391 10.8166542 11.4017544 11.9163752 12.4499 12.9614811 13.4536238 13.9283886 14.387495 14.8323965 15.2643375 15.6843872 16.0934772 16.4924221 16.8819427 17.2626762 17.6351929 18 18.35756 18.7082863 19.0525589 19.39072 19.7230835 20.0499382 20.34699 20.6639786 20.9761772 21.2837963 21.5870323 21.8860683 22.1810722 22.4722042 22.759613 23.043438 23.3238068 23.6008472 23.8746719 24.1453934 24.41311 24.6779251 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281 24.9399281</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">0.4</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.4</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1.9</gain_start>
+            <gain_end>2.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 4.79583168 6.85565472 8.3666 9.69536 10.8166542 11.874342 12.8062487 13.7113094 14.5258389 15.32971 16.0623779 16.7928562 17.4642487 18.1107712 18.7616634 19.3649158 19.9749851 20.5426388 21.1187115 21.6564083 22.2036037 22.7156334 23.2379 23.7276211 24.2074375 24.6981773 25.15949 25.6320114 26.0768089 26.532999 26.9629383 27.4043789 27.8208561 28.2488937 28.6530972 29.0688839 29.46184 29.8496227 30.2489662 30.6267853 31.0161247 31.38471 31.764761 32.1247559 32.4961548 32.8481369 33.2114449 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235 33.5559235</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">0.45</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.45</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>3.9</gain_start>
+            <gain_end>4.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 6.708204 9.486833 11.6619034 13.4536238 15.0332966 16.4620781 17.804493 19.0262985 20.17424 21.2602921 22.3159142 23.30236 24.24871 25.15949 26.0576286 26.9072475 27.7308483 28.5306854 29.3257561 30.0832176 30.82207 31.5436211 32.26453 32.9545135 33.6303444 34.29286 34.9571152 35.594944 36.2215424 36.8374825 37.4566422 38.052597 38.63936 39.2173424 39.7994957 40.36087 40.914547 41.4608231 42.0119 42.5440941 43.06971 43.58899 44.11349 44.6206245 45.1220551 45.6179771 46.11941 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472 46.60472</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">0.6</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.5</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>7.9</gain_start>
+            <gain_end>8.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 9.486833 13.4164076 16.4316769 18.9472961 21.189621 23.2163734 25.0798721 26.8141747 28.4429245 29.9833279 31.44837 32.83291 34.1760139 35.4682961 36.71512 37.92097 39.08964 40.22437 41.3158569 42.391037 43.4396133 44.4634666 45.46427 46.4435158 47.40253 48.3321838 49.25444 50.1597443 51.048996 51.92302 52.7825737 53.62835 54.4609947 55.2720528 56.0803 56.87706 57.66281 58.438 59.20304 59.95832 60.6959648 61.43289 62.16108 62.88084 63.592453 64.29619 64.99231 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455 65.6810455</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">0.8</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.55</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>15.9</gain_start>
+            <gain_end>16.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 13.3041344 18.814888 23.043438 26.6082687 29.74895 32.58834 35.1994324 37.629776 39.9124031 42.07137 44.1248245 46.0868759 47.96874 49.7795143 51.52669 53.2165375 54.85435 56.444664 57.99138 59.4979 60.9590034 62.39391 63.79655 65.169014 66.51315 67.83067 69.12308 70.39176 71.63798 72.8628845 74.0675354 75.25291 76.41989 77.56932 78.70197 79.81854 80.9197159 82.0060959 83.07828 84.136795 85.18216 86.21485 87.23531 88.24398 89.24125 90.22749 91.20307 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833 92.16833</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.6</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>31.9</gain_start>
+            <gain_end>32.1</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 16.3707047 23.17326 28.3725224 32.77194 36.63332 40.1372643 43.347435 46.34652 49.1528244 51.8169861 54.34151 56.7626648 59.07622 61.30253 63.45865 65.53625 67.55738 69.51259 71.42129 73.27346 75.08662 76.8505 78.58117 80.2683 81.926796 83.5463943 85.1351852 86.70064 88.23265 89.74408 91.225 92.687645 94.12226 95.5405655 96.93297 98.31073 99.66444 101 102.323021 103.624321 104.914253 106.1838 107.443008 108.683022 109.913605 111.126053 112.329872 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518 113.516518</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.75</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+        <mod_gic30_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>63.9</gain_start>
+            <gain_end>64</gain_end>
+          </aec_trigger>
+          <gic30_rgn_data>
+            <enable_gic type="int" range="[0,1]" length="1">1</enable_gic>
+            <enable_pnr type="int" range="[0,1]" length="1">1</enable_pnr>
+            <noise_std_lut_tab type="float" range="[0,512]" length="65">
+              <noise_std_lut>0 18.8679619 26.6645832 32.6649666 37.7094154 42.1663361 46.1844139 49.8898773 53.3291664 56.5685425 59.62382 62.5379868 65.31462 67.98529 70.54786 73.02739 75.41883 77.7431641 79.99375 82.1888046 84.320816 86.40602 88.44207 90.4267654 92.37424 94.27619 96.14572 97.97449 99.77475 101.53817 103.276329 104.980949 106.663017 108.314354 109.945442 111.548195 113.132668 114.690887 116.232529 117.749733 119.251831 120.73111 122.196564 123.64061 125.071976 126.487152 127.882759 129.267166 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072 130.633072</noise_std_lut>
+            </noise_std_lut_tab>
+            <gic_noise_scale type="float" range="[0,15.98]" length="1">1</gic_noise_scale>
+            <gic_correction_strength type="float" range="[0,1]" length="1">1</gic_correction_strength>
+            <thin_line_noise_offset type="uint" range="[0,16383]" length="1">400</thin_line_noise_offset>
+            <pnr_noise_scale_tab type="float" range="[0,15.98]" length="4">
+              <pnr_noise_scale>1 1 1 1</pnr_noise_scale>
+            </pnr_noise_scale_tab>
+            <pnr_correction_strength type="float" range="[0,1]" length="1">0.9</pnr_correction_strength>
+            <radial_pnr_str_adj_tab type="float" range="[0,15.98]" length="7">
+              <radial_pnr_str_adj>1 1 1 1 1 1 1</radial_pnr_str_adj>
+            </radial_pnr_str_adj_tab>
+          </gic30_rgn_data>
+        </mod_gic30_aec_data>
+      </hdr_aec_data>
+    </mod_gic30_hdr_aec_data>
+  </chromatix_gic30_core>
+</gic30_bps>

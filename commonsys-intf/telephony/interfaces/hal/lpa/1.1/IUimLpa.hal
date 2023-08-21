@@ -1,0 +1,20 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.hardware.radio.lpa@1.1;
+
+import @1.0::IUimLpa;
+interface IUimLpa extends @1.0::IUimLpa{
+    /**
+     * UIM_LPA_USER_REQUEST
+     *
+     * @param token Id to match req-resp. Resp must include same token.
+     * @param userReq User request data
+     */
+    oneway UimLpaUserRequest_1_1(int32_t token, UimLpaUserReq userReq);
+
+};

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<TargetSegments>
+  <TargetSegment name="0_0_2400_2400_ChiFormatRawMIPI8">
+    <TargetFormat>ChiFormatRawMIPI8</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>2400</MaxW>
+      <MaxH>2400</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_2592_1940_ChiFormatYUV420NV12_ChiFormatUBWCNV12_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>2592</MaxW>
+      <MaxH>1940</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_319_239_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>319</MaxW>
+      <MaxH>239</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatP010">
+    <TargetFormat>ChiFormatP010</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatP010_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatP010</TargetFormat>
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_320_240_ChiFormatYUV420NV12_ChiFormatUBWCNV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>320</MaxW>
+      <MaxH>240</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_4096_2448_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>4096</MaxW>
+      <MaxH>2448</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_4096_2448_ChiFormatRawMIPI_ChiFormatRawPlain16">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <TargetFormat>ChiFormatRawPlain16</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>4096</MaxW>
+      <MaxH>2448</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_4096_2880_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>4096</MaxW>
+      <MaxH>2880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5184_3880_ChiFormatJpeg_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatJpeg</TargetFormat>
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5184</MaxW>
+      <MaxH>3880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5184_3880_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5184</MaxW>
+      <MaxH>3880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5184_3880_ChiFormatRawPlain16_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawPlain16</TargetFormat>
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5184</MaxW>
+      <MaxH>3880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5184_3880_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5184</MaxW>
+      <MaxH>3880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5312_3456_ChiFormatJpeg">
+    <TargetFormat>ChiFormatJpeg</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5312</MaxW>
+      <MaxH>3456</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5312_3456_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5312</MaxW>
+      <MaxH>3456</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5312_3456_ChiFormatYUV420NV12_ChiFormatYUV420NV21">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatYUV420NV21</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5312</MaxW>
+      <MaxH>3456</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5312_4112_ChiFormatJpeg">
+    <TargetFormat>ChiFormatJpeg</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5312</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatJpeg">
+    <TargetFormat>ChiFormatJpeg</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatRawMIPI_ChiFormatRawPlain16">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <TargetFormat>ChiFormatRawPlain16</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatRawPlain16">
+    <TargetFormat>ChiFormatRawPlain16</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatRawPlain16_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawPlain16</TargetFormat>
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatY16_ChiFormatY8">
+    <TargetFormat>ChiFormatY16</TargetFormat>
+    <TargetFormat>ChiFormatY8</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatPD10">
+    <TargetFormat>ChiFormatPD10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatUBWCNV124R">
+    <TargetFormat>ChiFormatUBWCNV124R</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCNV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCNV12_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatYUV420NV21">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatYUV420NV21</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatYUV420NV21_ChiFormatUBWCTP10">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatYUV420NV21</TargetFormat>
+    <TargetFormat>ChiFormatUBWCTP10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5760_2880_ChiFormatRawMIPI">
+    <TargetFormat>ChiFormatRawMIPI</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5760</MaxW>
+      <MaxH>2880</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_640_480_ChiFormatYUV420NV12_ChiFormatUBWCNV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>640</MaxW>
+      <MaxH>480</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_640_512_ChiFormatYUV420NV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>640</MaxW>
+      <MaxH>512</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="320_240_3840_2160_ChiFormatYUV420NV12_ChiFormatUBWCNV12">
+    <TargetFormat>ChiFormatYUV420NV12</TargetFormat>
+    <TargetFormat>ChiFormatUBWCNV12</TargetFormat>
+    <Range>
+      <MinW>320</MinW>
+      <MinH>240</MinH>
+      <MaxW>3840</MaxW>
+      <MaxH>2160</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5312_3456_ChiFormatP010">
+    <TargetFormat>ChiFormatP010</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5312</MaxW>
+      <MaxH>3456</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_1328_864_ChiFormatPD10">
+    <TargetFormat>ChiFormatPD10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>1328</MaxW>
+      <MaxH>864</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_332_216_ChiFormatPD10">
+    <TargetFormat>ChiFormatPD10</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>332</MaxW>
+      <MaxH>216</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="0_0_5488_4112_ChiFormatY16_ChiFormatRawDepth">
+    <TargetFormat>ChiFormatY16</TargetFormat>
+    <TargetFormat>ChiFormatRawDepth</TargetFormat>
+    <Range>
+      <MinW>0</MinW>
+      <MinH>0</MinH>
+      <MaxW>5488</MaxW>
+      <MaxH>4112</MaxH>
+    </Range>
+  </TargetSegment>
+  <TargetSegment name="65545_ChiFormatBlob">
+      <TargetFormat>ChiFormatBlob</TargetFormat>
+      <Range>
+          <MinW>0</MinW>
+          <MinH>0</MinH>
+          <MaxW>65545</MaxW>
+          <MaxH>1</MaxH>
+      </Range>
+  </TargetSegment>
+</TargetSegments>

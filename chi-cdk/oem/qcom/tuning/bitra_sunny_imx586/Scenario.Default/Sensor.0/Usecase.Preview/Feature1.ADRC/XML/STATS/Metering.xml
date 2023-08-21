@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Metering
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecMetering.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="1"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <mtrLumaCalc>
+    <indexCalc>
+      <enableLuxIndexComp type="bool">false</enableLuxIndexComp>
+      <refSensitivityForExpIndexZero type="float" range="[0,unbounded]">10000</refSensitivityForExpIndexZero>
+      <luxIndexFilterFactor type="float" range="[0,0.99]">0.5</luxIndexFilterFactor>
+      <bayerGridSubsmplSelect>SW4</bayerGridSubsmplSelect>
+    </indexCalc>
+    <lumaWeight>
+      <weight type="float" range="[0, 1]">0.2988</weight>
+      <weight type="float" range="[0, 1]">0.5869</weight>
+      <weight type="float" range="[0, 1]">0.1137</weight>
+      <enableColorAndSensorComp type="bool">false</enableColorAndSensorComp>
+      <refGain type="float" range="[0, 3]">1.8</refGain>
+      <refGain type="float" range="[0, 3]">1</refGain>
+      <refGain type="float" range="[0, 3]">1.5</refGain>
+    </lumaWeight>
+    <mtrTables>
+      <centerWeighted type="float" range="[0,1]" length="256">
+        <weights>0.1016 0.10333 0.10822 0.11542 0.12369 0.1316 0.13778 0.14116 0.14116 0.13778 0.1316 0.12369 0.11542 0.10822 0.10333 0.1016 0.10333 0.10693 0.1171 0.13208 0.14929 0.16575 0.17861 0.18565 0.18565 0.17861 0.16575 0.14929 0.13208 0.1171 0.10693 0.10333 0.10822 0.1171 0.1422 0.17919 0.22167 0.26229 0.29404 0.31141 0.31141 0.29403 0.26229 0.22167 0.17919 0.1422 0.1171 0.10822 0.11542 0.13208 0.17919 0.2486 0.32831 0.40454 0.4641 0.4967 0.4967 0.4641 0.40454 0.32831 0.2486 0.17919 0.13208 0.11542 0.12369 0.14929 0.22167 0.32831 0.45078 0.56789 0.6594 0.70949 0.70949 0.6594 0.56789 0.45077 0.32831 0.22167 0.14929 0.12369 0.1316 0.16575 0.26229 0.40454 0.56789 0.7241 0.84617 0.91297 0.91297 0.84616 0.7241 0.56789 0.40453 0.26229 0.16575 0.1316 0.13778 0.17861 0.29404 0.4641 0.6594 0.84617 0.9921 1 1 0.9921 0.84616 0.65939 0.4641 0.29403 0.17861 0.13778 0.14116 0.18565 0.31141 0.4967 0.70949 0.91297 1 1 1 1 0.91296 0.70948 0.49669 0.3114 0.18564 0.14116 0.14116 0.18565 0.31141 0.4967 0.70949 0.91297 1 1 1 1 0.91296 0.70948 0.49669 0.3114 0.18564 0.14116 0.13778 0.17861 0.29403 0.4641 0.6594 0.84616 0.9921 1 1 0.99209 0.84616 0.65939 0.46409 0.29403 0.17861 0.13778 0.1316 0.16575 0.26229 0.40454 0.56789 0.7241 0.84616 0.91296 0.91296 0.84616 0.72409 0.56788 0.40453 0.26229 0.16575 0.1316 0.12369 0.14929 0.22167 0.32831 0.45077 0.56789 0.65939 0.70948 0.70948 0.65939 0.56788 0.45077 0.32831 0.22167 0.14929 0.12369 0.11542 0.13208 0.17919 0.2486 0.32831 0.40453 0.4641 0.49669 0.49669 0.46409 0.40453 0.32831 0.2486 0.17919 0.13208 0.11542 0.10822 0.1171 0.1422 0.17919 0.22167 0.26229 0.29403 0.3114 0.3114 0.29403 0.26229 0.22167 0.17919 0.1422 0.1171 0.10822 0.10333 0.10693 0.1171 0.13208 0.14929 0.16575 0.17861 0.18564 0.18564 0.17861 0.16575 0.14929 0.13208 0.1171 0.10693 0.10333 0.1016 0.10333 0.10822 0.11542 0.12369 0.1316 0.13778 0.14116 0.14116 0.13778 0.1316 0.12369 0.11542 0.10822 0.10333 0.1016</weights>
+      </centerWeighted>
+      <spotWeighted type="float" range="[0,1]" length="256">
+        <weights>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</weights>
+      </spotWeighted>
+    </mtrTables>
+    <lumaRgnAdj>
+      <enableBrightRgnAdj type="bool">true</enableBrightRgnAdj>
+      <enableDarkRgnAdj type="bool">false</enableDarkRgnAdj>
+      <minTableWeightForBright type="float" range="[0,1]">0</minTableWeightForBright>
+      <maxStatsPctForBright type="float" range="[0,1]">0.25</maxStatsPctForBright>
+      <minTableWeightForDark type="float" range="[0,1]">0</minTableWeightForDark>
+      <maxStatsPctForDark type="float" range="[0,1]">0.25</maxStatsPctForDark>
+      <rgnAdjZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>210</end>
+        </zoneTrigger>
+        <zoneData>
+          <thresBrightRgn range="[0,255]">
+            <start>170</start>
+            <end>220</end>
+          </thresBrightRgn>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <thresDarkRgn range="[0,255]">
+            <start>0</start>
+            <end>5</end>
+          </thresDarkRgn>
+          <weightBrightRgnAdj type="float" range="[0, 2]">0.9</weightBrightRgnAdj>
+          <weightDarkRgnAdj type="float" range="[0,1.5]">1</weightDarkRgnAdj>
+        </zoneData>
+      </rgnAdjZone>
+      <rgnAdjZone>
+        <zoneTrigger>
+          <start>250</start>
+          <end>380</end>
+        </zoneTrigger>
+        <zoneData>
+          <thresBrightRgn range="[0,255]">
+            <start>180</start>
+            <end>220</end>
+          </thresBrightRgn>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <thresDarkRgn range="[0,255]">
+            <start>0</start>
+            <end>5</end>
+          </thresDarkRgn>
+          <weightBrightRgnAdj type="float" range="[0, 2]">1</weightBrightRgnAdj>
+          <weightDarkRgnAdj type="float" range="[0,1.5]">1</weightDarkRgnAdj>
+        </zoneData>
+      </rgnAdjZone>
+      <rgnAdjZone>
+        <zoneTrigger>
+          <start>440</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <zoneData>
+          <thresBrightRgn range="[0,255]">
+            <start>180</start>
+            <end>220</end>
+          </thresBrightRgn>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <thresDarkRgn range="[0,255]">
+            <start>0</start>
+            <end>5</end>
+          </thresDarkRgn>
+          <weightBrightRgnAdj type="float" range="[0, 2]">1</weightBrightRgnAdj>
+          <weightDarkRgnAdj type="float" range="[0,1.5]">0.5</weightDarkRgnAdj>
+        </zoneData>
+      </rgnAdjZone>
+    </lumaRgnAdj>
+  </mtrLumaCalc>
+  <mtrLumaTarget>
+    <luxLumaTarget>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>190</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">53</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>210</start>
+          <end>260</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">48</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>284</start>
+          <end>334</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">47</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>354</start>
+          <end>375</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">46</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>384</start>
+          <end>425</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">34</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>444</start>
+          <end>480</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">30</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>495</start>
+          <end>534</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">28</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>544</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">26</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+    </luxLumaTarget>
+    <histLumaTarget>
+      <enableHistMetering type="bool">true</enableHistMetering>
+      <enableADRC type="bool">true</enableADRC>
+      <enableNonLinearTargetEstimate type="bool">false</enableNonLinearTargetEstimate>
+      <enableDarkBoost type="bool">true</enableDarkBoost>
+      <enableAntiBandingPrioOverADRC type="bool">false</enableAntiBandingPrioOverADRC>
+      <antiBandingPrioTriggerRange type="float" range="[0,30]">15</antiBandingPrioTriggerRange>
+      <targetFilterFactor type="float" range="[0,0.99]">0</targetFilterFactor>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>190</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">1</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.65</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">900</satRefLow>
+          <satRefHigh type="float" range="[0,255]">180</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">6</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.08</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">4.5</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">4.5</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1.5</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>220</start>
+          <end>280</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">1</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.4</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">250</satRefLow>
+          <satRefHigh type="float" range="[0,255]">200</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">5</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.04</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">4</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">4</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1.5</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>310</start>
+          <end>330</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">0.9</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.2</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">255</satRefLow>
+          <satRefHigh type="float" range="[0,255]">200</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.12</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">4</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">4</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>360</start>
+          <end>380</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">1</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.3</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">170</satRefLow>
+          <satRefHigh type="float" range="[0,255]">175</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">3.2</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">3.2</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>390</start>
+          <end>430</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">0.95</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.3</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">170</satRefLow>
+          <satRefHigh type="float" range="[0,255]">175</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0.02</start>
+            <end>0.08</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.02</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">3</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">3</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>440</start>
+          <end>480</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">0.85</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1.2</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">160</satRefLow>
+          <satRefHigh type="float" range="[0,255]">175</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.037</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.037</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.037</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">2.5</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">2.5</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>495</start>
+          <end>534</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">0.8</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">130</satRefLow>
+          <satRefHigh type="float" range="[0,255]">170</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.025</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.025</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.025</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">2.5</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">2.5</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <histLumaTargetZone>
+        <zoneTrigger>
+          <start>544</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <zoneData>
+          <minTargetAdjRatio type="float" range="[0.6, 1.0]">0.9</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0, 2.0]">1</maxTargetAdjRatio>
+          <satRefLow type="float" range="[0,255]">125</satRefLow>
+          <satRefHigh type="float" range="[0,255]">160</satRefHigh>
+          <darkRefLow type="float" range="[0,255]">0</darkRefLow>
+          <darkRefHigh type="float" range="[0,255]">50</darkRefHigh>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushupRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.035</end>
+          </histSatPushupRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.06</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.06</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histSatPushdownRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.06</end>
+          </histSatPushdownRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.15</end>
+          </histDarkRange>
+          <!--
+
+Base Type Tuning Definition
+
+ -->
+          <histDarkRange range="[0.0,0.5]">
+            <start>0</start>
+            <end>0.125</end>
+          </histDarkRange>
+          <maxDRCGain type="float" range="[1,256]">1</maxDRCGain>
+          <maxADRCGain type="float" range="[1,256]">1</maxADRCGain>
+          <maxDarkBoostGain type="float" range="[1,256]">1</maxDarkBoostGain>
+        </zoneData>
+      </histLumaTargetZone>
+      <enableWBClipping type="bool">false</enableWBClipping>
+      <enableBinGrouping type="bool">false</enableBinGrouping>
+      <EVHandling>Freeze</EVHandling>
+      <SensorHDRGainAdjust>
+        <enableADRGGainAdjust type="bool">false</enableADRGGainAdjust>
+        <ADRCGainAdjustZone>
+          <zoneTrigger>
+            <start>1</start>
+            <end>64</end>
+          </zoneTrigger>
+          <zoneData>
+            <tolerance type="float" range="[0,1]">0</tolerance>
+          </zoneData>
+        </ADRCGainAdjustZone>
+      </SensorHDRGainAdjust>
+    </histLumaTarget>
+    <extrmClrLumaTarget>
+      <enableExtrmClr type="bool">true</enableExtrmClr>
+      <thresRed>
+        <thres type="float" range="[0,3]">1.9</thres>
+        <interpPct type="float" range="[0,0.2]">0.07</interpPct>
+      </thresRed>
+      <thresGreenR>
+        <thres type="float" range="[0,3]">1.1</thres>
+        <interpPct type="float" range="[0,0.2]">0.05</interpPct>
+      </thresGreenR>
+      <thresGreenB>
+        <thres type="float" range="[0,3]">0.95</thres>
+        <interpPct type="float" range="[0,0.2]">0.05</interpPct>
+      </thresGreenB>
+      <thresGreenCenter>
+        <thres type="float" range="[0,3]">0.15</thres>
+        <interpPct type="float" range="[0,0.2]">0.05</interpPct>
+      </thresGreenCenter>
+      <thresBlue>
+        <thres type="float" range="[0,3]">1.2</thres>
+        <interpPct type="float" range="[0,0.2]">0.07</interpPct>
+      </thresBlue>
+      <!--
+
+Base Type Tuning Definition
+
+ -->
+      <thresColorStatsPct range="[0.0,1.0]">
+        <start>0.05</start>
+        <end>0.5</end>
+      </thresColorStatsPct>
+      <thresLumaLow type="float" range="[0,25]">30</thresLumaLow>
+      <thresLumaHigh type="float" range="[150,255]">225</thresLumaHigh>
+      <extrmClrLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>210</end>
+        </zoneTrigger>
+        <zoneData>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.85</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.6</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.88</channelAdjRatio>
+        </zoneData>
+      </extrmClrLumaTargetZone>
+      <extrmClrLumaTargetZone>
+        <zoneTrigger>
+          <start>250</start>
+          <end>380</end>
+        </zoneTrigger>
+        <zoneData>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.85</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.8</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">0.94</channelAdjRatio>
+        </zoneData>
+      </extrmClrLumaTargetZone>
+      <extrmClrLumaTargetZone>
+        <zoneTrigger>
+          <start>440</start>
+          <end>1000</end>
+        </zoneTrigger>
+        <zoneData>
+          <channelAdjRatio type="float" range="[0.4,1.0]">1</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">1</channelAdjRatio>
+          <channelAdjRatio type="float" range="[0.4,1.0]">1</channelAdjRatio>
+        </zoneData>
+      </extrmClrLumaTargetZone>
+    </extrmClrLumaTarget>
+    <EVLumaTarget>
+      <stepsPerEV type="int" range="[1,10]">6</stepsPerEV>
+      <minEVValue type="int" range="[-3,0]">-4</minEVValue>
+      <maxEVValue type="int" range="[0,3]">4</maxEVValue>
+      <EVCompTable type="float" range="[0, 5]" length="49">
+        <EVCompTableElements>0.0625 0.070154 0.078745 0.088388 0.099213 0.111362 0.125 0.140308 0.15749 0.176777 0.198425 0.222725 0.25 0.280616 0.31498 0.353553 0.39685 0.445449 0.5 0.561231 0.629961 0.707107 0.793701 0.890899 1 1.122462 1.259921 1.414214 1.587401 1.781797 2 2.244924 2.519842 2.828427 3.174802 3.563595 4 4.489848 5.039684 5.656854 6.349604 7.12719 8 8.979696 10.07937 11.31371 12.69921 14.25438 16</EVCompTableElements>
+      </EVCompTable>
+      <dynamicEVLock>
+        <enable type="bool">false</enable>
+        <convDelayOffset type="int" range="[0,10]">0</convDelayOffset>
+        <SCConsTh type="int" range="[0,5]">0</SCConsTh>
+        <SCRatio type="float" range="[0,1]">0</SCRatio>
+      </dynamicEVLock>
+    </EVLumaTarget>
+    <advancedTarget>
+      <advLuxTgt>
+        <nonLinLuxTgt>
+          <enableNonLinearEstimate type="bool">false</enableNonLinearEstimate>
+          <errPct type="float" range="[0.001,0.2]">0.05</errPct>
+          <maxIterations type="int" range="[1,20]">10</maxIterations>
+        </nonLinLuxTgt>
+        <enableForYOnly type="bool">false</enableForYOnly>
+        <suppressNonLinearLuma>
+          <suppressNonLinearZone>
+            <zoneTrigger>
+              <start>0</start>
+              <end>1</end>
+            </zoneTrigger>
+            <zoneData>
+              <outputGain type="float" range="[1.0,100.0]">1</outputGain>
+            </zoneData>
+          </suppressNonLinearZone>
+          <suppressNonLinearZone>
+            <zoneTrigger>
+              <start>2</start>
+              <end>2</end>
+            </zoneTrigger>
+            <zoneData>
+              <outputGain type="float" range="[1.0,100.0]">1.9</outputGain>
+            </zoneData>
+          </suppressNonLinearZone>
+          <suppressNonLinearZone>
+            <zoneTrigger>
+              <start>3</start>
+              <end>3</end>
+            </zoneTrigger>
+            <zoneData>
+              <outputGain type="float" range="[1.0,100.0]">2.5</outputGain>
+            </zoneData>
+          </suppressNonLinearZone>
+        </suppressNonLinearLuma>
+      </advLuxTgt>
+      <advHistTgt>
+        <nonLinHistTgt>
+          <enableNonLinearEstimate type="bool">false</enableNonLinearEstimate>
+          <errPct type="float" range="[0.001,0.2]">0.1</errPct>
+          <maxIterations type="int" range="[1,20]">10</maxIterations>
+        </nonLinHistTgt>
+      </advHistTgt>
+    </advancedTarget>
+  </mtrLumaTarget>
+</Metering>

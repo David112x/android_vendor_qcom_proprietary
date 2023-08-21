@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Tracker
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecTracker.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <trackerMtr>
+    <enableTrackerROI type="bool">true</enableTrackerROI>
+    <weightTemporalFilter type="float" range="[0,1]">0</weightTemporalFilter>
+    <centerWeightStrength type="float" range="[0,1]">1</centerWeightStrength>
+    <enableLuxTrackerTarget type="bool">false</enableLuxTrackerTarget>
+    <luxTrackerLumaTarget>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>0</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">0</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>0</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">0</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+      <luxLumaTargetZone>
+        <zoneTrigger>
+          <start>0</start>
+          <end>0</end>
+        </zoneTrigger>
+        <!--
+
+	AEC Tuning: Key metering structures
+
+	 -->
+        <zoneData>
+          <lumaTarget type="float" range="[0,255]">0</lumaTarget>
+        </zoneData>
+      </luxLumaTargetZone>
+    </luxTrackerLumaTarget>
+    <statsUpdateDelayTimeEnter type="float" range="[0,10]">0.3</statsUpdateDelayTimeEnter>
+    <statsUpdateDelayTimeExit type="float" range="[0,10]">0</statsUpdateDelayTimeExit>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <trackerWeight>
+      <start>0.2</start>
+      <end>0.9</end>
+    </trackerWeight>
+    <trackerLumaWeightLuxIndexTrigger>
+      <enableTrackerLumaTrigger type="bool">false</enableTrackerLumaTrigger>
+      <LuxTrackerLumaWeight>
+        <LuxTrackerWeightZone>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <LuxTrackerWeight>
+              <start>0</start>
+              <end>0</end>
+            </LuxTrackerWeight>
+          </zoneData>
+        </LuxTrackerWeightZone>
+      </LuxTrackerLumaWeight>
+    </trackerLumaWeightLuxIndexTrigger>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <trackerSize>
+      <start>0.2</start>
+      <end>0.5</end>
+    </trackerSize>
+    <trackerSizeWeightLuxIndexTrigger>
+      <enableTrackerSizeTrigger type="bool">false</enableTrackerSizeTrigger>
+      <LuxTrackerSizeWeight>
+        <LuxTrackerWeightZone>
+          <zoneTrigger>
+            <start>0</start>
+            <end>0</end>
+          </zoneTrigger>
+          <zoneData>
+            <!--
+
+Base Type Tuning Definition
+
+ -->
+            <LuxTrackerWeight>
+              <start>0</start>
+              <end>0</end>
+            </LuxTrackerWeight>
+          </zoneData>
+        </LuxTrackerWeightZone>
+      </LuxTrackerSizeWeight>
+    </trackerSizeWeightLuxIndexTrigger>
+    <enableTrackerROIHistAdj type="bool">false</enableTrackerROIHistAdj>
+    <ROIHistAdjZone>
+      <zoneTrigger>
+        <start>0</start>
+        <end>190</end>
+      </zoneTrigger>
+      <zoneData>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <darkLumaRatioRange>
+          <start>0.15</start>
+          <end>0.3</end>
+        </darkLumaRatioRange>
+        <darkROIAdjustParams>
+          <minTargetAdjRatio type="float" range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type="float" range="[0,50]">3</darkRefLow>
+          <satRefHigh type="float" range="[100,500]">350</satRefHigh>
+        </darkROIAdjustParams>
+        <!--
+
+Base Type Tuning Definition
+
+ -->
+        <brightLumaRatioRange>
+          <start>3</start>
+          <end>6</end>
+        </brightLumaRatioRange>
+        <brightROIAdjustParams>
+          <minTargetAdjRatio type="float" range="[0.1,1.0]">0.35</minTargetAdjRatio>
+          <maxTargetAdjRatio type="float" range="[1.0,2.0]">3</maxTargetAdjRatio>
+          <darkRefLow type="float" range="[0,50]">3</darkRefLow>
+          <satRefHigh type="float" range="[100,500]">350</satRefHigh>
+        </brightROIAdjustParams>
+      </zoneData>
+    </ROIHistAdjZone>
+  </trackerMtr>
+  <trackerConv>
+    <convSpeedAdjRatio type="float" range="[0,10]">0.5</convSpeedAdjRatio>
+    <speedAdjDelayTimeEnter type="float" range="[0,10]">0.4</speedAdjDelayTimeEnter>
+    <speedAdjDelayTimeExit type="float" range="[0,10]">0</speedAdjDelayTimeExit>
+  </trackerConv>
+  <statsROIProcess>
+    <statsROIProcessEnable>1</statsROIProcessEnable>
+    <statsROIPriority>
+      <dominantScoreEnhancement type="float" range="[0.0,1.0]">0.2</dominantScoreEnhancement>
+      <FaceROISizeWeight>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0.2</start>
+            <end type="float" range="[-100.0,15000.0]">0.2</end>
+          </triggerPt>
+          <triggerData>
+            <data type="float" range="[0.0,9999.9]">0.2</data>
+          </triggerData>
+        </triggerData>
+      </FaceROISizeWeight>
+      <FaceROILocationWeight>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">0.2</start>
+            <end type="float" range="[-100.0,15000.0]">0.2</end>
+          </triggerPt>
+          <triggerData>
+            <data type="float" range="[0.0,9999.9]">0.9</data>
+          </triggerData>
+        </triggerData>
+      </FaceROILocationWeight>
+    </statsROIPriority>
+    <statsROIStable>
+      <statsROIDiffEnable>1</statsROIDiffEnable>
+      <TriggerCtrlType>TriggerCtrlGain</TriggerCtrlType>
+      <statsROIDiffThreshold>
+        <triggerPt>
+          <start type="float" range="[-100.0,15000.0]">0</start>
+          <end type="float" range="[-100.0,15000.0]">0</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type="float" range="[-100.0,15000.0]">8</start>
+            <end type="float" range="[-100.0,15000.0]">8</end>
+          </triggerPt>
+          <triggerData>
+            <locationThreshold type="float" range="[0.0,100.0]">2</locationThreshold>
+            <sizeThreshold type="float" range="[0.0,100.0]">2</sizeThreshold>
+            <countThreshold type="int" range="[0,100]">3</countThreshold>
+          </triggerData>
+        </triggerData>
+      </statsROIDiffThreshold>
+    </statsROIStable>
+  </statsROIProcess>
+</Tracker>

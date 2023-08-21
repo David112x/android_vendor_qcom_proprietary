@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SFMLCZV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modmlczv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">55</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>2</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <detectionZone description="define detection zone that will be used for triggering control typ for MLCZ" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Day stat Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">219</start>
+        <end range="[-100.0,15000.0]">261</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.5623483</rg>
+          <bg range="[0.0,15000.0]">0.655154765</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.5623483</rg>
+          <bg range="[0.0,15000.0]">0.655154765</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">261</start>
+        <end range="[-100.0,15000.0]">321</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.451804668</rg>
+          <bg range="[0.0,15000.0]">0.8232986</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.5623483</rg>
+          <bg range="[0.0,15000.0]">0.655154765</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">321</start>
+        <end range="[-100.0,15000.0]">355</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.5623483</rg>
+          <bg range="[0.0,15000.0]">0.655154765</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.5623483</rg>
+          <bg range="[0.0,15000.0]">0.655154765</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+  </detectionZone>
+  <detectionZone description="define detection zone that will be used for triggering control typ for MLCZ" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Day stats Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">219</start>
+        <end range="[-100.0,15000.0]">261</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.6470936</rg>
+          <bg range="[0.0,15000.0]">0.496107548</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.6470936</rg>
+          <bg range="[0.0,15000.0]">0.496107548</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">261</start>
+        <end range="[-100.0,15000.0]">321</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.4825821</rg>
+          <bg range="[0.0,15000.0]">0.7203273</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.6470936</rg>
+          <bg range="[0.0,15000.0]">0.496107548</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">321</start>
+        <end range="[-100.0,15000.0]">355</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.6470936</rg>
+          <bg range="[0.0,15000.0]">0.496107548</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.6470936</rg>
+          <bg range="[0.0,15000.0]">0.496107548</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+  </detectionZone>
+  <detectionZone description="define detection zone that will be used for triggering control typ for MLCZ" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>F stats Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">1</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">219</start>
+        <end range="[-100.0,15000.0]">261</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.776048839</rg>
+          <bg range="[0.0,15000.0]">0.352190882</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.776048839</rg>
+          <bg range="[0.0,15000.0]">0.352190882</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">261</start>
+        <end range="[-100.0,15000.0]">321</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.487619042</rg>
+          <bg range="[0.0,15000.0]">0.4880789</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.776048839</rg>
+          <bg range="[0.0,15000.0]">0.352190882</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">321</start>
+        <end range="[-100.0,15000.0]">355</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.776048839</rg>
+          <bg range="[0.0,15000.0]">0.352190882</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.776048839</rg>
+          <bg range="[0.0,15000.0]">0.352190882</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+  </detectionZone>
+  <detectionZone description="define detection zone that will be used for triggering control typ for MLCZ" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>F stats Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">1</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">219</start>
+        <end range="[-100.0,15000.0]">261</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.832113</rg>
+          <bg range="[0.0,15000.0]">0.4017568</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.832113</rg>
+          <bg range="[0.0,15000.0]">0.4017568</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">261</start>
+        <end range="[-100.0,15000.0]">321</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.676245034</rg>
+          <bg range="[0.0,15000.0]">0.497271031</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.832113</rg>
+          <bg range="[0.0,15000.0]">0.4017568</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">321</start>
+        <end range="[-100.0,15000.0]">355</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <vertex>
+          <rg range="[0.0,15000.0]">0.832113</rg>
+          <bg range="[0.0,15000.0]">0.4017568</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">0.832113</rg>
+          <bg range="[0.0,15000.0]">0.4017568</bg>
+        </vertex>
+        <vertex>
+          <rg range="[0.0,15000.0]">-1</rg>
+          <bg range="[0.0,15000.0]">-1</bg>
+        </vertex>
+      </triggerData>
+    </triggerData>
+  </detectionZone>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Yellow MLC Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlZoneGroup0CntRatio</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.0651</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.2278</start>
+          <end range="[-100.0,15000.0]">1</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.789505243</rg>
+              <bg range="[0.0,15000.0]">0.5271982</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Yellow MLC Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlZoneGroup0CntRatio</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.0651</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.463739</rg>
+              <bg range="[0.0,15000.0]">0.223817363</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.2278</start>
+          <end range="[-100.0,15000.0]">1</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.4607702</rg>
+              <bg range="[0.0,15000.0]">0.384319216</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Yellow MLC Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlZoneGroup1CntRatio</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.0651</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">1.15726686</rg>
+              <bg range="[0.0,15000.0]">0.410187244</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.2278</start>
+          <end range="[-100.0,15000.0]">1</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.892493367</rg>
+              <bg range="[0.0,15000.0]">0.422507018</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Yellow MLC Detect</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlZoneGroup1CntRatio</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.0651</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.7615389</rg>
+              <bg range="[0.0,15000.0]">0.1862594</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.02278</start>
+          <end range="[-100.0,15000.0]">1</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.756929</rg>
+              <bg range="[0.0,15000.0]">0.299372971</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">1.05027</rg>
+              <bg range="[0.0,15000.0]">0.2215848</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Yellow MLC Detect in lowlight</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">12</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8428637</rg>
+              <bg range="[0.0,15000.0]">0.3331728</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.870663047</rg>
+              <bg range="[0.0,15000.0]">0.2447172</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">23</start>
+          <end range="[-100.0,15000.0]">401</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8428637</rg>
+              <bg range="[0.0,15000.0]">0.3331728</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.870663047</rg>
+              <bg range="[0.0,15000.0]">0.2447172</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">415</start>
+          <end range="[-100.0,15000.0]">581</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8428637</rg>
+              <bg range="[0.0,15000.0]">0.3331728</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.870663047</rg>
+              <bg range="[0.0,15000.0]">0.2447172</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>Green plants misleading outdoor</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">12</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9135533</rg>
+              <bg range="[0.0,15000.0]">0.301100135</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9428343</rg>
+              <bg range="[0.0,15000.0]">0.2145978</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">23</start>
+          <end range="[-100.0,15000.0]">401</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9135533</rg>
+              <bg range="[0.0,15000.0]">0.301100135</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9428343</rg>
+              <bg range="[0.0,15000.0]">0.2145978</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">415</start>
+          <end range="[-100.0,15000.0]">581</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9135533</rg>
+              <bg range="[0.0,15000.0]">0.301100135</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.9428343</rg>
+              <bg range="[0.0,15000.0]">0.2145978</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">325</start>
+          <end range="[-100.0,15000.0]">355</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.47969</rg>
+              <bg range="[0.0,15000.0]">0.48701</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.55423</rg>
+              <bg range="[0.0,15000.0]">0.36964</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">365</start>
+          <end range="[-100.0,15000.0]">990</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.47969</rg>
+              <bg range="[0.0,15000.0]">0.47701</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.47969</rg>
+              <bg range="[0.0,15000.0]">0.47701</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description>face  stats misleading indoor</Description>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">12</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.721399963</rg>
+              <bg range="[0.0,15000.0]">0.475883245</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8926273</rg>
+              <bg range="[0.0,15000.0]">0.4013983</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">23</start>
+          <end range="[-100.0,15000.0]">401</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.721399963</rg>
+              <bg range="[0.0,15000.0]">0.475883245</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8926273</rg>
+              <bg range="[0.0,15000.0]">0.4013983</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">415</start>
+          <end range="[-100.0,15000.0]">581</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.721399963</rg>
+              <bg range="[0.0,15000.0]">0.475883245</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.8926273</rg>
+              <bg range="[0.0,15000.0]">0.4013983</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description/>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">200</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">230</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3814621</rg>
+              <bg range="[0.0,15000.0]">0.9030231</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.5351943</rg>
+              <bg range="[0.0,15000.0]">0.737786055</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">281</start>
+          <end range="[-100.0,15000.0]">980</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3814621</rg>
+              <bg range="[0.0,15000.0]">0.9030231</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.5369191</rg>
+              <bg range="[0.0,15000.0]">0.764963865</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description/>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">12</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3814621</rg>
+              <bg range="[0.0,15000.0]">0.9030231</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.447061121</rg>
+              <bg range="[0.0,15000.0]">0.703021646</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">23</start>
+          <end range="[-100.0,15000.0]">401</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3814621</rg>
+              <bg range="[0.0,15000.0]">0.9030231</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.447061121</rg>
+              <bg range="[0.0,15000.0]">0.703021646</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">415</start>
+          <end range="[-100.0,15000.0]">581</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3814621</rg>
+              <bg range="[0.0,15000.0]">0.9030231</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.447061121</rg>
+              <bg range="[0.0,15000.0]">0.703021646</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+  <MLCZ description="MLC zone setting with configurable trigger control type" tuning_parameter_level="often_tune">
+    <zoneConfigData>
+      <Description/>
+      <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+      <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+      <triggerLevel description="Number of triggering dimension" range="[1,10]">3</triggerLevel>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlLuxIdx</triggerCtrlType>
+      <triggerCtrlType>MLCZTriggerCtrlFlashSensitivity</triggerCtrlType>
+    </zoneConfigData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">12</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3371799</rg>
+              <bg range="[0.0,15000.0]">0.7089839</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.407534152</rg>
+              <bg range="[0.0,15000.0]">0.6349566</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">23</start>
+          <end range="[-100.0,15000.0]">401</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3371799</rg>
+              <bg range="[0.0,15000.0]">0.7089839</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.407534152</rg>
+              <bg range="[0.0,15000.0]">0.6349566</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">415</start>
+          <end range="[-100.0,15000.0]">581</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+            <vertex>
+              <rg range="[0.0,15000.0]">0.3371799</rg>
+              <bg range="[0.0,15000.0]">0.7089839</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">0.407534152</rg>
+              <bg range="[0.0,15000.0]">0.6349566</bg>
+            </vertex>
+            <vertex>
+              <rg range="[0.0,15000.0]">-1</rg>
+              <bg range="[0.0,15000.0]">-1</bg>
+            </vertex>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </MLCZ>
+</SFMLCZV1>

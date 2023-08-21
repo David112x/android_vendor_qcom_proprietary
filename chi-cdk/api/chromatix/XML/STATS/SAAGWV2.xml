@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SAAGWV2
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\xsd\stats\awb\modsaagwv2.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">101</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <enableFlag>0</enableFlag>
+  <outdoorWeightCtrl description="AGW SA outdoor weight control,  1st trigger level control type: Lux index, 2nd trigger level control type: CCT" tuning_parameter_level="rarely_tune">
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">999</end>
+    </triggerPt>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">3800.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">0</data>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">4300.0</start>
+        <end range="[-100.0,15000.0]">4600.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">0.2</data>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">5000.0</start>
+        <end range="[-100.0,15000.0]">8000.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">1</data>
+      </triggerData>
+    </triggerData>
+  </outdoorWeightCtrl>
+  <AHLightWeightCtrl description="AGW SA indoor A-H light weight control,  1st trigger level control type: Lux index, 2nd trigger level control type: ratio of valid stats count" tuning_parameter_level="rarely_tune">
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">999</end>
+    </triggerPt>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">3000.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">1</data>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">3200.0</start>
+        <end range="[-100.0,15000.0]">3400.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">0.2</data>
+      </triggerData>
+    </triggerData>
+    <triggerData description="2nd triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">3600.0</start>
+        <end range="[-100.0,15000.0]">12000.0</end>
+      </triggerPt>
+      <triggerData>
+        <data range="[0.0,9999.9]">0</data>
+      </triggerData>
+    </triggerData>
+  </AHLightWeightCtrl>
+  <confidenceLevel description="AGW SA confidence level,  1st trigger level control type: Lux index, 2nd trigger level control type: ratio of valid stats count" tuning_parameter_level="rarely_tune">
+    <commonData>
+      <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+      <triggerType>TriggerCtrlLuxIdx</triggerType>
+      <triggerType>TriggerCtrlValidStatsCntRatio</triggerType>
+    </commonData>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData description="1st triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.005</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.01</start>
+          <end range="[-100.0,15000.0]">0.02</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0.2</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.1</start>
+          <end range="[-100.0,15000.0]">1</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </confidenceLevel>
+  <outdoorInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlInfomationType0</triggerType>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData description="1st triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.1</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.5</start>
+          <end range="[-100.0,15000.0]">100.0</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </outdoorInterpWeight>
+  <outdoorInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlInfomationType1</triggerType>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData description="1st triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.1</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">1.0</start>
+          <end range="[-100.0,15000.0]">100.0</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </outdoorInterpWeight>
+  <AHLightInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlInfomationType0</triggerType>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData description="1st triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.1</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.4</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </AHLightInterpWeight>
+  <AHLightInterpWeight>
+    <triggerType>TriggerCtrlLuxIdx</triggerType>
+    <triggerType>TriggerCtrlInfomationType1</triggerType>
+    <triggerPt>
+      <start range="[-100.0,15000.0]">0</start>
+      <end range="[-100.0,15000.0]">0</end>
+    </triggerPt>
+    <triggerData description="1st triggering level">
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">999</end>
+      </triggerPt>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">0.2</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">0</data>
+        </triggerData>
+      </triggerData>
+      <triggerData description="2nd triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0.5</start>
+          <end range="[-100.0,15000.0]">100.0</end>
+        </triggerPt>
+        <triggerData>
+          <data range="[0.0,9999.9]">1</data>
+        </triggerData>
+      </triggerData>
+    </triggerData>
+  </AHLightInterpWeight>
+</SAAGWV2>

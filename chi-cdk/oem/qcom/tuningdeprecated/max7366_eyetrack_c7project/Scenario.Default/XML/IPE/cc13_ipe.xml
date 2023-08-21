@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cc13_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cc_1_3_0.xsd">
+  <enable_section>
+    <cc_enable>0</cc_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="3" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_cc13_reserve>
+    <q_factor description="q factor to adjust precision of color correction matrix" range="[0,3]" bit_depth="2uQ0" length="1" conversion="no conversion needed" tuning_parameter_level="never_tune" additional_notes="range 0x0-0x3 maps to Q7-Q10 for CC matrix elements">0</q_factor>
+  </chromatix_cc13_reserve>
+  <chromatix_cc13_core>
+    <mod_cc13_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_cc13_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_cc13_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_cc13_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>270</lux_idx_start>
+                    <lux_idx_end>300</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>3.5</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>2000</start>
+                        <end>2500</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.592324 -0.5236651 -0.0686587 -0.3461214 1.283631 0.06249002 -0.3013621 -0.5680395 1.869402</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>2900</start>
+                        <end>3300</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.574312 -0.6063482 0.03203592 -0.1946353 1.086107 0.1085286 -0.07773907 -0.6805216 1.758261</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>4000</start>
+                        <end>5000</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.596774 -0.7617789 0.1650048 -0.1075977 1.043595 0.06400271 0.07984327 -0.9077021 1.827859</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>6000</start>
+                        <end>6500</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.762701 -0.7936923 0.03099161 0.1055836 0.8185505 0.07586594 0.2474727 -1.224007 1.976534</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                  </aec_data>
+                </mod_cc13_aec_data>
+                <mod_cc13_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>395</lux_idx_start>
+                    <lux_idx_end>415</lux_idx_end>
+                    <gain_start>19</gain_start>
+                    <gain_end>27</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>2000</start>
+                        <end>2500</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.325848 -0.4990644 0.1732163 -0.3590296 1.086241 0.2727881 -0.3211665 -0.5955617 1.916728</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>2900</start>
+                        <end>3300</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.392167 -0.5229516 0.1307846 -0.2195901 1.063417 0.1561735 -0.09656412 -0.6321285 1.728693</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>4000</start>
+                        <end>5000</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.593522 -0.7927258 0.1992039 -0.1455934 1.088559 0.05703467 0.0441823 -0.859988 1.815806</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                    <mod_cc13_cct_data>
+                      <cct_trigger>
+                        <start>6000</start>
+                        <end>6500</end>
+                      </cct_trigger>
+                      <cc13_rgn_data>
+                        <c_tab description="3x3 color correction matrix elements" range="[-15.99,15.99]" bit_depth="12sQ7, 12sQ8, 12sQ9, 12sQ10" length="9" conversion="no conversion needed" tuning_parameter_level="must_tune" additional_notes="the sum of each row in the 3x3 color correction matrix should be 1. Higher values for diagonal elements result in higher color saturation with higher noise.">
+                          <c>1.70045 -0.6919653 -0.008484825 -0.007131152 1.030454 -0.02332241 0.1210978 -0.7326521 1.611554</c>
+                        </c_tab>
+                        <k_tab description="offset in color correction" range="[-4096,4095]" bit_depth="11sQ0" length="3" conversion="no conversion needed" tuning_parameter_level="rarely_tune" additional_notes="Negative values will make image darker while positive values make image brighter">
+                          <k>0 0 0</k>
+                        </k_tab>
+                      </cc13_rgn_data>
+                    </mod_cc13_cct_data>
+                  </aec_data>
+                </mod_cc13_aec_data>
+              </led_idx_data>
+            </mod_cc13_led_idx_data>
+          </hdr_aec_data>
+        </mod_cc13_hdr_aec_data>
+      </drc_gain_data>
+    </mod_cc13_drc_gain_data>
+  </chromatix_cc13_core>
+</cc13_ipe>

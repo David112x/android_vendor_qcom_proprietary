@@ -1,0 +1,50 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+  <PipelineName>OfflineFD</PipelineName>
+  <CamxInclude segment="FDSegmentBase" />
+  <NodesList/>
+  <PortLinkages>
+    <TargetName>TARGET_BUFFER_FD_INPUT</TargetName>
+    <TargetDirection>TargetInput</TargetDirection>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_FD_INPUT</PortName>
+        <PortId>0</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>FDHwInputPortImage</PortName>
+        <PortId>0</PortId>
+        <NodeName>FDHw</NodeName>
+        <NodeId>65540</NodeId>
+        <NodeInstance>FDHwInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>FDManagerOutputPortResults</PortName>
+        <PortId>0</PortId>
+        <NodeName>FDManager</NodeName>
+        <NodeId>8</NodeId>
+        <NodeInstance>FDManagerInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_BUFFER_FD_OUTPUT</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+  </PortLinkages>
+</Pipeline>

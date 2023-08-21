@@ -1,0 +1,44 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.qconfig@1.0;
+
+/*
+ * Result type for qconfig API
+ *
+ */
+enum Result : int32_t {
+    SUCCESS,
+    ERROR,
+    INVALID_ARGUMENT,
+    NOT_SUPPORTED
+};
+
+/*
+ * Changed type for QConfigListener
+ *
+ */
+enum ChangedType: int32_t {
+    ADDED,
+    MODIFIED,
+    REMOVED
+};
+
+/*
+ * Structure for the key-value pair of user config
+ */
+struct QConfigUserParam {
+    string key;
+    string value;
+};
+
+/*
+ * Structure for the key-value pair of preset parameter
+ */
+struct QConfigPresetParam {
+    string name;
+    string value;
+};

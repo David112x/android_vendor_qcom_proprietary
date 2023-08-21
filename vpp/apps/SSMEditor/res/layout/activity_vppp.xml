@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/video_surface"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center" />
+
+        <RelativeLayout
+            android:id="@+id/video_controls"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/video_controls_margin"
+            android:layout_marginRight="@dimen/video_controls_margin"
+            android:layout_marginTop="@dimen/video_controls_margin"
+            android:layout_marginBottom="@dimen/video_controls_margin">
+
+            <ImageButton
+                android:id="@+id/media_button"
+                android:background="@null"
+                android:layout_width="@dimen/video_control_button"
+                android:layout_height="@dimen/video_control_button"
+                android:maxHeight="@dimen/video_control_button"
+                android:maxWidth="@dimen/video_control_button"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/play"
+                android:clickable="true" />
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_alignParentBottom="true"
+                android:thumb="@drawable/seek_bar_range"
+                android:max="100"
+                android:progress="0"
+                android:progressTint="@color/blue"
+                android:progressBackgroundTint="@color/blue" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/controlsBackground"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/controls_holder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btn_preset_change"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/preset_change_button_height"
+            android:layout_gravity="bottom"
+            android:background="@color/blue"
+            android:text="@string/button_change_preset" />
+
+    </LinearLayout>
+
+</FrameLayout>

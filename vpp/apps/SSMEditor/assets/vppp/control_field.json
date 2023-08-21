@@ -1,0 +1,400 @@
+{
+    "control-fields": [
+        {
+            "id": "vpp.mode",
+            "display-name": "HQV Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_MODE_OFF",
+                    "Manual", "HQV_MODE_MANUAL",
+                    "Auto", "HQV_MODE_AUTO"
+                ],
+                "default": "HQV_MODE_MANUAL"
+            }
+        },
+        {
+            "id": "vpp.mode-off",
+            "display-name": "HQV Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_MODE_OFF"
+                ],
+                "default": "HQV_MODE_OFF"
+            }
+        },
+        {
+            "id": "aie.mode",
+            "display-name": "Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_MODE_OFF",
+                    "Manual", "HQV_MODE_MANUAL",
+                    "Auto", "HQV_MODE_AUTO"
+                ],
+                "default": "HQV_MODE_MANUAL"
+            }
+        },
+        {
+            "id": "aie.cade-level",
+            "display-name": "CADE Level",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.cade-level",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.ltm-sat-gain",
+            "display-name": "LTM Saturation Gain",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-sat-gain",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.ltm-sat-offset",
+            "display-name": "LTM Saturation Offset",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-sat-offset",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.ltm-ace-str",
+            "display-name": "LTM Ace Contrast Strength",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-ace-str",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.ltm-ace-brightness-low",
+            "display-name": "LTM Ace Contrast Brightness Low",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-brightness-low",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.ltm-ace-brightness-high",
+            "display-name": "LTM Ace Contrast Brightness High",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-brightness-high",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "aie.hue-mode",
+            "display-name": "Hue Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.hue-mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_HUE_MODE_OFF",
+                    "On", "HQV_HUE_MODE_ON"
+                 ],
+                "default": "HQV_HUE_MODE_ON"
+            }
+        },
+        {
+            "id": "aie.ltm-level",
+            "display-name": "LTM Level",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-aie.ltm-level",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "qbr.mode",
+            "display-name": "Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-qbr.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "QBR_MODE_OFF",
+                    "On", "QBR_MODE_ON"
+                ],
+                "default": "QBR_MODE_ON"
+            }
+        },
+        {
+            "id": "ear.mode",
+            "display-name": "Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-ear.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "EAR_MODE_OFF",
+                    "Bypass", "EAR_MODE_BYPASS",
+                    "Low", "EAR_MODE_LOW",
+                    "Medium", "EAR_MODE_MEDIUM",
+                    "High", "EAR_MODE_HIGH",
+                    "Stream Adaptive", "EAR_MODE_ADAPTIVE_STREAM",
+                    "Frame Adaptive", "EAR_MODE_ADAPTIVE_FRAME"
+                ],
+                "default": "EAR_MODE_ADAPTIVE_STREAM"
+            }
+        },
+        {
+            "id": "frc.mode",
+            "display-name": "Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "FRC_MODE_OFF",
+                    "Smooth Motion", "FRC_MODE_SMOOTH_MOTION",
+                    "Slow Motion", "FRC_MODE_SLOMO"
+                ],
+                "default": "FRC_MODE_SLOMO"
+            }
+        },
+        {
+            "id": "frc.level",
+            "display-name": "Level",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.level",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "FRC_LEVEL_OFF",
+                    "Low", "FRC_LEVEL_LOW",
+                    "Medium", "FRC_LEVEL_MEDIUM",
+                    "High", "FRC_LEVEL_HIGH"
+                ],
+                "default": "FRC_LEVEL_HIGH"
+            }
+        },
+        {
+            "id": "frc.interp",
+            "display-name": "Interpolation Factor",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.interp",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "1x", "FRC_INTERP_1X",
+                    "2x", "FRC_INTERP_2X",
+                    "3x", "FRC_INTERP_3X",
+                    "4x", "FRC_INTERP_4X"
+                ],
+                "default": "FRC_INTERP_2X"
+            }
+        },
+        {
+            "id": "frc.frame_copy_input",
+            "display-name": "Frame Copy Input",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.frame_copy_input",
+            "vendor-extension-type": "int",
+            "params": {
+                "values": [
+                    "True", 1,
+                    "False", 0
+                ],
+                "default": 0
+            }
+        },
+        {
+            "id": "frc.frame_copy_on_fallback",
+            "display-name": "Frame Copy Fallback",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.frame_copy_on_fallback",
+            "vendor-extension-type": "int",
+            "params": {
+                "values": [
+                    "True", 1,
+                    "False", 0
+                ],
+                "default": 1
+            }
+        },
+        {
+            "id": "frc.ts_start",
+            "display-name": "Timestamp Start",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-frc.ts_start",
+            "vendor-extension-type": "int",
+            "params": {
+                "values": [
+                    0, 0
+                ],
+                "default": 0
+            }
+        },
+        {
+            "id": "demo.process-percent",
+            "display-name": "Split Percent",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-demo.process-percent",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 100
+            }
+        },
+        {
+            "id": "demo.process-side",
+            "display-name": "Split Direction",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-demo.process-side",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Left", "PROCESS_LEFT",
+                    "Right", "PROCESS_RIGHT",
+                    "Top", "PROCESS_TOP",
+                    "Bottom", "PROCESS_BOTTOM"
+                ],
+                "default": "PROCESS_LEFT"
+            }
+        },
+        {
+            "id": "di.mode",
+            "display-name": "DI Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-di.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "DI_MODE_OFF",
+                    "1F", "DI_MODE_VIDEO_1F",
+                    "3F", "DI_MODE_VIDEO_3F",
+                    "Auto", "DI_MODE_VIDEO_AUTO"
+                ],
+                "default": "DI_MODE_VIDEO_AUTO"
+            }
+        },
+        {
+            "id": "cnr.mode",
+            "display-name": "MCNR Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-cnr.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_MODE_OFF",
+                    "Auto", "HQV_MODE_AUTO",
+                    "Manual", "HQV_MODE_MANUAL"
+                ],
+                "default": "HQV_MODE_AUTO"
+            }
+        },
+        {
+            "id": "cnr.level",
+            "display-name": "MCNR Level",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-cnr.level",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "cade.mode",
+            "display-name": "CADE Mode",
+            "ui-control-type": "radio-group",
+            "vendor-extension": "vendor.qti-ext-vpp-cade.mode",
+            "vendor-extension-type": "string",
+            "params": {
+                "values": [
+                    "Off", "HQV_MODE_OFF",
+                    "Auto", "HQV_MODE_AUTO",
+                    "Manual", "HQV_MODE_MANUAL"
+                ],
+                "default": "HQV_MODE_MANUAL"
+            }
+        },
+        {
+            "id": "cade.level",
+            "display-name": "CADE Level",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-cade.cade-level",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "default": 50
+            }
+        },
+        {
+            "id": "cade.contrast",
+            "display-name": "CADE Contrast",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-cade.contrast",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": -50,
+                "max": 50,
+                "step": 1,
+                "default": 0
+            }
+        },
+        {
+            "id": "cade.saturation",
+            "display-name": "CADE Saturation",
+            "ui-control-type": "slider-continuous",
+            "vendor-extension": "vendor.qti-ext-vpp-cade.saturation",
+            "vendor-extension-type": "int",
+            "params": {
+                "min": -50,
+                "max": 50,
+                "step": 1,
+                "default": 0
+            }
+        }
+    ]
+}

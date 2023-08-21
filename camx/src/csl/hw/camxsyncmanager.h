@@ -1,0 +1,318 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2016-2017, 2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxsyncmanager.h
+/// @brief Class declaration for the sync manager class useful for accessing
+/// sync services from the sync framework within CSL.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXSYNCMANAGER_H
+#define CAMXSYNCMANAGER_H
+
+#if ANDROID
+
+#include <errno.h>
+#include <fcntl.h>
+// NOWHINE PR007b: Library header
+#include <iostream>
+#include <poll.h>
+#include <signal.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include <media/cam_sync.h>
+
+#include "camxcsl.h"
+#include "camxdefs.h"
+#include "camxthreadmanager.h"
+#include "camxtypes.h"
+
+CAMX_NAMESPACE_BEGIN
+
+static const CHAR*  pCamxSyncCBDispatchJob  = "cbDispatchJob";
+static const UINT32 DeviceNameSize          = 64;
+
+struct SyncManagerCtrl
+{
+    INT             syncFd;                         ///< File descriptor for kernel device
+    INT             pipeFDs[2];                     ///< File descriptors for IPC pipe between main and polling threads
+    CHAR            deviceName[DeviceNameSize];     ///< Character string for kernel device name
+    OSThreadHandle  hPollThread;                    ///< Thread handle for polling thread
+    const CHAR*     pCamxPollThreadName;            ///< Human readable name for the polling thread
+    ThreadManager*  pThreadManager;                 ///< Pointer to threadManager instance
+    JobHandle       hJob;                           ///< Handle to callback dispatch job
+    INT             refCount;                       ///< Reference count for class instance
+    CamX::Mutex*    countLock;                      ///< Mutex to protect reference count
+};
+
+/// @brief Enum definition for sync object signal result
+enum SyncSignalResult
+{
+    SyncSignalSuccess = 0,  ///< Sync object signaled with success
+    SyncSignalFailed        ///< Sync object signaled with failure
+};
+
+/// @brief Prototype for UMD callback
+typedef VOID (*sync_callback)(VOID* userdata, INT32 sync_obj, CSLFenceResult result);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Sync framework class
+///
+/// SyncManager class provides the underlying basis sync services within CSL. Clients are not expected to call these APIs
+/// directly but are rather expected to make use of the CSL sync APIs.
+///
+/// SyncManager is a singleton class that represents the entire sync framework. It will be responsible for interfacing with the
+/// kernel and for triggering CSL callbacks. All public methods in this class are declared static.
+/// Instantiation/inheritance of this class is also prohibited.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class SyncManager final
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetInstance
+    ///
+    /// @brief  Static method to get an instance of the SyncManager class
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static SyncManager* GetInstance();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Destroy
+    ///
+    /// @brief  Static method to destroy SyncManager instance. This will probably be never called as UMD will be always up.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static INT Destroy();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Initialize
+    ///
+    /// @brief  Static method to initialize the Sync Framework
+    ///
+    /// @param  pDevice pointer to string indicating sync device in kernel
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Initialize(
+        const CHAR* pDevice);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Uninitialize
+    ///
+    /// @brief  Static method to de-initialize the Sync Framework
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Uninitialize();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateSync
+    ///
+    /// @brief  Static method to create a new sync object
+    ///
+    /// @param  pName       pointer to string to assign a name to the object, for debug purposes
+    /// @param  pSyncId     Address to UINT32 where integer identifying sync object will be populated upon return
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult CreateSync(
+        const CHAR* pName,
+        INT32* pSyncId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DestroySync
+    ///
+    /// @brief  Static method to destroy a new sync object
+    ///
+    /// @param  syncObj UINT32 identifying sync object to be destroyed
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult DestroySync(
+        INT32 syncObj);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Signal
+    ///
+    /// @brief  Static method to signal sync object
+    ///
+    /// @param  syncObj    UINT32 identifying sync object to be destroyed
+    /// @param  result     State the sync object will be in after signaling is done
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Signal(
+        INT32 syncObj,
+        enum SyncSignalResult result);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Merge
+    ///
+    /// @brief  Static method to merge multiple sync objects into one group sync object
+    ///
+    /// @param  pSyncObj    Pointer to a block of UINT32s identifying sync objects to merge
+    /// @param  numObjs     Total number of objects to block
+    /// @param  pMerged     Sync id of the merged object returned after the merge operation is completed
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Merge(
+        INT32* pSyncObj,
+        INT numObjs,
+        INT32* pMerged);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RegisterCallback
+    ///
+    /// @brief  Static method to register a call back function for a particular sync object, with the Sync framework
+    ///
+    /// @param  syncObj     Sync object for which call back needs to be registered
+    /// @param  cb          Pointer to callback function
+    /// @param  pUserdata   Pointer to callback cookie
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult RegisterCallback(
+        INT32 syncObj,
+        sync_callback cb,
+        VOID* pUserdata);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DeregisterCallback
+    ///
+    /// @brief  Static method to de-register a call back function for a particular sync object, with the Sync framework
+    ///
+    /// @param  syncObj     Sync object for which call back needs to be de-registered
+    /// @param  cb          Pointer to callback function
+    /// @param  pUserdata   Pointer to callback cookie
+    ///
+    /// @return Success or EFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult DeregisterCallback(
+        INT32 syncObj,
+        sync_callback cb,
+        VOID* pUserdata);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Wait
+    ///
+    /// @brief  Static method to wait synchronously on a sync object
+    ///
+    /// @param  syncObj    Sync object to wait on
+    /// @param  timeOut    timeout in milliseconds
+    ///
+    /// @return CamxResultSuccess or CamxResultETimeout or CamxResultEFailed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Wait(
+        INT32 syncObj,
+        UINT64 timeOut);
+private:
+    /// @brief Private control structure for SyncManager class
+    static struct SyncManagerCtrl s_ctrl;
+    /// @brief Exit command to ask polling thread to exit
+    static const CHAR* pExitThreadCmd;
+    /// @brief Actual instance of the class returned via GetInstance API
+    static SyncManager* s_pSyncManagerInstance;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SyncManager
+    ///
+    /// @brief  Private constructor for SyncManager object.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    SyncManager();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~SyncManager
+    ///
+    /// @brief  Private destructor for SyncManager object. Must not be called before Uninitialize().
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ~SyncManager();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SyncManagerPollMethod
+    ///
+    /// @brief  Polling method for polling kernel device
+    ///
+    /// @param  pData Data payload for poll thread
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static VOID* SyncManagerPollMethod(
+        VOID* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CbDispatchJob
+    ///
+    /// @brief  Callback Dispatch function
+    ///
+    /// @param  pData Data payload for dispatch job
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static VOID* CbDispatchJob(
+        VOID* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FlushCbDispatchJob
+    ///
+    /// @brief  Flush method for callback dispatch function
+    ///
+    /// @param  pData Data token that job is posted with
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static VOID FlushCbDispatchJob(
+        VOID* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// StoppedCbDispatchJob
+    ///
+    /// @brief  Stop method for callback dispatch function
+    ///
+    /// @param  pData Data token that job is posted with
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static VOID StoppedCbDispatchJob(
+        VOID* pData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetReadFDFromPipe
+    ///
+    /// @brief  Method that returns the read FD from the IPC pipe
+    ///
+    /// @return FD for reading from
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static INT GetReadFDFromPipe();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetWriteFDFromPipe
+    ///
+    /// @brief  Method that returns the write FD from the IPC pipe
+    ///
+    /// @return FD for writing into
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static INT GetWriteFDFromPipe();
+
+    // Do not implement the copy constructor or the assignment operator
+    SyncManager(const SyncManager& rSource) = delete;
+    VOID operator= (const SyncManager& rSource) = delete;
+};
+
+CAMX_NAMESPACE_END
+
+#endif // ANDROID
+
+#endif // CAMXSYNCMANAGER_H

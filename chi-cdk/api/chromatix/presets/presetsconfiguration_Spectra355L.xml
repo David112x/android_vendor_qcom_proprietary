@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+============================================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+============================================================================================
+
+============================================================================================
+DESCRIPTION:
+
+This file contains a list of presets that will be automatically loaded
+when the relevant mode/sub-mode is added from the 'Scenario Configuration' window in
+Chromatix 7
+
+
+INSTRUCTIONS:
+
+1. This file must be placed inside the 'presets' folder (root folder) at the top level
+in order to facilitate the automatic loading of presets. All the individual preset file
+locations are specified relative to this root folder
+
+2. The location of the 'presets' folder must be specified in the 'Project Configuration'
+window while creating a new project
+
+3. If the user edits the file, they are responsible for ensuring the sanity of the changes
+made
+
+
+TERMINOLOGY:
+
+Group: A 'Group' represents a set of related presets. Only groups and version information
+can exists at the top-most level under 'PresetsConfiguration'. Any new set of presets that
+do not fit into one of the existing groups must be added under a new 'Group' (at the same
+level as the existing groups). Nested groups are not permitted. Users are free to assign any
+user-friendly name to the groups
+
+Mode: A 'Mode' represents modes/sub-modes that can be added from the 'Scenario Configuration'
+window. The 'Name' attribute for each mode MUST match one of the drop-down menu items in the
+'Scenario Configuration' window. Nested modes are permitted. The order in which the nested
+modes are specified is not important. For example, the following two cases are both valid -
+
+Case 1                                           Case 2
+
+<Mode Name="Sepia">                              <Mode Name="Snapshot">
+  <Mode Name="Snapshot">                           <Mode Name="Sepia">
+    <PresetFiles>                                    <PresetFiles>
+      <File>abc.xml</File>                             <File>abc.xml</File>
+    </PresetFiles>                                   </PresetFiles>
+  </Mode>                                          </Mode>
+</Mode>                                          </Mode>
+
+=============================================================================================
+-->
+<PresetsConfiguration>
+  <Version>
+    <Major>1</Major>
+    <Minor>0</Minor>
+  </Version>
+  <Group Name="ADRC">
+    <Mode Name="ADRC">
+      <PresetFiles>
+        <File>adrc\gtm10_bps.xml</File>
+        <File>adrc\ltm13_ipe.xml</File>
+        <File>adrc\tmc12_sw.xml</File>
+      </PresetFiles>
+    </Mode>
+  </Group>
+  <Group Name="HLG">
+    <Mode Name="HLG">
+      <PresetFiles>
+        <File>hlg\cv12_ipe.xml</File>
+        <!--Please load the HLG gamma preset manually after tuning the ColorCorrection block-->
+        <!--<File>hlg\gamma15_ipe.xml</File>-->
+      </PresetFiles>
+    </Mode>
+  </Group>
+  <Group Name="NPS">
+    <Mode Name="Preview">
+      <PresetFiles>
+        <File>nps\ds4to1v10_bps_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_bps_dc4_dc16.video.xml</File>
+        <File>nps\ds4to1v10_ife_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_ife_dc4_dc16.video.xml</File>
+        <File>nps\lrme10_ipe.video.xml</File>
+        <File>nps\anr10_ipe.video.xml</File>
+        <File>nps\tf10_ipe.video.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Snapshot">
+      <PresetFiles>
+        <File>nps\ds4to1v10_bps_full_dc4.still.xml</File>
+        <File>nps\ds4to1v10_bps_dc4_dc16.still.xml</File>
+        <File>nps\anr10_ipe.still.xml</File>
+        <File>nps\tf10_ipe.still.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Video">
+      <PresetFiles>
+        <File>nps\ds4to1v10_bps_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_bps_dc4_dc16.video.xml</File>
+        <File>nps\ds4to1v10_ife_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_ife_dc4_dc16.video.xml</File>
+        <File>nps\lrme10_ipe.video.xml</File>
+        <File>nps\anr10_ipe.video.xml</File>
+        <File>nps\tf10_ipe.video.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="MFNRBlend">
+      <PresetFiles>
+        <File>nps\ds4to1v10_bps_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_bps_dc4_dc16.video.xml</File>
+        <File>nps\ds4to1v10_ife_full_dc4.video.xml</File>
+        <File>nps\ds4to1v10_ife_dc4_dc16.video.xml</File>
+        <File>nps\anr10_ipe.still.xml</File>
+        <File>nps\tf10_ipe.mf_4pass.xml</File>
+        <File>nps\hnr10_bps.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="MFNRPostFilter">
+      <PresetFiles>
+        <File>nps\ds4to1v10_bps_full_dc4.still.xml</File>
+        <File>nps\ds4to1v10_bps_dc4_dc16.still.xml</File>
+        <File>nps\anr10_ipe.still.xml</File>
+        <File>nps\tf10_ipe.still.xml</File>
+      </PresetFiles>
+    </Mode>
+  </Group>
+  <Group Name="Scene Modes">
+    <Mode Name="Action">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_action.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="AntiShake">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_steady_photo.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="BackLight">
+      <PresetFiles>
+        <File>sceneMode\ltm13_ipe_backlight.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Barcode">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_barcode.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Beach">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_beach.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Fireworks">
+      <PresetFiles>
+        <File>sceneMode\cv12_ipe_fireworks.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Flower">
+      <PresetFiles>
+        <File>sceneMode\cv12_ipe_flower.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Landscape">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_landscape.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Night">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_night.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="NightPortrait">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_night_portrait.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Party">
+      <PresetFiles>
+        <File>sceneMode\cv12_ipe_party.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Portrait">
+      <PresetFiles>
+        <File>sceneMode\asf30_ipe_portrait.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Snow">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_snow.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Sports">
+      <PresetFiles>
+        <File>sceneMode\gamma15_ipe_sports.xml</File>
+      </PresetFiles>
+    </Mode>
+  </Group>
+  <Group Name="Special Effects">
+    <Mode Name="Aqua">
+      <PresetFiles>
+        <File>specialEffect\cv12_ipe_aqua.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Blackboard">
+      <PresetFiles>
+        <File>specialEffect\asf30_ipe_blackboard.xml</File>
+        <File>specialEffect\gamma15_ipe_blackboard.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Emboss">
+      <PresetFiles>
+        <File>specialEffect\asf30_ipe_emboss.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Mono">
+      <PresetFiles>
+        <File>specialEffect\cv12_ipe_mono.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Negative">
+      <PresetFiles>
+        <File>specialEffect\cv12_ipe_negative.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Neon">
+      <PresetFiles>
+        <File>specialEffect\asf30_ipe_neon.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Posterize">
+      <PresetFiles>
+        <File>specialEffect\ltm13_ipe_posterize.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Sepia">
+      <PresetFiles>
+        <File>specialEffect\cv12_ipe_sepia.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Sketch">
+      <PresetFiles>
+        <File>specialEffect\asf30_ipe_sketch.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Solarize">
+      <PresetFiles>
+        <File>specialEffect\ltm13_ipe_solarize.xml</File>
+      </PresetFiles>
+    </Mode>
+    <Mode Name="Whiteboard">
+      <PresetFiles>
+        <File>specialEffect\gamma15_ipe_whiteboard.xml</File>
+      </PresetFiles>
+    </Mode>
+  </Group>
+</PresetsConfiguration>

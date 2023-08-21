@@ -1,0 +1,91 @@
+{
+  "config":{
+    "hw_platform": ["QRD", "MTP", "Dragon", "Surf"],
+    "soc_id": ["336", "347", "360", "393"],
+    "platform_subtype_id": ["1"]
+  },
+  "tmx4903":{
+    "owner": "sns_tmx4903",
+    ".als":{
+      "owner": "sns_tmx4903",
+      ".config":{
+        "owner": "sns_tmx4903",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "3"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        }
+      }
+    },
+    ".prox":{
+      "owner": "sns_tmx4903",
+      ".config":{
+        "owner": "sns_tmx4903",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        }
+      }
+    },
+    ".rgb":{
+      "owner": "sns_tmx4903",
+      ".config":{
+        "owner": "sns_tmx4903",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "res_idx":{ "type": "int", "ver": "0",
+          "data": "2"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        }
+      }
+    }
+  },
+  "tmx4903_platform":{
+    "owner": "sns_tmx4903",
+    ".als":{
+      "owner": "sns_tmx4903",
+      ".fac_cal":{
+        "owner": "sns_tmx4903",
+        "scale":{ "type": "flt", "ver": "0",
+          "data": "1369.0"
+        },
+        "bias":{ "type": "flt", "ver": "0",
+          "data": "5000.0"
+        }
+      }
+    },
+    ".prox":{
+      "owner": "sns_tmx4903",
+      ".fac_cal":{
+        "owner": "sns_tmx4903",
+        "near_threshold":{ "type": "flt", "ver": "0",
+          "data": "8528.0"
+        },
+        "far_threshold":{ "type": "flt", "ver": "0",
+          "data": "5000.0"
+        }
+      }
+    }
+  }
+}

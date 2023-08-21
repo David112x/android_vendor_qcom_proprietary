@@ -1,0 +1,53 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="MfsrBlend_linkages">
+    <PortLinkages>
+        <Link>
+            <SrcPort>
+                <PortName>BPSOutputPortReg1</PortName>
+                <PortId>7</PortId>
+                <NodeName>BPS</NodeName>
+                <NodeId>65539</NodeId>
+                <NodeInstance>BPSInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>ChiNodeInputPortFull</PortName>
+                <PortId>11</PortId>
+                <NodeName>ChiExternalNode</NodeName>
+                <NodeId>255</NodeId>
+                <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+                <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+                <BufferQueueDepth>2</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>ChiNodeOutputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>ChiExternalNode</NodeName>
+                <NodeId>255</NodeId>
+                <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_SINKNOBUFFER</PortName>
+                <PortId>1</PortId>
+                <NodeName>SinkNoBuffer</NodeName>
+                <NodeId>3</NodeId>
+                <NodeInstance>SinkInstanceName10</NodeInstance>
+                <NodeInstanceId>10</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

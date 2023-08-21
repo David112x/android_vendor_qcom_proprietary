@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:element name="SASpatialGenV1DataArray" type="chromatixSASpatialGenV1ArrayType"/>
+	<xs:complexType name="chromatixSASpatialGenV1ArrayType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="1"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SASpatialROIBasedAWBData" maxOccurs="1">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="chromatixSASpatialGenV1Type">
+							<xs:attribute name="tool_hint" default="name= Spatial SA Instance for ROI Based AWB"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="SASpatialGenV1Data" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="chromatixSASpatialGenV1Type">
+							<xs:attribute name="tool_hint" default="name= Spatial SA Instance"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableFlag" type="enableFlagType" default="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixSASpatialGenV1Type">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="enableFlag" type="enableFlagType"/>
+			<xs:element name="weight" type="xs:float" default="1.0"/>
+			<xs:element name="DefaultROIInfo" type="ROIInfoType" maxOccurs="unbounded"/>
+			<xs:element name="IntensityWeights" type="IntensityWeightsLevel1Type"/>
+			<xs:element name="DistanceWeights" type="DistanceWeightsLevel1Type"/>
+			<xs:element name="confidenceLevel">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbSAConfidenceDataType">
+							<xs:attribute name="description" type="xs:string" default="Confidence level setting"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ROIAgregationWeights">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="awbSAConfidenceDataType">
+							<xs:attribute name="description" type="xs:string" default="ROI Results Aggregation settings"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IntensityWeightsLevel1Type">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="enableFlag" type="enableFlagType"/>
+			<xs:element name="IntensityWeightComputationSelect" type="awbSAIntensityWeightCmptType"/>
+			<xs:element name="weights" type="awbWeightLUTLevel1Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DistanceWeightsLevel1Type">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="enableFlag" type="enableFlagType"/>
+			<xs:element name="weights" type="awbWeightLUTLevel1Type"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ROIInfoType">
+		<xs:sequence>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="TargetColor" type="awbRGBDataType"/>
+			<xs:element name="ROIPosition" type="ROIPostionType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

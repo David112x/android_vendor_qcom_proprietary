@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<gamma15_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\gamma_1_5_0.xsd">
+  <enable_section>
+    <gamma_enable>1</gamma_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="5" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_led_idx</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <private_information>
+    <led_sensitivity_trigger>
+      <start>1</start>
+      <end>100</end>
+    </led_sensitivity_trigger>
+  </private_information>
+  <chromatix_gamma15_core>
+    <mod_gamma15_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_gamma15_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_gamma15_led_idx_data>
+              <led_idx_trigger>0</led_idx_trigger>
+              <led_idx_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>250</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>1</start>
+                        <end>100</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_RGB</channel_type>
+                          <gamma15_rgn_data type="int" range="[0,1023]" length="257">
+                            <table>0 10 21 32 43 55 67 80 93 106 120 134 149 163 177 191 205 219 233 247 260 273 286 299 311 323 335 346 357 367 377 386 396 405 413 421 429 437 445 453 460 467 475 481 489 495 502 509 515 522 528 534 540 547 553 559 565 571 577 583 589 595 601 607 612 618 624 629 635 640 645 651 656 661 666 671 676 681 686 690 695 699 704 708 713 717 721 725 729 733 737 741 745 750 754 760 765 770 774 778 781 784 786 789 791 793 795 797 799 801 803 805 807 809 811 812 814 816 818 819 821 823 824 826 828 829 831 833 834 836 838 839 841 842 844 845 847 848 850 852 853 855 856 858 859 861 862 864 865 867 868 870 871 873 874 876 877 879 880 882 883 885 886 888 889 891 892 894 895 897 898 900 901 903 904 906 907 908 910 911 913 914 916 917 919 920 922 923 924 926 927 929 930 932 933 935 936 937 939 941 942 943 945 946 948 949 951 952 954 955 956 958 959 961 962 964 965 966 968 969 971 972 974 975 977 978 980 981 982 984 985 987 988 990 991 992 994 995 997 998 1000 1001 1003 1004 1005 1007 1008 1010 1011 1013 1014 1016 1017 1019 1020 1022 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>290</lux_idx_start>
+                    <lux_idx_end>360</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>60</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>0</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_RGB</channel_type>
+                          <gamma15_rgn_data type="int" range="[0,1023]" length="257">
+                            <table>0 17 32 48 63 77 89 104 116 130 145 159 173 186 199 212 225 238 250 262 273 285 296 307 318 328 339 349 359 368 377 386 395 403 411 419 427 435 443 451 458 465 473 479 487 493 500 507 514 520 527 534 540 547 553 559 565 571 577 583 589 595 601 607 612 618 624 629 635 640 645 651 656 661 666 671 676 681 686 690 695 699 704 708 713 717 721 725 729 733 737 741 745 750 754 760 765 770 774 778 781 784 786 789 791 793 795 797 799 801 803 805 807 809 811 812 814 816 818 819 821 823 824 826 828 829 831 833 834 836 838 839 841 842 844 845 847 848 850 852 853 855 856 858 859 861 862 864 865 867 868 870 871 873 874 876 877 879 880 882 883 885 886 888 889 891 892 894 895 897 898 900 901 903 904 906 907 908 910 911 913 914 916 917 919 920 922 923 924 926 927 929 930 932 933 935 936 937 939 941 942 943 945 946 948 949 951 952 954 955 956 958 959 961 962 964 965 966 968 969 971 972 974 975 977 978 980 981 982 984 985 987 988 990 991 992 994 995 997 998 1000 1001 1003 1004 1005 1007 1008 1010 1011 1013 1014 1016 1017 1019 1020 1022 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+                <mod_gamma15_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>395</lux_idx_start>
+                    <lux_idx_end>415</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>200</gain_end>
+                  </aec_trigger>
+                  <aec_data>
+                    <mod_gamma15_cct_data>
+                      <cct_trigger>
+                        <start>0</start>
+                        <end>7500</end>
+                      </cct_trigger>
+                      <cct_data>
+                        <mod_gamma15_channel_data>
+                          <!--Channel type selection for R/G/B/All -->
+                          <channel_type>channel_RGB</channel_type>
+                          <gamma15_rgn_data type="int" range="[0,1023]" length="257">
+                            <table>0 8 16 24 32 45 58 71 84 98 111 124 136 150 163 176 189 202 214 226 239 250 260 270 280 289 297 306 315 322 330 337 345 351 358 365 373 379 385 390 397 403 409 416 422 427 434 439 445 450 455 460 465 470 475 480 485 490 495 500 504 509 514 518 523 528 532 537 542 546 550 555 559 564 567 571 575 579 584 588 592 596 600 604 607 611 615 620 624 628 631 635 638 642 645 649 652 656 659 663 666 670 673 676 679 683 686 690 693 696 699 703 706 709 711 714 716 719 722 725 728 731 734 737 740 742 744 746 748 751 754 757 760 763 766 769 772 774 776 778 780 783 786 789 792 794 796 798 800 802 804 806 808 811 814 817 820 822 824 826 828 830 832 834 836 838 840 842 844 847 850 853 856 858 860 862 864 866 868 870 872 874 876 878 880 882 884 886 888 890 892 894 896 898 900 902 904 906 908 910 912 914 916 918 920 922 924 926 928 930 932 934 936 938 940 942 944 946 948 950 952 954 956 958 960 962 964 966 968 969 970 971 972 974 976 978 980 982 984 986 988 990 992 994 996 998 1000 1002 1004 1005 1006 1007 1008 1012 1016 1019 1023</table>
+                          </gamma15_rgn_data>
+                        </mod_gamma15_channel_data>
+                      </cct_data>
+                    </mod_gamma15_cct_data>
+                  </aec_data>
+                </mod_gamma15_aec_data>
+              </led_idx_data>
+            </mod_gamma15_led_idx_data>
+          </hdr_aec_data>
+        </mod_gamma15_hdr_aec_data>
+      </drc_gain_data>
+    </mod_gamma15_drc_gain_data>
+  </chromatix_gamma15_core>
+</gamma15_ipe>

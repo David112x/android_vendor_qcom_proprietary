@@ -1,0 +1,80 @@
+{
+  "config":{
+    "hw_platform": ["MTP"],
+    "soc_id": ["356"],
+    "platform_subtype_id":["1"],
+    "platform_version":["131072"]
+  },
+    "ndi_atraxa_0":{
+    "owner": "sns_ndi_atraxa",
+    ".analog":{
+      "owner": "sns_ndi_atraxa",
+      ".config":{
+        "owner": "sns_ndi_atraxa",
+        "is_dri":{ "type": "int", "ver": "0",
+          "data": "1"
+        },
+        "hw_id":{ "type": "int", "ver": "0",
+          "data": "0"
+        },
+        "sync_stream":{ "type": "int", "ver": "0",
+          "data": "0"
+        }
+      }
+    }
+  },
+  "ndi_atraxa_0_platform":{
+    "owner": "sns_ndi_atraxa",
+    ".config":{
+      "owner": "sns_ndi_atraxa",
+      "bus_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "bus_instance":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "slave_config":{ "type": "int", "ver": "0",
+        "data": "2"
+      },
+      "i2c_address":{ "type": "int", "ver": "0",
+        "data": "16"
+      },
+      "min_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "max_bus_speed_khz":{ "type": "int", "ver": "0",
+        "data": "400"
+      },
+      "reg_addr_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "dri_irq_num":{ "type": "int", "ver": "0",
+        "data": "111"
+      },
+      "irq_pull_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "irq_is_chip_pin":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "irq_drive_strength":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "irq_trigger_type":{ "type": "int", "ver": "0",
+        "data": "0"
+      },
+      "num_rail":{ "type": "int", "ver": "0",
+        "data": "1"
+      },
+      "rail_on_state":{ "type": "int", "ver": "0",
+        "data": "2"
+      },
+      "vddio_rail":{ "type": "str", "ver": "0",
+        "data": "/pmic/client/sensor_vddio"
+      },
+      "rigid_body_type":{ "type": "int", "ver": "0",
+      "data": "2"
+      }
+    }
+  }
+}

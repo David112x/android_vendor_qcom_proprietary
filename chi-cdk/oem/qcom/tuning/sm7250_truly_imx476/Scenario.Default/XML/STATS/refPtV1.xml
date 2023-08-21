@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<refPtV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modrefptv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">2</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.284193337</rg>
+    <bg range="[0.0,15000.0]">1.17427909</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.468482018</rg>
+    <bg range="[0.0,15000.0]">0.783654869</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.493353248</rg>
+    <bg range="[0.0,15000.0]">0.726738</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.5547828</rg>
+    <bg range="[0.0,15000.0]">0.5965299</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.5328587</rg>
+    <bg range="[0.0,15000.0]">0.41830036</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.6077979</rg>
+    <bg range="[0.0,15000.0]">0.4176705</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.6827371</rg>
+    <bg range="[0.0,15000.0]">0.4170406</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0.921118</rg>
+    <bg range="[0.0,15000.0]">0.3531067</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">1.10881889</rg>
+    <bg range="[0.0,15000.0]">0.2945074</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">1.38183832</rg>
+    <bg range="[0.0,15000.0]">0.209272072</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0</rg>
+    <bg range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0</rg>
+    <bg range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0</rg>
+    <bg range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0</rg>
+    <bg range="[0.0,15000.0]">0</bg>
+  </refPt>
+  <refPt description="Reference point" tuning_parameter_level="must_tune">
+    <rg range="[0.0,15000.0]">0</rg>
+    <bg range="[0.0,15000.0]">0</bg>
+  </refPt>
+</refPtV1>

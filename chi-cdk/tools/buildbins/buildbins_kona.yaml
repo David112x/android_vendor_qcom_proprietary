@@ -1,0 +1,138 @@
+sensor_drivers:
+- com.qti.sensormodule.truly_imx476:
+    - sensor/imx476/imx476_sensor.xml
+    - module/truly_imx476_module.xml
+
+- com.qti.sensormodule.truly_ov8856_2:
+    - sensor/ov8856_master/ov8856_master_sensor.xml
+    - module/truly_ov8856_2_module.xml
+
+- com.qti.sensormodule.truly_ov8856_3:
+    - sensor/ov8856_slave/ov8856_slave_sensor.xml
+    - module/truly_ov8856_3_module.xml
+
+- com.qti.sensormodule.sunny_imx519:
+    - sensor/imx519/imx519_sensor.xml
+    - sensor/imx519/imx519_pdaf.xml
+    - module/sunny_imx519_module.xml
+    - eeprom/gt24p64b_imx519_eeprom.xml
+    - actuator/dw9718s_actuator.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.pmd_irs2381c:
+    - sensor/irs2381c/irs2381c_sensor.xml
+    - eeprom/irs2381c_polar_eeprom.xml
+    - module/pmd_irs2381c_module.xml
+
+- com.qti.sensormodule.liteon_imx362:
+    - sensor/imx362/imx362_sensor.xml
+    - sensor/imx362/imx362_pdaf.xml
+    - module/liteon_imx362_module.xml
+    - actuator/lc898212xd_actuator.xml
+    - eeprom/cat24c32_imx362_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.liteon_ov6211_0:
+    - sensor/ov6211_master/ov6211_master_sensor.xml
+    - module/liteon_ov6211_0_module.xml
+
+- com.qti.sensormodule.liteon_ov6211_1:
+    - sensor/ov6211_master/ov6211_master_sensor.xml
+    - module/liteon_ov6211_1_module.xml
+    - flash/pmic_flash.xml
+
+- com.qti.sensormodule.liteon_ov6211_4:
+    - sensor/ov6211_master/ov6211_master_sensor.xml
+    - module/liteon_ov6211_4_module.xml
+
+- com.qti.sensormodule.liteon_ov6211_5:
+    - sensor/ov6211_master/ov6211_master_sensor.xml
+    - module/liteon_ov6211_5_module.xml
+    - flash/pmic_flash.xml
+
+- com.qti.sensormodule.liteon_ov9282_0:
+    - sensor/ov9282_master/ov9282_master_sensor.xml
+    - module/liteon_ov9282_0_module.xml
+
+- com.qti.sensormodule.liteon_ov9282_1:
+    - sensor/ov9282_master/ov9282_master_sensor.xml
+    - module/liteon_ov9282_1_module.xml
+
+- com.qti.sensormodule.liteon_ov9282_4:
+    - sensor/ov9282_master/ov9282_master_sensor.xml
+    - module/liteon_ov9282_4_module.xml
+
+- com.qti.sensormodule.liteon_ov9282_5:
+    - sensor/ov9282_master/ov9282_master_sensor.xml
+    - module/liteon_ov9282_5_module.xml
+
+- com.qti.sensormodule.semco_imx586:
+    - sensor/imx586/imx586_sensor.xml
+    - sensor/imx586/imx586_pdaf.xml
+    - module/semco_imx586_module.xml
+    - flash/back_sensor_flash.xml
+    - actuator/lc898217xc_actuator.xml
+    - eeprom/cat24c64_imx586_eeprom.xml
+
+- com.qti.sensormodule.semco_imx481:
+    - sensor/imx481/imx481_sensor.xml
+    - sensor/imx481/imx481_pdaf.xml
+    - module/semco_imx481_module.xml
+    - actuator/ak7374_actuator.xml
+    - eeprom/cat24c64_imx481_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.semco_s5k3m5:
+    - sensor/s5k3m5/s5k3m5_sensor.xml
+    - sensor/s5k3m5/s5k3m5_pdaf.xml
+    - module/semco_s5k3m5_module.xml
+    - actuator/ak7374_actuator.xml
+    - eeprom/cat24c64_s5k3m5_eeprom.xml
+    - flash/back_sensor_flash.xml
+
+- com.qti.sensormodule.ofilm_imx563:
+    - sensor/imx563/imx563_sensor.xml
+    - module/ofilm_imx563_module.xml
+    - actuator/dw9714v_actuator.xml
+    - eeprom/p24c64e_imx563_eeprom.xml
+
+facedetection_binaries:
+- fdconfigvideo:
+    - fd/fdconfigdata.xml
+
+- fdconfigvideolite:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreview:
+    - fd/fdconfigdata.xml
+
+- fdconfigpreviewlite:
+    - fd/fdconfigdata.xml
+
+chromatix_projects:
+- com.qti.tuned.default:
+    - tuning/default_c7project
+
+- com.qti.tuned.semco_s5k3m5:
+    - tuning/sm8250_semco_s5k3m5
+
+- com.qti.tuned.sunny_imx519:
+    - tuning/sm8250_sunny_imx519
+
+- com.qti.tuned.truly_imx476:
+    - tuning/sm8250_truly_imx476
+
+- com.qti.tuned.sunny_s5k5e9yu05:
+    - tuning/sm8250_sunny_s5k5e9yu05
+
+- com.qti.tuned.liteon_imx362:
+    - tuning/sm8250_liteon_imx362
+
+- com.qti.tuned.semco_imx586:
+    - tuning/sm8250_semco_imx586
+
+- com.qti.tuned.semco_imx481:
+    - tuning/sm8250_semco_imx481
+
+- com.qti.tuned.ofilm_imx563:
+    - tuning/sm8250_ofilm_imx563

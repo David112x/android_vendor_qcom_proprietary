@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<tf10_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\api\chromatix\XSD\isp\tf_1_0_0.xsd">
+  <enable_section>
+    <master_en>1</master_en>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables default_value="control_lens_position, control_lens_zoom, control_post_scale_ratio, control_pre_scale_ratio, control_drc_gain, control_aec_exp_sensitivity_ratio, control_gain, control_cct, control_pass">
+    <control_var_type>control_lens_position</control_var_type>
+    <control_var_type>control_lens_zoom</control_var_type>
+    <control_var_type>control_post_scale_ratio</control_var_type>
+    <control_var_type>control_pre_scale_ratio</control_var_type>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+    <control_var_type>control_pass</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <master_en>
+      <enable default_value="0">0</enable>
+      <hyst_control_var default_value="control_gain">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </master_en>
+  </dynamic_enable_triggers>
+  <chromatix_tf10_reserve>
+    <mod_tf10_pass_reserve_data>
+      <pass_trigger default_value="PASS_FULL">PASS_FULL</pass_trigger>
+      <pass_data>
+        <blending_mode default_value="0">0</blending_mode>
+        <is_anr_strength_blender_mode default_value="0">0</is_anr_strength_blender_mode>
+        <disable_luma_ghost_detection default_value="0">1</disable_luma_ghost_detection>
+        <disable_chroma_ghost_detection default_value="0">1</disable_chroma_ghost_detection>
+        <enable_lnr default_value="0">1</enable_lnr>
+        <noise_params_y_uv_limit default_value="511">511</noise_params_y_uv_limit>
+        <noise_params_cb_uv_limit default_value="511">511</noise_params_cb_uv_limit>
+        <noise_params_cr_uv_limit default_value="511">511</noise_params_cr_uv_limit>
+        <use_anr_for_decisions_y default_value="0">0</use_anr_for_decisions_y>
+        <use_anr_for_decisions_c default_value="0">0</use_anr_for_decisions_c>
+        <enable_noise_est_by_luma default_value="1">0</enable_noise_est_by_luma>
+        <enable_noise_est_by_chroma default_value="1">0</enable_noise_est_by_chroma>
+        <padding_by_reflection_override default_value="0">0</padding_by_reflection_override>
+        <padding_by_reflection default_value="0">0</padding_by_reflection>
+        <morph_erode_en default_value="1">1</morph_erode_en>
+        <morph_dilate_en default_value="1">1</morph_dilate_en>
+        <smear_inputs_for_decisions default_value="0">0</smear_inputs_for_decisions>
+        <indications_premultiply_factor default_value="16">16</indications_premultiply_factor>
+        <invert_temporal_blending_weights default_value="0">0</invert_temporal_blending_weights>
+      </pass_data>
+    </mod_tf10_pass_reserve_data>
+    <mod_tf10_pass_reserve_data>
+      <pass_trigger default_value="PASS_DC4">PASS_DC4</pass_trigger>
+      <pass_data>
+        <blending_mode default_value="0">1</blending_mode>
+        <is_anr_strength_blender_mode default_value="0">0</is_anr_strength_blender_mode>
+        <disable_luma_ghost_detection default_value="0">0</disable_luma_ghost_detection>
+        <disable_chroma_ghost_detection default_value="0">0</disable_chroma_ghost_detection>
+        <enable_lnr default_value="0">1</enable_lnr>
+        <noise_params_y_uv_limit default_value="511">511</noise_params_y_uv_limit>
+        <noise_params_cb_uv_limit default_value="511">511</noise_params_cb_uv_limit>
+        <noise_params_cr_uv_limit default_value="511">511</noise_params_cr_uv_limit>
+        <use_anr_for_decisions_y default_value="0">0</use_anr_for_decisions_y>
+        <use_anr_for_decisions_c default_value="0">0</use_anr_for_decisions_c>
+        <enable_noise_est_by_luma default_value="1">1</enable_noise_est_by_luma>
+        <enable_noise_est_by_chroma default_value="1">1</enable_noise_est_by_chroma>
+        <padding_by_reflection_override default_value="0">0</padding_by_reflection_override>
+        <padding_by_reflection default_value="0">0</padding_by_reflection>
+        <morph_erode_en default_value="1">1</morph_erode_en>
+        <morph_dilate_en default_value="1">1</morph_dilate_en>
+        <smear_inputs_for_decisions default_value="0">1</smear_inputs_for_decisions>
+        <indications_premultiply_factor default_value="16">16</indications_premultiply_factor>
+        <invert_temporal_blending_weights default_value="0">0</invert_temporal_blending_weights>
+      </pass_data>
+    </mod_tf10_pass_reserve_data>
+    <mod_tf10_pass_reserve_data>
+      <pass_trigger default_value="PASS_DC16">PASS_DC16</pass_trigger>
+      <pass_data>
+        <blending_mode default_value="0">1</blending_mode>
+        <is_anr_strength_blender_mode default_value="0">0</is_anr_strength_blender_mode>
+        <disable_luma_ghost_detection default_value="0">0</disable_luma_ghost_detection>
+        <disable_chroma_ghost_detection default_value="0">0</disable_chroma_ghost_detection>
+        <enable_lnr default_value="0">1</enable_lnr>
+        <noise_params_y_uv_limit default_value="511">511</noise_params_y_uv_limit>
+        <noise_params_cb_uv_limit default_value="511">511</noise_params_cb_uv_limit>
+        <noise_params_cr_uv_limit default_value="511">511</noise_params_cr_uv_limit>
+        <use_anr_for_decisions_y default_value="0">0</use_anr_for_decisions_y>
+        <use_anr_for_decisions_c default_value="0">0</use_anr_for_decisions_c>
+        <enable_noise_est_by_luma default_value="1">1</enable_noise_est_by_luma>
+        <enable_noise_est_by_chroma default_value="1">1</enable_noise_est_by_chroma>
+        <padding_by_reflection_override default_value="0">0</padding_by_reflection_override>
+        <padding_by_reflection default_value="0">0</padding_by_reflection>
+        <morph_erode_en default_value="1">1</morph_erode_en>
+        <morph_dilate_en default_value="1">1</morph_dilate_en>
+        <smear_inputs_for_decisions default_value="0">1</smear_inputs_for_decisions>
+        <indications_premultiply_factor default_value="16">16</indications_premultiply_factor>
+        <invert_temporal_blending_weights default_value="0">0</invert_temporal_blending_weights>
+      </pass_data>
+    </mod_tf10_pass_reserve_data>
+    <mod_tf10_pass_reserve_data>
+      <pass_trigger default_value="PASS_DC64">PASS_DC64</pass_trigger>
+      <pass_data>
+        <blending_mode default_value="0">1</blending_mode>
+        <is_anr_strength_blender_mode default_value="0">0</is_anr_strength_blender_mode>
+        <disable_luma_ghost_detection default_value="0">0</disable_luma_ghost_detection>
+        <disable_chroma_ghost_detection default_value="0">0</disable_chroma_ghost_detection>
+        <enable_lnr default_value="0">0</enable_lnr>
+        <noise_params_y_uv_limit default_value="511">511</noise_params_y_uv_limit>
+        <noise_params_cb_uv_limit default_value="511">511</noise_params_cb_uv_limit>
+        <noise_params_cr_uv_limit default_value="511">511</noise_params_cr_uv_limit>
+        <use_anr_for_decisions_y default_value="0">0</use_anr_for_decisions_y>
+        <use_anr_for_decisions_c default_value="0">0</use_anr_for_decisions_c>
+        <enable_noise_est_by_luma default_value="1">1</enable_noise_est_by_luma>
+        <enable_noise_est_by_chroma default_value="1">1</enable_noise_est_by_chroma>
+        <padding_by_reflection_override default_value="0">0</padding_by_reflection_override>
+        <padding_by_reflection default_value="0">0</padding_by_reflection>
+        <morph_erode_en default_value="1">1</morph_erode_en>
+        <morph_dilate_en default_value="1">1</morph_dilate_en>
+        <smear_inputs_for_decisions default_value="0">1</smear_inputs_for_decisions>
+        <indications_premultiply_factor default_value="16">16</indications_premultiply_factor>
+        <invert_temporal_blending_weights default_value="0">0</invert_temporal_blending_weights>
+      </pass_data>
+    </mod_tf10_pass_reserve_data>
+  </chromatix_tf10_reserve>
+  <chromatix_tf10_core>
+    <mod_tf10_lens_posn_data>
+      <lens_posn_trigger>
+        <start>0</start>
+        <end>100</end>
+      </lens_posn_trigger>
+      <lens_posn_data>
+        <mod_tf10_lens_zoom_data>
+          <lens_zoom_trigger>
+            <start>0</start>
+            <end>100</end>
+          </lens_zoom_trigger>
+          <lens_zoom_data>
+            <mod_tf10_post_scale_ratio_data>
+              <post_scale_ratio_trigger>
+                <start>0</start>
+                <end>100</end>
+              </post_scale_ratio_trigger>
+              <post_scale_ratio_data>
+                <mod_tf10_pre_scale_ratio_data>
+                  <pre_scale_ratio_trigger>
+                    <start>0</start>
+                    <end>100</end>
+                  </pre_scale_ratio_trigger>
+                  <pre_scale_ratio_data>
+                    <mod_tf10_drc_gain_data>
+                      <drc_gain_trigger>
+                        <start>1</start>
+                        <end>100</end>
+                      </drc_gain_trigger>
+                      <drc_gain_data>
+                        <mod_tf10_hdr_aec_data>
+                          <hdr_aec_trigger>
+                            <exp_time_start>1</exp_time_start>
+                            <exp_time_end>16</exp_time_end>
+                            <aec_sensitivity_start>1</aec_sensitivity_start>
+                            <aec_sensitivity_end>16</aec_sensitivity_end>
+                            <exp_gain_start>1</exp_gain_start>
+                            <exp_gain_end>64</exp_gain_end>
+                          </hdr_aec_trigger>
+                          <hdr_aec_data>
+                            <mod_tf10_aec_data>
+                              <aec_trigger>
+                                <lux_idx_start>0</lux_idx_start>
+                                <lux_idx_end>1000</lux_idx_end>
+                                <gain_start>2</gain_start>
+                                <gain_end>4</gain_end>
+                              </aec_trigger>
+                              <aec_data>
+                                <mod_tf10_cct_data>
+                                  <cct_trigger>
+                                    <start>0</start>
+                                    <end>10000</end>
+                                  </cct_trigger>
+                                  <cct_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_FULL">PASS_FULL</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">255</a2_max_y>
+                                        <a2_min_y default_value="25">22</a2_min_y>
+                                        <a2_slope_y default_value="114">128</a2_slope_y>
+                                        <a2_max_c default_value="250">255</a2_max_c>
+                                        <a2_min_c default_value="180">22</a2_min_c>
+                                        <a2_slope_c default_value="36">128</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 48 72 96 120 144 168 192</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 48 72 96 120 144 168 192</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 48 72 96 120 144 168 192</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 48 72 96 120 144 168 192</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 132 136 142 147 153 157 156 156 160 160 157 154 149 142 135</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 130 134 139 145 151 157 163 168 174 180 186 193 201 207 207</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">1</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">0</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC4">PASS_DC4</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>9 9 9 9 9 9 9 9 10 10 10 10 9 8 7 6 5</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 132 136 142 147 153 157 156 156 160 160 157 154 149 142 135</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 130 134 139 145 151 157 163 168 174 180 186 193 201 207 207</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">10</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">8</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">50</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC16">PASS_DC16</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>3 3 3 3 3 3 3 3 4 4 4 4 3 3 3 2 2</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 132 136 142 147 153 157 156 156 160 160 157 154 149 142 135</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 130 134 139 145 151 157 163 168 174 180 186 193 201 207 207</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">4</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">4</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">2</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC64">PASS_DC64</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">0</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">16384</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">16384</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                  </cct_data>
+                                </mod_tf10_cct_data>
+                              </aec_data>
+                            </mod_tf10_aec_data>
+                            <mod_tf10_aec_data>
+                              <aec_trigger>
+                                <lux_idx_start>1</lux_idx_start>
+                                <lux_idx_end>900</lux_idx_end>
+                                <gain_start>7</gain_start>
+                                <gain_end>8</gain_end>
+                              </aec_trigger>
+                              <aec_data>
+                                <mod_tf10_cct_data>
+                                  <cct_trigger>
+                                    <start>1</start>
+                                    <end>10000</end>
+                                  </cct_trigger>
+                                  <cct_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_FULL">PASS_FULL</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">255</a2_max_y>
+                                        <a2_min_y default_value="25">22</a2_min_y>
+                                        <a2_slope_y default_value="114">128</a2_slope_y>
+                                        <a2_max_c default_value="250">255</a2_max_c>
+                                        <a2_min_c default_value="180">22</a2_min_c>
+                                        <a2_slope_c default_value="36">128</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 48 72 96 120 144 168 192</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 48 72 96 120 144 168 192</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 48 72 96 120 144 168 192</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 48 72 96 120 144 168 192</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 127 127 130 133 138 141 141 142 142 136 132 130 127 123 122</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 129 133 138 144 151 157 162 168 174 178 184 191 198 205 205</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">1</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">0</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC4">PASS_DC4</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>25 25 24 24 24 25 26 29 33 37 40 42 43 45 44 35 25</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>1 2 2 0 1 0 0 1</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 6 5</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>9 9 9 8 8 8 8 8 8 8 8 8 8 7 7 5 4</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 127 127 130 133 138 141 141 142 142 136 132 130 127 123 122</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 129 133 138 144 151 157 162 168 174 178 184 191 198 205 205</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">10</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">8</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">50</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC16">PASS_DC16</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>9 9 8 8 8 9 9 10 11 13 14 14 15 15 15 12 9</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 1 1 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 127 127 130 133 138 141 141 142 142 136 132 130 127 123 122</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 129 133 138 144 151 157 162 168 174 178 184 191 198 205 205</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">4</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">4</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">2</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC64">PASS_DC64</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">0</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">16384</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">16384</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                  </cct_data>
+                                </mod_tf10_cct_data>
+                              </aec_data>
+                            </mod_tf10_aec_data>
+                            <mod_tf10_aec_data>
+                              <aec_trigger>
+                                <lux_idx_start>1</lux_idx_start>
+                                <lux_idx_end>900</lux_idx_end>
+                                <gain_start>22</gain_start>
+                                <gain_end>24</gain_end>
+                              </aec_trigger>
+                              <aec_data>
+                                <mod_tf10_cct_data>
+                                  <cct_trigger>
+                                    <start>1</start>
+                                    <end>10000</end>
+                                  </cct_trigger>
+                                  <cct_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_FULL">PASS_FULL</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">255</a2_max_y>
+                                        <a2_min_y default_value="25">22</a2_min_y>
+                                        <a2_slope_y default_value="114">128</a2_slope_y>
+                                        <a2_max_c default_value="250">255</a2_max_c>
+                                        <a2_min_c default_value="180">22</a2_min_c>
+                                        <a2_slope_c default_value="36">128</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 48 72 96 120 144 168 192</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 48 72 96 120 144 168 192</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 48 72 96 120 144 168 192</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 48 72 96 120 144 168 192</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 131 135 141 148 156 161 164 167 166 157 148 141 134 128 125</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 131 136 142 149 157 164 170 176 182 184 185 187 191 194 198</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">1</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">0</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC4">PASS_DC4</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>44 45 45 47 46 45 45 44 44 43 42 41 40 38 33 28 24</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>13 13 14 14 14 14 13 13 13 13 13 13 12 12 11 9 8</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>16 16 16 17 17 16 16 16 16 15 15 14 14 13 11 9 7</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 131 135 141 148 156 161 164 167 166 157 148 141 134 128 125</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 131 136 142 149 157 164 170 176 182 184 185 187 191 194 198</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">1</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">10</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">8</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">50</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC16">PASS_DC16</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">1</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>15 15 15 16 16 15 15 15 15 15 14 14 14 13 11 10 8</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>5 5 5 5 5 5 5 5 5 5 5 5 4 4 4 3 3</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>6 6 6 6 6 6 6 6 6 5 5 5 5 5 4 3 3</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 131 135 141 148 156 161 164 167 166 157 148 141 134 128 125</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 131 136 142 149 157 164 170 176 182 184 185 187 191 194 198</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">23170</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">23170</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">1</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">1</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">4</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">4</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">2</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                    <mod_tf10_pass_data>
+                                      <pass_trigger default_value="PASS_DC64">PASS_DC64</pass_trigger>
+                                      <tf10_rgn_data>
+                                        <en default_value="1">0</en>
+                                        <noise_params_y_ytb_tab default_value="100">
+                                          <noise_params_y_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_y_ytb>
+                                        </noise_params_y_ytb_tab>
+                                        <noise_params_y_ctb_tab default_value="0">
+                                          <noise_params_y_ctb>0 0 0 0 0 0 0 0</noise_params_y_ctb>
+                                        </noise_params_y_ctb_tab>
+                                        <noise_params_y_top_lim default_value="100">4095</noise_params_y_top_lim>
+                                        <noise_params_y_bot_lim default_value="100">0</noise_params_y_bot_lim>
+                                        <noise_params_cb_ytb_tab default_value="30">
+                                          <noise_params_cb_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cb_ytb>
+                                        </noise_params_cb_ytb_tab>
+                                        <noise_params_cb_ctb_tab default_value="0">
+                                          <noise_params_cb_ctb>0 0 0 0 0 0 0 0</noise_params_cb_ctb>
+                                        </noise_params_cb_ctb_tab>
+                                        <noise_params_cb_top_lim default_value="30">1023</noise_params_cb_top_lim>
+                                        <noise_params_cb_bot_lim default_value="30">0</noise_params_cb_bot_lim>
+                                        <noise_params_cr_ytb_tab default_value="30">
+                                          <noise_params_cr_ytb>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</noise_params_cr_ytb>
+                                        </noise_params_cr_ytb_tab>
+                                        <noise_params_cr_ctb_tab default_value="0">
+                                          <noise_params_cr_ctb>0 0 0 0 0 0 0 0</noise_params_cr_ctb>
+                                        </noise_params_cr_ctb_tab>
+                                        <noise_params_cr_top_lim default_value="30">1023</noise_params_cr_top_lim>
+                                        <noise_params_cr_bot_lim default_value="30">0</noise_params_cr_bot_lim>
+                                        <a2_max_y default_value="250">250</a2_max_y>
+                                        <a2_min_y default_value="25">25</a2_min_y>
+                                        <a2_slope_y default_value="114">114</a2_slope_y>
+                                        <a2_max_c default_value="250">250</a2_max_c>
+                                        <a2_min_c default_value="180">180</a2_min_c>
+                                        <a2_slope_c default_value="36">36</a2_slope_c>
+                                        <is_same_blending_for_all_frequencies default_value="0">1</is_same_blending_for_all_frequencies>
+                                        <fs_to_a1_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_y>0 24 49 73 98 123 147 172 197</fs_to_a1_map_y>
+                                        </fs_to_a1_map_y_tab>
+                                        <fs_to_a1_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a1_map_c>0 24 49 73 98 123 147 172 197</fs_to_a1_map_c>
+                                        </fs_to_a1_map_c_tab>
+                                        <fs_to_a4_map_y_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_y>0 24 49 73 98 123 147 172 197</fs_to_a4_map_y>
+                                        </fs_to_a4_map_y_tab>
+                                        <fs_to_a4_map_c_tab default_value="0,24,49,73,98,123,147,172,197">
+                                          <fs_to_a4_map_c>0 24 49 73 98 123 147 172 197</fs_to_a4_map_c>
+                                        </fs_to_a4_map_c_tab>
+                                        <dither_y default_value="0">0</dither_y>
+                                        <dither_cb default_value="0">0</dither_cb>
+                                        <dither_cr default_value="0">0</dither_cr>
+                                        <lnr_lut_y_tab default_value="128">
+                                          <lnr_lut_y>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_y>
+                                        </lnr_lut_y_tab>
+                                        <lnr_lut_c_tab default_value="128">
+                                          <lnr_lut_c>128 128 128 128 128 128 128 128 128 128 128 128 128 128 128 128</lnr_lut_c>
+                                        </lnr_lut_c_tab>
+                                        <lnr_opt_center_x default_value="8192">8192</lnr_opt_center_x>
+                                        <lnr_opt_center_y default_value="8192">8192</lnr_opt_center_y>
+                                        <lnr_ellipses_bounding_rect_w default_value="16384">16384</lnr_ellipses_bounding_rect_w>
+                                        <lnr_ellipses_bounding_rect_h default_value="16384">16384</lnr_ellipses_bounding_rect_h>
+                                        <fs_decision_params_y_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_y_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_y_c1>
+                                        </fs_decision_params_y_c1_tab>
+                                        <fs_decision_params_y_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_y_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_y_c2>
+                                        </fs_decision_params_y_c2_tab>
+                                        <fs_decision_params_y_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_y_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_y_c3>
+                                        </fs_decision_params_y_c3_tab>
+                                        <fs_decision_params_y_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_y_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_y_c4>
+                                        </fs_decision_params_y_c4_tab>
+                                        <fs_decision_params_oof_y_c1 default_value="1">1</fs_decision_params_oof_y_c1>
+                                        <fs_decision_params_oof_y_c2 default_value="0">0</fs_decision_params_oof_y_c2>
+                                        <fs_decision_params_oof_y_c3 default_value="4">4</fs_decision_params_oof_y_c3>
+                                        <fs_decision_params_oof_y_c4 default_value="16">16</fs_decision_params_oof_y_c4>
+                                        <fs_decision_params_c_c1_tab default_value="0,2,4,6,8,10,12,14,16">
+                                          <fs_decision_params_c_c1>0 2 4 6 8 10 12 14 16</fs_decision_params_c_c1>
+                                        </fs_decision_params_c_c1_tab>
+                                        <fs_decision_params_c_c2_tab default_value="0,0,0,0,0,0,0,0,0">
+                                          <fs_decision_params_c_c2>0 0 0 0 0 0 0 0 0</fs_decision_params_c_c2>
+                                        </fs_decision_params_c_c2_tab>
+                                        <fs_decision_params_c_c3_tab default_value="0,3,7,11,15,19,23,27,31">
+                                          <fs_decision_params_c_c3>0 3 7 11 15 19 23 27 31</fs_decision_params_c_c3>
+                                        </fs_decision_params_c_c3_tab>
+                                        <fs_decision_params_c_c4_tab default_value="64,64,64,64,64,64,64,64,64">
+                                          <fs_decision_params_c_c4>64 64 64 64 64 64 64 64 64</fs_decision_params_c_c4>
+                                        </fs_decision_params_c_c4_tab>
+                                        <fs_decision_params_oof_c_c1 default_value="1">1</fs_decision_params_oof_c_c1>
+                                        <fs_decision_params_oof_c_c2 default_value="0">0</fs_decision_params_oof_c_c2>
+                                        <fs_decision_params_oof_c_c3 default_value="4">4</fs_decision_params_oof_c_c3>
+                                        <fs_decision_params_oof_c_c4 default_value="16">16</fs_decision_params_oof_c_c4>
+                                        <apply_fs_rank_filter default_value="1">0</apply_fs_rank_filter>
+                                        <apply_fs_lpf default_value="1">0</apply_fs_lpf>
+                                        <sad_y_calc_mode default_value="0">0</sad_y_calc_mode>
+                                        <sad_c_calc_mode default_value="1">1</sad_c_calc_mode>
+                                        <use_indications default_value="0">0</use_indications>
+                                        <indications_affect_fs_decision_also_directly default_value="0">0</indications_affect_fs_decision_also_directly>
+                                        <morph_erode_size default_value="1">1</morph_erode_size>
+                                        <morph_dilate_size default_value="2">2</morph_dilate_size>
+                                        <tr_enable default_value="0">0</tr_enable>
+                                        <tr_block_num_x default_value="4">1</tr_block_num_x>
+                                        <tr_block_num_y default_value="4">1</tr_block_num_y>
+                                        <tr_fs_threshold default_value="60">60</tr_fs_threshold>
+                                        <tr_dead_zone default_value="0">0</tr_dead_zone>
+                                        <tr_count_percentage_threshold default_value="50">25</tr_count_percentage_threshold>
+                                        <out_of_frame_pixels_confidence default_value="8">8</out_of_frame_pixels_confidence>
+                                        <is_dci_mode default_value="0">0</is_dci_mode>
+                                        <a3_t1_scale_y default_value="15">15</a3_t1_scale_y>
+                                        <a3_t1_offs_y default_value="0">0</a3_t1_offs_y>
+                                        <a3_t2_scale_y default_value="28">28</a3_t2_scale_y>
+                                        <a3_t2_offs_y default_value="0">0</a3_t2_offs_y>
+                                        <a3_t1_scale_c default_value="15">15</a3_t1_scale_c>
+                                        <a3_t1_offs_c default_value="0">0</a3_t1_offs_c>
+                                        <a3_t2_scale_c default_value="28">28</a3_t2_scale_c>
+                                        <a3_t2_offs_c default_value="0">0</a3_t2_offs_c>
+                                        <constant_blending_factor_y default_value="128">128</constant_blending_factor_y>
+                                        <constant_blending_factor_c default_value="128">128</constant_blending_factor_c>
+                                        <video_first_frame_spatial_nr_percentage default_value="50">50</video_first_frame_spatial_nr_percentage>
+                                        <scene_cut_recovery_time default_value="128">128</scene_cut_recovery_time>
+                                        <anr_final_blender_luma_min_strength_high_freq default_value="256">256</anr_final_blender_luma_min_strength_high_freq>
+                                        <anr_final_blender_luma_min_strength_low_freq default_value="256">256</anr_final_blender_luma_min_strength_low_freq>
+                                        <anr_final_blender_chroma_min_strength_high_freq default_value="256">256</anr_final_blender_chroma_min_strength_high_freq>
+                                        <anr_final_blender_chroma_min_strength_low_freq default_value="256">256</anr_final_blender_chroma_min_strength_low_freq>
+                                        <anr_final_blender_strength_decision_ythr_low default_value="20">20</anr_final_blender_strength_decision_ythr_low>
+                                        <anr_final_blender_strength_decision_ythr_high default_value="307">307</anr_final_blender_strength_decision_ythr_high>
+                                        <anr_final_blender_strength_decision_cthr_low default_value="511">511</anr_final_blender_strength_decision_cthr_low>
+                                        <anr_final_blender_strength_decision_cthr_high default_value="1023">1023</anr_final_blender_strength_decision_cthr_high>
+                                      </tf10_rgn_data>
+                                    </mod_tf10_pass_data>
+                                  </cct_data>
+                                </mod_tf10_cct_data>
+                              </aec_data>
+                            </mod_tf10_aec_data>
+                          </hdr_aec_data>
+                        </mod_tf10_hdr_aec_data>
+                      </drc_gain_data>
+                    </mod_tf10_drc_gain_data>
+                  </pre_scale_ratio_data>
+                </mod_tf10_pre_scale_ratio_data>
+              </post_scale_ratio_data>
+            </mod_tf10_post_scale_ratio_data>
+          </lens_zoom_data>
+        </mod_tf10_lens_zoom_data>
+      </lens_posn_data>
+    </mod_tf10_lens_posn_data>
+  </chromatix_tf10_core>
+</tf10_ipe>

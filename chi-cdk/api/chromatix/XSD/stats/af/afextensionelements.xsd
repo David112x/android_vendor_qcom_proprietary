@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="afglobalelements.xsd"/>
+	<xs:include schemaLocation="..\common\statsglobalelements.xsd"/>
+
+	<xs:element name="chromatixAFExtension" type="chromatixAFExtensionType"/>
+	<xs:complexType name="chromatixAFExtensionType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="7"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="A"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="extensionParam" type="statsExtensionParamType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

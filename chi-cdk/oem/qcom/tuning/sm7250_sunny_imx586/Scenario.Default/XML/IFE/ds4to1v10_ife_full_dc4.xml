@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<ds4to1v10_ife_full_dc4
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\ds4to1_1_0_0.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_pass</control_var_type>
+  </control_variables>
+  <chromatix_ds4to1v10_reserve>
+    <mod_ds4to1v10_pass_reserve_data>
+      <pass_trigger>PASS_FULL</pass_trigger>
+      <pass_data>
+        <coeff_07 type='uint' range="[0, 256]" length="1">125</coeff_07>
+        <coeff_16 type='uint' range="[0, 256]" length="1">91</coeff_16>
+        <coeff_25 type='uint' range="[0, 256]" length="1">144</coeff_25>
+      </pass_data>
+    </mod_ds4to1v10_pass_reserve_data>
+    <mod_ds4to1v10_pass_reserve_data>
+      <pass_trigger>PASS_DC4</pass_trigger>
+      <pass_data>
+        <coeff_07 type='uint' range="[0, 256]" length="1">125</coeff_07>
+        <coeff_16 type='uint' range="[0, 256]" length="1">91</coeff_16>
+        <coeff_25 type='uint' range="[0, 256]" length="1">144</coeff_25>
+      </pass_data>
+    </mod_ds4to1v10_pass_reserve_data>
+    <mod_ds4to1v10_pass_reserve_data>
+      <pass_trigger>PASS_DC16</pass_trigger>
+      <pass_data>
+        <coeff_07 type='uint' range="[0, 256]" length="1">125</coeff_07>
+        <coeff_16 type='uint' range="[0, 256]" length="1">91</coeff_16>
+        <coeff_25 type='uint' range="[0, 256]" length="1">144</coeff_25>
+      </pass_data>
+    </mod_ds4to1v10_pass_reserve_data>
+    <mod_ds4to1v10_pass_reserve_data>
+      <pass_trigger>PASS_DC64</pass_trigger>
+      <pass_data>
+        <coeff_07 type='uint' range="[0, 256]" length="1">125</coeff_07>
+        <coeff_16 type='uint' range="[0, 256]" length="1">91</coeff_16>
+        <coeff_25 type='uint' range="[0, 256]" length="1">144</coeff_25>
+      </pass_data>
+    </mod_ds4to1v10_pass_reserve_data>
+  </chromatix_ds4to1v10_reserve>
+</ds4to1v10_ife_full_dc4>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixDepthAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afdepthafelements.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <stats>
+    <minimalDistance type="int" description="Minimal distance in millimeter that sensor can provide" default_value="100" range="[0,unbounded]">100</minimalDistance>
+    <maximumDistance type="int" description="maximum distance in millimeter that sensor can provide" default_value="3000" range="[0,unbounded]">3000</maximumDistance>
+    <fovMap>
+      <horizontalOffset type="float" description="Depth stats starting point in horizontal direction in camif size" default_value="0" range="[-2, 2]">0</horizontalOffset>
+      <verticalOffset type="float" description="Depth stats starting point in vertical direction in camif size" default_value="0" range="[-2, 2]">0</verticalOffset>
+      <horizontalCoverage type="float" description="Depth stats coverage in horizontal direction in camif size" default_value="1" range="[0, 3.0]">1</horizontalCoverage>
+      <verticalCoverage type="float" description="Depth stats coverage in vertical direction in camif size" default_value="1" range="[0, 3.0]">1</verticalCoverage>
+    </fovMap>
+    <confidenceTable>
+      <entries>
+        <startLuxIndex type="float" description="Lux index of zone start" default_value="20" range="[0,unbounded]">20</startLuxIndex>
+        <endLuxIndex type="float" description="Lux Index of zone end" default_value="100" range="[0,unbounded]">100</endLuxIndex>
+        <threshold type="int" description="threshold that used to judge a pixel is confident or not" default_value="50" range="[0,unbounded]">50</threshold>
+      </entries>
+    </confidenceTable>
+    <center>
+      <enable type="bool" description="Enable for this window" default_value="True">true</enable>
+      <horizontalGridCount type="int" description="Grid size in horizontal direction" default_value="1" range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type="int" description="Grid size in vertical direction" default_value="1" range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type="int" description="pixel skip count in horizontal direction for stats parsing" default_value="1" range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type="int" description="line skip count in vertical direction for stats parsing" default_value="1" range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type="int" description="threshold of confident pixel percentage when a grid be selected" default_value="80" range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type="int" description="threshold of confident grid percentage when window be selected" default_value="20" range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type="float" description="Nth percentile of the valid grid to select for use in multi depth scene" default_value="0" range="[0.0, 1.0]">0</defocusPercentile>
+    </center>
+    <peripheral>
+      <enable type="bool" description="Enable for this window" default_value="True">true</enable>
+      <horizontalGridCount type="int" description="Grid size in horizontal direction" default_value="1" range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type="int" description="Grid size in vertical direction" default_value="1" range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type="int" description="pixel skip count in horizontal direction for stats parsing" default_value="1" range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type="int" description="line skip count in vertical direction for stats parsing" default_value="1" range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type="int" description="threshold of confident pixel percentage when a grid be selected" default_value="80" range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type="int" description="threshold of confident grid percentage when window be selected" default_value="20" range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type="float" description="Nth percentile of the valid grid to select for use in multi depth scene" default_value="0" range="[0.0, 1.0]">0</defocusPercentile>
+    </peripheral>
+    <touch>
+      <enable type="bool" description="Enable for this window" default_value="True">true</enable>
+      <horizontalGridCount type="int" description="Grid size in horizontal direction" default_value="1" range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type="int" description="Grid size in vertical direction" default_value="1" range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type="int" description="pixel skip count in horizontal direction for stats parsing" default_value="1" range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type="int" description="line skip count in vertical direction for stats parsing" default_value="1" range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type="int" description="threshold of confident pixel percentage when a grid be selected" default_value="80" range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type="int" description="threshold of confident grid percentage when window be selected" default_value="20" range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type="float" description="Nth percentile of the valid grid to select for use in multi depth scene" default_value="0" range="[0.0, 1.0]">0</defocusPercentile>
+    </touch>
+    <face>
+      <enable type="bool" description="Enable for this window" default_value="True">true</enable>
+      <horizontalGridCount type="int" description="Grid size in horizontal direction" default_value="1" range="[1,15]">1</horizontalGridCount>
+      <verticalGridCount type="int" description="Grid size in vertical direction" default_value="1" range="[1,12]">1</verticalGridCount>
+      <horizontalSkip type="int" description="pixel skip count in horizontal direction for stats parsing" default_value="1" range="[0, 4]">1</horizontalSkip>
+      <verticalSkip type="int" description="line skip count in vertical direction for stats parsing" default_value="1" range="[0, 4]">1</verticalSkip>
+      <minConfidentPixelPercentage type="int" description="threshold of confident pixel percentage when a grid be selected" default_value="80" range="[0, 100]">80</minConfidentPixelPercentage>
+      <minConfidentGridPercentage type="int" description="threshold of confident grid percentage when window be selected" default_value="20" range="[0, 100]">20</minConfidentGridPercentage>
+      <defocusPercentile type="float" description="Nth percentile of the valid grid to select for use in multi depth scene" default_value="0" range="[0.0, 1.0]">0</defocusPercentile>
+    </face>
+  </stats>
+  <monitor>
+    <DOFScalerTable>
+      <entries>
+        <normalizedLensPosition type="float" description="Normalized lens position, if lens position is near end, the value is 1, if lens position is far end, the value is 0." default_value="0" range="[0,1]">0</normalizedLensPosition>
+        <DOFScaler type="float" description="DOF scaler value at the given normalized lens position, this scaler will be applied to fine scan step size, defocus threshold, focus done threshold etc./" default_value="0" range="[1,10]">0</DOFScaler>
+      </entries>
+    </DOFScalerTable>
+  </monitor>
+  <converge>
+    <waitConfidenceRecoverCount type="int" description="frame count that algorithm wait for recorver before fallback" default_value="5" range="[0, 8]">5</waitConfidenceRecoverCount>
+    <frameSkip type="int" description="frameSkip in converge after lens move" default_value="0" range="[0,2]">0</frameSkip>
+    <normalLight>
+      <entries>
+        <startPosition type="int" description="start position of the trigger zone" default_value="0" range="[0, 399]">0</startPosition>
+        <endPosition type="int" description="end position of the trigger zone" default_value="399" range="[0, 399]">399</endPosition>
+        <focusDoneThreshold type="int" description="threshold of defocus that indicate focus is done" default_value="8" range="[0,10]">8</focusDoneThreshold>
+        <fineScanStepSize type="int" description="defocus range in far direction when current lens position be treated as focused" default_value="8" range="[0, 20]">8</fineScanStepSize>
+        <stepsRangeNear type="int" description="Steps in near direction indicate fine search range" default_value="30" range="[0, 5]">30</stepsRangeNear>
+        <stepsRangeFar type="int" description="Steps in far direction indicate fine search range" default_value="30" range="[0, 5]">30</stepsRangeFar>
+      </entries>
+    </normalLight>
+    <lowlight>
+      <entries>
+        <startPosition type="int" description="start position of the trigger zone" default_value="0" range="[0, 399]">0</startPosition>
+        <endPosition type="int" description="end position of the trigger zone" default_value="399" range="[0, 399]">399</endPosition>
+        <focusDoneThreshold type="int" description="threshold of defocus that indicate focus is done" default_value="8" range="[0,10]">8</focusDoneThreshold>
+        <fineScanStepSize type="int" description="defocus range in far direction when current lens position be treated as focused" default_value="8" range="[0, 20]">8</fineScanStepSize>
+        <stepsRangeNear type="int" description="Steps in near direction indicate fine search range" default_value="30" range="[0, 5]">30</stepsRangeNear>
+        <stepsRangeFar type="int" description="Steps in far direction indicate fine search range" default_value="30" range="[0, 5]">30</stepsRangeFar>
+      </entries>
+    </lowlight>
+  </converge>
+</chromatixDepthAF>

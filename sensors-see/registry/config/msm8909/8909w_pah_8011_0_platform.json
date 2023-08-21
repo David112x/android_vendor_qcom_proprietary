@@ -1,0 +1,190 @@
+{
+    "config":{
+        "hw_platform": ["MTP", "Dragon", "Surf"],
+        "soc_id": ["300", "301"]
+    },
+	   "pah_8011_0_platform.ppg_enable_ex_1": {
+        "owner": "pah_8011",
+        "0": {
+            "type": "int",
+            "ver": "0",
+            "data": "1"
+        },
+        "1": {
+            "type": "int",
+            "ver": "0",
+            "data": "20"
+        },
+        "2": {
+            "type": "int",
+            "ver": "0",
+            "data": "25"
+        },
+        "3": {
+            "type": "int",
+            "ver": "0",
+            "data": "524551551"
+        },
+        "4": {
+            "type": "int",
+            "ver": "0",
+            "data": "68944255"
+        },
+        "5": {
+            "type": "int",
+            "ver": "0",
+            "data": "1746994205"
+        },
+        "6": {
+            "type": "int",
+            "ver": "0",
+            "data": "1747282211"
+        },
+        "7": {
+            "type": "int",
+            "ver": "0",
+            "data": "86442022"
+        },
+        "8": {
+            "type": "int",
+            "ver": "0",
+            "data": "-2143545070"
+        },
+        "9": {
+            "type": "int",
+            "ver": "0",
+            "data": "-2143026627"
+        },
+        "10": {
+            "type": "int",
+            "ver": "0",
+            "data": "-2142502331"
+        },
+        "11": {
+            "type": "int",
+            "ver": "0",
+            "data": "8323661"
+        },
+        "12": {
+            "type": "int",
+            "ver": "0",
+            "data": "259262065"
+        }
+    },
+	 "pah_8011_0_platform.ppg_enable_ex_2": {
+        "owner": "pah_8011",
+        "0": {
+            "type": "int",
+            "ver": "0",
+            "data": "1"
+        },
+        "1": {
+            "type": "int",
+            "ver": "0",
+            "data": "20"
+        },
+        "2": {
+            "type": "int",
+            "ver": "0",
+            "data": "100"
+        },
+        "3": {
+            "type": "int",
+            "ver": "0",
+            "data": "71566719"
+        },
+        "4": {
+            "type": "int",
+            "ver": "0",
+            "data": "136053119"
+        },
+        "5": {
+            "type": "int",
+            "ver": "0",
+            "data": "1746993437"
+        },
+        "6": {
+            "type": "int",
+            "ver": "0",
+            "data": "1747282211"
+        },
+        "7": {
+            "type": "int",
+            "ver": "0",
+            "data": "19349542"
+        },
+        "8": {
+            "type": "int",
+            "ver": "0",
+            "data": "2017223698"
+        },
+        "9": {
+            "type": "int",
+            "ver": "0",
+            "data": "2017722429"
+        },
+        "10": {
+            "type": "int",
+            "ver": "0",
+            "data": "2018246725"
+        },
+        "11": {
+            "type": "int",
+            "ver": "0",
+            "data": "8323149"
+        },
+        "12": {
+            "type": "int",
+            "ver": "0",
+            "data": "259262065"
+        }
+    },
+    "pah_8011_0_platform.config": {
+        "owner":"pah_8011",
+        "bus_type":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "bus_instance":{
+            "type":"int","ver":"0","data":"0"
+        },
+        "slave_config":{"type":"int","ver":"0",
+            "data":"21"
+        },
+        "min_bus_speed_khz":{"type":"int","ver":"0",
+            "data":"400"
+        },
+        "max_bus_speed_khz":{"type":"int","ver":"0",
+            "data":"400"
+        },
+        "reg_addr_type":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "dri_irq_num":{"type":"int","ver":"0",
+            "data":"34"
+        },
+        "irq_pull_type":{"type":"int","ver":"0",
+            "data":"1"
+        },
+        "irq_is_chip_pin":{"type":"int","ver":"0",
+            "data":"1"
+        },
+        "irq_drive_strength":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "irq_trigger_type":{"type":"int","ver":"0",
+            "data":"0"
+        },
+        "num_rail":{"type":"int","ver":"0",
+            "data":"1"
+        },
+        "rail_on_state":{"type":"int","ver":"0",
+            "data":"1"
+        },
+        "vddio_rail":{"type":"str","ver":"0",
+            "data":"/pmic/client/sensor_vddio"
+        },
+        "rigid_body_type":{"type":"int","ver":"0",
+            "data":"0"
+        }
+    }
+}

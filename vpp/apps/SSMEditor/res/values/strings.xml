@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<resources>
+    <string name="app_name">Qualcomm Perceptual Tagging</string>
+    <string name="permissions_denied">User has denied permissions request.
+        To change permissions in settings, click OK.</string>
+    <string name="error_invalid_file">Invalid file.</string>
+    <string name="error_dimensions">Unsupported resolution or frame rate.</string>
+    <string name="error_no_valid_video_track">Invalid video track.</string>
+    <string name="error_invalid_layer_id">Invalid HSR file.</string>
+    <string name="error_generic">Video format not supported.</string>
+    <string name="error_input_title">Input Format Error</string>
+    <string name="error_max_res">Max resolution for</string>
+    <string name="error_min_fps">Min frame rate:</string>
+    <string name="error_max_fps">Max frame rate:</string>
+    <string name="error_no_config">No configuration found matching device specifications.</string>
+    <string name="error_no_presets">No presets found for the device configuration.</string>
+
+    <string-array name="resolutions">
+        <item>1280x720</item>
+        <item>1920x1080</item>
+    </string-array>
+
+    <string-array name="numeric_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="fps">
+        <item>15</item>
+        <item>30</item>
+    </string-array>
+
+    <string name="initializing">Initializing</string>
+    <string name="finishing">Finishing</string>
+    <string name="start_record">Record</string>
+    <string name="stop_record">Stop</string>
+
+    <string name="app_title">Multimedia Compute Apps</string>
+
+    <string name="qpt_launcher">QPT Launcher</string>
+    <string name="qpt_capture">QPT Capture</string>
+    <string name="vpp_player">VPP Player</string>
+
+    <string name="button_change_preset">Change Preset</string>
+</resources>

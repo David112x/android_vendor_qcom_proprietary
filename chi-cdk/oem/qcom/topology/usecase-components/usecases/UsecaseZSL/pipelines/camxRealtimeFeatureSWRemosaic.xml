@@ -1,0 +1,62 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>RealtimeFeatureSWRemosaic</PipelineName>
+    <NodesList>
+        <Node>
+            <NodeName>ChiExternalNode</NodeName>
+            <NodeId>255</NodeId>
+            <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>NodePropertyCustomLib</NodePropertyName>
+                <NodePropertyId>1</NodePropertyId>
+                <NodePropertyDataType>STRING</NodePropertyDataType>
+                <NodePropertyValue>com.qti.node.remosaic</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_SWREMOSAIC_IN</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+        <Link>
+            <SrcPort>
+                <PortName>ChiNodeOutputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>ChiExternalNode</NodeName>
+                <NodeId>255</NodeId>
+                <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_RAW_OUT</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_SWREMOSAIC_IN</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>ChiNodeInputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>ChiExternalNode</NodeName>
+                <NodeId>255</NodeId>
+                <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</Pipeline>

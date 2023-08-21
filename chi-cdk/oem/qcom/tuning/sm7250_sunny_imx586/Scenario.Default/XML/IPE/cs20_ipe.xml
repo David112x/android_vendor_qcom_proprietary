@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cs20_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cs_2_0_0.xsd">
+  <enable_section>
+    <chroma_suppression_enable>0</chroma_suppression_enable>
+  </enable_section>
+  <module_version major_revision="2" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <chromatix_cs20_reserve>
+    <luma_q type='uint' range="[0,3]" length="1">1</luma_q>
+    <chroma_q type='uint' range="[0,3]" length="1">1</chroma_q>
+  </chromatix_cs20_reserve>
+  <chromatix_cs20_core>
+    <mod_cs20_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1</start>
+        <end>100</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_cs20_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_cs20_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>200</gain_end>
+              </aec_trigger>
+              <cs20_rgn_data>
+                <knee_point_lut_tab type='float' range="[0,256]" length="16">
+                  <knee_point_lut>0 17 34 51 68 85 102 119 136 153 170 187 204 221 238 256</knee_point_lut>
+                </knee_point_lut_tab>
+                <y_weight_lut_tab type='float' range="[0.0,1.0]" length="16">
+                  <y_weight_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</y_weight_lut>
+                </y_weight_lut_tab>
+                <c_thr1_lut_tab type='float' range="[0,128]" length="16">
+                  <c_thr1_lut>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</c_thr1_lut>
+                </c_thr1_lut_tab>
+                <c_thr2_lut_tab type='float' range="[1,128]" length="16">
+                  <c_thr2_lut>2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2</c_thr2_lut>
+                </c_thr2_lut_tab>
+              </cs20_rgn_data>
+            </mod_cs20_aec_data>
+          </hdr_aec_data>
+        </mod_cs20_hdr_aec_data>
+      </drc_gain_data>
+    </mod_cs20_drc_gain_data>
+  </chromatix_cs20_core>
+</cs20_ipe>

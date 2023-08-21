@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<sce11_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\sce_1_1_0.xsd">
+  <enable_section>
+    <sce_enable>0</sce_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="1" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_cct</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <chromatix_sce11_reserve>
+    <a type="float" range="[-2048,2047]" length="1">1</a>
+    <b type="float" range="[-2048,2047]" length="1">0</b>
+    <c type="float" range="[-2048,2047]" length="1">0</c>
+    <d type="float" range="[-2048,2047]" length="1">0</d>
+    <e type="float" range="[-2048,2047]" length="1">1</e>
+    <f type="float" range="[-2048,2047]" length="1">0</f>
+  </chromatix_sce11_reserve>
+  <chromatix_sce11_core>
+    <mod_sce11_aec_data>
+      <aec_trigger>
+        <lux_idx_start>1</lux_idx_start>
+        <lux_idx_end>900</lux_idx_end>
+        <gain_start>1</gain_start>
+        <gain_end>200</gain_end>
+      </aec_trigger>
+      <aec_data>
+        <mod_sce11_cct_data>
+          <cct_trigger>
+            <start>1</start>
+            <end>10000</end>
+          </cct_trigger>
+          <sce11_rgn_data>
+            <ori_triangle range="[-128, 127]" length="30">
+              <traingle1>
+                <point1>40 -30</point1>
+                <point2>17 -3</point2>
+                <point3>10 -20</point3>
+              </traingle1>
+              <traingle2>
+                <point1>40 -30</point1>
+                <point2>70 -25</point2>
+                <point3>17 -3</point3>
+              </traingle2>
+              <traingle3>
+                <point1>40 -30</point1>
+                <point2>65 -55</point2>
+                <point3>70 -25</point3>
+              </traingle3>
+              <traingle4>
+                <point1>40 -30</point1>
+                <point2>45 -90</point2>
+                <point3>65 -55</point3>
+              </traingle4>
+              <traingle5>
+                <point1>40 -30</point1>
+                <point2>10 -20</point2>
+                <point3>45 -90</point3>
+              </traingle5>
+            </ori_triangle>
+            <target_triangle range="[-128, 127]" length="30">
+              <traingle1>
+                <point1>40 -30</point1>
+                <point2>17 -3</point2>
+                <point3>10 -20</point3>
+              </traingle1>
+              <traingle2>
+                <point1>40 -30</point1>
+                <point2>70 -25</point2>
+                <point3>17 -3</point3>
+              </traingle2>
+              <traingle3>
+                <point1>40 -30</point1>
+                <point2>65 -55</point2>
+                <point3>70 -25</point3>
+              </traingle3>
+              <traingle4>
+                <point1>40 -30</point1>
+                <point2>45 -90</point2>
+                <point3>65 -55</point3>
+              </traingle4>
+              <traingle5>
+                <point1>40 -30</point1>
+                <point2>10 -20</point2>
+                <point3>45 -90</point3>
+              </traingle5>
+            </target_triangle>
+            <shift_vector_cb type="float" range="[0.0,1.0]" length="1">-0.64</shift_vector_cb>
+            <shift_vector_cr type="float" range="[0.0,1.0]" length="1">0.768</shift_vector_cr>
+          </sce11_rgn_data>
+        </mod_sce11_cct_data>
+      </aec_data>
+    </mod_sce11_aec_data>
+  </chromatix_sce11_core>
+</sce11_ipe>

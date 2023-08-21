@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<MWBGainV1
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modmwbv1.xsd">
+  <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+    <moduleID range="[1,1000]">8</moduleID>
+    <subModuleID range="[1,1000]">1</subModuleID>
+  </moduleID>
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <enableFlag>1</enableFlag>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">2.97565651</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">0.833466947</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">2.09733558</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">1.29525328</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.9874599</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">1.381205</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.81796193</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">1.71992826</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.91995156</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">2.292689</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.654823</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">2.173681</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.454035</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">2.066418</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">1.06831753</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">2.87041759</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">0.8608765</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">3.47319627</blue>
+  </MWBData>
+  <MWBData description="Manual white balance gain for each illuminant" tuning_parameter_level="must_tune">
+    <red range="[0.0,9999.9]">0.671281755</red>
+    <green range="[0.0,9999.9]">1</green>
+    <blue range="[0.0,9999.9]">5.00064325</blue>
+  </MWBData>
+</MWBGainV1>

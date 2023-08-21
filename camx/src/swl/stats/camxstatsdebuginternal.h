@@ -1,0 +1,50 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2017 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxstatsdebuginternal.h
+/// @brief Statistics debug declaration
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+#ifndef CAMXSTATSDEBUGINTERNAL_H
+#define CAMXSTATSDEBUGINTERNAL_H
+
+#include "chistatsdebug.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// StatsLoggerFunction
+///
+/// @brief  This is the logging function that could be used by all statistics algorithm modules
+///
+/// @param  pFileName       Name of the logging file from which logging is invoked
+/// @param  lineNumber      Line number of the logging file from which logging is invoked
+/// @param  pFunctionName   Function name from which logging is invoked
+/// @param  group           Logging group
+/// @param  level           Log level
+/// @param  format          Format string
+/// @param  ...             Parameters required by format
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID StatsLoggerFunction(
+    const CHAR*     pFileName,
+    const INT       lineNumber,
+    const CHAR*     pFunctionName,
+    StatsLogGroup   group,
+    StatsLog        level,
+    const CHAR*     pFormat,
+    ...);
+
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+
+#endif // CAMXSTATSDEBUGINTERNAL_H

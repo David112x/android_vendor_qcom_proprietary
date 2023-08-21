@@ -1,0 +1,1276 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2016-2020 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file camximagesensordata.h
+/// @brief API to interact with the underlying image sensor driver
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXIMAGESENSORDATA_H
+#define CAMXIMAGESENSORDATA_H
+
+#include "camxcslsensordefs.h"
+#include "camxdefs.h"
+#include "camxhal3defs.h"
+#include "camxsdksensordriver.h"
+#include "camxsensordriver.h"
+#include "camxsensordriverapi.h"
+#include "camxsensorproperty.h"
+#include "camxstaticcaps.h"
+#include "camxtypes.h"
+#include "imagesensormodulesetmanager.h"
+#include "camximagebuffermanager.h"
+#include "camximagebuffer.h"
+#include "camxpacket.h"
+
+CAMX_NAMESPACE_BEGIN
+
+/// @brief Type of I2C Register Setting
+enum class I2CRegSettingType
+{
+    // NOWHINE NC011: Asking for exception, sensor commands are well known as - init, res, start, stop etc
+    Init,               ///< Init Setting
+    Res,                ///< Resolution Setting
+    Start,              ///< Start Setting
+    Stop,               ///< Stop Setting
+    Master,             ///< Dual Master Setting
+    Slave,              ///< Dual Slave Setting
+    AEC,                ///< AEC Setting
+    AWB,                ///< AWB Setting
+    SPC,                ///< SPC OTP Setting
+    QSC,                ///< QSC OTP Setting
+    PDAF,               ///< PDAF Setting
+    AWBOTP,             ///< AWB OTP Setting
+    LSC,                ///< LSC OTP Setting
+    Read,               ///< Read Device Setting
+    InSensorHDR3ExpOn,  ///< In-sensor HDR 3 exposure start Setting
+    InSensorHDR3ExpOff, ///< In-sensor HDR 3 exposure stop Setting
+    LTC,                ///< LTC ratio Setting
+    Max                 ///< Max I2C setting type
+};
+
+enum class SensorAllocateType
+{
+    I2CRegSetting,          ///< For I2C settings described in type RegSettingsInfo
+    ExposureInfo,           ///< Sensor exposure info including gain and linecount value
+    ExposureRegAddressInfo  ///< Sensor exposure register addresses info
+};
+
+enum class SensorSeamlessType
+{
+    None = 0,                   ///< Default type
+    SeamlessInSensorHDR3Exp,    ///< Seamless In-sensor HDR 3 exposure
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Class containing APIs to interact with the underlying image sensor driver
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class ImageSensorData
+{
+public:
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ImageSensorData
+    ///
+    /// @brief  Constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ImageSensorData();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ImageSensorData
+    ///
+    /// @brief  Constructor
+    ///
+    /// @param  pData       Pointer to the sensor driver data for this instance
+    /// @param  pModule     Pointer to the module for this instance
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    explicit ImageSensorData(
+        SensorDriverData*       pData,
+        ImageSensorModuleData*  pModule);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~ImageSensorData
+    ///
+    /// @brief  Destructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ~ImageSensorData();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsHDRMode
+    ///
+    /// @brief  Determines if HDR is supported in this mode
+    ///
+    /// @param  modeIndex  Current resolution index
+    ///
+    /// @return TRUE if the resolution supports zzHDR or IHDR
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL IsHDRMode(
+        UINT32 modeIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Is3ExposureHDRMode
+    ///
+    /// @brief  Determines if 3 exposure in-sensor HDR is supported in this mode
+    ///
+    /// @param  modeIndex  Current resolution index
+    ///
+    /// @return TRUE if the resolution supports 3 exposure in-sensor HDR
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL Is3ExposureHDRMode(
+        UINT32 modeIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsQuadCFAMode
+    ///
+    /// @brief  Determines if QuadCFA is supported in this mode
+    ///
+    /// @param  modeIndex      Current resolution index
+    /// @param  pIsHWQuadCFA   If it is QuadCFA  mode, set TRUE for HW QuadCFA, set FALSE for SW QuadCFA
+    ///
+    /// @return TRUE if the resolution supports QuadCFA
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL IsQuadCFAMode(
+        UINT32 modeIndex,
+        BOOL*  pIsHWQuadCFA);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsQSCCalibrationEnabledMode
+    ///
+    /// @brief  Determines if QSC calibration is needed for this mode
+    ///
+    /// @param  modeIndex  Current resolution index
+    ///
+    /// @return TRUE if the resolution is full-sized and the sensor supports QuadCFA
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL IsQSCCalibrationEnabledMode(
+        UINT32 modeIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorName
+    ///
+    /// @brief  Fetch the name for this sensor
+    ///
+    /// @return Tuned binary data filename for this sensor
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE const CHAR* GetSensorName()
+    {
+        return m_pSensorData->slaveInfo.sensorName;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMinLineCount
+    ///
+    /// @brief  Get minimum linecount for this sensor
+    ///
+    /// @return Minimum linecount that can be applied to the sensor
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE UINT32 GetMinLineCount()
+    {
+        return m_pSensorData->exposureControlInfo.minLineCount;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMinAnalogGain
+    ///
+    /// @brief  Get minimum analog gain of the sensor
+    ///
+    /// @return minimum analog gain supported by the sensor
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE DOUBLE GetMinAnalogGain()
+    {
+        return m_pSensorData->exposureControlInfo.minAnalogGain;
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorPipelineDelay
+    ///
+    /// @brief  Pipeline delay for this sensor in terms of number of frames
+    ///
+    /// @param  delayType Delay type to obtain the delay info
+    ///
+    /// @return Pipeline delay information for this sensor for the requested type
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const DelayInfo* GetSensorPipelineDelay(
+        DelayInfoType delayType);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetColorFilterPattern
+    ///
+    /// @brief  Get color filter information
+    ///
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return Color filter pattern
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ColorFilterArrangement GetColorFilterPattern(
+        UINT resolutionIndex
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorSensingMethod
+    ///
+    /// @brief  Sensor sensing method
+    ///
+    /// @return Returns enum SensingMethod
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE INT32 GetSensorSensingMethod()
+    {
+        return static_cast<INT32>(m_pSensorData->sensorProperty.sensingMethod);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorCropFactor
+    ///
+    /// @brief  Sensor crop factor
+    ///
+    /// @return Returns sensor crop factor
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE FLOAT GetSensorCropFactor()
+    {
+        return static_cast<FLOAT>(m_pSensorData->sensorProperty.cropFactor);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorSlaveAddress
+    ///
+    /// @brief  Get sensor slave address from the module config (if available), or else from the sensor driver
+    ///
+    /// @return Sensor slave address
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT16 GetSensorSlaveAddress() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMultiCameraLineDelta
+    ///
+    /// @brief  Get the number of lines of frame duration difference for master, slave synchronization
+    ///
+    /// @return frame duration difference needed based on configured number of lines
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    INT64 GetMultiCameraLineDelta();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetExposureStartTime
+    ///
+    /// @brief  Get frame's start exposure time
+    ///
+    /// @param  sofTimeStamp    Timestamp of the current frame in sano seconds
+    /// @param  currentExposure Current exposure applied in the sensor in nano seconds
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return Time when the frame started exposing in ns
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 GetExposureStartTime(
+        UINT64  sofTimeStamp,
+        UINT64  currentExposure,
+        UINT    resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetFrameReadoutTime
+    ///
+    /// @brief  Get time needed to read the entire frame
+    ///
+    /// @param  currentFrameLengthLines Current frame length lines applied in the sensor
+    /// @param  resolutionIndex         Current resolution index
+    ///
+    /// @return Time needed to read a frame in nano seconds
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 GetFrameReadoutTime(
+        UINT32  currentFrameLengthLines,
+        UINT    resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FrameDurationToFrameLengthLines
+    ///
+    /// @brief  Convert frame duration to frame length lines
+    ///
+    /// @param  frameDuration   current frame duration for which frame length lines is needed
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return Time needed to read a frame in nano seconds
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 FrameDurationToFrameLengthLines(
+        UINT64  frameDuration,
+        UINT    resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetRollingShutterSkew
+    ///
+    /// @brief  Get time needed to rolling shutter skew
+    ///
+    /// @param  frameHeight     Current frame height
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return Time needed to rolling shutter in nano seconds
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 GetRollingShutterSkew(
+        UINT32  frameHeight,
+        UINT    resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetLineReadoutTime
+    ///
+    /// @brief  Get time needed to read the one line in a frame
+    ///
+    /// @param  resolutionIndex     resolution index of the mode for which line read out time is needed
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return Time needed to read a line in a frame in nano seconds
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    DOUBLE GetLineReadoutTime(
+        UINT                resolutionIndex,
+        SensorSeamlessType  inputSeamlessType);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetNoiseProfile
+    ///
+    /// @brief  Get Noise Profile
+    ///
+    /// @param  pNoiseProfile          Noise Profile
+    /// @param  colorFilterArrangement color filter arrangment order
+    /// @param  sensitivity            sensitivity
+    /// @param  ISO100Gain             ISO 100 Gain
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID GetNoiseProfile(
+        DOUBLE*                pNoiseProfile,
+        ColorFilterArrangement colorFilterArrangement,
+        INT32                  sensitivity,
+        FLOAT                  ISO100Gain);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateI2CInfoCmd
+    ///
+    /// @brief  Create I2C Info command
+    ///
+    /// @param  pI2CInfoCmd I2CInfo command
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CreateI2CInfoCmd(
+        CSLSensorI2CInfo* pI2CInfoCmd);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateProbeCmd
+    ///
+    /// @brief  Create probe command
+    ///
+    /// @param  pProbeCmd   Probe command
+    /// @param  cameraId    Camera ID
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CreateProbeCmd(
+        CSLSensorProbeCmd* pProbeCmd,
+        UINT16             cameraId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetPowerSequenceCmdSize
+    ///
+    /// @brief  Get size for power up command buffer
+    ///
+    /// @param  isPowerUp   Is it power up or power down
+    ///
+    /// @return Size of the command buffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetPowerSequenceCmdSize(
+        BOOL isPowerUp);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreatePowerSequenceCmd
+    ///
+    /// @brief  Create power down commands
+    ///
+    /// @param  isPowerUp   Is it power up or power down
+    /// @param  pCmdBuffer  Power up/down command
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CreatePowerSequenceCmd(
+        BOOL    isPowerUp,
+        VOID*   pCmdBuffer);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateI2CCmd
+    ///
+    /// @brief  Create I2C register commands
+    ///
+    /// @param  settingType         I2C setting type
+    /// @param  pCmdBuffer          I2C write/read command
+    /// @param  pSuppliedSettings   I2C settings to be written/read
+    /// @param  resolutionIndex     resolution index
+    /// @param  regSettingIdx       start index for register setting for the next slave address(multi-slave address support)
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CreateI2CCmd(
+        I2CRegSettingType   settingType,
+        VOID*               pCmdBuffer,
+        const VOID*         pSuppliedSettings,
+        UINT                resolutionIndex,
+        UINT                regSettingIdx);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetI2CCmdMaxSize
+    ///
+    /// @brief  Get the max size for holding I2C sensor command buffer
+    ///
+    /// @param  settingType     I2C setting type
+    /// @param  pRegSettings    I2C settings
+    ///
+    /// @return Size of the command buffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetI2CCmdMaxSize(
+        I2CRegSettingType   settingType,
+        VOID*               pRegSettings);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetI2CCmdSize
+    ///
+    /// @brief  Get size for holding I2C sensor command buffer
+    ///
+    /// @param  settingType                 I2C setting type
+    /// @param  pRegSettings                I2C settings
+    /// @param  resolutionIndex             resolution index
+    /// @param  pCurrentRegSettingsIdx      index for register setting for the current slave address(multi-slave addr support)
+    ///
+    /// @return Size of the command buffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetI2CCmdSize(
+        I2CRegSettingType   settingType,
+        const VOID*         pRegSettings,
+        UINT                resolutionIndex,
+        UINT*               pCurrentRegSettingsIdx);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorStaticCapability
+    ///
+    /// @brief  Populate the static capabilities of sensor
+    ///
+    /// @param  pCapability    Pointer to SensorModuleStaticCaps
+    /// @param  cameraID       Camera ID for this sensor
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult GetSensorStaticCapability(
+        SensorModuleStaticCaps* pCapability,
+        UINT32 cameraID);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMipiFlags
+    ///
+    /// @brief  Get the mipi flags for a sensor mode
+    ///
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return Mipi flags mask
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetMipiFlags(
+        UINT32 resolutionIndex
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateCSIPHYConfig
+    ///
+    /// @brief  Create CSIPHY config command
+    ///
+    /// @param  pCmdCSIPHYConfig    CSIPHY config command
+    /// @param  laneAssign          Indicates data lanes
+    /// @param  comboMode           Is CSIPHY in combo mode
+    /// @param  resolutionIndex     sensor mode selected
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CreateCSIPHYConfig(
+        CSLSensorCSIPHYInfo*    pCmdCSIPHYConfig,
+        UINT16                  laneAssign,
+        UINT8                   comboMode,
+        UINT32                  resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CalculateExposure
+    ///
+    /// @brief  Calculate register values for a set of exposure
+    ///
+    /// @param  realGain               Gain value as in float number
+    /// @param  lineCount              Line count / coarse integration time
+    /// @param  middleRealGain         Middle gain as float
+    /// @param  middleLinecount        Middle line count to be applied
+    /// @param  shortRealGain          Short gain as float
+    /// @param  shortLinecount         Short line count to be applied
+    /// @param  sensorResolutionIndex  Current sensor mode
+    /// @param  pExposureInfoParam     Pointer to exposure info
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID CalculateExposure(
+        FLOAT   realGain,
+        UINT    lineCount,
+        FLOAT   middleRealGain,
+        UINT    middleLinecount,
+        FLOAT   shortRealGain,
+        UINT    shortLinecount,
+        UINT32  sensorResolutionIndex,
+        VOID*   pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetLineLengthPixelClk
+    ///
+    /// @brief  Get line lenght pixel clock for a sensor mode
+    ///
+    /// @param  resolutionIndex     Current resolution index
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return LineLengthPixelClk
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT16 GetLineLengthPixelClk(
+        UINT                resolutionIndex,
+        SensorSeamlessType  inputSeamlessType
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetVTPixelClk
+    ///
+    /// @brief  Get VTPixelClk for a sensor mode
+    ///
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return VTPixelClk
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 GetVTPixelClk(
+        UINT resolutionIndex
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetResolutionInfo
+    ///
+    /// @brief  Get GetResolutionInfo
+    ///
+    /// @return pointer to resolution info
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const ResolutionInformation* GetResolutionInfo() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetActiveArraySize
+    ///
+    /// @brief  Get active array size of sensor
+    ///
+    /// @return pointer to active array resolution for sensor
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const PixelArrayInfo* GetActiveArraySize() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetSensorBlackLevel
+    ///
+    /// @brief  Get sensor black level information(average pedestal value)
+    ///
+    /// @return Sensor black level
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetSensorBlackLevel() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetExposureControlInfo
+    ///
+    /// @brief  returns the parameters configured related to exposure control
+    ///
+    /// @return pointer to exposure control information
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    const ExposureContorlInformation* GetExposureControlInfo() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMaxFrameLengthLines
+    ///
+    /// @brief  Get max FrameLengthLines for a sensor mode (ie: min frame rate)
+    ///
+    /// @param  resolutionIndex Current resolution index
+    /// @param  cameraID        CameraID corresponding to this sensor node
+    ///
+    /// @return FrameLengthLines
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetMaxFrameLengthLines(
+        UINT resolutionIndex,
+        UINT32 cameraID
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetFrameLengthLines
+    ///
+    /// @brief  Get min FrameLengthLines for a sensor mode (ie: max frame rate)
+    ///
+    /// @param  resolutionIndex     Current resolution index
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return FrameLengthLines
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetFrameLengthLines(
+        UINT                resolutionIndex,
+        SensorSeamlessType  inputSeamlessType
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMaxFPS
+    ///
+    /// @brief  Get max FPS for a sensor mode
+    ///
+    /// @param  resolutionIndex Current resolution index
+    ///
+    /// @return MaxFPS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    DOUBLE GetMaxFPS(
+        UINT resolutionIndex
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetMinFPS
+    ///
+    /// @brief  Get minimum FPS for a sensor mode
+    ///
+    /// @param  resolutionIndex Current resolution index
+    /// @param  cameraID        CameraID corresponding to this sensor node
+    ///
+    /// @return MinFPS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    DOUBLE GetMinFPS(
+        UINT   resolutionIndex,
+        UINT32 cameraID
+        ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetAnalogRealGain
+    ///
+    /// @brief  Get sensor analog real gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return Sensor analog real gain
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT GetAnalogRealGain(
+        VOID* pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetDigitalRealGain
+    ///
+    /// @brief  Get sensor digital real gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return Sensor digital real gain
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT GetDigitalRealGain(
+        VOID* pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetAnalogRegGain
+    ///
+    /// @brief  Get register data for sensor analog gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return Gain register data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetAnalogRegGain(
+        VOID* pExposureInfoParam);
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetShortAnalogRegGain
+    ///
+    /// @brief  Get register data for sensor analog gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return Short Gain register data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetShortAnalogRegGain(
+        VOID* pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetDigitalRegGain
+    ///
+    /// @brief  Get register data for sensor digital gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return Gain register data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT GetDigitalRegGain(
+        VOID* pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetISPDigitalGain
+    ///
+    /// @brief  Get ISP digital gain
+    ///
+    /// @param  pExposureInfoParam  Pointer to exposure info
+    ///
+    /// @return ISP digital gain
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT GetISPDigitalGain(
+        VOID* pExposureInfoParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Allocate
+    ///
+    /// @brief  Allocates a sensor driver structure based on type
+    ///
+    /// @param  type Type of sensor driver structure to be allocated
+    ///
+    /// @return Pointer to the allocated structure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID* Allocate(
+        SensorAllocateType type);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdateExposureRegAddressInfo
+    ///
+    /// @brief  updtaes the exposure register addresses to be used for fill exposure array
+    ///
+    /// @param  pRegisterAddressInfo Pointer to exposure register addresses to be filled
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID UpdateExposureRegAddressInfo(
+        VOID * pRegisterAddressInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillExposureArray
+    ///
+    /// @brief  Fill I2C setting array for a set of exposure
+    ///
+    /// @param  pExposureInfoParams   Pointer to exposure info
+    /// @param  frameLengthLine       Frame length lines.
+    /// @param  pAdditionalInfo       Additional info from algorithm.
+    /// @param  pRegAddressInfo       pointer to exposure reg addresses
+    /// @param  pRegSettings          Pointer to register settings.
+    /// @param  applyShortExposure    Indicates whether short exposure settings should be applied
+    /// @param  applyMiddleExposure   Indicates whether middle exposure settings should be applied
+    /// @param  sensorResolutionIndex Current sensor mode
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID FillExposureArray(
+        VOID*   pExposureInfoParams,
+        UINT    frameLengthLine,
+        VOID*   pAdditionalInfo,
+        VOID*   pRegAddressInfo,
+        VOID*   pRegSettings,
+        BOOL    applyShortExposure,
+        BOOL    applyMiddleExposure,
+        UINT32  sensorResolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillPDAFArray
+    ///
+    /// @brief  Fill I2C setting array for a set of PDAF data
+    ///
+    /// @param  pSensorPDAFData     Pointer to Sensor PDAF data
+    /// @param  pRegSettings        Pointer to register settings.
+    ///
+    /// @return True when pdafdata filled else false
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL FillPDAFArray(
+        SensorFillPDAFData* pSensorPDAFData,
+        VOID*   pRegSettings);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillWBGainArray
+    ///
+    /// @brief  Fill I2C setting array for a set of WB gain data
+    ///
+    /// @param  pSensorWBGainData   Pointer to Sensor WB gain data
+    /// @param  pRegSettings        Pointer to register settings.
+    ///
+    /// @return True when pdafdata filled else false
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL FillWBGainArray(
+        SensorFillWBGainData* pSensorWBGainData,
+        VOID*    pRegSettings);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillLTCRatioArray
+    ///
+    /// @brief  Fill LTC ratio setting array for a set of WB gain data
+    ///
+    /// @param  resolutionIndex         Sensor resolution index
+    /// @param  pInputLTCRatioIndex     Pointer to LTC ratio index
+    /// @param  pRegSettings            Pointer to register settings.
+    ///
+    /// @return True when pdafdata filled else false
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL FillLTCRatioArray(
+        UINT32      resolutionIndex,
+        UINT32*     pInputLTCRatioIndex,
+        VOID*       pRegSettings);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetISO100Gain
+    ///
+    /// @brief  get ISO100Gain from 3A chromatix parameters
+    ///
+    /// @param  cameraID        CameraID corresponding to this sensor node
+    ///
+    /// @return The gain corresponding to ISO100
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT GetISO100Gain(
+        UINT32 cameraID);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GainToSensitivity
+    ///
+    /// @brief  Convert gain to ISO sensitivity
+    ///
+    /// @param  gain             Analog or digital gain.
+    /// @param  ISO100Gain       the measured gain of sensor for ISO100
+    /// @param  pAdditionalInfo  Additional sensor info
+    ///
+    /// @return Standard ISO sensitivity.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    INT32 GainToSensitivity(
+        FLOAT  gain,
+        FLOAT  ISO100Gain,
+        VOID*  pAdditionalInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SensitivityToGain
+    ///
+    /// @brief  Convert ISO sensitivity to gain
+    ///
+    /// @param  sensitivity      Standard ISO sensitivity.
+    /// @param  ISO100Gain       the measured gain of sensor for ISO100
+    ///
+    /// @return Gain.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT SensitivityToGain(
+        INT32  sensitivity,
+        FLOAT  ISO100Gain);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ExposureToLineCount
+    ///
+    /// @brief  Convert exposure time to line count
+    ///
+    /// @param  exposureTimeNS      Exposure time in nano second.
+    /// @param  resolutionIndex     sensor resolution index
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return Sensor coarse integration time in line count.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT ExposureToLineCount(
+        UINT64              exposureTimeNS,
+        UINT32              resolutionIndex,
+        SensorSeamlessType  inputSeamlessType);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// LineCountToExposure
+    ///
+    /// @brief  Convert line count in to exposure time corresponding to the resolution mode
+    ///
+    /// @param  lineCount           Line count value for which exposure time to be calculated.
+    /// @param  resolutionIndex     sensor resolution index
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return Sensor coarse integration time in line count.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 LineCountToExposure(
+        UINT                lineCount,
+        UINT32              resolutionIndex,
+        SensorSeamlessType  inputSeamlessType);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetExposureTime
+    ///
+    /// @brief  Function to get the current exposure time for the sensor
+    ///
+    /// @param  currentExposureTime Get exposure time to meta
+    /// @param  pAdditionalInfo     Additional sensor info
+    ///
+    /// @return Meta report exposure time
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT64 GetExposureTime(
+        UINT64 currentExposureTime,
+        VOID*  pAdditionalInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CalculateSensorCrop
+    ///
+    /// @brief  Populate sensor left, top, width height values of the exposed area (after crop) w.r.t to active array
+    ///
+    /// @param  pSensorCropInfo  pointer to fill the sensor exposed area info w.r.t sensor active array.
+    /// @param  resolutionIndex  resolution index for which the crop info is needed.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID CalculateSensorCrop(
+        CHIRectangle* pSensorCropInfo,
+        UINT          resolutionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PopulateSensorModeData
+    ///
+    /// @brief  Populate sensor mode data from sensor driver
+    ///
+    /// @param  pSensorModeData  Pointer to sensor mode data.
+    /// @param  CSIPHYSlotInfo   slot information for CSIPHY.
+    /// @param  laneAssign       lane assign value for CSIPHY.
+    /// @param  isComboMode      sensor is combo mode.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID PopulateSensorModeData(
+        UsecaseSensorModes* pSensorModeData,
+        UINT32              CSIPHYSlotInfo,
+        UINT32              laneAssign,
+        BOOL                isComboMode);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsExternalSensor
+    ///
+    /// @brief  Informs if this is an external sensor or not
+    ///         External Slave Sensors are not meant for us to do any configuration
+    ///         Thereby, the slave address have been instructed to be put as 0
+    ///
+    /// @return TRUE or FALSE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL IsExternalSensor() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ConfigureImageSensorData
+    ///
+    /// @brief  Get the setting index based on sensor version
+    ///
+    /// @param  sensorVersion Sensor version
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ConfigureImageSensorData(
+        UINT32 sensorVersion);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// LoadSensorLibrary
+    ///
+    /// @brief  Loads sensor library having API implementations.
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult LoadSensorLibrary();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetPixelSize
+    ///
+    /// @brief  get the sensor pixel size
+    ///
+    /// @return pixel size
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT GetPixelSize();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetHDR3ExposureType
+    ///
+    /// @brief  Get 3-Exposure HDR Info
+    ///
+    /// @param  resolutionIndex sensor resolution index
+    ///
+    /// @return 3-Exposure HDR sensor type
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    HDR3ExposureTypeInfo GetHDR3ExposureType(
+        UINT resolutionIndex
+        )const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetStatsParseFuncPtr
+    ///
+    /// @brief  Get stats parse function pointer
+    ///
+    /// @return CamxResultSuccess, if SUCCESS
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID* GetStatsParseFuncPtr() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadDeviceData
+    ///
+    /// @brief  Util function to read N bytes from a device and copy to a memory supplied by the calling function
+    ///
+    /// @param  deviceID          Device ID of the submodule to read from
+    /// @param  numOfBytes        Number of bytes to read
+    /// @param  pReadData         Pointer where the data needs to be copied to
+    /// @param  opcode            Read opcode based on the device to be read
+    /// @param  hCSLDeviceHandle  CSL Handle of the device to be read
+    /// @param  device            Device type to be read
+    /// @param  hCSLSession       CSL session handle
+    /// @param  pSensorReadPacket Packet that will be submitted to the kernel to carry the request.
+    ///                           This packet should have command buffer
+    ///
+    /// @return Result success or failure.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult ReadDeviceData(
+        INT32         deviceID,
+        UINT16        numOfBytes,
+        UINT8*        pReadData,
+        UINT32        opcode,
+        INT32         hCSLDeviceHandle,
+        CSLDeviceType device,
+        INT32         hCSLSession,
+        Packet*       pSensorReadPacket);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillToneControlSettings
+    ///
+    /// @brief  Get stats parse function pointer
+    ///
+    /// @param  pRegSettingsInfo    pointer to sensor register settings to be filled
+    /// @param  pLTCRatioData       pointer to the data of LTC ratio
+    ///
+    /// @return TRUE if function execute successfully, otherwise FALSE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL FillToneControlSettings(
+        RegSettingsInfo*            pRegSettingsInfo,
+        SensorFillLTCRatioData*     pLTCRatioData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetMaxAnalogGain
+    ///
+    /// @brief  Set maximum analog gain
+    ///
+    /// @param  resolutionIndex     Current resolution index
+    /// @param  inputSeamlessType   Input seamless type for current sensor mode
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID SetMaxAnalogGain(
+        UINT32              resolutionIndex,
+        SensorSeamlessType  inputSeamlessType);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsSeamlessInSensorHDR3ExpAvailable
+    ///
+    /// @brief  Check the seamless in-sensor HDR 3 Exp settings in sexsor XML are all existing or not
+    ///
+    /// @param  resolutionIndex     Current resolution index
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL IsSeamlessInSensorHDR3ExpAvailable(
+        UINT32  resolutionIndex);
+private:
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// OpenSensorLibrary
+    ///
+    /// @brief  Open a sensor driver library based on name
+    ///
+    /// @param  pName    Name of the driver library
+    ///
+    /// @return Pointer to the initialized driver structure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static ImageSensorlib* OpenSensorLibrary(
+        const CHAR* pName);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetLaneMask
+    ///
+    /// @brief  Set the lane mask based on the Lane Assign and Lane Count
+    ///
+    /// @param  laneCount   Number of lanes in which the data is streamed
+    /// @param  laneAssign  Active Lanes
+    ///
+    /// @return Lane Mask value
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT16 SetLaneMask(
+        UINT32 laneCount,
+        UINT16 laneAssign);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetInitSettingIndex
+    ///
+    /// @brief  Get the init setting index based on sensor version
+    ///
+    /// @param  sensorVersion Sensor version
+    ///
+    /// @return Selected init setting index.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetInitSettingIndex(
+        UINT32 sensorVersion);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetResSettingIndex
+    ///
+    /// @brief  Get the resolution setting index based on sensor version
+    ///
+    /// @param  sensorVersion Sensor version
+    ///
+    /// @return Selected resolution setting index.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetResSettingIndex(
+        UINT32 sensorVersion);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetDigitalGain
+    ///
+    /// @brief  Get digital gain as register data.
+    ///
+    /// @param  realGain          Real gain
+    /// @param  realAnalogGain    Real analog gain
+    ///
+    /// @return Digital register gain.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 GetDigitalGain(
+        FLOAT   realGain,
+        FLOAT   realAnalogGain);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RealToRegGain
+    ///
+    /// @brief  Convert real gain to register gain based on standard equation
+    ///
+    /// @param  realGain    Real gain.
+    ///
+    /// @return Register gain.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 RealToRegGain(
+        DOUBLE realGain);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RegToRealGain
+    ///
+    /// @brief  Convert register gain to real gain based on standard equation
+    ///
+    /// @param  regGain Register gain
+    ///
+    /// @return Real gain.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    FLOAT RegToRealGain(
+        UINT32 regGain);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillExposureArray2ByteIntegrationTime
+    ///
+    /// @brief  Fill sensor exposure setting array with 2-byte integration time register.
+    ///
+    /// @param  analogGain         Analog gain
+    /// @param  digitalGain        Digital gain
+    /// @param  lineCount          Line count / coarse integration time
+    /// @param  shortRegisterGain  Short register gain to be applied
+    /// @param  shortLinecount     Short linecount to be applied
+    /// @param  frameLengthLine    Frame length line
+    /// @param  pSetting           Pointer to I2C settings
+    /// @param  applyShortExposure Indicates whether short exposure settings should be applied
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID FillExposureArray2ByteIntegrationTime(
+        UINT32  analogGain,
+        UINT32  digitalGain,
+        UINT32  lineCount,
+        UINT32  shortRegisterGain,
+        UINT32  shortLinecount,
+        UINT32  frameLengthLine,
+        VOID*   pSetting,
+        BOOL    applyShortExposure);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// TranslateColorFilterArrangement
+    ///
+    /// @brief  Translate driver specific type to corresponding UMD type color filter arrangement
+    ///
+    /// @param  type    Driver specific color filter arrangement.
+    ///
+    /// @return UMD type color filter arrangement
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    SensorInfoColorFilterArrangementValues TranslateColorFilterArrangement(
+        ColorFilterArrangement type);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetNoiseCoeff
+    ///
+    /// @brief  Get Noise Coeffient for a sensor
+    ///
+    /// @param  pNoiseCoeff Noise coeff
+    /// @param  channel     color channel
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID GetNoiseCoeff(
+        NoiseCoefficent*        pNoiseCoeff,
+        NoiseCoefficientChannel channel
+    ) const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetNoiseModelEntryS
+    ///
+    /// @brief  Maps the sensitivity to the S noise parameter in the DNG noise model
+    ///
+    /// @param  sensitivity sensitivity
+    /// @param  channel     color channel index
+    ///
+    /// @return sSensitivity
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    DOUBLE GetNoiseModelEntryS(
+        INT32                   sensitivity,
+        NoiseCoefficientChannel channel);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetNoiseModelEntryO
+    ///
+    /// @brief  Maps the sensitivity to the O noise parameter in the DNG noise model
+    ///
+    /// @param  sensitivity sensor sensitivity
+    /// @param  ISO100Gain  ISO100Gain value obtained from tuning data
+    /// @param  channel     color channel index
+    ///
+    /// @return oSensitivity
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    DOUBLE GetNoiseModelEntryO(
+        INT32                   sensitivity,
+        FLOAT                   ISO100Gain,
+        NoiseCoefficientChannel channel);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PopulateLensPoseInformation
+    ///
+    /// @brief  Populates lens pose information to sensor static capability
+    ///
+    /// @param  pCapability sensor static capability
+    /// @param  pOTPData    EEPROM data pointer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID PopulateLensPoseInformation(
+        SensorModuleStaticCaps* pCapability,
+        EEPROMOTPData*          pOTPData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PopulateDepthLensPoseInformation
+    ///
+    /// @brief  Populates depth lens information from eeprom to sensor static capability
+    ///
+    /// @param  pCapability sensor static capability
+    /// @param  pOTPData    EEPROM data pointer
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID PopulateDepthLensPoseInformation(
+        SensorModuleStaticCaps* pCapability,
+        EEPROMOTPData*          pOTPData);
+
+    ImageSensorData(const ImageSensorData&)            = delete; ///< Disallow the copy constructor.
+    ImageSensorData& operator=(const ImageSensorData&) = delete; ///< Disallow assignment operator.
+    SensorDriverData*                   m_pSensorData;           ///< Image sensor data pointer for this instance.
+    SensorLibraryAPI                    m_sensorLibraryAPI;      ///< Structure containing pointers to APIs in sensor library.
+    VOID*                               m_phSensorLibHandle;     ///< Handle to sensor library
+
+    ImageSensorModuleData*              m_pModuleData;           ///< pointer to the class that created this
+    UINT                                m_initSettingIndex;      ///< Used init settings' index
+    UINT                                m_resSettingIndex;       ///< Used resolution settings' index
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXIMAGESENSORDATA_H

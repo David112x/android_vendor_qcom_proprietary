@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="ispglobalelements.xsd"/>
+    <xs:element name="ldc10_sw" type="chromatix_ldc10Type">
+        <xs:annotation>
+            <xs:documentation>ldc sw control parameters</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="ldc10_rgn_dataType">
+        <xs:sequence>
+            <xs:element name="ctc_grid_x_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ctc_grid_x">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="UNDISTORTED_IPE_OUT_TO_DISTORTED_INPUT_GRID: Grid value for x. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q4"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ctc_grid_y_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ctc_grid_y">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="UNDISTORTED_IPE_OUT_TO_DISTORTED_INPUT_GRID: Grid value for y. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q4"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="must_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_x_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ld_i2u_grid_x">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="DISTORTED_INPUT_TO_UNDISTORTED_IPE_OUT_GRID: Grid value for x. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q3"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ld_i2u_grid_y_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ld_i2u_grid_y">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="3417"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="DISTORTED_INPUT_TO_UNDISTORTED_IPE_OUT_GRID: Grid value for y. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-131072, 131071]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="18s, Q3"/>
+                    <xs:attribute name="length" type="xs:int" fixed="3417"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Linear interpolation."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ldc10_aec_dataType">
+       <xs:sequence>
+           <xs:element name="aec_trigger" type="trigger_pt_type_aec"/>
+           <xs:element name="ldc10_rgn_data" type="ldc10_rgn_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ldc10_lens_zoom_dataType">
+       <xs:sequence>
+           <xs:element name="lens_zoom_trigger" type="trigger_pt_type"/>
+           <xs:element name="lens_zoom_data">
+               <xs:complexType>
+                   <xs:sequence maxOccurs="unbounded">
+                       <xs:element name="mod_ldc10_aec_data" type="mod_ldc10_aec_dataType"/>
+                   </xs:sequence>
+               </xs:complexType>
+           </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_ldc10_lens_posn_dataType">
+       <xs:sequence>
+           <xs:element name="lens_posn_trigger" type="trigger_pt_type"/>
+           <xs:element name="lens_posn_data">
+               <xs:complexType>
+                   <xs:sequence maxOccurs="unbounded">
+                       <xs:element name="mod_ldc10_lens_zoom_data" type="mod_ldc10_lens_zoom_dataType"/>
+                   </xs:sequence>
+               </xs:complexType>
+           </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_ldc10_coreType">
+                   <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_ldc10_lens_posn_data" type="mod_ldc10_lens_posn_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_ldc10Type">
+        <xs:sequence>
+            <xs:element name="enable_section">
+                <xs:complexType>
+                    <xs:sequence>
+                            <xs:element name="ctc_transform_grid_enable" type="enable_flag_type" default="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="module_version">
+                <xs:complexType>
+                    <xs:attribute name="major_revision" type="xs:int" default="3"/>
+                    <xs:attribute name="minor_revision" type="xs:int" default="0"/>
+                    <xs:attribute name="incr_revision" type="xs:int" default="0"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="parameter_version">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="revision" type="xs:string" default="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="control_variables">
+                <xs:complexType>
+                    <xs:sequence minOccurs="3" maxOccurs="3">
+                        <xs:element name="control_var_type">
+                            <xs:simpleType>
+                                <xs:restriction base="control_var_type">
+                                    <xs:pattern value="control_lens_position"/>
+                                    <xs:pattern value="control_lens_zoom"/>
+                                    <xs:pattern value="control_lux_idx"/>
+                                    <xs:pattern value="control_gain"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="default_value" type="xs:string" default="control_lens_position, control_lens_zoom, control_gain"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="control_method">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="aec_exp_control" type="tuning_control_aec_type" default="control_gain"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chromatix_ldc10_core" type="chromatix_ldc10_coreType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

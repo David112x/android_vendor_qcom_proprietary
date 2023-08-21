@@ -1,0 +1,27 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Usecase>
+  <UsecaseName>UsecaseJPEGEncodePreviewSnapshotGPU</UsecaseName>
+  <Targets>
+    <Target>
+      <TargetName>TARGET_BUFFER_PREVIEW</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCNV12_ChiFormatUBWCTP10"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_SNAPSHOT</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5488_4112_ChiFormatJpeg"/>
+    </Target>
+  </Targets>
+  <StreamConfigMode>0</StreamConfigMode>
+  <SystemwideSetting>
+    <SettingName>EIS</SettingName>
+    <SettingDataType>BOOL</SettingDataType>
+    <SettingMatch>FALSE</SettingMatch>
+  </SystemwideSetting>
+  <CamxInclude href="../../pipelines/g_camxJPEGEncodeSnapshotGPU.xml"/>
+</Usecase>

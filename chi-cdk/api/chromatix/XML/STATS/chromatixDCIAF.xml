@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2017-2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixDCIAF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\xsd\stats\af\afdciafelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"B"</revision>
+  </parameter_version>
+  <monitorEnable>0</monitorEnable>
+  <monitorFrequency>30</monitorFrequency>
+  <searchFrequency>30</searchFrequency>
+  <baselineMM>20</baselineMM>
+  <auxDirection>AF_CAM_ORIENT_LEFT</auxDirection>
+  <macroEstimateLimitCM>10</macroEstimateLimitCM>
+  <alignmentCheckEnable>0</alignmentCheckEnable>
+  <jumpToStartLimit>200</jumpToStartLimit>
+  <numNearSteps>3</numNearSteps>
+  <numFarSteps>3</numFarSteps>
+  <dciafStepSize>10</dciafStepSize>
+  <motionDataUseEnable>1</motionDataUseEnable>
+  <sceneChangeLensPositionThreshold>20</sceneChangeLensPositionThreshold>
+  <panningStableLensPositionThreshold>15</panningStableLensPositionThreshold>
+  <panningStableDurationMSBright>132</panningStableDurationMSBright>
+  <panningStableDurationMSLow>200</panningStableDurationMSLow>
+  <maxLowLightWaitMs>250</maxLowLightWaitMs>
+  <maxNormalLightWaitMs>150</maxNormalLightWaitMs>
+  <jumpWithNoSkip>50</jumpWithNoSkip>
+  <skipframesBeforeFineSearch>0</skipframesBeforeFineSearch>
+  <distanceThresholdMacroRegionInMM>200</distanceThresholdMacroRegionInMM>
+  <distanceThresholdNonMacroFactor>2</distanceThresholdNonMacroFactor>
+  <lowLightThreshold>3</lowLightThreshold>
+  <useFineSearchExtension>1</useFineSearchExtension>
+  <macroRegionThresholdInMM>200</macroRegionThresholdInMM>
+  <farRegionThresholdInMM>1000</farRegionThresholdInMM>
+  <normalLightFineSearchInfo>
+    <stepSize>8</stepSize>
+    <farSteps>4</farSteps>
+    <nearSteps>4</nearSteps>
+  </normalLightFineSearchInfo>
+  <normalLightFineSearchInfo>
+    <stepSize>6</stepSize>
+    <farSteps>4</farSteps>
+    <nearSteps>4</nearSteps>
+  </normalLightFineSearchInfo>
+  <normalLightFineSearchInfo>
+    <stepSize>6</stepSize>
+    <farSteps>4</farSteps>
+    <nearSteps>4</nearSteps>
+  </normalLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize>11</stepSize>
+    <farSteps>3</farSteps>
+    <nearSteps>3</nearSteps>
+  </lowLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize>9</stepSize>
+    <farSteps>3</farSteps>
+    <nearSteps>3</nearSteps>
+  </lowLightFineSearchInfo>
+  <lowLightFineSearchInfo>
+    <stepSize>9</stepSize>
+    <farSteps>3</farSteps>
+    <nearSteps>3</nearSteps>
+  </lowLightFineSearchInfo>
+</chromatixDCIAF>

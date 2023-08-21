@@ -1,0 +1,23 @@
+/*============================================================================
+  Copyright (c) 2018 Qualcomm Technologies, Inc.
+  All Rights Reserved.
+  Confidential and Proprietary - Qualcomm Technologies, Inc.
+  ===========================================================================*/
+
+#include "AEEStdDef.idl"
+
+/*FastRPC set device mode call from client to SLPI*/
+interface sns_device_mode {
+   /* This function is a synchronous API to notify
+    * SLPI about the device mode change
+    *
+    * @param[in] vec
+    *    pointer to a device mode structure
+    * @param[out] result
+    *    result for the operation
+    *
+    * @return
+    */
+   long set(in sequence<char> vec, rout uint32 result);
+};
+

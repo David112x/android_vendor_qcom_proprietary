@@ -1,0 +1,508 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2017-2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxipeica10.h
+/// @brief IPEICA10 class declarations
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXIPEICA10_H
+#define CAMXIPEICA10_H
+
+#include "camxispiqmodule.h"
+#include "icasetting.h"
+#include "ipe_data.h"
+#include "camxosutils.h"
+
+CAMX_NAMESPACE_BEGIN
+
+struct ICA10ModuleData
+{
+    UINT32                           titanVersion;                           ///< titan version
+    UINT32                           hwVersion;                              ///< hardware versions
+    ica_1_0_0::chromatix_ica10Type*  pChromatix;                             ///< Pointer to ica10 chromatix data
+    UINT32                           ICARegSize;                             ///< ICA register size
+    UINT32                           ICAChromatixSize;                       ///< ICA chromatix size
+    UINT32                           ICALUTBufferSize;                       ///< ICA LUT buffer size
+    UINT32                           ICAGridTransformWidth;                  ///< ICA Grid Transform width
+    UINT32                           ICAGridTransformHeight;                 ///< ICA Grid Transform height
+    UINT                             offsetLUTCmdBuffer[ICA10Indexmax];      ///< Offset of all tables within LUT CmdBuffer
+    VOID*                            pLUT[ICA10Indexmax];                    ///< Pointer to array of LUTs supported by ICA
+    INT32                            IPEPath;                                ///< IPE path indicating input or reference.
+    INT32                            numLUTs;                                ///< Number of LUTs
+
+};
+
+struct ICA10HWSettingParams
+{
+    CmdBuffer*          pLUTCmdBuffer;       ///< Command buffer pointer for holding all 3 LUTs
+    ICA10ModuleData*    pModuleData;         ///< Module data pointer
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Class for IPE ICA10 Module
+///
+/// This IQ block adds ICA10 operations
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class IPEICA10 final : public ISPIQModule
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Create
+    ///
+    /// @brief  Create ICA Object
+    ///
+    /// @param  pCreateData  Pointer to resource and intialization data for ICA Creation
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CamxResult Create(
+        IPEModuleCreateData* pCreateData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Initialize
+    ///
+    /// @brief  Initialize parameters
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult Initialize();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FillCmdBufferManagerParams
+    ///
+    /// @brief  Fills the command buffer manager params needed by IQ Module
+    ///
+    /// @param  pInputData Pointer to the IQ Module Input data structure
+    /// @param  pParam     Pointer to the structure containing the command buffer manager param to be filled by IQ Module
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult FillCmdBufferManagerParams(
+       const ISPInputData*     pInputData,
+       IQModuleCmdBufferParam* pParam);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Execute
+    ///
+    /// @brief  Execute process capture request to configure module
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult Execute(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetModuleData
+    ///
+    /// @brief  Get IQ module specific data
+    ///
+    /// @param  pModuleData    Pointer pointing to Module specific data
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CAMX_INLINE VOID GetModuleData(
+        VOID* pModuleData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetRegCmd
+    ///
+    /// @brief  Retrieve the buffer of the register value
+    ///
+    /// @return Pointer of the register buffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual VOID* GetRegCmd();
+
+protected:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~IPEICA10
+    ///
+    /// @brief  Destructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual ~IPEICA10();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IPEICA10
+    ///
+    /// @brief  Constructor
+    ///
+    /// @param  pNodeIdentifier     String identifier for the Node that creating this IQ Module object
+    /// @param  pCreateData         Initialization data for IPEICA10
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    explicit IPEICA10(
+        const CHAR*          pNodeIdentifier,
+        IPEModuleCreateData* pCreateData);
+
+private:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateCommonLibraryData
+    ///
+    /// @brief  Allocate memory required for common library
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateCommonLibraryData();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DeallocateCommonLibraryData
+    ///
+    /// @brief  Deallocate memory required for common library
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DeallocateCommonLibraryData();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ValidateDependenceParams
+    ///
+    /// @brief  Validate the input dependency info from client
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return CamxResult Indicates if the input is valid or invalid
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult ValidateDependenceParams(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckDependenceChange
+    ///
+    /// @brief  Check to see if the Dependence Trigger Data Changed
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return BOOL Indicates if the settings have changed compared to last setting
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL CheckDependenceChange(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckPerspectiveDependencyChange
+    ///
+    /// @brief  Check to see if the Dependence Trigger Data Changed
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return BOOL Indicates if the settings have changed compared to last setting
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL CheckPerspectiveDependencyChange(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckGridDependencyChange
+    ///
+    /// @brief  Check to see if the Dependence Trigger Data Changed
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return BOOL Indicates if the settings have changed compared to last setting
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL CheckGridDependencyChange(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdateLUTFromChromatix
+    ///
+    /// @brief  Check to see if the Dependence Trigger Data Changed
+    ///
+    /// @param  pLUT Pointer to start of command buffer where Look up tables are present
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID UpdateLUTFromChromatix(
+        VOID* pLUT);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RunCalculation
+    ///
+    /// @brief  Calculate the Register Value
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return CamxResult Indicates if configuration calculation was success or failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RunCalculation(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckAndUpdateChromatixData
+    ///
+    /// @brief  Check and update the ICA chromatix data and return if it changed
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return BOOL flag indicating if the chromatix pointer as changed
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    BOOL CheckAndUpdateChromatixData(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdateIPEInternalData
+    ///
+    /// @brief  Update Pipeline input data, such as metadata, IQSettings.
+    ///
+    /// @param  pInputData Pointer to the ISP input data
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult UpdateIPEInternalData(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdatePerspectiveParamsToContext
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pWrap                    Pointer to ICA input context
+    /// @param  pICAPerspectiveParams    Pointer to ICA configuration data
+    ///
+    /// @return CamxResult               success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult UpdatePerspectiveParamsToContext(
+        VOID* pWrap,
+        VOID* pICAPerspectiveParams);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// UpdateGridParamsToContext
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pWrap             Pointer to ICA input context
+    /// @param  pICAGridParams    Pointer to ICA configuration data
+    ///
+    /// @return CamxResult        success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult UpdateGridParamsToContext(
+        VOID* pWrap,
+        VOID* pICAGridParams);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetGridTransformGeometry
+    ///
+    /// @brief  Set transform geometry parameters
+    ///
+    /// @param  pWrap             Pointer to ICA input context
+    /// @param  pICAGridParams    Pointer to ICA configuration data
+    ///
+    /// @return CamxResult        success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult SetGridTransformGeometry(
+        VOID* pWrap,
+        VOID* pICAGridParams);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetTransformData
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pISPInputData    Pointer to ICA configuration data
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult SetTransformData(
+        ISPInputData* pISPInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateWarpData
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  ppWarpData    Pointer to ICA WarpData
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateWarpData(
+        VOID** ppWarpData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DeAllocateWarpData
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  ppWarpData    Pointer to ICA WarpData
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DeAllocateWarpData(
+        VOID** ppWarpData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateWarpAssistData
+    ///
+    /// @brief  Allocate ICA Warp Assist Data Memory
+    ///
+    /// @param  ppWarpAssistData    Pointer to ICA Warp Assist Data NcLibWarpBuildAssistGridOut
+    ///
+    /// @return CamxResult success if the operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateWarpAssistData(
+        VOID** ppWarpAssistData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DeAllocateWarpAssistData
+    ///
+    /// @brief  Free ICA Warp Assist Data Memory
+    ///
+    /// @param  ppWarpAssistData    Pointer to ICA Warp Assist Data NcLibWarpBuildAssistGridOut
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DeAllocateWarpAssistData(
+        VOID** ppWarpAssistData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateWarpGeomOut
+    ///
+    /// @brief  Allocate memory for ICA Warp Geometry Output
+    ///
+    /// @param  ppWarpGeomOut    Pointer to ICA Warp Geometry Output
+    ///
+    /// @return CamxResult success if the operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateWarpGeomOut(
+        VOID** ppWarpGeomOut);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DeAllocateWarpGeomOut
+    ///
+    /// @brief  Free memory allocated for ICA Warp Geometry Output
+    ///
+    /// @param  ppWarpGeomOut    Pointer to ICA Warp Geometry Output
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DeAllocateWarpGeomOut(
+        VOID** ppWarpGeomOut);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpInputConfiguration
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pInputData       Pointer to ICA Input Data
+    /// @param  pICAInputData    Pointer to ICA10 Input Data
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult DumpInputConfiguration(
+        ISPInputData*   pInputData,
+        ICAInputData*   pICAInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetModuleEnable
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pInputData    Pointer to ICA Input Data
+    ///
+    /// @return CamxResult success if the write operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE CamxResult SetModuleEnable(
+        ISPInputData* pInputData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// InitializeModuleDataParameters
+    ///
+    /// @brief  Initialize module data parameters
+    ///
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID InitializeModuleDataParameters();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpTuningMetadata
+    ///
+    /// @brief  Dump tuning meta data parameters
+    ///
+    /// @param  pInputData    Pointer pointing to ISPInputData
+    /// @param  pLUT          ICA LUT data pointer
+    ///
+    /// @return CamxResult success if the dump operation is success
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult DumpTuningMetadata(
+        ISPInputData*   pInputData,
+        UINT32*         pLUT);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsPerspectiveEnabled
+    ///
+    /// @brief  Calculate the unpacked register value
+    ///
+    /// @param  pICAPerspectiveTransform    Pointer to perspective transform
+    ///
+    /// @return TRUE if perspective is enabled, Otherwise FALSE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE BOOL IsPerspectiveEnabled(
+        IPEICAPerspectiveTransform* pICAPerspectiveTransform)
+    {
+        BOOL bPerspectiveEnabled = FALSE;
+
+        if (NULL != pICAPerspectiveTransform)
+        {
+            if (TRUE == pICAPerspectiveTransform->perspectiveTransformEnable)
+            {
+                bPerspectiveEnabled = TRUE;
+            }
+        }
+
+        return bPerspectiveEnabled;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsGridEnabled
+    ///
+    /// @brief  is Grid Parameters Enabled
+    ///
+    /// @param  pICAGridTransform    Pointer to grid transform
+    ///
+    /// @return TRUE if the grid is enabled, Otherwise FALSE
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE BOOL IsGridEnabled(
+        IPEICAGridTransform* pICAGridTransform)
+    {
+        BOOL bGridEnabled = FALSE;
+
+        if (NULL != pICAGridTransform)
+        {
+            if (TRUE == pICAGridTransform->gridTransformEnable)
+            {
+                bGridEnabled = TRUE;
+            }
+        }
+
+        return bGridEnabled;
+    }
+
+    IPEICA10(const IPEICA10&)            = delete;              ///< Disallow the copy constructor
+    IPEICA10& operator=(const IPEICA10&) = delete;              ///< Disallow assignment operator
+
+    const CHAR*         m_pNodeIdentifier;                      ///< String identifier for the Node that created this object
+    CmdBufferManager*   m_pLUTCmdBufferManager;                 ///< Command buffer manager for all LUTs of GRA
+    CmdBuffer*          m_pLUTCmdBuffer;                        ///< Command buffer for holding all 4 LUTs
+    VOID*               m_pICAInWarpData[ICAReferenceNumber];   ///< ICA Input data for current and past frame
+    VOID*               m_pICARefWarpData;                      ///< ICA Reference data
+    VOID*               m_pWarpAssistData[ICAReferenceNumber];  ///< ICA warp assist data for current and past frame
+    BOOL                m_enableCommonIQ;                       ///< EnableCommon IQ module
+    ICAInputData        m_dependenceData;                       ///< Dependency data for ICA
+    IcaParameters       m_ICAParameter;                         ///< ICA parameter
+    UINT32*             m_pICAPerspectiveLUT;                   ///< Tuning LUT data
+    UINT32*             m_pICAGrid0LUT;                         ///< Tuning LUT data
+    UINT32*             m_pICAGrid1LUT;                         ///< Tuning LUT data
+    VOID*               m_pWarpGeometryData;                    ///< Warp Geometry data
+    BOOL                m_dumpICAOutput;                        ///< Dump ICA output
+    ICA10ModuleData     m_moduleData;                           ///< Module data for ICA
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXIPEICA_H

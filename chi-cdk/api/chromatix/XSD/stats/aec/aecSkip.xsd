@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<!--
+
+Snapshot Tuning Definition
+
+-->
+	<xs:element name="aecSkipCtrl" type="AECSkipCtrlType"/>
+	<xs:complexType name="AECSkipCtrlType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DFSEnable">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable aec dynamic frame skip"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DFSExpIndexTolerance">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the Exposure index tolerance for dynamic frame skip"/>
+							<xs:attribute name="range" type="xs:string" default="[0.5,3]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DFSMaxHistoryCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the history count for exp index used in skip."/>
+							<xs:attribute name="range" type="xs:string" default="[1,30]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DFSSkipCountZone" type="DFSSkipCountZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DFSSkipCountZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" type="DFSSkipCountZoneDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DFSSkipCountZoneDataType">
+		<xs:sequence>
+			<xs:element name="DFSSkipCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the adjusted max number of frames to be skipped for stable scene."/>
+							<xs:attribute name="range" type="xs:string" default="[0, 10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DFSMinSettleThreshold">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the minimal count of settle down."/>
+							<xs:attribute name="range" type="xs:string" default="[1,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

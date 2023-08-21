@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<lenr10_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\lenr_1_0_0.xsd">
+  <enable_section>
+    <enable type="int" range="[0,1]" length="1">1</enable>
+    <lenr_bltr_en type="int" range="[0,1]" length="1">1</lenr_bltr_en>
+    <lenr_lce_en type="int" range="[0,1]" length="1">1</lenr_lce_en>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_total_scale_ratio</control_var_type>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <lenr_nr_enable>
+      <enable type="int" range="[0,1]" length="1">0</enable>
+      <hyst_control_var type="uint" range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </lenr_nr_enable>
+  </dynamic_enable_triggers>
+  <chromatix_lenr10_reserve>
+    <rnr_en type="int" range="[0,1]" length="1">1</rnr_en>
+    <snr_en type="int" range="[0,1]" length="1">1</snr_en>
+    <fd_snr_en type="int" range="[0,1]" length="1">0</fd_snr_en>
+    <fnr_en type="int" range="[0,1]" length="1">1</fnr_en>
+    <bltr_rnr_thrd_arr_tab type="float" range="[0.0,1.0]" length="7">
+      <bltr_rnr_thrd_arr>0 0.2 0.3 0.4 0.6 0.8 1</bltr_rnr_thrd_arr>
+    </bltr_rnr_thrd_arr_tab>
+    <lce_rnr_thrd_arr_tab type="float" range="[0.0,1.0]" length="7">
+      <lce_rnr_thrd_arr>0 0.2 0.3 0.4 0.6 0.8 1</lce_rnr_thrd_arr>
+    </lce_rnr_thrd_arr_tab>
+    <lenr_bltr_layer1_only type="int" range="[0,1]" length="1">0</lenr_bltr_layer1_only>
+    <lenr_dn4_8_16_bltr_clamp_en_tab type="uint" range="[0,1]" length="3">
+      <lenr_dn4_8_16_bltr_clamp_en>0 0 0</lenr_dn4_8_16_bltr_clamp_en>
+    </lenr_dn4_8_16_bltr_clamp_en_tab>
+    <lenr_dn4_8_16_bltr_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+      <lenr_dn4_8_16_bltr_clamp_p>16 16 16</lenr_dn4_8_16_bltr_clamp_p>
+    </lenr_dn4_8_16_bltr_clamp_p_tab>
+    <lenr_dn4_8_16_bltr_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+      <lenr_dn4_8_16_bltr_clamp_n>-16 -16 -16</lenr_dn4_8_16_bltr_clamp_n>
+    </lenr_dn4_8_16_bltr_clamp_n_tab>
+    <lenr_dn4_bltr_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn4_bltr_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn4_bltr_fnr_gain_arr>
+    </lenr_dn4_bltr_fnr_gain_arr_tab>
+    <lenr_dn8_bltr_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn8_bltr_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn8_bltr_fnr_gain_arr>
+    </lenr_dn8_bltr_fnr_gain_arr_tab>
+    <lenr_dn16_bltr_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn16_bltr_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_fnr_gain_arr>
+    </lenr_dn16_bltr_fnr_gain_arr_tab>
+    <lenr_dn4_lce_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn4_lce_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn4_lce_fnr_gain_arr>
+    </lenr_dn4_lce_fnr_gain_arr_tab>
+    <lenr_dn8_lce_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn8_lce_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn8_lce_fnr_gain_arr>
+    </lenr_dn8_lce_fnr_gain_arr_tab>
+    <lenr_dn16_lce_fnr_gain_arr_tab type="uint" range="[0,63]" length="17">
+      <lenr_dn16_lce_fnr_gain_arr>16 16 16 24 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_lce_fnr_gain_arr>
+    </lenr_dn16_lce_fnr_gain_arr_tab>
+    <lenr_all_fnr_shift type="int" range="[0,3]" length="1">2</lenr_all_fnr_shift>
+    <lenr_all_lce_kernel_tab type="int" range="[-1024,1024]" length="10">
+      <lenr_all_lce_kernel>736 0 -3 -8 -14 -22 -67 -88 -48 144</lenr_all_lce_kernel>
+    </lenr_all_lce_kernel_tab>
+    <cnr_scale type="int" range="[0,15]" length="1">4</cnr_scale>
+  </chromatix_lenr10_reserve>
+  <chromatix_lenr10_core>
+    <mod_lenr10_total_scale_ratio_data>
+      <total_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </total_scale_ratio_trigger>
+      <total_scale_ratio_data>
+        <mod_lenr10_drc_gain_data>
+          <drc_gain_trigger>
+            <start>1</start>
+            <end>100</end>
+          </drc_gain_trigger>
+          <drc_gain_data>
+            <mod_lenr10_hdr_aec_data>
+              <hdr_aec_trigger>
+                <exp_time_start>1</exp_time_start>
+                <exp_time_end>64</exp_time_end>
+                <aec_sensitivity_start>1</aec_sensitivity_start>
+                <aec_sensitivity_end>64</aec_sensitivity_end>
+                <exp_gain_start>1</exp_gain_start>
+                <exp_gain_end>64</exp_gain_end>
+              </hdr_aec_trigger>
+              <hdr_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>3 2 0</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>1 0 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>10 4 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 16 16 16 16 16 16 16 16</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>4 2 0</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>1 0 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>10 6 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 16 16 16 16 16 16 16 16</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>4 2 1</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>1 0 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>12 6 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 14 14 14 14 14 14 14 14 14</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>6 3 1</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>1 0 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>12 8 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 14 14 14 14 14 14 14 14 14</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>6 3 1</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>2 0 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>14 8 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 10 10 10 10 10 10 10</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>31.9</gain_start>
+                    <gain_end>32.1</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>8 3 2</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>2 1 0</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>16 10 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 10 10 10 10 10 10 10</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+                <mod_lenr10_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>63.9</gain_start>
+                    <gain_end>64</gain_end>
+                  </aec_trigger>
+                  <lenr10_rgn_data>
+                    <lenr_dn4_8_16_bltr_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_th>8 3 2</lenr_dn4_8_16_bltr_th>
+                    </lenr_dn4_8_16_bltr_th_tab>
+                    <lenr_dn4_8_16_bltr_gap_tab type="uint" range="[0,15]" length="3">
+                      <lenr_dn4_8_16_bltr_gap>2 1 1</lenr_dn4_8_16_bltr_gap>
+                    </lenr_dn4_8_16_bltr_gap_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_th_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_th>16 10 16</lenr_dn4_8_16_bltr_ctrl_th>
+                    </lenr_dn4_8_16_bltr_ctrl_th_tab>
+                    <lenr_dn4_8_16_bltr_ctrl_w_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_bltr_ctrl_w>128 256 64</lenr_dn4_8_16_bltr_ctrl_w>
+                    </lenr_dn4_8_16_bltr_ctrl_w_tab>
+                    <lenr_dn4_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 10 10 10 10 10 10 10</lenr_dn4_bltr_snr_gain_arr>
+                    </lenr_dn4_bltr_snr_gain_arr_tab>
+                    <lenr_dn8_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_bltr_snr_gain_arr>32 32 32 32 32 32 24 16 16 12 12 12 12 12 12 12 12</lenr_dn8_bltr_snr_gain_arr>
+                    </lenr_dn8_bltr_snr_gain_arr_tab>
+                    <lenr_dn16_bltr_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_bltr_snr_gain_arr>32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32</lenr_dn16_bltr_snr_gain_arr>
+                    </lenr_dn16_bltr_snr_gain_arr_tab>
+                    <bltr_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <bltr_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</bltr_rnr_gain_arr>
+                    </bltr_rnr_gain_arr_tab>
+                    <lenr_dn4_8_16_lce_core_p_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_p>8 4 2</lenr_dn4_8_16_lce_core_p>
+                    </lenr_dn4_8_16_lce_core_p_tab>
+                    <lenr_dn4_8_16_lce_core_n_tab type="uint" range="[0,1023]" length="3">
+                      <lenr_dn4_8_16_lce_core_n>8 4 2</lenr_dn4_8_16_lce_core_n>
+                    </lenr_dn4_8_16_lce_core_n_tab>
+                    <lenr_dn4_8_16_lce_scale_p_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_p>128 64 32</lenr_dn4_8_16_lce_scale_p>
+                    </lenr_dn4_8_16_lce_scale_p_tab>
+                    <lenr_dn4_8_16_lce_scale_n_tab type="uint" range="[0,255]" length="3">
+                      <lenr_dn4_8_16_lce_scale_n>128 64 32</lenr_dn4_8_16_lce_scale_n>
+                    </lenr_dn4_8_16_lce_scale_n_tab>
+                    <lenr_dn4_8_16_lce_clamp_p_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_p>4 2 0</lenr_dn4_8_16_lce_clamp_p>
+                    </lenr_dn4_8_16_lce_clamp_p_tab>
+                    <lenr_dn4_8_16_lce_clamp_n_tab type="int" range="[-1023,1023]" length="3">
+                      <lenr_dn4_8_16_lce_clamp_n>-4 -2 0</lenr_dn4_8_16_lce_clamp_n>
+                    </lenr_dn4_8_16_lce_clamp_n_tab>
+                    <lenr_dn4_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn4_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn4_lce_snr_gain_arr>
+                    </lenr_dn4_lce_snr_gain_arr_tab>
+                    <lenr_dn8_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn8_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn8_lce_snr_gain_arr>
+                    </lenr_dn8_lce_snr_gain_arr_tab>
+                    <lenr_dn16_lce_snr_gain_arr_tab type="uint" range="[1,32]" length="17">
+                      <lenr_dn16_lce_snr_gain_arr>32 32 32 32 32 32 32 32 32 24 16 12 12 12 12 12 12</lenr_dn16_lce_snr_gain_arr>
+                    </lenr_dn16_lce_snr_gain_arr_tab>
+                    <lce_rnr_gain_arr_tab type="float" range="[0,2.0]" length="7">
+                      <lce_rnr_gain_arr>1 1 0.9375 0.875 0.75 0.625 0.5</lce_rnr_gain_arr>
+                    </lce_rnr_gain_arr_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.39</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.996,0]" length="1">-0.4</skin_hue_max>
+                    <skin_y_min type="float" range="[0,1.0]" length="1">0.125</skin_y_min>
+                    <skin_y_max type="float" range="[0,1.0]" length="1">1</skin_y_max>
+                    <skin_saturation_min_y_max type="float" range="[0,1.0]" length="1">0.08</skin_saturation_min_y_max>
+                    <skin_saturation_max_y_max type="float" range="[0,1.0]" length="1">0.8</skin_saturation_max_y_max>
+                    <skin_saturation_min_y_min type="float" range="[0,0.5]" length="1">0.32</skin_saturation_min_y_min>
+                    <skin_saturation_max_y_min type="float" range="[0.2,1.0]" length="1">1</skin_saturation_max_y_min>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_non_skin_to_skin_q_ratio type="float" range="[0.1,10.0]" length="1">0.5</skin_non_skin_to_skin_q_ratio>
+                    <face_boundary type="float" range="[0,8]" length="1">1.2</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">2</face_transition>
+                  </lenr10_rgn_data>
+                </mod_lenr10_aec_data>
+              </hdr_aec_data>
+            </mod_lenr10_hdr_aec_data>
+          </drc_gain_data>
+        </mod_lenr10_drc_gain_data>
+      </total_scale_ratio_data>
+    </mod_lenr10_total_scale_ratio_data>
+  </chromatix_lenr10_core>
+</lenr10_ipe>

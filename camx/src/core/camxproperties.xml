@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+
+<!-- *********************************************************************************************************************** -->
+<!-- Copyright (c) 2018 - 2019 Qualcomm Technologies, Inc.                                                                     -->
+<!-- All Rights Reserved.                                                                                                    -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.                                                              -->
+<!-- *********************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************** -->
+<!-- CamX Properties Definition File                                                                                         -->
+<!--                                                                                                                         -->
+<!-- Each property definition will contain the following fields:                                                             -->
+<!--    Name:  Name to be prepended with 'PropertyID' defining the static const to refer to the property                     -->
+<!--    Type:  C type to be used as the member of the property blob                                                          -->
+<!-- *********************************************************************************************************************** -->
+<Properties>
+    <!--
+    Camx container for all proprietary properties/events. Attached to metadata but not seen by Android framework
+
+    Need to adhere to the following rules/conventions -
+
+    a. Any property that goes to other modules, needs to be defined here
+    b. Any property that needs to come back for a reprocess request, needs to be defined here
+    c. Property definitions should be POD, and should NOT contain any pointers, exceptions will be carefully considered
+
+    Exception for Peer Info Pointers are given since stats would be shared by algorithm instance and lifetime and scope
+    of data passed through pointers would be taken care by algoritm.
+    -->
+    <MainProperty>
+        <Property Name="AECFrameControl"                               Type="AECFrameControl"/>
+        <Property Name="AECFrameInfo"                                  Type="AECFrameInformation"/>
+        <Property Name="AWBFrameControl"                               Type="AWBFrameControl"/>
+        <Property Name="AWBFrameInfo"                                  Type="AWBFrameInfo"/>
+        <Property Name="AFFrameControl"                                Type="AFFrameControl"/>
+        <Property Name="AFFrameInfo"                                   Type="AFFrameInformation"/>
+        <Property Name="AFPDFrameInfo"                                 Type="AFPDAFData"/>
+        <Property Name="AFBAFDependencyMet"                            Type="BOOL"/>
+        <Property Name="ASD"                                           Type="ASDOutput"/>
+        <Property Name="AFDFrameControl"                               Type="UINT32"/>
+        <Property Name="AFDFrameInfo"                                  Type="AFDFrameInfo"/>
+        <Property Name="AECStatsControl"                               Type="AECStatsControl"/>
+        <Property Name="AWBStatsControl"                               Type="AWBStatsControl"/>
+        <Property Name="AFStatsControl"                                Type="AFStatsControl"/>
+        <Property Name="AFDStatsControl"                               Type="AFDStatsControl"/>
+        <Property Name="IHistStatsControl"                             Type="IHistStatsControl"/>
+        <Property Name="CrossAECStats"                                 Type="UINT64"/>
+        <Property Name="CrossAWBStats"                                 Type="UINT64"/>
+        <Property Name="CrossAFStats"                                  Type="UINT64"/>
+        <Property Name="AECPeerInfo"                                   Type="VOID*"/>
+        <Property Name="AWBPeerInfo"                                   Type="VOID*"/>
+        <Property Name="AFPeerInfo"                                    Type="VOID*"/>
+        <Property Name="AFDPeerInfo"                                   Type="VOID*"/>
+        <Property Name="ASDPeerInfo"                                   Type="VOID*"/>
+        <Property Name="FOVCFrameInfo"                                 Type="FOVCOutput"/>
+
+        <Property Name="PDHwConfig"                                    Type="PDHwConfig"/>
+
+        <Property Name="SensorCurrentMode"                             Type="UINT32"/>
+        <Property Name="PostSensorGainId"                              Type="FLOAT"/>
+        <Property Name="SensorFlashCurrent"                            Type="UINT"/>
+        <Property Name="SensorMetaData"                                Type="SensorMetaData"/>
+        <Property Name="SensorExposureStartTime"                       Type="UINT64"/>
+        <Property Name="SensorProperties"                              Type="SensorProperties"/>
+        <Property Name="SensorPDAFInfo"                                Type="SensorPDAFInfo"/>
+        <Property Name="SensorNumberOfLEDs"                            Type="UINT"/>
+        <Property Name="SensorResolutionInfo"                          Type="SensorResolutionInfo"/>
+        <Property Name="RERCompleted"                                  Type="BOOL"/>
+
+        <Property Name="IFEDigitalZoom"                                Type="IFECropInfo"/>
+        <Property Name="IFEGammaOutput"                                Type="GammaInfo"/>
+        <Property Name="IFEAppliedCrop"                                Type="IFECropInfo"/>
+        <Property Name="ISPBHistConfig"                                Type="PropertyISPBHistStats"/>
+        <Property Name="ISPTintlessBGConfig"                           Type="PropertyISPTintlessBG"/>
+        <Property Name="IFEScaleOutput"                                Type="IFEScalerOutput"/>
+
+        <Property Name="ParsedAWBBGStatsOutput"                        Type="ParsedAWBBGStatsOutput*"/>
+        <Property Name="ParsedBFStatsOutput"                           Type="ParsedBFStatsOutput*"/>
+        <Property Name="ParsedBHistStatsOutput"                        Type="ParsedBHistStatsOutput*"/>
+        <Property Name="ParsedCSStatsOutput"                           Type="ParsedCSStatsOutput*"/>
+        <Property Name="ParsedHDRBEStatsOutput"                        Type="ParsedHDRBEStatsOutput*"/>
+        <Property Name="ParsedHDRBHistStatsOutput"                     Type="ParsedHDRBHistStatsOutput*"/>
+        <Property Name="ParsedIHistStatsOutput"                        Type="ParsedIHistStatsOutput*"/>
+        <Property Name="ParsedRSStatsOutput"                           Type="ParsedRSStatsOutput*"/>
+        <Property Name="ParsedTintlessBGStatsOutput"                   Type="ParsedTintlessBGStatsOutput*"/>
+
+        <Property Name="BPSGammaOutput"                                Type="GammaInfo"/>
+
+        <Property Name="JPEGEncodeOutInfo"                             Type="EncoderOutInfo"/>
+        <Property Name="JPEGEncodeOutInfoThumbnail"                    Type="EncoderOutInfo"/>
+
+        <Property Name="IPETotalFrameMFNR"                             Type="UINT"/>
+
+        <Property Name="IPETotalFrameMFSR"                             Type="UINT"/>
+
+        <Property Name="FDFrameSettings"                               Type="FDPropertyFrameSettings"/>
+
+        <Property Name="LRMEFrameSettings"                             Type="LRMEPropertyFrameSettings"/>
+        <Property Name="IFEADRCInfoOutput"                             Type="PropertyISPADRCInfo"/>
+        <Property Name="BPSADRCInfoOutput"                             Type="PropertyISPADRCInfo"/>
+        <Property Name="IFEADRCParams"                                 Type="PropertyISPADRCParams"/>
+        <Property Name="IntermediateDimension"                         Type="PropertyISPIntermediateDimension"/>
+        <Property Name="IPEGamma15PreCalculation"                      Type="IPEGammaPreOutput"/>
+    </MainProperty>
+
+    <!--
+    Camx container for all properties which are internal to CamX hwl and swl nodes
+
+    Need to adhere to the following rules/conventions -
+
+    a. Any property that is internal to a hwl/swl node goes here
+    b. Cannot be dependency across nodes
+    c. Will not be valid for any reprocess request
+    d. Property definitions should be POD, and should NOT contain any pointers
+    -->
+    <InternalProperty>
+        <Property Name="AECInternal"                                   Type="AECOutputInternal"/>
+        <Property Name="AFInternal"                                    Type="AFOutputInternal"/>
+        <Property Name="ASDInternal"                                   Type="ASDOutputInternal"/>
+        <Property Name="AWBInternal"                                   Type="AWBOutputInternal"/>
+        <Property Name="AFDInternal"                                   Type="AFDOutputInternal"/>
+
+        <Property Name="BasePDInternal"                                Type="BOOL"/>
+
+        <Property Name="ISPAECBG"                                      Type="BGStatsOutput"/>
+        <Property Name="ISPAWBBGConfig"                                Type="PropertyISPAWBBGStats"/>
+        <Property Name="ISPBFConfig"                                   Type="PropertyISPBFStats"/>
+        <Property Name="ISPCSConfig"                                   Type="PropertyISPCSStats"/>
+        <Property Name="ISPHDRBEConfig"                                Type="PropertyISPHDRBEStats"/>
+        <Property Name="ISPHDRBHistConfig"                             Type="PropertyISPHDRBHistStats"/>
+        <Property Name="ISPIHistConfig"                                Type="PropertyISPIHistStats"/>
+        <Property Name="ISPRegionsStats"                               Type="ISPRegionsStatsParams"/>
+        <Property Name="ISPROIStats"                                   Type="ISPStatsROIParams"/>
+        <Property Name="ISPRSConfig"                                   Type="PropertyISPRSStats"/>
+
+        <Property Name="FDInternalPerFrameSettings"                    Type="FDPerFrameSettings"/>
+
+        <Property Name="SkipStatsParserTypeBF"                         Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeHDRBE"                      Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeBHist"                      Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeHDRBHist"                   Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeRS"                         Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeCS"                         Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeAWBBG"                      Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeTintlessBG"                 Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeIHist"                      Type="BOOL"/>
+        <Property Name="SkipStatsParserTypeBPSAWBBG"                   Type="BOOL"/>
+
+    </InternalProperty>
+
+    <!--
+    Camx container for all properties which are invariant for the lifetime of a usecase
+
+    Need to adhere to the following rules/conventions -
+
+    a. Publish in your node's ProcessingNodeInitialize()
+    b. Check IsPublished() and use in PostPipelineCreate()
+    c. DO NOT publish any information which changes after ConfigureStreams()
+    -->
+    <UsecaseProperty>
+        <Property Name="UsecaseSensorModes"                            Type="UsecaseSensorModes"/>
+        <Property Name="UsecaseBatch"                                  Type="UINT"/>
+        <Property Name="UsecaseFPS"                                    Type="UINT"/>
+        <Property Name="UsecaseLensInfo"                               Type="LensInfo"/>
+        <Property Name="UsecaseCameraModuleInfo"                       Type="CameraConfigurationInformation"/>
+        <Property Name="UsecasePDLibInfo"                              Type="UINTPTR_T"/>
+        <Property Name="UsecaseSensorCurrentMode"                      Type="UINT"/>
+        <Property Name="UsecaseSensorISO100Gain"                       Type="FLOAT"/>
+
+        <Property Name="UsecaseAWBFrameControl"                        Type="AWBFrameControl"/>
+        <Property Name="UsecaseAECFrameControl"                        Type="AECFrameControl"/>
+        <Property Name="UsecaseAFFrameControl"                         Type="AFFrameControl"/>
+        <Property Name="UsecaseAFFrameInformation"                     Type="AFFrameInformation"/>
+        <Property Name="UsecaseAECStatsControl"                        Type="AECStatsControl"/>
+        <Property Name="UsecaseAWBStatsControl"                        Type="AWBStatsControl"/>
+        <Property Name="UsecaseAFStatsControl"                         Type="AFStatsControl"/>
+        <Property Name="UsecaseStatsStreamInitConfig"                  Type="StatsStreamInitConfig"/>
+
+        <Property Name="UsecasePipelineOutputDimensions"               Type="PropertyPipelineOutputDimensions"/>
+
+        <Property Name="UsecaseFDResults"                              Type="FaceROIInformation"/>
+        <Property Name="UsecaseFDMetadataResults"                      Type="FDMetaDataResults"/>
+        <Property Name="UsecaseFDContourResults"                       Type="FDMetaDataFaceContourResults"/>
+
+        <Property Name="UsecaseIFEInputResolution"                     Type="IFEInputResolution"/>
+        <Property Name="UsecaseIFEOutputResolution"                    Type="IFEOutputResolution"/>
+        <Property Name="UsecaseIFEPDAFInfo"                            Type="PDLibDataBufferInfo"/>
+        <Property Name="UsecaseHWPDConfig"                             Type="PDHwConfig"/>
+        <Property Name="UsecaseChiTuningModeParameter"                 Type="ChiTuningModeParameter"/>
+        <Property Name="UsecaseAESyncStartLockTagID"                   Type="UINT64"/>
+        <Property Name="UsecaseAESyncStopLockTagID"                    Type="UINT64"/>
+        <Property Name="UsecaseIFEPDHWInfo"                            Type="PDHwAvailablity"/>
+        <Property Name="UsecasePDHWEnableConditions"                   Type="PDHWEnableConditions"/>
+        <Property Name="UsecasePDLibInputPDHWEnableConditions"         Type="PDHWEnableConditions"/>
+        <Property Name="UsecaseTrackerResults"                         Type="TrackerROIInformation"/>
+    </UsecaseProperty>
+
+    <!--
+    Camx container for all properties which are debug data related
+
+    Need to adhere to the following rules/conventions -
+
+    a. Any property that is debug data related goes here
+    b. Property definitions should be POD, and should NOT contain any pointers
+    -->
+    <DebugDataProperty>
+        <Property Name="DebugDataAll"                                  Type="DebugData"/>
+        <Property Name="DebugDataAEC"                                  Type="DebugData"/>
+        <Property Name="DebugDataAWB"                                  Type="DebugData"/>
+        <Property Name="DebugDataAF"                                   Type="DebugData"/>
+        <Property Name="TuningDataIFE"                                 Type="DebugData"/>
+        <Property Name="TuningDataIPE"                                 Type="DebugData"/>
+        <Property Name="TuningDataBPS"                                 Type="DebugData"/>
+    </DebugDataProperty>
+</Properties>

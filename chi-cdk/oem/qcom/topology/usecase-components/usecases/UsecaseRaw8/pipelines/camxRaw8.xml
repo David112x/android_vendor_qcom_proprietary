@@ -1,0 +1,30 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+  <PipelineName>Raw8</PipelineName>
+  <CamxInclude segment="RealTimeBase" />
+  <NodesList/>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>IFEOutputPortRDI0</PortName>
+        <PortId>8</PortId>
+        <NodeName>IFE</NodeName>
+        <NodeId>65536</NodeId>
+        <NodeInstance>IFEInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_BUFFER_RAW8</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+  </PortLinkages>
+</Pipeline>

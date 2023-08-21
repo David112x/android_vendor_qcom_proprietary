@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2020 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFMONITOR
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afmonitorelements.xsd">
+  <module_version major_revision="9" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <monitorAlgoConfig>
+    <topoCAF>
+      <profileIndex>CAFTopoProfileAdvanced</profileIndex>
+      <SADR type="int" description="Sensitivity value for SADR value monitor." range="[0, 100]">50</SADR>
+      <gyro type="int" description="Sensitivity value for gyro value monitor." range="[0, 100]">60</gyro>
+      <gyroPanning type="int" description="Sensitivity value for gyroPanning value monitor." range="[0, 100]">50</gyroPanning>
+      <SADPanning type="int" description="Sensitivity value for SADPanning value monitor." range="[0, 100]">45</SADPanning>
+      <FV type="int" description="Sensitivity value for FV value monitor." range="[0, 100]">50</FV>
+      <faceTriggerHold type="int" description="Sensitivity value for faceTriggerHold value monitor" range="[0, 100]">50</faceTriggerHold>
+      <CAFSceneChangeHold type="int" description="Sensitivity value for CAFSceneChangeHold value monitor" range="[0, 100]">50</CAFSceneChangeHold>
+      <CAFTopoReservedSensitivity type="int" description="Reserved sensitivity value for CAF topo" range="[0, 100]">0</CAFTopoReservedSensitivity>
+    </topoCAF>
+    <topoPDAF>
+      <profileIndex>PDAFTopoProfileSparseAdvanced</profileIndex>
+      <defocusLow type="int" description="Sensitivity value for defocusLow value monitor." range="[0, 100]">40</defocusLow>
+      <defocusHigh type="int" description="Sensitivity value for defocusHigh value monitor." range="[0, 100]">50</defocusHigh>
+      <PDAFconfidence type="int" description="Sensitivity value for PDAFconfidence value monitor." range="[0, 100]">50</PDAFconfidence>
+      <SADPanning type="int" description="Sensitivity value for SAD panning value monitor." range="[0, 100]">50</SADPanning>
+      <gyroPanning type="int" description="Sensitivity value for gyro panning value monitor." range="[0, 100]">50</gyroPanning>
+      <PDAFTopoReservedSensitivity type="int" description="Reserved sensitivity value for PDAF topo" range="[0, 100]">0</PDAFTopoReservedSensitivity>
+    </topoPDAF>
+    <topoTOF>
+      <profileIndex>TOFTopoProfileAdvanced</profileIndex>
+      <distance type="int" description="Sensitivity value for distance value monitor." range="[0, 100]">50</distance>
+      <TOFconfidenceHigh type="int" description="Sensitivity value for TOFconfidenceHigh value monitor." range="[0, 100]">50</TOFconfidenceHigh>
+      <TOFconfidenceMedium type="int" description="Sensitivity value for TOFconfidenceMedium value monitor." range="[0, 100]">50</TOFconfidenceMedium>
+      <SADPanning type="int" description="Sensitivity value for SAD panning value monitor." range="[0, 100]">50</SADPanning>
+      <gyroPanning type="int" description="Sensitivity value for gyro panning value monitor." range="[0, 100]">50</gyroPanning>
+      <TOFTopoReservedSensitivity type="int" description="Reserved sensitivity value for TOF topo" range="[0, 100]">50</TOFTopoReservedSensitivity>
+    </topoTOF>
+    <topoDCIAF>
+      <profileIndex>DCIAFTopoProfileAdvanced</profileIndex>
+      <distance type="int" description="Sensitivity value for DCIAF distance value monitor." range="[0, 100]">50</distance>
+      <confidence type="int" description="Sensitivity value for DCIAF confidence value monitor." range="[0, 100]">50</confidence>
+      <SADR type="int" description="Sensitivity value for SADR value monitor." range="[0, 100]">50</SADR>
+      <gyro type="int" description="Sensitivity value for gyro value monitor." range="[0, 100]">50</gyro>
+      <SADPanning type="int" description="Sensitivity value for SAD panning value monitor." range="[0, 100]">50</SADPanning>
+      <gyroPanning type="int" description="Sensitivity value for gyro panning value monitor." range="[0, 100]">50</gyroPanning>
+      <DCIAFTopoReservedSensitivity type="int" description="Reserved sensitivity value for DCIAF topo" range="[0, 100]">0</DCIAFTopoReservedSensitivity>
+    </topoDCIAF>
+    <topoDefaultMixer>
+      <secondarySceneChangeCntThres type="int" description="Value for the CAF scene change count threshold." range="[0,10000]">4</secondarySceneChangeCntThres>
+      <secondaryUnstableCntThres type="int" description="Value for the CAF unstable count threshold." range="[0,10000]">5</secondaryUnstableCntThres>
+      <gyroEnable description="Flag to enable gyro or not." range="[0, 1]">1</gyroEnable>
+    </topoDefaultMixer>
+    <topoDepthAF>
+      <defocusLow type="int" description="Defocus low for defocus value monitor" default_value="50" range="[0, 100]">50</defocusLow>
+      <defocusHigh type="int" description="Sensitivity for DepthAF defocus high value monitor" default_value="50" range="[0, 100]">50</defocusHigh>
+      <defocusPanning type="int" description="Sensitivity for depthaf defocus panning value monitor" default_value="50" range="[0, 100]">50</defocusPanning>
+      <sadPanning type="int" description="sensitivity for Depth AF SAD Panning value monitor" default_value="50" range="[0, 100]">50</sadPanning>
+      <gyroPanning type="int" description="sensitivity for Depth AF gyro Panning value monitor" default_value="50" range="[0, 100]">50</gyroPanning>
+      <DepthAFTopoReservedSensitivity type="int" description="Reserved sensitivity value for DepthAF topo" range="[0, 100]">0</DepthAFTopoReservedSensitivity>
+    </topoDepthAF>
+  </monitorAlgoConfig>
+  <valueMonitorBank>
+    <valueMonitor>
+      <VMSetType>VmSetTypeSADR</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">100</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">10</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">11</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">10</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">10</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeSADPanning</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorStable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0.05</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">5</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">1.1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">6</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeGyro</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">8</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">5</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0.1539</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0.2</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">3</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeGyroPanning</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorStable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0.1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0.125</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDefocusLow</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">20</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">3</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">7.5</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">4</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDefocusHigh</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">100</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">5</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">7</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">7</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">140</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">7</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">5</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">4</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeTOFConfidenceHigh</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">90</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypePDAFConfidence</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorStable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">150</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDistance</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">20</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">8</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">2</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeFV</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeTOFConfidenceMedium</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">5</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">40</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeFaceTriggerHold</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">10</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">10</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">1</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">10</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeCAFSceneChangeHold</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorUnstable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">1</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">1</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">8</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+    <valueMonitor>
+      <VMSetType>VmSetTypeDistance</VMSetType>
+      <detectionType type="chromatixDetectorTypeEnum" description="DEPRECATED. Instead use VMInitState to control stable/unstable mode" default_value="VMDetectorInvalid">VMDetectorStable</detectionType>
+      <VMInitState type="chromatixVMStateEnum" description="Initial State of value monitor.Set it to VMSTATELOW/VMSTATEHIGH to get previous unstable/stable detector" default_value="VMSTATEINVALID">VMSTATEINVALID</VMInitState>
+      <absoluteModeCfg>
+        <enable type="int" description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">1</enable>
+        <baseline type="float" description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">2</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">5</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">10</triggerThreshold>
+        <consecutiveCountThreshold type="int" description=" DEPRECATED. Instead use highCountThreshold/lowCountThreshold based on VMInitSTATE. e residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." default_value="-1" range="[0,unbounded]">3</consecutiveCountThreshold>
+        <frameToArmed type="int" description="Number of frames for starting the scene change detection." range="[0,unbounded]">2</frameToArmed>
+        <highCountThreshold type="int" description="Counting threshold for the residue is constantly above the trigger_threshold.-1 means disabled. If VMInitState is VMSTATEHIGH, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</highCountThreshold>
+        <lowCountThreshold type="int" description="Counting threshold for the residue is constantly below the trigger_threshold.-1 means disabled. If VMInitState is VMSTATELOW, tuning this can hold the previous decision" default_value="-1" range="[0,unbounded]">-1</lowCountThreshold>
+        <medianFltrCfg>
+          <enable type="int" description="Flag to enable median filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the median filter." range="[0, 10]">3</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" description="Flag to enable moving average filter or not." range="[0, 1]">1</enable>
+          <numOfSamples type="int" description="Length of the moving average filter." range="[0, 10]">2</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples type="int" description="Length of the IIR filter" range="[2,2]">2</numOfSamples>
+          <coeffNumerator type="float" description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0.2452</coeffNumerator>
+          <coeffDenominator type="float" description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">-0.5095</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+  </valueMonitorBank>
+</chromatixAFMONITOR>

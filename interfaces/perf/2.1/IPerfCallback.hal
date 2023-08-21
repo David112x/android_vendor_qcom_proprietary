@@ -1,0 +1,12 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.hardware.perf@2.1;
+
+interface IPerfCallback {
+    oneway notifyCallback (uint32_t hint, string userDataStr, int32_t userData1, int32_t userData2, vec<int32_t> reserved);
+};
+

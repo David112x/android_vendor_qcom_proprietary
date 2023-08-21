@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<tmc12_sw
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\xsd\isp\tmc_1_2_0.xsd">
+  <enable_section>
+    <tmc_enable>1</tmc_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="2" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_lux_idx</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <chromatix_tmc12_reserve>
+    <use_gtm type="uint" range="[0,1]" length="1">1</use_gtm>
+    <use_ltm type="uint" range="[0,1]" length="1">1</use_ltm>
+    <curve_model type="uint" range="[0,7]" length="1">3</curve_model>
+    <curve_order type="uint" range="[0,15]" length="1">5</curve_order>
+    <tone_max_ratio type="float" range="[0,1023]" length="1">16</tone_max_ratio>
+    <reserve_rsv_para1 type="float" range="[0,1]" length="1">0</reserve_rsv_para1>
+    <reserve_rsv_para2 type="float" range="[0,1]" length="1">0</reserve_rsv_para2>
+    <reserve_rsv_para3 type="float" range="[0,1]" length="1">0</reserve_rsv_para3>
+    <reserve_rsv_para4 type="float" range="[0,1]" length="1">0</reserve_rsv_para4>
+    <reserve_rsv_para5 type="float" range="[0,1]" length="1">0</reserve_rsv_para5>
+  </chromatix_tmc12_reserve>
+  <chromatix_tmc12_core>
+    <mod_tmc12_drc_gain_data>
+      <drc_gain_trigger>
+        <start>1.0</start>
+        <end>100.0</end>
+      </drc_gain_trigger>
+      <drc_gain_data>
+        <mod_tmc12_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1.0</exp_time_start>
+            <exp_time_end>16.0</exp_time_end>
+            <aec_sensitivity_start>1.0</aec_sensitivity_start>
+            <aec_sensitivity_end>16.0</aec_sensitivity_end>
+            <exp_gain_start>1.0</exp_gain_start>
+            <exp_gain_end>16.0</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_tmc12_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1.0</lux_idx_start>
+                <lux_idx_end>900.0</lux_idx_end>
+                <gain_start>1.0</gain_start>
+                <gain_end>200.0</gain_end>
+              </aec_trigger>
+              <tmc12_rgn_data>
+                <gtm_percentage type="float" range="[0,1.0]" length="1">0.2</gtm_percentage>
+                <ltm_percentage type="float" range="[0,1.0]" length="1">0.8</ltm_percentage>
+                <dark_boost_ratio type="float" range="[0.0,1.0]" length="1">1.0</dark_boost_ratio>
+                <dark_boost_offset type="float" range="[0.0,1.0]" length="1">0.0</dark_boost_offset>
+                <tone_target_tab type="float" range="[0,1.0]" length="5">
+                  <tone_target>0 0.3 0.55 0.7 1.0</tone_target>
+                </tone_target_tab>
+                <tone_anchors_tab type="float" range="[0,1.0]" length="5">
+                  <tone_anchors>0 0.2999 0.3 0.9999 1.0</tone_anchors>
+                </tone_anchors_tab>
+                <tone_bright_adj type="float" range="[0,4.0]" length="1">2.0</tone_bright_adj>
+                <tone_dark_adj type="float" range="[0,4.0]" length="1">4.0</tone_dark_adj>
+                <stretch_bright_str type="float" range="[0,1.0]" length="1">0</stretch_bright_str>
+                <stretch_dark_str type="float" range="[0,1.0]" length="1">0</stretch_dark_str>
+                <hist_supr_range_start type="float" range="[0,1.0]" length="1">0.2</hist_supr_range_start>
+                <hist_supr_range_end type="float" range="[0,1.0]" length="1">1.0</hist_supr_range_end>
+                <hist_boost_range_start type="float" range="[0,1.0]" length="1">0</hist_boost_range_start>
+                <hist_boost_range_end type="float" range="[0,1.0]" length="1">0.4</hist_boost_range_end>
+                <hist_avg_range_start type="float" range="[0,1.0]" length="1">0</hist_avg_range_start>
+                <hist_avg_range_end type="float" range="[0,1.0]" length="1">1.0</hist_avg_range_end>
+                <hist_conv_kernel_tab type="float" range="[0,1.0]" length="5">
+                  <hist_conv_kernel>1 0 0 0 0</hist_conv_kernel>
+                </hist_conv_kernel_tab>
+                <hist_clip_slope type="float" range="[0,1023.0]" length="1">16.0</hist_clip_slope>
+                <hist_enhance_clamp type="float" range="[0,4.0]" length="1">1.5</hist_enhance_clamp>
+                <hist_enhance_ratio_tab type="float" range="[0,1.0]" length="5">
+                  <hist_enhance_ratio>0 0 0 0 0</hist_enhance_ratio>
+                </hist_enhance_ratio_tab>
+                <contrast_bright_clip type="float" range="[0,4.0]" length="1">2.0</contrast_bright_clip>
+                <contrast_dark_adj type="float" range="[0,4.0]" length="1">1.3</contrast_dark_adj>
+                <contrast_he_bright type="float" range="[0,1.0]" length="1">0.0</contrast_he_bright>
+                <contrast_he_dark type="float" range="[0,1.0]" length="1">0.0</contrast_he_dark>
+                <hist_smoothing_str type="float" range="[0,1]" length="1">0.8</hist_smoothing_str>
+                <hist_curve_smoothing_str type="float" range="[0,1]" length="1">0.8</hist_curve_smoothing_str>
+                <scene_change_smoothing_str type="float" range="[0,1]" length="1">0.8</scene_change_smoothing_str>
+                <scene_change_curve_smoothing_str type="float" range="[0,1]" length="1">0.8</scene_change_curve_smoothing_str>
+                <scene_change_hist_delta_th1 type="float" range="[0,1]" length="1">0</scene_change_hist_delta_th1>
+                <scene_change_hist_delta_th2 type="float" range="[0,1]" length="1">0</scene_change_hist_delta_th2>
+                <scene_change_lux_idx_delta_th1 type="float" range="[0,1]" length="1">0</scene_change_lux_idx_delta_th1>
+                <scene_change_lux_idx_delta_th2 type="float" range="[0,1]" length="1">0</scene_change_lux_idx_delta_th2>
+                <core_rsv_para1 type="float" range="[0,1]" length="1">0</core_rsv_para1>
+                <core_rsv_para2 type="float" range="[0,1]" length="1">0</core_rsv_para2>
+                <core_rsv_para3 type="float" range="[0,1]" length="1">0</core_rsv_para3>
+                <core_rsv_para4 type="float" range="[0,1]" length="1">0</core_rsv_para4>
+                <core_rsv_para5 type="float" range="[0,1]" length="1">0</core_rsv_para5>
+              </tmc12_rgn_data>
+            </mod_tmc12_aec_data>
+          </hdr_aec_data>
+        </mod_tmc12_hdr_aec_data>
+      </drc_gain_data>
+    </mod_tmc12_drc_gain_data>
+  </chromatix_tmc12_core>
+</tmc12_sw>

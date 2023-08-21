@@ -1,0 +1,558 @@
+<!-- Copyright (c) 2015 - 2016 Qualcomm Technologies, Inc. -->
+<!-- All Rights Reserved. -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc. -->
+<WorkSpace_Data WSVersID="Badger_3">
+  <ACDBFile_Paths>
+    <ACDBFile_Paths path="Bluetooth_cal.acdb" />
+    <ACDBFile_Paths path="General_cal.acdb" />
+    <ACDBFile_Paths path="Global_cal.acdb" />
+    <ACDBFile_Paths path="Handset_cal.acdb" />
+    <ACDBFile_Paths path="Hdmi_cal.acdb" />
+    <ACDBFile_Paths path="Headset_cal.acdb" />
+    <ACDBFile_Paths path="Speaker_cal.acdb" />
+    <ACDBFile_Paths path="Codec_cal.acdb" />
+  </ACDBFile_Paths>
+  <OpenDSP MajorMinor="1_0">
+    <AREA_LIST>
+      <AREA type="RX" name="AUDIO_COPP_RX">
+        <TOPOLOGY name="AUDIO_DS2_CUSTOM_TOPOLOGY" ID="0x1301033B" type="RX" NewAdded="true" avcs_area="AUDIO">
+          <Block name="AUDIO_DS1AP" ID="0x00010775" type="RX" />
+          <Block name="AUDIO_CHMIXER" ID="0x00010341" type="BOTH" />
+          <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+          <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+          <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" gain_dependant="Yes" />
+          <Block name="AUDIO_MBDRC" dataView_ID="0x00000012" ID="0x00010C06" type="BOTH" gain_dependant="Yes" />
+          <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+          <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+        </TOPOLOGY>
+        <TOPOLOGY name="AUDIO_RX_STEREO_COPP_MBDRC_V3" ID="0x11000000" type="RX" NewAdded="true" avcs_area="AUDIO">
+          <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" gain_dependant="Yes" />
+          <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+          <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+          <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+          <Block name="AUDIO_MBDRC_V3" dataView_ID="0x000000B1" ID="0x0001090B" type="BOTH" gain_dependant="Yes" />
+        </TOPOLOGY>
+        <TOPOLOGY name="AUDIO_RX_MONO_COPP_MBDRC_V3" ID="0x11000001" type="RX" NewAdded="true" avcs_area="AUDIO">
+          <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" gain_dependant="Yes" />
+          <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+          <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+          <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+          <Block name="AUDIO_MBDRC_V3" dataView_ID="0x000000B1" ID="0x0001090B" type="BOTH" gain_dependant="Yes" />
+        </TOPOLOGY>
+        <TOPOLOGY name="AUDIO_RX_STEREO_COPP_AUDIOSPHERE" ID="0x10015003" type="RX" NewAdded="true" avcs_area="AUDIO">
+          <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x000000B4" ID="0x00010719" type="BOTH" />
+          <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+          <Block name="AUDIOSPHERE" dataView_ID="0x000000B6" ID="0x00010916" type="RX" />
+          <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" gain_dependant="Yes" />
+          <Block name="AUDIO_MBDRC" dataView_ID="0x00000012" ID="0x00010C06" type="BOTH" gain_dependant="Yes" />
+          <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+        </TOPOLOGY>
+      </AREA>
+      <AREA type="RX" name="AUDIO_POPP_RX">
+        <TOPOLOGY name="AUDPROC_OFFLOAD_EFFECTS" ID="0x1000FFFF" type="RX" NewAdded="true" avcs_area="AUDIO">
+          <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x000000B4" ID="0x00010719" type="BOTH" />
+          <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+          <Block name="AUDIO_POPLESS_EQUALIZER" dataView_ID="0x000000A1" ID="0x000108BA" type="RX" />
+          <Block name="AUDIO_VIRTUALIZER" dataView_ID="0x0000009A" ID="0x000108A5" type="RX" />
+          <Block name="AUDIO_CHMIXER" ID="0x00010341" type="BOTH" />
+          <Block name="AUDIO_REVERB" dataView_ID="0x0000009B" ID="0x000108AA" type="RX" />
+          <Block name="AUDIO_BASS_BOOST" dataView_ID="0x0000009C" ID="0x000108A1" type="RX" />
+          <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+          <Block name="AUDIO_SOFT_STEP_VOLUME_INSTANCE_2" dataView_ID="0x00000020" ID="0x00010910" type="BOTH" />
+        </TOPOLOGY>
+      </AREA>
+      <AREA type="TX" name="VOICE_COPP_TX">
+        <TOPOLOGY name="ddfd" ID="0x0000014D" type="TX" NewAdded="true">
+          <Block name="TX_VOICE_IIR_MIC2" dataView_ID="0x0000004E" ID="0x00010EF1" type="TX" />
+          <Block name="TX_VOICE_DRC" dataView_ID="0x0000001E" ID="0x00010EF3" type="TX" />
+          <Block name="TX_VOICE_HPF12_FILTER" dataView_ID="0x00000019" ID="0x00010EFB" type="TX" />
+        </TOPOLOGY>
+      </AREA>
+      <AREA type="TX" name="LSM">
+        <TOPOLOGY name="LSM_TOPOLOGY_ULP_VOICE_WAKEUP" ID="0x1002A000" type="TX" NewAdded="true" avcs_area="LSM">
+          <Block name="LSM_VOICE_WAKEUP" dataView_ID="0x00000081" ID="0x00012C00" type="TX" />
+        </TOPOLOGY>
+      </AREA>
+    </AREA_LIST>
+    <TOPOLOGY_LIST>
+      <TOPOLOGY name="AUDIO_DS2_CUSTOM_TOPOLOGY" ID="0x1301033B" type="RX" NewAdded="true">
+        <Block name="AUDIO_DS1AP" ID="0x00010775" type="RX" />
+        <Block name="AUDIO_CHMIXER" ID="0x00010341" type="BOTH" />
+        <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+        <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+        <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" />
+        <Block name="AUDIO_MBDRC" dataView_ID="0x00000012" ID="0x00010C06" type="BOTH" />
+        <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+        <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+      </TOPOLOGY>
+      <TOPOLOGY name="AUDIO_RX_STEREO_COPP_MBDRC_V3" ID="0x11000000" type="RX" NewAdded="true">
+        <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" />
+        <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+        <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+        <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+        <Block name="AUDIO_MBDRC_V3" dataView_ID="0x000000B1" ID="0x0001090B" type="BOTH" />
+      </TOPOLOGY>
+      <TOPOLOGY name="AUDIO_RX_MONO_COPP_MBDRC_V3" ID="0x11000001" type="RX" NewAdded="true">
+        <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" />
+        <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+        <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+        <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x00000079" ID="0x00010719" type="BOTH" />
+        <Block name="AUDIO_MBDRC_V3" dataView_ID="0x000000B1" ID="0x0001090B" type="BOTH" />
+      </TOPOLOGY>
+      <TOPOLOGY name="LSM_TOPOLOGY_ULP_VOICE_WAKEUP" ID="0x1002A000" type="TX" NewAdded="true">
+        <Block name="LSM_VOICE_WAKEUP" dataView_ID="0x00000081" ID="0x00012C00" type="TX" />
+      </TOPOLOGY>
+      <TOPOLOGY name="AUDPROC_OFFLOAD_EFFECTS" ID="0x1000FFFF" type="RX" NewAdded="true">
+        <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x000000B4" ID="0x00010719" type="BOTH" />
+        <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+        <Block name="AUDIO_POPLESS_EQUALIZER" dataView_ID="0x000000A1" ID="0x000108BA" type="RX" />
+        <Block name="AUDIO_VIRTUALIZER" dataView_ID="0x0000009A" ID="0x000108A5" type="RX" />
+        <Block name="AUDIO_CHMIXER" ID="0x00010341" type="BOTH" />
+        <Block name="AUDIO_REVERB" dataView_ID="0x0000009B" ID="0x000108AA" type="RX" />
+        <Block name="AUDIO_BASS_BOOST" dataView_ID="0x0000009C" ID="0x000108A1" type="RX" />
+        <Block name="AUDIO_PBE" dataView_ID="0x00000015" ID="0x00010C2A" type="RX" />
+        <Block name="AUDIO_SOFT_STEP_VOLUME_INSTANCE_2" dataView_ID="0x00000020" ID="0x00010910" type="BOTH" />
+      </TOPOLOGY>
+      <TOPOLOGY name="AUDIO_RX_STEREO_COPP_AUDIOSPHERE" ID="0x10015003" type="RX" NewAdded="true">
+        <Block name="AUDIO_HIGH_THD_RESAMPLER" dataView_ID="0x000000B4" ID="0x00010719" type="BOTH" />
+        <Block name="AUDIO_SOFT_STEP_VOLUME" dataView_ID="0x00000020" ID="0x00010BFE" type="BOTH" />
+        <Block name="AUDIOSPHERE" dataView_ID="0x000000B6" ID="0x00010916" type="RX" />
+        <Block name="AUDIO_IIR" dataView_ID="0x00000011" ID="0x00010C02" type="RX" />
+        <Block name="AUDIO_MBDRC" dataView_ID="0x00000012" ID="0x00010C06" type="BOTH" />
+        <Block name="AUDIO_RX_CODEC_GAIN" dataView_ID="0x00000024" ID="0x00010C37" type="RX" />
+      </TOPOLOGY>
+      <TOPOLOGY name="ddfd" ID="0x0000014D" type="TX" NewAdded="true">
+        <Block name="TX_VOICE_IIR_MIC2" dataView_ID="0x0000004E" ID="0x00010EF1" type="TX" />
+        <Block name="TX_VOICE_DRC" dataView_ID="0x0000001E" ID="0x00010EF3" type="TX" />
+        <Block name="TX_VOICE_HPF12_FILTER" dataView_ID="0x00000019" ID="0x00010EFB" type="TX" />
+      </TOPOLOGY>
+    </TOPOLOGY_LIST>
+    <BLOCK_LIST />
+    <AB_VIEW_LIST />
+    <INTERFACE_LIST />
+  </OpenDSP>
+  <GUI_Data />
+  <CodecOpenDSP>
+    <INTERFACE_LIST />
+    <AB_VIEW_LIST />
+    <BLOCK_LIST />
+    <CODEC_BLOCK_LIST>
+      <CODEC_BLOCK name="DSP" ID="CB_CDSP">
+        <AREA_LIST>
+          <AREA ID="0x00000002" name="TX_CDSP_AREA" type="TX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+            <TOPOLOGY ID="0x99999998" name="recording" type="TX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000012" name="GPF2" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x01000016" name="GPC1" gain_dependant="Yes" inBasicView="true" seqIdx="1">
+                <PID ID="0x0100012C" gain_type="MUTE" />
+                <PID ID="0x0100082C" gain_type="MUTE" />
+              </BLOCK>
+            </TOPOLOGY>
+          </AREA>
+          <AREA ID="0x00000003" name="RX_CDSP_AREA" type="RX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+            <TOPOLOGY ID="0x99999999" name="primary6Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="3">
+                <PID ID="0x0100010C" gain_type="EQ" />
+                <PID ID="0x0100010D" gain_type="EQ" />
+                <PID ID="0x0100080C" gain_type="EQ" />
+                <PID ID="0x0100080D" gain_type="EQ" />
+              </BLOCK>
+              <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+                <PID ID="0x0100010E" gain_type="BASS" />
+                <PID ID="0x0100010F" gain_type="MID" />
+                <PID ID="0x01000110" gain_type="TREBLE" />
+                <PID ID="0x01000137" gain_type="BASS" />
+                <PID ID="0x01000138" gain_type="MID" />
+                <PID ID="0x01000139" gain_type="TREBLE" />
+                <PID ID="0x0100080E" gain_type="BASS" />
+                <PID ID="0x0100080F" gain_type="MID" />
+                <PID ID="0x01000810" gain_type="TREBLE" />
+              </BLOCK>
+              <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_type="VOLUME" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+                <PID ID="0x01000112" gain_type="VOLUME" />
+                <PID ID="0x01000812" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+                <PID ID="0x01000113" gain_type="VOLUME" />
+                <PID ID="0x01000813" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="7" />
+              <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="8" />
+              <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="9">
+                <PID ID="0x0100011E" gain_type="VOLUME" />
+                <PID ID="0x0100011F" gain_type="BALANCE" />
+                <PID ID="0x01000120" gain_type="FADER" />
+                <PID ID="0x01000121" gain_type="MUTE" />
+                <PID ID="0x0100081E" gain_type="VOLUME" />
+                <PID ID="0x0100081F" gain_type="BALANCE" />
+                <PID ID="0x01000820" gain_type="FADER" />
+                <PID ID="0x01000821" gain_type="MUTE" />
+              </BLOCK>
+              <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="10" />
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="11" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="12" />
+              <BLOCK ID="0x0100000D" name="SCDLFG_PRI" inBasicView="true" seqIdx="13" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="14" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999996" name="primary2Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="3">
+                <PID ID="0x0100010C" gain_type="EQ" />
+                <PID ID="0x0100010D" gain_type="EQ" />
+                <PID ID="0x0100080C" gain_type="EQ" />
+                <PID ID="0x0100080D" gain_type="EQ" />
+              </BLOCK>
+              <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+                <PID ID="0x0100010E" gain_type="BASS" />
+                <PID ID="0x0100010F" gain_type="MID" />
+                <PID ID="0x01000110" gain_type="TREBLE" />
+                <PID ID="0x01000137" gain_type="BASS" />
+                <PID ID="0x01000138" gain_type="MID" />
+                <PID ID="0x01000139" gain_type="TREBLE" />
+                <PID ID="0x0100080E" gain_type="BASS" />
+                <PID ID="0x0100080F" gain_type="MID" />
+                <PID ID="0x01000810" gain_type="TREBLE" />
+              </BLOCK>
+              <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_type="VOLUME" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+                <PID ID="0x01000112" gain_type="VOLUME" />
+                <PID ID="0x01000812" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+                <PID ID="0x01000113" gain_type="VOLUME" />
+                <PID ID="0x01000813" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x01000022" name="UP_MIXER" inBasicView="true" seqIdx="7" />
+              <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="8" />
+              <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="9" />
+              <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="10">
+                <PID ID="0x0100011E" gain_type="VOLUME" />
+                <PID ID="0x0100011F" gain_type="BALANCE" />
+                <PID ID="0x01000120" gain_type="FADER" />
+                <PID ID="0x01000121" gain_type="MUTE" />
+                <PID ID="0x0100081E" gain_type="VOLUME" />
+                <PID ID="0x0100081F" gain_type="BALANCE" />
+                <PID ID="0x01000820" gain_type="FADER" />
+                <PID ID="0x01000821" gain_type="MUTE" />
+              </BLOCK>
+              <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="11" />
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="12" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="13" />
+              <BLOCK ID="0x0100000D" name="SCDLFG_PRI" inBasicView="true" seqIdx="14" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="15" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999997" name="Navigation" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x0100001A" name="NAV_PROC" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x0100001E" name="POST_GAIN_NAV" gain_dependant="Yes" inBasicView="true" seqIdx="1">
+                <PID ID="0x0100011E" gain_type="VOLUME" />
+                <PID ID="0x01000121" gain_type="MUTE" />
+                <PID ID="0x0100081E" gain_type="VOLUME" />
+                <PID ID="0x01000821" gain_type="MUTE" />
+              </BLOCK>
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="3" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="4" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999995" name="radio_primary2Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x01000003" name="IBOC_BLEND" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="3" />
+              <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+                <PID ID="0x0100010C" gain_type="EQ" />
+                <PID ID="0x0100010D" gain_type="EQ" />
+                <PID ID="0x0100080C" gain_type="EQ" />
+                <PID ID="0x0100080D" gain_type="EQ" />
+              </BLOCK>
+              <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+                <PID ID="0x0100010E" gain_type="BASS" />
+                <PID ID="0x0100010F" gain_type="MID" />
+                <PID ID="0x01000110" gain_type="TREBLE" />
+                <PID ID="0x01000137" gain_type="BASS" />
+                <PID ID="0x01000138" gain_type="MID" />
+                <PID ID="0x01000139" gain_type="TREBLE" />
+                <PID ID="0x0100080E" gain_type="BASS" />
+                <PID ID="0x0100080F" gain_type="MID" />
+                <PID ID="0x01000810" gain_type="TREBLE" />
+              </BLOCK>
+              <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+                <PID ID="0x01000112" gain_type="VOLUME" />
+                <PID ID="0x01000812" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="7">
+                <PID ID="0x01000113" gain_type="VOLUME" />
+                <PID ID="0x01000813" gain_type="VOLUME" />
+              </BLOCK>
+              <BLOCK ID="0x01000022" name="UP_MIXER" inBasicView="true" seqIdx="8" />
+              <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="9" />
+              <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="10" />
+              <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="11">
+                <PID ID="0x0100011E" gain_type="VOLUME" />
+                <PID ID="0x0100011F" gain_type="BALANCE" />
+                <PID ID="0x01000120" gain_type="FADER" />
+                <PID ID="0x01000121" gain_type="MUTE" />
+                <PID ID="0x0100081E" gain_type="VOLUME" />
+                <PID ID="0x0100081F" gain_type="BALANCE" />
+                <PID ID="0x01000820" gain_type="FADER" />
+                <PID ID="0x01000821" gain_type="MUTE" />
+              </BLOCK>
+              <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="12" />
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="13" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="14" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="15" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999994" name="polyphonic_chime" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000023" name="PCHIME" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="3" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999993" name="telephone" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x0100001B" name="PHONE_PROC" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x01000013" name="GPF3" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x0100001F" name="POST_GAIN_PHONE" gain_dependant="Yes" inBasicView="true" seqIdx="2">
+                <PID ID="0x0100011E" gain_type="VOLUME" />
+                <PID ID="0x01000121" gain_type="MUTE" />
+                <PID ID="0x0100081E" gain_type="VOLUME" />
+                <PID ID="0x01000821" gain_type="MUTE" />
+              </BLOCK>
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="3" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="4" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="5" />
+            </TOPOLOGY>
+            <TOPOLOGY ID="0x99999992" name="chime" type="RX" NewAdded="true" IsCustomTopology="True">
+              <BLOCK ID="0x01000025" name="CHIME" inBasicView="true" seqIdx="0" />
+              <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="1" />
+              <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="2" />
+              <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="3" />
+            </TOPOLOGY>
+          </AREA>
+        </AREA_LIST>
+        <TOPOLOGY_LIST>
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+          <TOPOLOGY ID="0x99999999" name="primary6Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="3">
+              <PID ID="0x0100010C" gain_type="EQ" />
+              <PID ID="0x0100010D" gain_type="EQ" />
+              <PID ID="0x0100080C" gain_type="EQ" />
+              <PID ID="0x0100080D" gain_type="EQ" />
+            </BLOCK>
+            <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+              <PID ID="0x0100010E" gain_type="BASS" />
+              <PID ID="0x0100010F" gain_type="MID" />
+              <PID ID="0x01000110" gain_type="TREBLE" />
+              <PID ID="0x01000137" gain_type="BASS" />
+              <PID ID="0x01000138" gain_type="MID" />
+              <PID ID="0x01000139" gain_type="TREBLE" />
+              <PID ID="0x0100080E" gain_type="BASS" />
+              <PID ID="0x0100080F" gain_type="MID" />
+              <PID ID="0x01000810" gain_type="TREBLE" />
+            </BLOCK>
+            <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_type="VOLUME" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+              <PID ID="0x01000112" gain_type="VOLUME" />
+              <PID ID="0x01000812" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+              <PID ID="0x01000113" gain_type="VOLUME" />
+              <PID ID="0x01000813" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="7" />
+            <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="8" />
+            <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="9">
+              <PID ID="0x0100011E" gain_type="VOLUME" />
+              <PID ID="0x0100011F" gain_type="BALANCE" />
+              <PID ID="0x01000120" gain_type="FADER" />
+              <PID ID="0x01000121" gain_type="MUTE" />
+              <PID ID="0x0100081E" gain_type="VOLUME" />
+              <PID ID="0x0100081F" gain_type="BALANCE" />
+              <PID ID="0x01000820" gain_type="FADER" />
+              <PID ID="0x01000821" gain_type="MUTE" />
+            </BLOCK>
+            <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="10" />
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="11" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="12" />
+            <BLOCK ID="0x0100000D" name="SCDLFG_PRI" inBasicView="true" seqIdx="13" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="14" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999996" name="primary2Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="3">
+              <PID ID="0x0100010C" gain_type="EQ" />
+              <PID ID="0x0100010D" gain_type="EQ" />
+              <PID ID="0x0100080C" gain_type="EQ" />
+              <PID ID="0x0100080D" gain_type="EQ" />
+            </BLOCK>
+            <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+              <PID ID="0x0100010E" gain_type="BASS" />
+              <PID ID="0x0100010F" gain_type="MID" />
+              <PID ID="0x01000110" gain_type="TREBLE" />
+              <PID ID="0x01000137" gain_type="BASS" />
+              <PID ID="0x01000138" gain_type="MID" />
+              <PID ID="0x01000139" gain_type="TREBLE" />
+              <PID ID="0x0100080E" gain_type="BASS" />
+              <PID ID="0x0100080F" gain_type="MID" />
+              <PID ID="0x01000810" gain_type="TREBLE" />
+            </BLOCK>
+            <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_type="VOLUME" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+              <PID ID="0x01000112" gain_type="VOLUME" />
+              <PID ID="0x01000812" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+              <PID ID="0x01000113" gain_type="VOLUME" />
+              <PID ID="0x01000813" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x01000022" name="UP_MIXER" inBasicView="true" seqIdx="7" />
+            <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="8" />
+            <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="9" />
+            <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="10">
+              <PID ID="0x0100011E" gain_type="VOLUME" />
+              <PID ID="0x0100011F" gain_type="BALANCE" />
+              <PID ID="0x01000120" gain_type="FADER" />
+              <PID ID="0x01000121" gain_type="MUTE" />
+              <PID ID="0x0100081E" gain_type="VOLUME" />
+              <PID ID="0x0100081F" gain_type="BALANCE" />
+              <PID ID="0x01000820" gain_type="FADER" />
+              <PID ID="0x01000821" gain_type="MUTE" />
+            </BLOCK>
+            <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="11" />
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="12" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="13" />
+            <BLOCK ID="0x0100000D" name="SCDLFG_PRI" inBasicView="true" seqIdx="14" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="15" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999997" name="Navigation" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x0100001A" name="NAV_PROC" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x0100001E" name="POST_GAIN_NAV" gain_dependant="Yes" inBasicView="true" seqIdx="1">
+              <PID ID="0x0100011E" gain_type="VOLUME" />
+              <PID ID="0x01000121" gain_type="MUTE" />
+              <PID ID="0x0100081E" gain_type="VOLUME" />
+              <PID ID="0x01000821" gain_type="MUTE" />
+            </BLOCK>
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="3" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="4" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999995" name="radio_primary2Channel" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000001" name="DC_FILTER" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x01000003" name="IBOC_BLEND" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x01000004" name="SRC_SCALER" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000005" name="CMP_EXPANDER" inBasicView="true" seqIdx="3" />
+            <BLOCK ID="0x01000006" name="GEQ" gain_dependant="Yes" inBasicView="true" seqIdx="4">
+              <PID ID="0x0100010C" gain_type="EQ" />
+              <PID ID="0x0100010D" gain_type="EQ" />
+              <PID ID="0x0100080C" gain_type="EQ" />
+              <PID ID="0x0100080D" gain_type="EQ" />
+            </BLOCK>
+            <BLOCK ID="0x01000007" name="BMT" gain_dependant="Yes" inBasicView="true" seqIdx="5">
+              <PID ID="0x0100010E" gain_type="BASS" />
+              <PID ID="0x0100010F" gain_type="MID" />
+              <PID ID="0x01000110" gain_type="TREBLE" />
+              <PID ID="0x01000137" gain_type="BASS" />
+              <PID ID="0x01000138" gain_type="MID" />
+              <PID ID="0x01000139" gain_type="TREBLE" />
+              <PID ID="0x0100080E" gain_type="BASS" />
+              <PID ID="0x0100080F" gain_type="MID" />
+              <PID ID="0x01000810" gain_type="TREBLE" />
+            </BLOCK>
+            <BLOCK ID="0x01000008" name="MAINVOLUME1" gain_dependant="Yes" inBasicView="true" seqIdx="6">
+              <PID ID="0x01000112" gain_type="VOLUME" />
+              <PID ID="0x01000812" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x01000009" name="LOUDNESS" gain_dependant="Yes" inBasicView="true" seqIdx="7">
+              <PID ID="0x01000113" gain_type="VOLUME" />
+              <PID ID="0x01000813" gain_type="VOLUME" />
+            </BLOCK>
+            <BLOCK ID="0x01000022" name="UP_MIXER" inBasicView="true" seqIdx="8" />
+            <BLOCK ID="0x0100000A" name="PEQ" inBasicView="true" seqIdx="9" />
+            <BLOCK ID="0x0100000B" name="DELAY_LINES" inBasicView="true" seqIdx="10" />
+            <BLOCK ID="0x0100000C" name="POST_GAIN_PRI" gain_dependant="Yes" inBasicView="true" seqIdx="11">
+              <PID ID="0x0100011E" gain_type="VOLUME" />
+              <PID ID="0x0100011F" gain_type="BALANCE" />
+              <PID ID="0x01000120" gain_type="FADER" />
+              <PID ID="0x01000121" gain_type="MUTE" />
+              <PID ID="0x0100081E" gain_type="VOLUME" />
+              <PID ID="0x0100081F" gain_type="BALANCE" />
+              <PID ID="0x01000820" gain_type="FADER" />
+              <PID ID="0x01000821" gain_type="MUTE" />
+            </BLOCK>
+            <BLOCK ID="0x0100000E" name="SCLP_PRI" inBasicView="true" seqIdx="12" />
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="13" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="14" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="15" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999994" name="polyphonic_chime" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000023" name="PCHIME" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="3" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999993" name="telephone" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x0100001B" name="PHONE_PROC" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x01000013" name="GPF3" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x0100001F" name="POST_GAIN_PHONE" gain_dependant="Yes" inBasicView="true" seqIdx="2">
+              <PID ID="0x0100011E" gain_type="VOLUME" />
+              <PID ID="0x01000121" gain_type="MUTE" />
+              <PID ID="0x0100081E" gain_type="VOLUME" />
+              <PID ID="0x01000821" gain_type="MUTE" />
+            </BLOCK>
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="3" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="4" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="5" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999992" name="chime" type="RX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000025" name="CHIME" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x0100000F" name="SUPERPOSITION" inBasicView="true" seqIdx="1" />
+            <BLOCK ID="0x01000010" name="SPKR_GPF" inBasicView="true" seqIdx="2" />
+            <BLOCK ID="0x01000011" name="FASTMUTE" inBasicView="true" seqIdx="3" />
+          </TOPOLOGY>
+          <TOPOLOGY ID="0x99999998" name="recording" type="TX" NewAdded="true" IsCustomTopology="True">
+            <BLOCK ID="0x01000012" name="GPF2" inBasicView="true" seqIdx="0" />
+            <BLOCK ID="0x01000016" name="GPC1" gain_dependant="Yes" inBasicView="true" seqIdx="1">
+              <PID ID="0x0100012C" gain_type="MUTE" />
+              <PID ID="0x0100082C" gain_type="MUTE" />
+            </BLOCK>
+          </TOPOLOGY>
+        </TOPOLOGY_LIST>
+      </CODEC_BLOCK>
+      <CODEC_BLOCK name="ANC" ID="CB_ANC">
+        <AREA_LIST>
+          <AREA ID="0x00000004" name="TX_ANC_AREA" type="TX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+          </AREA>
+          <AREA ID="0x00000005" name="RX_ANC_AREA" type="RX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+          </AREA>
+        </AREA_LIST>
+        <TOPOLOGY_LIST>
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+        </TOPOLOGY_LIST>
+      </CODEC_BLOCK>
+      <CODEC_BLOCK name="LSM" ID="CB_LSM">
+        <AREA_LIST>
+          <AREA ID="0x00000006" name="TX_LSM_AREA" type="TX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+          </AREA>
+          <AREA ID="0x00000007" name="RX_LSM_AREA" type="RX" NewAdded="true" IsCustomArea="True">
+            <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+          </AREA>
+        </AREA_LIST>
+        <TOPOLOGY_LIST>
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="RX" NewAdded="true" />
+          <TOPOLOGY ID="0x00000000" name="CODEC_NONE_TOPOLOGY" type="TX" NewAdded="true" />
+        </TOPOLOGY_LIST>
+      </CODEC_BLOCK>
+    </CODEC_BLOCK_LIST>
+  </CodecOpenDSP>
+</WorkSpace_Data>

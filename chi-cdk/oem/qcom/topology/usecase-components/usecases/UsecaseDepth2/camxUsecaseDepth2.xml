@@ -1,0 +1,27 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Usecase>
+  <UsecaseName>UsecaseDepth2</UsecaseName>
+  <Targets>
+    <Target>
+      <TargetName>TARGET_BUFFER_DEPTH1</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5488_4112_ChiFormatY16_ChiFormatRawDepth"/>
+    </Target>
+    <Target>
+      <TargetName>TARGET_BUFFER_DEPTH2</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_5488_4112_ChiFormatY16_ChiFormatRawDepth"/>
+    </Target>
+  </Targets>
+  <StreamConfigMode>0</StreamConfigMode>
+  <SystemwideSetting>
+    <SettingName>EIS</SettingName>
+    <SettingDataType>BOOL</SettingDataType>
+    <SettingMatch>FALSE</SettingMatch>
+  </SystemwideSetting>
+  <CamxInclude href="../../pipelines/g_camxDepth2.xml"/>
+</Usecase>

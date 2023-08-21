@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--========================================================================-->
+<!-- Copyright (c) 2020 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+
+<BLMConfig
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../../tools/blmconfig/blm.xsd">
+    <Target socID="356">
+        <!-- 720p480 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001001">
+             <ResourceParam type="ResourceTypeBW"       value="1100"/>
+        </UsecaseInfo>
+
+        <!-- 1080p240 HFR usecase-->
+        <UsecaseInfo usecaseID="0x00001002">
+             <ResourceParam type="ResourceTypeBW"       value="925"/>
+        </UsecaseInfo>
+    </Target>
+</BLMConfig>

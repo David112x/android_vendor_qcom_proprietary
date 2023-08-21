@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/videoBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/selectVideoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:text="Select Video" />
+
+        <TextView
+            android:id="@+id/videoFileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp"
+            android:text="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/metadataBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/selectMetadataButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="18sp"
+            android:text="Select Metadata" />
+
+        <TextView
+            android:id="@+id/metadataFileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="12sp"
+            android:text="" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/launchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="20dp"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="18sp"
+        android:text="Launch Editor" />
+
+</LinearLayout>
+

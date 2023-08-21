@@ -1,0 +1,114 @@
+/*
+ * Copyright (c) 2019-2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * Not a Contribution.
+ */
+
+/*
+ * Copyright (C) 2016 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package vendor.qti.hardware.radio.ims@1.6;
+
+import @1.5::IImsRadioIndication;
+import @1.0::SipErrorInfo;
+import @1.5::UssdModeType;
+
+interface IImsRadioIndication extends @1.5::IImsRadioIndication {
+     /**
+     * MessageId.UNSOL_RESPONSE_CALL_STATE_CHANGED
+     *
+     * @param callList List of calls and their details.
+     *
+     */
+    oneway onCallStateChanged_1_6(vec<CallInfo> callList);
+
+    /**
+     *
+     * MessageId.UNSOL_SRV_STATUS_UPDATE
+     *
+     * @param srvStatusList List of service statuses.
+     *
+     */
+    oneway onServiceStatusChanged_1_6(vec<ServiceStatusInfo> srvStatusList);
+
+    /**
+     *
+     * MessageId.UNSOL_RESPONSE_IMS_NETWORK_STATE_CHANGED
+     *
+     * @param RegistrationInfo List of service statuses.
+     *
+     */
+    oneway onRegistrationChanged_1_6(RegistrationInfo regInfo);
+
+    /**
+     * MessageId.UNSOL_RESPONSE_HANDOVER
+     *
+     * @param handover Handover details containing type, source, target
+     *         and extra information about handover.
+     *
+     */
+    oneway onHandover_1_6(HandoverInfo handover);
+
+    /**
+     * MessageId.UNSOL_USSD_RECEIVED
+     *
+     * @param type, indicates ussd mode type.
+     * @param msg, message string in UTF-8, if applicable.
+     * @param errorDetails, from the network.
+     *
+     */
+    oneway onUssdReceived(UssdModeType type, string msg, SipErrorInfo errorDetails);
+
+    /**
+     * MessageId.UNSOL_CALL_COMPOSER_INFO_AVAILABLE
+     *
+     * @param callComposerInfo Collection of information related to pre-call. It
+     *         only is populated and sent when pre-alerting state is received
+     *
+     */
+     oneway onCallComposerInfoAvailable(CallComposerInfo info);
+
+     /**
+      * MessageId.UNSOL_AUTO_CALL_COMPOSER_CALL_REJECTION_IND
+      * Indicates the auto rejected incoming call and reason with call composer elements
+      *
+      * @param autoCallRejectionInfo
+      * @param callComposerInfo
+      */
+      oneway onIncomingCallComposerCallAutoRejected(AutoCallRejectionInfo autoCallRejectionInfo,
+            CallComposerInfo callComposerInfo);
+
+     /**
+      * MessageId.UNSOL_AUTO_CALL_REJECTION_IND
+      * Indicates the auto rejected incoming call and reason
+      *
+      * @param autoCallRejectionInfo
+      */
+      oneway onIncomingCallAutoRejected_1_6(AutoCallRejectionInfo autoCallRejectionInfo);
+
+    /**
+     * MessageId.UNSOL_RETRIEVE_GEO_LOCATION_DATA_STATUS
+     *
+     * This indication will be received when modem needs location details to register over WiFi
+     * and modem not able to get the location details due to GPS errors.
+     *
+     * @param GeoLocationDataStatus list of errors received to retrieve the geo location details.
+     *
+     */
+    oneway onRetrievingGeoLocationDataStatus(GeoLocationDataStatus geoLocationDataStatus);
+};

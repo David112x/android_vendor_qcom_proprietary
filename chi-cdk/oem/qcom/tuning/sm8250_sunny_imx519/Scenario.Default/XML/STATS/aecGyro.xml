@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecGyro
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecGyro.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <enableFlag>true</enableFlag>
+  <movingAvgFilterLength>30</movingAvgFilterLength>
+  <level2ZoneType>GyroExpCtrlKeyCurExpTimeType</level2ZoneType>
+  <triggerDataType>GyroExpCtrlTriggerDataTargetExpoTime</triggerDataType>
+  <gyroExpCtrlTrigger>
+    <zoneTrigger>
+      <start>0</start>
+      <end>0.17</end>
+    </zoneTrigger>
+    <zoneData>
+      <zoneTrigger>
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">0</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>1E+07</start>
+        <end>1E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">1E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>3E+07</start>
+        <end>3E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">3E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>6E+07</start>
+        <end>6E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">6E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>1.2E+08</start>
+        <end>1.2E+08</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">1.2E+08</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>9.9E+08</start>
+        <end>9.9E+08</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">9.9E+08</data>
+      </zoneData>
+    </zoneData>
+  </gyroExpCtrlTrigger>
+  <gyroExpCtrlTrigger>
+    <zoneTrigger>
+      <start>0.2</start>
+      <end>100</end>
+    </zoneTrigger>
+    <zoneData>
+      <zoneTrigger>
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">0</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>1E+07</start>
+        <end>1E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">1E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>3E+07</start>
+        <end>3E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">1.5E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>6E+07</start>
+        <end>6E+07</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">3E+07</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>1.2E+08</start>
+        <end>1.2E+08</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">1.2E+08</data>
+      </zoneData>
+    </zoneData>
+    <zoneData>
+      <zoneTrigger>
+        <start>9.9E+08</start>
+        <end>9.9E+08</end>
+      </zoneTrigger>
+      <zoneData>
+        <data type="float" range="[0.0,1000000000]">9.9E+08</data>
+      </zoneData>
+    </zoneData>
+  </gyroExpCtrlTrigger>
+  <gyroExpCtrlValueMonitors>
+    <name>DefaultValueMonitorName</name>
+    <sensitivity>50</sensitivity>
+    <valueMonitor>
+      <detectionType>VMDetectorStable</detectionType>
+      <absoluteModeCfg>
+        <enable type="int" range="[0,1]">0</enable>
+        <baseline type="float" range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold type="float" range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[2,2]">0</numOfSamples>
+          <coeffNumerator type="float" range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator type="float" range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold type="float" range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[2,2]">0</numOfSamples>
+          <coeffNumerator type="float" range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator type="float" range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold type="float" range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold type="int" range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed type="int" range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable type="int" range="[0, 1]">0</enable>
+          <numOfSamples type="int" range="[2,2]">0</numOfSamples>
+          <coeffNumerator type="float" range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator type="float" range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+  </gyroExpCtrlValueMonitors>
+</aecGyro>

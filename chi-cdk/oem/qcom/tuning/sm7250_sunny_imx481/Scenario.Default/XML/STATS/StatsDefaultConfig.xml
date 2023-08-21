@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<StatsDefaultConfig
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecStatsConfig.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <histStatsConfig>
+    <!--
+
+Core Stats Configuration Tuning Definition
+
+ -->
+    <ROIConfigControl range="[0,1]">AECROIConfigControlTypeCroppedFOV</ROIConfigControl>
+    <histograms>
+      <histogramType>HistogramHDRBHIST</histogramType>
+      <binUniformity>Even</binUniformity>
+      <colorChannel>ChannelRGrB</colorChannel>
+      <siteSelection>BeforeDemosaic</siteSelection>
+      <pixelExpSelect>ShortPixels</pixelExpSelect>
+      <!--
+
+Core Stats Configuration Tuning Definition
+
+ -->
+      <ROIConfigControl range="[0,1]">AECROIConfigControlTypeCroppedFOV</ROIConfigControl>
+    </histograms>
+    <histograms>
+      <histogramType>HistogramIHIST</histogramType>
+      <binUniformity>Even</binUniformity>
+      <colorChannel>ChannelY</colorChannel>
+      <siteSelection>BeforeGammaLUT</siteSelection>
+      <pixelExpSelect>ShortPixels</pixelExpSelect>
+      <!--
+
+Core Stats Configuration Tuning Definition
+
+ -->
+      <ROIConfigControl range="[0,1]">AECROIConfigControlTypeCroppedFOV</ROIConfigControl>
+    </histograms>
+  </histStatsConfig>
+  <gridStatsConfig>
+    <numOfRegionsHorizontal type='ushort' range="[1,64]">64</numOfRegionsHorizontal>
+    <numOfRegionsVertical type='ushort' range="[1,48]">48</numOfRegionsVertical>
+    <enableStatsQuadSync type='bool'>false</enableStatsQuadSync>
+    <enableSaturatedStats type='bool'>false</enableSaturatedStats>
+    <enableYComputedStats type='bool'>false</enableYComputedStats>
+    <YComputationColorWeight type='float' range="[0, 1]">0.2988</YComputationColorWeight>
+    <YComputationColorWeight type='float' range="[0, 1]">0.5869</YComputationColorWeight>
+    <YComputationColorWeight type='float' range="[0, 1]">0.1137</YComputationColorWeight>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <minStatsChannelThreshold type='float' range="[0, 1]">0</minStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.97656</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.97656</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.97656</maxStatsChannelThreshold>
+    <maxStatsChannelThreshold type='float' range="[0, 1]">0.97656</maxStatsChannelThreshold>
+    <HWStatsSkipFactor type='byte' range="[0,2]">0</HWStatsSkipFactor>
+    <!--
+
+Core Stats Configuration Tuning Definition
+
+ -->
+    <ROIConfigControl range="[0,1]">AECROIConfigControlTypeCroppedFOV</ROIConfigControl>
+    <bitDepth range="[8,14]">14</bitDepth>
+    <siteSelection>BeforeDemosaic</siteSelection>
+    <pixelExpSelect>ShortPixels</pixelExpSelect>
+    <regionSampling range="[0,65535]">65535</regionSampling>
+  </gridStatsConfig>
+</StatsDefaultConfig>

@@ -1,0 +1,66 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+  <PipelineName>SATSnapshotYUV0</PipelineName>
+  <CamxInclude segment="BayerYUVSegment" />
+  <NodesList/>
+  <PortLinkages>
+    <Link>
+      <SrcPort>
+        <PortName>TARGET_BUFFER_RAW</PortName>
+        <PortId>0</PortId>
+        <NodeName>SourceBuffer</NodeName>
+        <NodeId>4</NodeId>
+        <NodeInstance>SourceInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>BPSInputPort</PortName>
+        <PortId>0</PortId>
+        <NodeName>BPS</NodeName>
+        <NodeId>65539</NodeId>
+        <NodeInstance>BPSInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>IPEOutputPortDisplay</PortName>
+        <PortId>8</PortId>
+        <NodeName>IPE</NodeName>
+        <NodeId>65538</NodeId>
+        <NodeInstance>IPEInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_BUFFER_FUSION_INPUT</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName2</NodeInstance>
+        <NodeInstanceId>2</NodeInstanceId>
+      </DstPort>
+    </Link>
+    <Link>
+      <SrcPort>
+        <PortName>IPEOutputPortVideo</PortName>
+        <PortId>9</PortId>
+        <NodeName>IPE</NodeName>
+        <NodeId>65538</NodeId>
+        <NodeInstance>IPEInstanceName0</NodeInstance>
+        <NodeInstanceId>0</NodeInstanceId>
+      </SrcPort>
+      <DstPort>
+        <PortName>TARGET_BUFFER_THUMBNAIL</PortName>
+        <PortId>0</PortId>
+        <NodeName>SinkBuffer</NodeName>
+        <NodeId>2</NodeId>
+        <NodeInstance>SinkInstanceName1</NodeInstance>
+        <NodeInstanceId>1</NodeInstanceId>
+      </DstPort>
+    </Link>
+  </PortLinkages>
+</Pipeline>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<aecGyro
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecGyro.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <enableFlag description="Enable Flag for Depth-based AEC Adjustments" tuning_parameter_level="often_tune">false</enableFlag>
+  <movingAvgFilterLength description="Number of taps for moving average process of gyro data" tuning_parameter_level="often_tune">30</movingAvgFilterLength>
+  <level2ZoneType>GyroExpCtrlKeyCurExpTimeType</level2ZoneType>
+  <triggerDataType>GyroExpCtrlTriggerDataTargetExpoTime</triggerDataType>
+  <gyroExpCtrlTrigger>
+    <zoneTrigger description="Gyro start and end values that define trigger region">
+      <start>0</start>
+      <end>0</end>
+    </zoneTrigger>
+    <zoneData>
+      <zoneTrigger description="Second level trigger zone using gyro data">
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData description="Zone data and type">
+        <data description="trigger zone data depending on the type" range="[0.0,1000000000]" tuning_parameter_level="often_tune">0</data>
+      </zoneData>
+    </zoneData>
+  </gyroExpCtrlTrigger>
+  <gyroExpCtrlValueMonitors>
+    <name>DefaultValueMonitorName</name>
+    <sensitivity>50</sensitivity>
+    <valueMonitor>
+      <detectionType>VMDetectorStable</detectionType>
+      <absoluteModeCfg>
+        <enable description="While absolute mode is enabled, i.e., enable=1, value monitor will use the the baseline value as a reference baseline. While absolute is disabled, i.e., enable=0, value monitor will adaptively update reference baseline according to the metafilter output (referring to frame2armed)" range="[0,1]">0</enable>
+        <baseline description="This parameter is utilized as absolute mode is enabled. While absolute mode is enabled, value monitor will use this parameter as reference baseline." range="[unbounded,unbounded]">0</baseline>
+      </absoluteModeCfg>
+      <sensProfileLow>
+        <triggerThreshold description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold description="Counting threshold for the residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the IIR filter" range="[2,2]">0</numOfSamples>
+          <coeffNumerator description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileLow>
+      <sensProfileMed>
+        <triggerThreshold description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold description="Counting threshold for the residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the IIR filter" range="[2,2]">0</numOfSamples>
+          <coeffNumerator description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileMed>
+      <sensProfileHigh>
+        <triggerThreshold description="Threshold for the value monitor detection. The threshold is defined as the absolute difference between metafilter output and reference baseline." range="[0,unbounded]">0</triggerThreshold>
+        <consecutiveCountThreshold description="Counting threshold for the residue is constantly above/below the trigger_threshold. While VM_DETECTOR_UNSTABLE is chosen, the counting threshold means the number of counts that residual(absolute difference between signal and baseline) is above the threshold. While VM_DETECTOR_STABLE is chosen, the counting threshold means the number of counts that residual (absolute difference between signal and baseline) is below the threshold." range="[0,unbounded]">0</consecutiveCountThreshold>
+        <frameToArmed description="Number of frames for starting the scene change detection." range="[0,unbounded]">0</frameToArmed>
+        <medianFltrCfg>
+          <enable description="Flag to enable median filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the median filter." range="[0, 10]">0</numOfSamples>
+        </medianFltrCfg>
+        <mvavgFltrCfg>
+          <enable description="Flag to enable moving average filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the moving average filter." range="[0, 10]">0</numOfSamples>
+        </mvavgFltrCfg>
+        <IIRFltrCfg>
+          <enable description="Flag to enable IIR filter or not." range="[0, 1]">0</enable>
+          <numOfSamples description="Length of the IIR filter" range="[2,2]">0</numOfSamples>
+          <coeffNumerator description="IIR filter coefficient in numerator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the numerator." range="[unbounded,unbounded]">0</coeffNumerator>
+          <coeffDenominator description="IIR filter coefficient in denominator. An first order IIR filter is designed, the coefficients in numerator and denominator are typically required. This parameter defines the coefficient in the denominator." range="[unbounded,unbounded]">0</coeffDenominator>
+        </IIRFltrCfg>
+      </sensProfileHigh>
+    </valueMonitor>
+  </gyroExpCtrlValueMonitors>
+</aecGyro>

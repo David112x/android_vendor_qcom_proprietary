@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+ Copyright (c) 2019 Qualcomm Technologies, Inc.
+ All Rights Reserved.
+ Confidential and Proprietary - Qualcomm Technologies, Inc.
+-->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#000000">
+
+    <item>
+        <selector>
+            <item android:state_checked="true">
+                <shape android:shape="rectangle">
+                    <corners android:radius="16dp" />
+                    <solid android:color="@color/bluePressed" />
+                </shape>
+            </item>
+
+            <item android:state_checked="false">
+                <shape android:shape="rectangle">
+                    <corners android:radius="16dp" />
+                    <solid android:color="@color/chipUnchecked" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

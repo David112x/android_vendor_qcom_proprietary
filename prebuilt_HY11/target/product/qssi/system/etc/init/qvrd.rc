@@ -1,0 +1,23 @@
+# File: qvrd.rc
+#
+# Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+# All Rights Reserved.
+# Confidential and Proprietary - Qualcomm Technologies, Inc.
+
+on post-fs-data
+    mkdir /data/misc/qvr 0770 system system
+
+# Add qvrservice,qvrservice_camera,qvrservice_hvx_camera sockets for qvrservice
+service qvrd /system/bin/qvrservice
+    class late_start
+    user system
+    group system camera graphics
+    socket qvrservice stream 0666 system system
+    socket qvrservice_camera stream 0666 system system
+    socket qvrservice_hvx_camera stream 0660 system system
+    capabilities SYS_NICE
+
+on boot
+    chown system system /sys/module/drm/parameters/vblankoffdelay
+    chown system system /dev/qvr_external_sensor_ioctl
+    chown system system /sys/kernel/qvr_external_sensor/fd

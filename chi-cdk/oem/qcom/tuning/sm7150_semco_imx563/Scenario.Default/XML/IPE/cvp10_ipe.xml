@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<cvp10_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\cvp_1_0_0.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <control_variables>
+    <control_var_type>control_lux_idx</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_pre_scale_ratio</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_lux_idx</aec_exp_control>
+    <aec_hdr_control>control_exp_time_ratio</aec_hdr_control>
+  </control_method>
+  <chromatix_cvp10_reserve>
+    <Descriptor_Lpf>1</Descriptor_Lpf>
+    <fpx_score_shift>3</fpx_score_shift>
+    <inlier_track_enable>1</inlier_track_enable>
+    <transform_model>2</transform_model>
+  </chromatix_cvp10_reserve>
+  <chromatix_cvp10_core>
+    <mod_cvp10_pre_scale_ratio_data>
+      <pre_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </pre_scale_ratio_trigger>
+      <pre_scale_ratio_data>
+        <mod_cvp10_hdr_aec_data>
+          <hdr_aec_trigger>
+            <exp_time_start>1</exp_time_start>
+            <exp_time_end>64</exp_time_end>
+            <aec_sensitivity_start>1</aec_sensitivity_start>
+            <aec_sensitivity_end>64</aec_sensitivity_end>
+            <exp_gain_start>1</exp_gain_start>
+            <exp_gain_end>64</exp_gain_end>
+          </hdr_aec_trigger>
+          <hdr_aec_data>
+            <mod_cvp10_aec_data>
+              <aec_trigger>
+                <lux_idx_start>1</lux_idx_start>
+                <lux_idx_end>900</lux_idx_end>
+                <gain_start>1</gain_start>
+                <gain_end>200</gain_end>
+              </aec_trigger>
+              <cvp10_rgn_data>
+                <robustness_max_allowed_NCC>800</robustness_max_allowed_NCC>
+                <robustness_min_allowed_tar_var>10</robustness_min_allowed_tar_var>
+                <robustness_meaningful_ncc_diff>5</robustness_meaningful_ncc_diff>
+                <robustness_measure_dist_map_tab>
+                  <robustness_measure_dist_map>0 128 128 128 128 128 128 128</robustness_measure_dist_map>
+                </robustness_measure_dist_map_tab>
+                <fpx_threshold>2</fpx_threshold>
+                <desc_match_threshold>52</desc_match_threshold>
+                <enable_transform_confidence>1</enable_transform_confidence>
+                <transform_confidence_mapping_base>128</transform_confidence_mapping_base>
+                <transform_confidence_mapping_c1>100</transform_confidence_mapping_c1>
+                <transform_confidence_mapping_c2>240</transform_confidence_mapping_c2>
+                <transform_confidence_thr_to_force_identity_transform>100</transform_confidence_thr_to_force_identity_transform>
+                <multi_frame_input_resolution>0</multi_frame_input_resolution>
+              </cvp10_rgn_data>
+            </mod_cvp10_aec_data>
+          </hdr_aec_data>
+        </mod_cvp10_hdr_aec_data>
+      </pre_scale_ratio_data>
+    </mod_cvp10_pre_scale_ratio_data>
+  </chromatix_cvp10_core>
+</cvp10_ipe>

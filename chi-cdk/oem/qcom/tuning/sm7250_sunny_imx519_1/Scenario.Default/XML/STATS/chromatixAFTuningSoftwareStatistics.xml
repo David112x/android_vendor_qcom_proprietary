@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixAFTuningSoftwareStatistics
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\afsoftwarestatelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <SWFilterDefault>
+    <enable type="bool">false</enable>
+    <filterType type="int" range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterDefault>
+  <SWFilterFace>
+    <enable type="bool">false</enable>
+    <filterType type="int" range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterFace>
+  <SWFilterLowLight>
+    <enable type="bool">false</enable>
+    <filterType type="int" range="[1,2]">0</filterType>
+    <FIR>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <filterCoeffA type="int" range="[-16,15]">0</filterCoeffA>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[11,11]">0</coefficientlength>
+    </FIR>
+    <IIR>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffA type="float" range="[-16.0,15.0]">0</filterCoeffA>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <filterCoeffB type="float" range="[-16.0,15.0]">0</filterCoeffB>
+      <FVMinHigh type="float" range="[0.0,5.0]">0</FVMinHigh>
+      <FVMinLow type="float" range="[0.0,5.0]">0</FVMinLow>
+      <coefficientlength type="int" range="[3,6]">0</coefficientlength>
+    </IIR>
+  </SWFilterLowLight>
+  <SWFVMinimumLuxTriggerHigh type="float" range="[0,500]">0</SWFVMinimumLuxTriggerHigh>
+  <SWFVMinimumLuxTriggerLow type="float" range="[0,500]">0</SWFVMinimumLuxTriggerLow>
+</chromatixAFTuningSoftwareStatistics>

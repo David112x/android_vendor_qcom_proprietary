@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--========================================================================
+@file sensor_event_payload_display.xml
+
+@brief
+sensor event payload display fragment
+
+Copyright (c) 2017-2018 Qualcomm Technologies, Inc.
+All Rights Reserved.
+Confidential and Proprietary - Qualcomm Technologies, Inc.
+=========================================================================-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                             android:orientation="vertical"
+                             android:layout_width="match_parent"
+                             android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sensor_event_payload"/>
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:background="@android:color/black">
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/samples_counted"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/counted_Update"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/time_elapsed"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/elapsed_update"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/expected_samples"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/expected_update"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/messageID"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/msgID"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/time_stamp"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/timeSTMP"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center_horizontal"
+                android:text="@string/data"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/dat_info"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/status"
+                android:gravity="center_horizontal"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/status_value"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+
+        </TableRow>
+
+    </TableLayout>
+
+  <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/standard_sensor_config"/>
+         <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchColumns="1"
+        android:background="@android:color/black">
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/sample_rate"
+                android:gravity="center_horizontal"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/sampleRate"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/water_mark"
+                android:gravity="center_horizontal"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/waterMark"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_margin="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@string/float_resolution"
+                android:gravity="center_horizontal"
+                android:background="@android:color/white"/>
+
+            <TextView
+                android:id="@+id/floatResolution"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="1dp"
+                android:textAlignment="viewStart"
+                android:background="@android:color/white"/>
+
+          </TableRow>
+
+        <TableRow>
+
+        <TextView
+            android:layout_margin="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/float_range"
+            android:gravity="center_horizontal"
+            android:background="@android:color/white"/>
+
+        <TextView
+            android:id="@+id/floatRange"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="1dp"
+            android:textAlignment="viewStart"
+            android:background="@android:color/white"/>
+      </TableRow>
+
+     </TableLayout>
+   <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/buttonShowJSON"
+    android:id="@+id/jsonShowButton"/>
+    <TextView
+        android:id="@+id/sensor_event_payload_textview_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="0.5"
+        android:textAlignment="viewStart" />
+</LinearLayout>

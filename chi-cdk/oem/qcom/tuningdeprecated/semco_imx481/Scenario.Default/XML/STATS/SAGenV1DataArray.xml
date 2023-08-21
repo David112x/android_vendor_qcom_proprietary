@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SAGenV1DataArray
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modsagenv1.xsd">
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <SAGenV1Data>
+    <Description>SA Outdoor Green</Description>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">102</moduleID>
+      <subModuleID range="[1,1000]">1</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Yellowish Green Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">153</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.2435241</rg>
+            <bg range="[0.0,15000.0]">0.5515516</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.4625893</rg>
+            <bg range="[0.0,15000.0]">0.456234753</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">230</start>
+          <end range="[-100.0,15000.0]">327</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.2435241</rg>
+            <bg range="[0.0,15000.0]">0.5515516</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.4625893</rg>
+            <bg range="[0.0,15000.0]">0.456234753</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Bluish Green Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">153</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.2496886</rg>
+            <bg range="[0.0,15000.0]">0.4559834</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5</rg>
+            <bg range="[0.0,15000.0]">0.251411349</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">230</start>
+          <end range="[-100.0,15000.0]">327</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.2496886</rg>
+            <bg range="[0.0,15000.0]">0.4559834</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5</rg>
+            <bg range="[0.0,15000.0]">0.251411349</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Day Stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">1</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">CCT</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">4500</rg>
+            <bg range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt description="Final confidence level computation type" tuning_parameter_level="must_tune">SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">181</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.15</start>
+            <end range="[-100.0,15000.0]">0.25</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.4</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">220</start>
+          <end range="[-100.0,15000.0]">230</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.25</start>
+            <end range="[-100.0,15000.0]">0.35</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.25</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.55</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">300</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup1CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.2</start>
+            <end range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.7</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.6</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.2</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment description="Target point setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="Target point control type">SATargetFixedPoint</attribute>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+        <triggerType description="Trigger control type">TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">181</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.5178524</rg>
+            <bg range="[0.0,15000.0]">0.601552963</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.5125194</rg>
+            <bg range="[0.0,15000.0]">0.578434169</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">230</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.495454043</rg>
+            <bg range="[0.0,15000.0]">0.6277986</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.499712169</rg>
+            <bg range="[0.0,15000.0]">0.6462578</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Outdoor Blue Sky</Description>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">102</moduleID>
+      <subModuleID range="[1,1000]">2</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Blue Sky Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">143</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.224983379</rg>
+            <bg range="[0.0,15000.0]">1.01484537</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.472771883</rg>
+            <bg range="[0.0,15000.0]">0.8277043</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">172</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.224983379</rg>
+            <bg range="[0.0,15000.0]">1.01484537</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.472771883</rg>
+            <bg range="[0.0,15000.0]">0.8277043</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Day stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">1</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">CCT</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">4500</rg>
+            <bg range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt description="Final confidence level computation type" tuning_parameter_level="must_tune">SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">153</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.2</start>
+            <end range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">162</start>
+          <end range="[-100.0,15000.0]">172</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.2</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.3</start>
+            <end range="[-100.0,15000.0]">0.4</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.6</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">200</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup1CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.5</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.6</start>
+            <end range="[-100.0,15000.0]">0.8</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.9</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment description="Target point setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="Target point control type">SATargetFixedPoint</attribute>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+        <triggerType description="Trigger control type">TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">153</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.5144076</rg>
+            <bg range="[0.0,15000.0]">0.6023545</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.509074569</rg>
+            <bg range="[0.0,15000.0]">0.579235733</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">200</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.492266774</rg>
+            <bg range="[0.0,15000.0]">0.6287017</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.4965249</rg>
+            <bg range="[0.0,15000.0]">0.6471609</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Bright Outdoor</Description>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">102</moduleID>
+      <subModuleID range="[1,1000]">3</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Day stat Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">CCT</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">4500</rg>
+            <bg range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt description="Final confidence level computation type" tuning_parameter_level="must_tune">SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">96</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">124</start>
+            <end range="[-100.0,15000.0]">143</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.85</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">162</start>
+            <end range="[-100.0,15000.0]">939</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment description="Target point setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="Target point control type">SATargetFixedPoint</attribute>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">96</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.5270986</rg>
+            <bg range="[0.0,15000.0]">0.5837708</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">124</start>
+            <end range="[-100.0,15000.0]">134</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.5292277</rg>
+            <bg range="[0.0,15000.0]">0.5930004</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">162</start>
+            <end range="[-100.0,15000.0]">939</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.524477363</rg>
+            <bg range="[0.0,15000.0]">0.59727937</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Night Outdoor</Description>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">102</moduleID>
+      <subModuleID range="[1,1000]">4</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Night stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">240</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5644766</rg>
+            <bg range="[0.0,15000.0]">1.04409409</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.574956536</rg>
+            <bg range="[0.0,15000.0]">1.03273892</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">260</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.43633604</rg>
+            <bg range="[0.0,15000.0]">1.05543244</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5491342</rg>
+            <bg range="[0.0,15000.0]">0.7631343</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Night stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">240</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5404666</rg>
+            <bg range="[0.0,15000.0]">0.7770613</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5282516</rg>
+            <bg range="[0.0,15000.0]">0.545607567</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">347</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">0.5404666</rg>
+            <bg range="[0.0,15000.0]">0.7770613</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0.800207</rg>
+            <bg range="[0.0,15000.0]">0.624375641</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt description="Final confidence level computation type" tuning_parameter_level="must_tune">SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">260</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">280</start>
+          <end range="[-100.0,15000.0]">410</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.3</start>
+            <end range="[-100.0,15000.0]">0.5</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.8</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">430</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment description="Target point setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="Target point control type">SATargetGAAGWPoint</attribute>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">260</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">1</rg>
+            <bg range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">280</start>
+            <end range="[-100.0,15000.0]">320</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">1</rg>
+            <bg range="[0.0,15000.0]">1.03</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">380</start>
+            <end range="[-100.0,15000.0]">999</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">1.025</rg>
+            <bg range="[0.0,15000.0]">1.07</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Low CCT Single Outdoor</Description>
+    <moduleID description="Define module ID, sub module ID" tuning_parameter_level="never_tune">
+      <moduleID range="[1,1000]">102</moduleID>
+      <subModuleID range="[1,1000]">5</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Low CCT stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">1.24742758</rg>
+            <bg range="[0.0,15000.0]">0.317742944</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">1.39252853</rg>
+            <bg range="[0.0,15000.0]">0.07543092</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone description="Detection zone setting" tuning_parameter_level="must_tune">
+      <zoneConfigData>
+        <Description>Low CCT stats Detect</Description>
+        <groupID description="Zone group ID.  Each zone group can consist of several zones" range="[0,10]">0</groupID>
+        <zoneType description="Options of zone Type: Rectangle, Triangle">Rectangle</zoneType>
+        <triggerLevel description="Number of triggering dimension" range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="Rectable: use 2 vertices, Triangle: use 3 vertices">
+          <vertex>
+            <rg range="[0.0,15000.0]">1.37812471</rg>
+            <bg range="[0.0,15000.0]">0.4369826</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">1.91473377</rg>
+            <bg range="[0.0,15000.0]">0.09857341</bg>
+          </vertex>
+          <vertex>
+            <rg range="[0.0,15000.0]">0</rg>
+            <bg range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt description="Final confidence level computation type" tuning_parameter_level="must_tune">SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">300</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">320</start>
+          <end range="[-100.0,15000.0]">334</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.5</start>
+            <end range="[-100.0,15000.0]">0.6</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.3</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.8</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">347</start>
+          <end range="[-100.0,15000.0]">939</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.4</start>
+            <end range="[-100.0,15000.0]">0.6</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.7</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel description="Confidence level setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="weight value when multiply for confidence compute type is selected" range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlValidStatsCntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">0.01</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.05</start>
+            <end range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0.2</start>
+            <end range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment description="Target point setting" tuning_parameter_level="must_tune">
+      <commonData>
+        <attribute description="Target point control type">SATargetFixedPoint</attribute>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+        <triggerType description="Trigger control type">TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start range="[-100.0,15000.0]">0</start>
+        <end range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData description="1st triggering level">
+        <triggerPt>
+          <start range="[-100.0,15000.0]">0</start>
+          <end range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">0</start>
+            <end range="[-100.0,15000.0]">300</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.9940734</rg>
+            <bg range="[0.0,15000.0]">0.267294347</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData description="2nd triggering level">
+          <triggerPt>
+            <start range="[-100.0,15000.0]">347</start>
+            <end range="[-100.0,15000.0]">939</end>
+          </triggerPt>
+          <triggerData>
+            <rg range="[0.0,15000.0]">0.95043844</rg>
+            <bg range="[0.0,15000.0]">0.2916099</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <enableFlag>1</enableFlag>
+</SAGenV1DataArray>

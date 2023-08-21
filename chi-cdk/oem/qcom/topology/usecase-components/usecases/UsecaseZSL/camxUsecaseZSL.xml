@@ -1,0 +1,550 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Usecase>
+    <UsecaseName>UsecaseZSL</UsecaseName>
+    <!--Target Buffers-->
+    <Targets>
+        <Target>
+            <TargetName>TARGET_BUFFER_CUSTOM_YUV</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12_ChiFormatYUV420NV21"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CUSTOM_YUV2</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12_ChiFormatYUV420NV21"/>
+		</Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_P010</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatP010"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_P010_UBWCTP10</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatP010_ChiFormatUBWCTP10"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DISPLAY</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCTP10"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_SCALE_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_DS4_SCALE_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_FD</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_640_512_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_FULL_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_FULL_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_FULL_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_FULL_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS16_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS16_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS16_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS16_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS4_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS4_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS4_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS4_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS64_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS64_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS64_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_DS64_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_FULL_IN_REF</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_FULL_IN_REF_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_FULL_OUT_REF</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_FULL_OUT_REF_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_REG_IN</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_REG_IN_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_REG_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_MFSR_REG_OUT_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_PREVIEW</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCNV12_ChiFormatUBWCTP10"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI_ChiFormatRawPlain16"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW_IN0</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW_IN1</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW_IN2</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_RAW_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawMIPI_ChiFormatRawPlain16"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_IDEAL_RAW_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatRawPlain16"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_REG_IN</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_REG_IN_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_REG_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_REG_OUT_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_SNAPSHOT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatJpeg"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_SNAPSHOT2</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatJpeg"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_VIDEO</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12_ChiFormatUBWCTP10"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV0</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV1</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV2</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV3</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV4</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV5</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV6</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV7</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_MFNR</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_MFNR_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_MFSR</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_MFSR_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CFA_FULLSIZE_RAW</TargetName>
+            <TargetDirection>TargetBidirectional</TargetDirection>
+            <CamxInclude target_segment="0_0_5184_3880_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CFA_REMOSAIC_RAW</TargetName>
+            <TargetDirection>TargetBidirectional</TargetDirection>
+            <CamxInclude target_segment="0_0_5184_3880_ChiFormatRawPlain16_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_SWREMOSAIC_IN</TargetName>
+            <TargetDirection>TargetBidirectional</TargetDirection>
+            <CamxInclude target_segment="0_0_5184_3880_ChiFormatRawPlain16_ChiFormatRawMIPI"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CFA_YUV</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5184_3880_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CUSTOM_YUV_AUX</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12_ChiFormatYUV420NV21"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_IN</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_IN_AUX</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_HAL</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_YUV_HAL2</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_FULLREF_UBWCTP10_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatUBWCTP10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS4REF_PD10_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS16REF_PD10_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS64REF_PD10_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_REG_NV12_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_REG_UBWCNV124R_OUT</TargetName>
+        <TargetDirection>TargetOutput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatUBWCNV124R"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_FULLREF_UBWCTP10_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatUBWCTP10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS4REF_PD10_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS16REF_PD10_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_DS64REF_PD10_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatPD10"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_REG_NV12_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+      </Target>
+      <Target>
+        <TargetName>TARGET_BUFFER_REG_UBWCNV124R_IN</TargetName>
+        <TargetDirection>TargetInput</TargetDirection>
+        <CamxInclude target_segment="0_0_5488_4112_ChiFormatUBWCNV124R"/>
+      </Target>
+      <Target>
+            <TargetName>TARGET_BUFFER_HEIC_YUV</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_HEIC_BLOB</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="65545_ChiFormatBlob"/>
+        </Target>
+        <Target>
+          <TargetName>TARGET_BUFFER_FUSION_INPUT0</TargetName>
+          <TargetDirection>TargetInput</TargetDirection>
+          <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+          <TargetName>TARGET_BUFFER_FUSION_INPUT1</TargetName>
+          <TargetDirection>TargetInput</TargetDirection>
+          <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+          <TargetName>TARGET_BUFFER_FUSION_INPUT2</TargetName>
+          <TargetDirection>TargetInput</TargetDirection>
+          <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+       </Target>
+       <Target>
+          <TargetName>TARGET_BUFFER_FUSION_INPUT3</TargetName>
+          <TargetDirection>TargetInput</TargetDirection>
+          <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+       </Target>
+       <Target>
+            <TargetName>TARGET_FUSION_SNAPSHOT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5312_3456_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_IN</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="0_0_5488_4112_ChiFormatYUV420NV12"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CVP_DMECONTEXT_OUT</TargetName>
+            <TargetDirection>TargetOutput</TargetDirection>
+            <CamxInclude target_segment="65545_ChiFormatBlob"/>
+        </Target>
+        <Target>
+            <TargetName>TARGET_BUFFER_CVP_DMECONTEXT_IN</TargetName>
+            <TargetDirection>TargetInput</TargetDirection>
+            <CamxInclude target_segment="65545_ChiFormatBlob"/>
+        </Target>
+    </Targets>
+    <StreamConfigMode>0</StreamConfigMode>
+    <SystemwideSetting>
+        <SettingName>EIS</SettingName>
+        <SettingDataType>BOOL</SettingDataType>
+        <SettingMatch>FALSE</SettingMatch>
+    </SystemwideSetting>
+    <!--Pipelines-->
+    <CamxInclude href="../../pipelines/g_camxZSLPreviewRaw.xml" />
+    <CamxInclude href="../../pipelines/g_camxRealTimeFeatureZSLPreviewRaw.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLPreviewRawFS.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLPreviewRawYUV.xml" />
+    <CamxInclude href="../../pipelines/g_camxRealTimeFeatureZSLPreviewRawYUV.xml" />
+    <CamxInclude href="../../pipelines/g_camxRealTimeFeatureNZSLSnapshotRDI.xml" />
+    <CamxInclude href="../../pipelines/g_camxRealtimeFeatureSWRemosaic.xml" />
+    <CamxInclude href="../../pipelines/g_camxRealTimeFeatureThirdCamera.xml" />
+    <CamxInclude href="../../pipelines/g_camxFeature2Bayer2YUVWithSWRemosaic.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotJpeg.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotYUVHAL.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotYUV.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotBPSYUVTOHAL.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotIPEYUVTOHAL.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotFormatConvertor.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotYUVAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2Jpeg.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2JpegGPU.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2JpegMFNR.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2JpegMFNRAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2JpegMFSR.xml" />
+    <CamxInclude href="../../pipelines/g_camxInternalZSLYuv2JpegMFSRAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMerge3YuvCustomTo1Yuv.xml" />
+    <CamxInclude href="../../pipelines/g_camxSWMFMergeYuv.xml" />
+    <CamxInclude href="../../pipelines/g_camxSWMFMergeRaw.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrPrefilter.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrPrefilterAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrBlend.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrBlendAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrPostFilter.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfnrPostFilterAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrPrefilter.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrPrefilterAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrBlend.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrBlendAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrPostFilter.xml" />
+    <CamxInclude href="../../pipelines/g_camxMfsrPostFilterAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxOfflineNoiseReprocess.xml" />
+    <CamxInclude href="../../pipelines/g_camxOfflineNoiseReprocessAux.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLYuv2Yuv.xml" />
+    <CamxInclude href="../../pipelines/g_camxZSLSnapshotJpegGPU.xml" />
+    <CamxInclude href="../../pipelines/g_camxQuadCFAFullSizeRaw.xml" />
+    <CamxInclude href="../../pipelines/g_camxQuadCFARemosaic.xml" />
+    <CamxInclude href="../../pipelines/g_camxFusionSnapshot.xml" />
+    <CamxInclude href="../../pipelines/g_camxBokehSnapshot.xml" />
+    <CamxInclude href="../../pipelines/g_camxQuadCFASnapshotYuv.xml" />
+    <CamxInclude href="../../pipelines/g_camxMemcpyZSLYUV.xml" />
+</Usecase>

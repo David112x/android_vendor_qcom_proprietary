@@ -1,0 +1,2091 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2018-2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxmetabuffer.h
+///
+/// @brief Metadata Buffer definition
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXMETABUFFER_H
+#define CAMXMETABUFFER_H
+
+// NOWHINE FILE PR007b: Whiner incorrectly concludes as non-library files
+// NOWHINE FILE CP006: used standard libraries for performance improvements
+// NOWHINE FILE CP021: used default arguments for non-virtual and private methods
+
+#include <atomic>
+#include <map>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
+#include "camxhal3metadatautil.h"
+#include "camxtypes.h"
+
+CAMX_NAMESPACE_BEGIN
+
+struct MetadataInfo;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Representation of an metadata buffer containing camera tags, vendor tags and properties
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class MetaBuffer final
+{
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Forward Declarations
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class MapIterator;
+
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Static Constants
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static const UINT32 MaxInplaceTagSize = 8; ///< Inplace tag buffer size
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of a Tag Entry
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    struct Entry
+    {
+        /// @brief Type of the data
+        enum EntryType : UINT8
+        {
+            MB_TYPE_BYTE        = 0, ///< unsigned char - 8 bit
+            MB_TYPE_INT32       = 1, ///< signed integer - 32 bit
+            MB_TYPE_FLOAT       = 2, ///< float - 32 bit
+            MB_TYPE_INT64       = 3, ///< signed integer 64 bit
+            MB_TYPE_DOUBLE      = 4, ///< double 64 bit
+            MB_TYPE_RATIONAL    = 5, ///< rational camera_metadata_rational_t
+        };
+
+        UINT32      tagID;      ///< Tag Identifier
+        VOID*       pTagData;   ///< Pointer to the tag data
+        UINT32      count;      ///< Count of the tags
+        UINT32      size;       ///< Size of the tags
+        EntryType   type;       ///< Type of the data
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of a Iterator of the MetaBuffer class
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Iterator
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Begin
+        ///
+        /// @brief  Initialize the iterator to the first element
+        ///
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CamxResult Begin();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Next
+        ///
+        /// @brief  Updates the iterator to point to the next element.
+        ///
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CamxResult Next();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// GetEntry
+        ///
+        /// @brief  Updates the iterator to point to the next element.
+        ///
+        /// @param  rEntry  Entry which will be filled by the callee
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CamxResult GetEntry(
+            Entry& rEntry);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ~Iterator
+        ///
+        /// @brief  Destructor.
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ~Iterator();
+
+    private:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// HasDone
+        ///
+        /// @brief  Returns whether the iterator reaches the end
+        ///
+        /// @return TRUE if end of the list is not reached
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        BOOL HasDone();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Iterator
+        ///
+        /// @brief  Constructor
+        ///
+        /// @param  rMetaBuffer  Reference to the metabuffer object for which the iterator is defined
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        explicit Iterator(
+            MetaBuffer &rMetaBuffer);
+
+        Iterator(const Iterator& rOther) = delete;
+        Iterator(const Iterator&& rrOther) = delete;
+        Iterator& operator=(const Iterator& rOther) = delete;
+        Iterator& operator=(const Iterator&& rrOther) = delete;
+
+        MetaBuffer&     m_rMetaBuffer;   ///< Reference to the metabuffer object
+        MapIterator*    m_pMapIterator; ///< Pointer to the map iterator
+
+        // NOWHINE CP039: Private access is given to implement iterator functionality of MetaBuffer class
+        friend class MetaBuffer;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Create
+    ///
+    /// @brief  Constructor. will not contain any valid memory.
+    ///
+    /// @param  phPrivateUserHandle   Pointer to the private user handle associated the metabuffer
+    ///
+    /// @return Pointer to the metabuffer object
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static MetaBuffer* Create(
+       VOID* phPrivateUserHandle);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Destroy
+    ///
+    /// @brief  Destructor. Will release any memory allocated only if the reference count is zero.
+    ///         Buffers are not valid after the destructor is called.
+    ///
+    /// @param  force   Flag to indicate whether the force destroy the buffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Destroy(
+        BOOL force = TRUE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateBuffer
+    ///
+    /// @brief  Allocate memory for the tags. This function is not re-entrant. Its recommended to call this function only once
+    ///         for performance reasons
+    ///
+    /// @param  metadataTags  Set of all metadata tags
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateBuffer(
+        const std::unordered_set<UINT32>& metadataTags);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateBuffer
+    ///
+    /// @brief  Allocate memory for the tags. This function is not re-entrant. Its recommended to call this function only once
+    ///         for performance reasons
+    ///
+    /// @param  pMetadataTags     List of all metadata tags
+    /// @param  metadataTagCount  Count of metadata associated with pMetadataTags
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AllocateBuffer(
+        const UINT32* pMetadataTags,
+        UINT32        metadataTagCount);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AllocateBuffer
+    ///
+    /// @brief  Allocate memory for the android metadata provided by the user
+    ///
+    /// @param  pMetadata   Pointer to the android metadata
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP028: Method overloaded to support backward compatibility for clients using android metadata
+    CamxResult AllocateBuffer(
+        const camera_metadata_t* pMetadata);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Merge
+    ///
+    /// @brief  Merge the source metabuffer with the current
+    ///
+    /// @param  pSrcMetadata   Pointer to the source metabuffer
+    /// @param  disjoint       Flag to indicate whether the merge needs to be disjoint
+    /// @param  needLock       Indicates if the access needs to be protected
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Merge(
+        MetaBuffer* pSrcMetadata,
+        BOOL        disjoint,
+        BOOL        needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Merge
+    ///
+    /// @brief  Merge operation with master switch for multi-camera. This operation is valid only for
+    ///         Merge the source metabuffer with the current.
+    ///
+    /// @param  pSrcMetadata        Pointer to the source metabuffer
+    /// @param  oldMasterCameraId   CameraId of the old master
+    /// @param  newMasterCameraId   CameraId of the new master
+    /// @param  needLock            Indicates if the access needs to be protected
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Merge(
+        MetaBuffer* pSrcMetadata,
+        UINT32      oldMasterCameraId,
+        UINT32      newMasterCameraId,
+        BOOL        needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CombineMultiCameraMetadata
+    ///
+    /// @brief  Combine multiple instances of metadata.
+    ///
+    /// @param  metabufferCount   Count of metabuffers from  different cameras that needs to be combined
+    /// @param  pCameraIdArray    Array of CameraId associated with each metabuffer
+    /// @param  ppMetaBufferArray Array of metabuffers associated with each camera
+    /// @param  primaryCameraId   CameraId of the primary Camera
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult CombineMultiCameraMetadata(
+        UINT32       metabufferCount,
+        UINT32*      pCameraIdArray,
+        MetaBuffer** ppMetaBufferArray,
+        UINT32       primaryCameraId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Copy
+    ///
+    /// @brief  Copies the source metabuffer with the current
+    ///
+    /// @param  pSrcMetadata   Pointer to the source metabuffer
+    /// @param  disjoint       Flag to indicate whether the copy needs to be disjoint
+    /// @param  needLock       Indicates if the access needs to be protected
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Copy(
+        MetaBuffer* pSrcMetadata,
+        BOOL        disjoint,
+        BOOL        needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetTag
+    ///
+    /// @brief  Returns the data for the given tag for reading
+    ///
+    /// @param  metadataTag     Metadata tag to be queried
+    /// @param  needLock        Indicates if the access needs to be protected
+    ///
+    /// @return Pointer to the data.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID* GetTag(
+        UINT32 metadataTag,
+        BOOL   needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetTag
+    ///
+    /// @brief  Returns the data for the given tag for reading
+    ///
+    /// @param  metadataTag     Metadata tag to be queried
+    /// @param  rEntry          The structure to be filled
+    /// @param  needLock        Indicates if the access needs to be protected
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP028: Method overloaded for cases where we need the entire entry details
+    CamxResult GetTag(
+        UINT32 metadataTag,
+        Entry& rEntry,
+        BOOL   needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetTag
+    ///
+    /// @brief  Returns the data for the given tag for reading
+    ///
+    /// @param  metadataTag   Metadata tag to be queried
+    /// @param  rCount        Count of metadata tag
+    /// @param  needLock      Indicates if the access needs to be protected
+    ///
+    /// @return pointer to the data.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP028: Method overloaded for few cases where count is needed.
+    VOID* GetTag(
+        UINT32  metadataTag,
+        UINT32& rCount,
+        BOOL    needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetTagByCameraId
+    ///
+    /// @brief  Returns the metadata tag data corresponding to a particular cameraId
+    ///
+    /// @param  metadataTag     Metadata tag to be queried
+    /// @param  cameraId        Id of the camera for which metadata must be queried
+    /// @param  needLock        Indicates if the access needs to be protected
+    ///
+    /// @return Pointer to the data.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID* GetTagByCameraId(
+        UINT32 metadataTag,
+        UINT32 cameraId,
+        BOOL   needLock);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetTag
+    ///
+    /// @brief  Returns the data for the given tag for writing
+    ///
+    /// @param  metadataTag   Metadata tag to be set
+    /// @param  pData         Pointer to the metadata
+    /// @param  count         Count of the metadata
+    /// @param  size          Total size of the metadata
+    /// @param  needLock      Indicates if the access needs to be protected
+    /// @param  pMetadataInfo Pointer to the metadata info for the tag
+    /// @param  offset        Offset to which the payload needs to be written
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult SetTag(
+        UINT32              metadataTag,
+        const VOID*         pData,
+        UINT32              count,
+        UINT32              size,
+        BOOL                needLock      = FALSE,
+        const MetadataInfo* pMetadataInfo = NULL,
+        UINT                offset        = 0);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetTag
+    ///
+    /// @brief  Set tags in the metadata
+    ///
+    /// @param  pMetadata Pointer to the android metadata
+    /// @param  needLock  Indicates if the access needs to be protected
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP028: Method overloaded to support backward compatibility for clients using android metadata
+    CamxResult SetTag(
+        const camera_metadata_t* pMetadata,
+        BOOL                     needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RemoveTag
+    ///
+    /// @brief  Removes the metadata corresponding to the tag
+    ///
+    /// @param  metadataTag     Metadata tag to be removed
+    /// @param  needLock        Indicates if the access needs to be protected
+    ///
+    /// @return pointer to the data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RemoveTag(
+        UINT32 metadataTag,
+        BOOL   needLock = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Invalidate
+    ///
+    /// @brief  Invalidate the entire metadata and its references
+    ///
+    /// @param  force   Force metadata invalidation
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Invalidate(
+        BOOL force = FALSE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Clone
+    ///
+    /// @brief  Clone the entire metabuffer
+    ///
+    /// @return pointer to the data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    MetaBuffer* Clone();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetAndroidMeta
+    ///
+    /// @brief  Get android metadata from the metabuffer
+    ///
+    /// @param  pAndroidMeta      Pointer to the Android metadata
+    /// @param  frameworkTagsOnly Flag to indicate whether to get only externally visible tags
+    /// @param  filterProperties  Flag to indicate whether to add internal property vendor tag
+    /// @param  filterTagCount    Count of the tags specified by pFilterTagArray.
+    /// @param  pFilterTagArray   List of camera metadata tags and vendor tags that needs to be removed from
+    ///                           framework metadata output, pAndroidMeta
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult GetAndroidMeta(
+        camera_metadata_t* pAndroidMeta,
+        BOOL               frameworkTagsOnly,
+        BOOL               filterProperties,
+        UINT32             filterTagCount,
+        UINT32*            pFilterTagArray);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AddReference
+    ///
+    /// @brief  Increment read access for the metabuffer
+    ///
+    /// @param  clientID    Identity of the client which reference this metabuffer
+    /// @param  isExternal  Flag to indicate whether the client is external/internal
+    ///
+    /// @return Read count of the metabuffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 AddReference(
+        UINT32      clientID,
+        BOOL        isExternal = TRUE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReleaseReference
+    ///
+    /// @brief  Release read access for the metabuffer
+    ///
+    /// @param  clientID    Identity of the client which reference this metabuffer
+    /// @param  isExternal  Flag to indicate whether the client is external/internal
+    ///
+    /// @return Read count of the metabuffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 ReleaseReference(
+        UINT32      clientID,
+        BOOL        isExternal = TRUE);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReferenceCount
+    ///
+    /// @brief  Gets the reference count
+    ///
+    /// @return Reference count.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE UINT32 ReferenceCount() const
+    {
+        return m_mergeRefCount + m_externalRefCount + m_internalRefCount;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReleaseAllReferences
+    ///
+    /// @brief  Release all references of the metabuffer
+    ///
+    /// @param  bExternalAndInternalReferences  Flag to indicate whether to release external references only or both internal
+    ///                                         and internal references
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID ReleaseAllReferences(
+        BOOL bExternalAndInternalReferences);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetPrivateUserHandle
+    ///
+    /// @brief  Gets the private handle associated with the metadata buffer. Can be NULL
+    ///
+    /// @return Pointer to the private user data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE VOID* GetPrivateUserHandle() const
+    {
+        return m_phPrivateUserHandle;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Reset
+    ///
+    /// @brief  Resets the metabuffer. Removes all the external references
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Reset();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Capacity
+    ///
+    /// @brief  Returns the current capacity of the metabuffer
+    ///
+    ///
+    /// @return Size in bytes
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 Capacity() const;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Count
+    ///
+    /// @brief  Returns the count of tags supported
+    ///
+    ///
+    /// @return Count of the tags
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    UINT32 Count();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PrintDetails
+    ///
+    /// @brief  Prints the metadata structure and information to log
+    ///
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID PrintDetails();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// DumpDetailsToFile
+    ///
+    /// @brief  Dumps the metadata structure and information to file. If pFilename is NULL, default name will be used
+    ///
+    /// @param  pFilename Filename to dump the metadata information.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID DumpDetailsToFile(
+        const CHAR* pFilename);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// BinaryDump
+    ///
+    /// @brief  Dumps the metadata tags to the file in binary form. If pFilename is NULL, default name will be used
+    ///
+    /// @param  pFilename Filename to dump the metadata information.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID BinaryDump(
+        const CHAR* pFilename);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetUniqueID
+    ///
+    /// @brief  Gets the uniqueID for the metabuffer
+    ///
+    /// @return 32bit unique ID of the buffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE UINT32 GetUniqueID()
+    {
+        return m_uniqueId;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Log
+    ///
+    /// @brief  Log the necessary information for metabuffer
+    ///
+    /// @param  pParentMeta Pointer to the parent metadata
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE VOID Log(
+        MetaBuffer* pParentMeta)
+    {
+        CAMX_LOG_INFO(CamxLogGroupMeta,
+            "[METABUF_TRACK] %p --> Metadata %p Memory regions %u capacity %u"
+            " refcount (merge %u int %u ext %u) cameraId %u",
+            pParentMeta, this, m_memoryRegions.size(), Capacity(),
+            m_mergeRefCount, m_internalRefCount, m_externalRefCount, m_cameraId);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CreateIterator
+    ///
+    /// @brief  Creates an iterator for the class. The Caller must call the destructor of the iterator after the lifetime of
+    ///         of the object. However the caller can reuse the iterator object any number of times.
+    ///
+    /// @return Pointer to the iterator object
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Iterator* CreateIterator();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsValid
+    ///
+    /// @brief  Checks if the structure is valid
+    ///
+    /// @param  pMetaBuffer  Pointer to the metabuffer structure
+    ///
+    /// @return TRUE if the structure is valid, FALSE otherwise
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    static CAMX_INLINE BOOL IsValid(
+        MetaBuffer* pMetaBuffer)
+    {
+        return (s_metaBufferIdentifier == pMetaBuffer->m_metaBufferIdentifier) ? TRUE : FALSE;
+    }
+
+private:
+    MetaBuffer(const MetaBuffer& rOther) = delete;
+    MetaBuffer(const MetaBuffer&& rrOther) = delete;
+    MetaBuffer& operator=(const MetaBuffer& rOther) = delete;
+    MetaBuffer& operator=(const MetaBuffer&& rrOther) = delete;
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// MetaBuffer
+    ///
+    /// @brief  Constructor. will not contain any valid memory
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    MetaBuffer();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~MetaBuffer
+    ///
+    /// @brief  Destructor. Will release any memory allocated. Buffers are not valid after the destructor is called.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ~MetaBuffer();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Initialize
+    ///
+    /// @brief  2nd phase creation
+    ///
+    /// @param  useLinearLookup If this flag is enabled, linear lookup is needed.
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Initialize(
+        BOOL useLinearLookup);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AddReference
+    ///
+    /// @brief  Increment read access for the metabuffer
+    ///
+    /// @param  pMetaBuffer Pointer to the metabuffer
+    ///
+    /// @return Read count of the metabuffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE FILE CP028: enabled function overloading for private method to add reference
+    UINT32 AddReference(
+        MetaBuffer* pMetaBuffer);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReleaseReference
+    ///
+    /// @brief  Release read access for the metabuffer
+    ///
+    /// @param  pMetaBuffer Pointer to the metabuffer
+    ///
+    /// @return Read count of the metabuffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE FILE CP028: enabled function overloading for private method to release reference
+    UINT32 ReleaseReference(
+        MetaBuffer* pMetaBuffer);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReserveRegionAndAllocate
+    ///
+    /// @brief  Reserve the region and allocate. This function is re-entrant
+    ///
+    /// @param  totalSize    Total size of the data to be allocated
+    /// @param  rRegionIndex Index of the memory region in the vector
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult ReserveRegionAndAllocate(
+        UINT32  totalSize,
+        UINT32& rRegionIndex);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// AddToFreeLink
+    ///
+    /// @brief  Add the dependee buffer to free link This function is re-entrant
+    ///
+    /// @param  pDependee  Pointer to the dependee metabuffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult AddToFreeLink(
+        MetaBuffer* pDependee);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RemoveFromLink
+    ///
+    /// @brief  Release the dependee buffer from link This function is re-entrant
+    ///
+    /// @param  pDependee  Pointer to the dependee metabuffer
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RemoveFromLink(
+        MetaBuffer* pDependee);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckAndIssueReadlock
+    ///
+    /// @brief  Read lock for the table entry access
+    ///
+    /// @param  needLock Indicates if the access needs to be protected
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE VOID CheckAndIssueReadlock(
+       BOOL needLock)
+    {
+        if ((TRUE == needLock) && (MapType::Hash == m_mapType))
+        {
+            m_pRWLock->ReadLock();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckAndIssueWritelock
+    ///
+    /// @brief  Write lock for the table entry access
+    ///
+    /// @param  needLock Indicates if the access needs to be protected
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE VOID CheckAndIssueWritelock(
+        BOOL needLock)
+    {
+        if ((TRUE == needLock) && (MapType::Hash == m_mapType))
+        {
+            m_pRWLock->WriteLock();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CheckAndIssueUnlock
+    ///
+    /// @brief  Unlock for the read/write lock
+    ///
+    /// @param  needLock Indicates if the access needs to be protected
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE VOID CheckAndIssueUnlock(
+        BOOL needLock)
+    {
+        if ((TRUE == needLock) && (MapType::Hash == m_mapType))
+        {
+            m_pRWLock->Unlock();
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// IsTagAllocated
+    ///
+    /// @brief  Check if the tag is allocated
+    ///
+    /// @param  tagId Tag identifier
+    ///
+    /// @return TRUE is the tag is allocated
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAMX_INLINE BOOL IsTagAllocated(
+       UINT32 tagId)
+    {
+        BOOL     isTagAllocated = FALSE;
+        Content* pContent       = m_pMap->Find(tagId);
+
+        if ((NULL                   != pContent) &&
+            ((MaxInplaceTagSize     >= pContent->m_maxSize) ||
+            (m_memoryRegions.size() > pContent->m_regionIndex)))
+        {
+            isTagAllocated = TRUE;
+        }
+
+        return isTagAllocated;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// FindSubtreeContainingCameraId
+    ///
+    /// @brief  Finds the parent metadata buffer containing the cameraIDs
+    ///
+    /// @return CamxResultSuccess if successful.
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult FindSubtreeContainingCameraId();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of a memory region within metabuffer
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP017,CP018: Storage class. copy/assignment/move constructors are needed for standard library ops
+    class MemoryRegion
+    {
+    public:
+        BYTE*  m_pVaddr;    ///< Address of buffers allocated
+        UINT32 m_size;      ///< Size of the buffers allocated
+        INT32  m_fd;        ///< File descriptor of the buffers allocated, if they are not heap allocated
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// MemoryRegion
+        ///
+        /// @brief  Constructor for memory region object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        MemoryRegion();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Release
+        ///
+        /// @brief  Release memory corresponding to the region
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VOID Release();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Allocate
+        ///
+        /// @brief  Allocate memory corresponding to the region
+        ///
+        /// @param  regionSize  Size of the region to be allocated
+        ///
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CamxResult Allocate(
+            UINT32 regionSize);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// IsFree
+        ///
+        /// @brief  Check if the memory region is free
+        ///
+        /// @return true if the memory region is unallocated
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CAMX_INLINE BOOL IsFree()
+        {
+            return (NULL == m_pVaddr) && (0 == m_size);
+        }
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of an context
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP017,CP018: Storage class. copy/assignment/move constructors are needed for standard library ops
+    class Content
+    {
+    public:
+        BYTE*       m_pVaddr;                  ///< Virtual address for the data. only if m_isValid
+        UINT32      m_count;                   ///< Count for the data. only if m_isValid
+        UINT32      m_regionIndex;             ///< Memory region index reserved for this data in the current buffer
+        UINT32      m_offset;                  ///< Offset from the memory region reserved for this buffer
+        UINT32      m_size;                    ///< Size of the content. must match the tag size
+        MetaBuffer* m_pParentMetaBuffer;       ///< Pointer to the metabuffer which holds this region
+        UINT32      m_tag;                     ///< Tag identifier
+        UINT32      m_tagIndex;                ///< Unique index of the tag
+        UINT32      m_maxSize;                 ///< Maximum size of the tag
+        BYTE        m_data[MaxInplaceTagSize]; ///< In place memory
+        UINT32      m_cameraId;                ///< Camera Id to which this content belong
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Content
+        ///
+        /// @brief  Constructor for the metadata content object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Content();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Content
+        ///
+        /// @brief  Constructor for the metadata content object
+        ///
+        /// @param  regionIndex Memory region index
+        /// @param  dataOffset  Data offset within memory region
+        /// @param  tag         32-bit tag identifier
+        /// @param  tagIndex    Index of the tag
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Content(
+            UINT32 regionIndex,
+            UINT32 dataOffset,
+            UINT32 tag,
+            UINT32 tagIndex);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Content
+        ///
+        /// @brief  Constructor for the metadata content object
+        ///
+        /// @param  pVaddr       Virtual address
+        /// @param  count        Count of the tag
+        /// @param  regionIndex  Region index of the memory region
+        /// @param  offset       Data offset within memory region
+        /// @param  size         Size of the content
+        /// @param  pMetaBuffer  Dependent metadata buffer
+        /// @param  tag          32-bit tag identifier
+        /// @param  tagIndex     Index of the tag
+        /// @param  maxSize      Maxsize of the tag
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Content(
+            BYTE*       pVaddr,
+            UINT32      count,
+            UINT32      regionIndex,
+            UINT32      offset,
+            UINT32      size,
+            MetaBuffer* pMetaBuffer,
+            UINT32      tag,
+            UINT32      tagIndex,
+            UINT32      maxSize);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reset
+        ///
+        /// @brief  Reset the content
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VOID Reset();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Copy
+        ///
+        /// @brief  Copy the source content into the current buffer. deep copy
+        ///
+        /// @param  rSrcContent  Source content
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VOID Copy(
+            const Content& rSrcContent);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Assign
+        ///
+        /// @brief  Assign the source content into the current buffer. shallow copy
+        ///
+        /// @param  rSrcContent  Source content
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VOID Assign(
+            Content& rSrcContent);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// IsValid
+        ///
+        /// @brief  Check if the content is valid
+        ///
+        /// @return true if the vaddr is valid, false otherwise
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        CAMX_INLINE BOOL IsValid()
+        {
+            return NULL != m_pVaddr;
+        }
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of an metabuffer link
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // NOWHINE CP017,CP018: Storage class. copy/assignment/move constructors are needed for standard library ops
+    class Link
+    {
+    public:
+        MetaBuffer* m_pMetaBuffer;  ///< Pointer to the metabuffer
+        UINT32      m_clientID;     ///< Identity of the client
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Link
+        ///
+        /// @brief  constructor for the metadata content object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Link();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Link
+        ///
+        /// @brief  constructor for the metadata content object
+        ///
+        /// @param  pMetaBuffer Pointer to the metadata buffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        explicit Link(
+            MetaBuffer* pMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Link
+        ///
+        /// @brief  constructor for the metadata content object
+        ///
+        /// @param  pMetaBuffer Pointer to the metadata buffer
+        /// @param  clientID    Client Identity
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Link(
+            MetaBuffer* pMetaBuffer,
+            UINT32      clientID);
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief structure to store client data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    enum class MapType
+    {
+        Linear, ///< Linear map type
+        Hash    ///< Hash map type
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of an metabuffer map policies
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class Map
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Find
+        ///
+        /// @brief  Finds the tag specified by 'tag' parameter
+        ///
+        /// @param  tag Tag to be searched
+        ///
+        /// @return Pointer to the Content object, NULL otherwise
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual Content* Find(
+            UINT32 tag) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reset
+        ///
+        /// @brief  Reset the map
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Reset() = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        /// @brief  Destructor
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual ~Map() = default;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Insert
+        ///
+        /// @brief  Inserts the tag into the table
+        ///
+        /// @param  tag         Tag to be inserted
+        /// @param  regionIndex Index of the region
+        /// @param  offset      Offset w.r.t the base memory address of the region
+        /// @param  size        Size of the data
+        /// @param  pAddress    Address to the payload of the data
+        /// @param  count       Count of the data
+        /// @param  tagIndex    Unique index of the tag
+        /// @param  maxSize     Maximum size of the tag
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Insert(
+            UINT32 tag,
+            UINT32 regionIndex,
+            UINT32 offset,
+            UINT32 size,
+            BYTE*  pAddress,
+            UINT32 count,
+            UINT32 tagIndex,
+            UINT32 maxSize) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Count
+        ///
+        /// @brief  tag count
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual UINT32 Count() = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Copy
+        ///
+        /// @brief  Copy all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Copy(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Merge
+        ///
+        /// @brief  Merge all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Merge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// MergeDisjoint
+        ///
+        /// @brief  Merge disjoint tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID MergeDisjoint(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SwitchAndMerge
+        ///
+        /// @brief  switch the tags having oldCameraId with newCameraId, and merge the master
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        /// @param  pMasterMap      Pointer to the master map
+        /// @param  oldCameraId     Id of the previous master camera
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SwitchAndMerge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer,
+            Map*        pMasterMap,
+            UINT32      oldCameraId) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// CopyValidAndReserveUnfilledTags
+        ///
+        /// @brief  Copy filled tags and mark unfilled tags in the map for future allocation
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  memoryRegions   Reference to the memory regions
+        /// @param  totalSize       Output total tagsize
+        /// @param  disjoint        Flag to indicate whether the tags which are present in the destination needs to be copied
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID CopyValidAndReserveUnfilledTags(
+            Map*                        pSrcMap,
+            std::vector<MemoryRegion>&  memoryRegions,
+            UINT32&                     totalSize,
+            BOOL                        disjoint) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SetUnfilledTagRegion
+        ///
+        /// @brief  Updates the region indices of the reserved tags
+        ///
+        /// @param  pDstBaseAddress Address to the data
+        /// @param  regionIndex     Region index
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SetUnfilledTagRegion(
+            BYTE*   pDstBaseAddress,
+            UINT32  regionIndex) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// GetAndroidMeta
+        ///
+        /// @brief  Get android metadata from the metabuffer
+        ///
+        /// @param  pAndroidMeta      Pointer to the Android metadata
+        /// @param  propertyBlobId    Tag identifier of the private property
+        /// @param  frameworkTagsOnly Flag to indicate whether to get only externally visible tags
+        /// @param  filterProperties  Flag to indicate whether to add internal property vendor tag
+        /// @param  filterSet         Set of tags to be filtered off
+
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult GetAndroidMeta(
+            camera_metadata_t*          pAndroidMeta,
+            UINT32                      propertyBlobId,
+            BOOL                        frameworkTagsOnly,
+            BOOL                        filterProperties,
+            std::unordered_set<UINT32>& filterSet) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Dump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file
+        ///
+        /// @param  pFile           Pointer to the file object
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Dump(
+            FILE*   pFile,
+            BOOL    validTagsOnly) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// BinaryDump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file in binary form
+        ///
+        /// @param  pFile           Pointer to the file object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID BinaryDump(
+            FILE*   pFile) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Print
+        ///
+        /// @brief  Prints all the tags for the metabuffer
+        ///
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Print(
+            BOOL    validTagsOnly) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// UpdateCameraId
+        ///
+        /// @brief  Update cameraId for all the tags for the metabuffer
+        ///
+        /// @param  cameraId   Camera Identifier
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID UpdateCameraId(
+            UINT32    cameraId) = 0;
+
+    protected:
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        /// @brief  constructor
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Map() = default;
+
+    private:
+        Map(const Map& rOther)             = delete;
+        Map(const Map&& rrOther)            = delete;
+        Map& operator=(const Map& rOther)  = delete;
+        Map& operator=(const Map&& rrOther) = delete;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Representation of a Iterator of the Map class
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class MapIterator
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Begin
+        ///
+        /// @brief  Initialize the iterator to the first element.
+        ///
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult Begin() = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// HasDone
+        ///
+        /// @brief  Returns whether the iterator reaches the end
+        ///
+        /// @return true if end of the list is not reached
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual BOOL HasDone() = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Next
+        ///
+        /// @brief  Updates the iterator to point to the next element.
+        ///
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult Next() = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// GetEntry
+        ///
+        /// @brief  Updates the iterator to point to the next element.
+        ///
+        /// @param  rEntry  Entry which will be filled by the callee
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult GetEntry(
+            Entry& rEntry) = 0;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ~Iterator
+        ///
+        /// @brief  Destructor.
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual ~MapIterator() = default;
+
+    protected:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        /// @brief  constructor
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        MapIterator() = default;
+
+    private:
+        MapIterator(const MapIterator& rOther) = delete;
+        MapIterator(const MapIterator&& rrOther) = delete;
+        MapIterator& operator=(const MapIterator& rOther) = delete;
+        MapIterator& operator=(const MapIterator&& rrOther) = delete;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Hash map
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class HashMap final : public Map
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Create
+        ///
+        /// @brief  constructor
+        ///
+        /// @param  maxNumTags Maximum number of parameters
+        ///
+        /// @return pointer to LinearMap object
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        static HashMap* Create(
+            UINT32 maxNumTags);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+        /// @brief  destructor
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual ~HashMap() = default;
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Find
+        ///
+        /// @brief  Finds the tag specified by 'tag' parameter
+        ///
+        /// @param  tag     Tag to be searched
+        ///
+        /// @return Pointer to the Content object, NULL otherwise
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual Content* Find(
+            UINT32 tag);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reset
+        ///
+        /// @brief  Reset the map
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual void Reset();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Insert
+        ///
+        /// @brief  Inserts the tag into the table
+        ///
+        /// @param  tag         Tag to be inserted
+        /// @param  regionIndex Index of the region
+        /// @param  offset      Offset w.r.t the base memory address of the region
+        /// @param  size        Size of the data
+        /// @param  pAddress    Address to the payload of the data
+        /// @param  count       Count of the data
+        /// @param  tagIndex    Unique index of the tag
+        /// @param  maxSize     Maximum size of the tag
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Insert(
+            UINT32 tag,
+            UINT32 regionIndex,
+            UINT32 offset,
+            UINT32 size,
+            BYTE*  pAddress,
+            UINT32 count,
+            UINT32 tagIndex,
+            UINT32 maxSize);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Count
+        ///
+        /// @brief  tag count
+        ///
+        /// @return Count of the tags
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual UINT32 Count();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Copy
+        ///
+        /// @brief  Copy all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Copy(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Merge
+        ///
+        /// @brief  Merge all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Merge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// MergeDisjoint
+        ///
+        /// @brief  Merge disjoint tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID MergeDisjoint(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SwitchAndMerge
+        ///
+        /// @brief  switch the tags having oldCameraId with newCameraId, and merge the master
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        /// @param  pMasterMap      Pointer to the master map
+        /// @param  oldCameraId     Id of the previous master camera
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SwitchAndMerge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer,
+            Map*        pMasterMap,
+            UINT32      oldCameraId);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// CopyValidAndReserveUnfilledTags
+        ///
+        /// @brief  Copy filled tags and mark unfilled tags in the map for future allocation
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  memoryRegions   Reference to the memory regions
+        /// @param  totalSize       Output total tagsize
+        /// @param  disjoint        Flag to indicate whether the tags which are present in the destination needs to be copied
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID CopyValidAndReserveUnfilledTags(
+            Map*                        pSrcMap,
+            std::vector<MemoryRegion>&  memoryRegions,
+            UINT32&                     totalSize,
+            BOOL                        disjoint);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SetUnfilledTagRegion
+        ///
+        /// @brief  Merge disjoint tags from the source map
+        ///
+        /// @param  pDstBaseAddress Address to the data
+        /// @param  regionIndex     Region index
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SetUnfilledTagRegion(
+            BYTE*   pDstBaseAddress,
+            UINT32  regionIndex);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// GetAndroidMeta
+        ///
+        /// @brief  Get android metadata from the metabuffer
+        ///
+        /// @param  pAndroidMeta      Pointer to the Android metadata
+        /// @param  propertyBlobId    Tag identifier of the private property
+        /// @param  frameworkTagsOnly Flag to indicate whether to get only externally visible tags
+        /// @param  filterProperties  Flag to indicate whether to add internal property vendor tag
+        /// @param  filterSet         Set of tags to be filtered off
+
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult GetAndroidMeta(
+            camera_metadata_t*          pAndroidMeta,
+            UINT32                      propertyBlobId,
+            BOOL                        frameworkTagsOnly,
+            BOOL                        filterProperties,
+            std::unordered_set<UINT32>& filterSet);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Dump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file
+        ///
+        /// @param  pFile           Pointer to the file object
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Dump(
+            FILE*   pFile,
+            BOOL    validTagsOnly);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// BinaryDump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file in binary form
+        ///
+        /// @param  pFile           Pointer to the file object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID BinaryDump(
+            FILE*   pFile);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Print
+        ///
+        /// @brief  Prints all the tags for the metabuffer
+        ///
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Print(
+            BOOL    validTagsOnly);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// UpdateCameraId
+        ///
+        /// @brief  Update cameraId for all the tags for the metabuffer
+        ///
+        /// @param  cameraId   Camera Identifier
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID UpdateCameraId(
+            UINT32    cameraId);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @brief Representation of a Iterator of the HashMap class
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        class HashIterator : public MapIterator
+        {
+        public:
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Begin
+            ///
+            /// @brief  Initialize the iterator to the first element.
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult Begin();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// HasDone
+            ///
+            /// @brief  Returns whether the iterator reaches the end
+            ///
+            /// @return true if end of the list is not reached
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual BOOL HasDone();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Next
+            ///
+            /// @brief  Updates the iterator to point to the next element
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult Next();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// GetEntry
+            ///
+            /// @brief  Updates the iterator to point to the next element.
+            ///
+            /// @param  rEntry  Entry which will be filled by the callee
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult GetEntry(
+                Entry& rEntry);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// HashIterator
+            ///
+            /// @brief  Constructor of the HashIterator
+            ///
+            /// @param  rMap Reference to the hashmap
+            ///
+            /// @return None
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            explicit HashIterator(
+                HashMap &rMap);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// ~Iterator
+            ///
+            /// @brief  Destructor
+            ///
+            /// @return None
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual ~HashIterator() = default;
+
+        private:
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// HashMap
+            ///
+            /// @brief  constructor
+            ///
+            /// @return None
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            HashIterator() = default;
+
+            HashIterator(const HashIterator& rOther) = delete;
+            HashIterator(const HashIterator&& rrOther) = delete;
+            HashIterator& operator=(const HashIterator& rOther) = delete;
+            HashIterator& operator=(const HashIterator&& rrOther) = delete;
+
+            HashMap&                                      m_rMap;      ///< Reference to the hashmap
+            std::unordered_map<UINT32, Content>::iterator m_iterator; ///< Iterator for the hashmap
+
+            // NOWHINE CP039: Private access is given to implement iterator functionality of HashMap class
+            friend class HashMap;
+        };
+
+        std::unordered_map<UINT32, Content> m_pMetadataOffsetMap;  ///< Map from metadata to address. This mode is
+                                                                   ///< used only when direct indexing is used
+
+    private:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// HashMap
+        ///
+        /// @brief  constructor
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        HashMap() = default;
+
+        HashMap(const HashMap& rOther)              = delete;
+        HashMap(const HashMap&& rrOther)             = delete;
+        HashMap& operator=(const HashMap& rOther)   = delete;
+        HashMap& operator=(const HashMap&& rrOther)  = delete;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief Linear map
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    class LinearMap final : public Map
+    {
+    public:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Create
+        ///
+        /// @brief  constructor
+        ///
+        /// @param  maxNumTags Maximum number of parameters
+        ///
+        /// @return pointer to LinearMap object
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        static LinearMap* Create(
+            UINT32 maxNumTags);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// ~LinearMap
+        ///
+        /// @brief  destructor
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual ~LinearMap();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Find
+        ///
+        /// @brief  Finds the tag specified by 'tag' parameter
+        ///
+        /// @param  tag     Tag to be searched
+        ///
+        /// @return Pointer to the Content object, NULL otherwise
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual Content* Find(
+            UINT32 tag);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Reset
+        ///
+        /// @brief  Reset the map
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual void Reset();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Insert
+        ///
+        /// @brief  Inserts the tag into the table
+        ///
+        /// @param  tag         Tag to be inserted
+        /// @param  regionIndex Index of the region
+        /// @param  offset      Offset w.r.t the base memory address of the region
+        /// @param  size        Size of the data
+        /// @param  pAddress    Address to the payload of the data
+        /// @param  count       Count of the data
+        /// @param  tagIndex    Unique index of the tag
+        /// @param  maxSize     Maximum size of the tag
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Insert(
+            UINT32 tag,
+            UINT32 regionIndex,
+            UINT32 offset,
+            UINT32 size,
+            BYTE*  pAddress,
+            UINT32 count,
+            UINT32 tagIndex,
+            UINT32 maxSize);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Count
+        ///
+        /// @brief  tag count
+        ///
+        /// @return tag count
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual UINT32 Count();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Copy
+        ///
+        /// @brief  Copy all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Copy(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Merge
+        ///
+        /// @brief  Merge all tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Merge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// MergeDisjoint
+        ///
+        /// @brief  Merge disjoint tags from the source map
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID MergeDisjoint(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SwitchAndMerge
+        ///
+        /// @brief  switch the tags having oldCameraId with newCameraId, and merge the master
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  pSrcMetaBuffer  Pointer to the metabuffer
+        /// @param  pMasterMap      Pointer to the master map
+        /// @param  oldCameraId     Id of the previous master camera
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SwitchAndMerge(
+            Map*        pSrcMap,
+            MetaBuffer* pSrcMetaBuffer,
+            Map*        pMasterMap,
+            UINT32      oldCameraId);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// CopyValidAndReserveUnfilledTags
+        ///
+        /// @brief  Copy filled tags and mark unfilled tags in the map for future allocation
+        ///
+        /// @param  pSrcMap         Pointer to the source map
+        /// @param  memoryRegions   Reference to the memory regions
+        /// @param  totalSize       Output total tagsize
+        /// @param  disjoint        Flag to indicate whether the tags which are present in the destination needs to be copied
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID CopyValidAndReserveUnfilledTags(
+            Map*                        pSrcMap,
+            std::vector<MemoryRegion>&  memoryRegions,
+            UINT32&                     totalSize,
+            BOOL                        disjoint);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// SetUnfilledTagRegion
+        ///
+        /// @brief  Merge disjoint tags from the source map
+        ///
+        /// @param  pDstBaseAddress Address to the data
+        /// @param  regionIndex     Region index
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID SetUnfilledTagRegion(
+            BYTE*   pDstBaseAddress,
+            UINT32  regionIndex);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// GetAndroidMeta
+        ///
+        /// @brief  Get android metadata from the metabuffer
+        ///
+        /// @param  pAndroidMeta      Pointer to the Android metadata
+        /// @param  propertyBlobId    Tag identifier of the private property
+        /// @param  frameworkTagsOnly Flag to indicate whether to get only externally visible tags
+        /// @param  filterProperties  Flag to indicate whether to add internal property vendor tag
+        /// @param  filterSet         Set of tags to be filtered off
+
+        /// @return CamxResultSuccess if successful.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual CamxResult GetAndroidMeta(
+            camera_metadata_t*          pAndroidMeta,
+            UINT32                      propertyBlobId,
+            BOOL                        frameworkTagsOnly,
+            BOOL                        filterProperties,
+            std::unordered_set<UINT32>& filterSet);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Dump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file
+        ///
+        /// @param  pFile           Pointer to the file object
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Dump(
+            FILE*   pFile,
+            BOOL    validTagsOnly);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// BinaryDump
+        ///
+        /// @brief  Dump all the tags for the metabuffer to the file in binary form
+        ///
+        /// @param  pFile           Pointer to the file object
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID BinaryDump(
+            FILE*   pFile);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// Print
+        ///
+        /// @brief  Prints all the tags for the metabuffer
+        ///
+        /// @param  validTagsOnly   Flag to indicate whether to print valid tags
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID Print(
+            BOOL    validTagsOnly);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// UpdateCameraId
+        ///
+        /// @brief  Update cameraId for all the tags for the metabuffer
+        ///
+        /// @param  cameraId   Camera Identifier
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        virtual VOID UpdateCameraId(
+            UINT32    cameraId);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// @brief Representation of a Iterator of the LinearMap class
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        class LinearIterator : public MapIterator
+        {
+        public:
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Begin
+            ///
+            /// @brief  Initialize the iterator to the first element.
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult Begin();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// HasDone
+            ///
+            /// @brief  Returns whether the iterator reaches the end
+            ///
+            /// @return true if end of the list is not reached
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual BOOL HasDone();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// Next
+            ///
+            /// @brief  Updates the iterator to point to the next element.
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult Next();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// GetEntry
+            ///
+            /// @brief  Updates the iterator to point to the next element.
+            ///
+            /// @param  rEntry  Entry which will be filled by the callee
+            ///
+            /// @return CamxResultSuccess if successful.
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual CamxResult GetEntry(
+                Entry& rEntry);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// LinearIterator
+            ///
+            /// @brief  Constructor of the HashIterator
+            ///
+            /// @param  rMap Reference to the hashmap
+            ///
+            /// @return None
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            explicit LinearIterator(
+                LinearMap &rMap);
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /// ~LinearIterator
+            ///
+            /// @brief  Destructor
+            ///
+            /// @return None
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            virtual ~LinearIterator() = default;
+
+        private:
+            LinearIterator(const LinearIterator& rOther) = delete;
+            LinearIterator(const LinearIterator&& rrOther) = delete;
+            LinearIterator& operator=(const LinearIterator& rOther) = delete;
+            LinearIterator& operator=(const LinearIterator&& rrOther) = delete;
+
+            UINT32      m_rMapIndex; ///< Current index of the iterator for the hashmap
+            LinearMap&  m_rMap;      ///< Reference to the hashmap
+
+            // NOWHINE CP039: Private access is given to implement iterator functionality of LinearMap class
+            friend class LinearMap;
+        };
+
+        Content*    m_pMetadataOffsetTable;         ///< Pointer to the data for each metadata.
+                                                    ///< Used when direct indexing
+        UINT32      m_maxMetadataTags;              ///< Number of metabuffers linked to this metabuffer
+
+    private:
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// LinearMap
+        ///
+        /// @brief  constructor
+        ///
+        /// @return None
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        LinearMap();
+
+        LinearMap(const LinearMap& rOther)             = delete;
+        LinearMap(const LinearMap&& rrOther)            = delete;
+        LinearMap& operator=(const LinearMap& rOther)  = delete;
+        LinearMap& operator=(const LinearMap&& rrOther) = delete;
+    };
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// @brief structure to store client data
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    struct ClientInfo
+    {
+        UINT32      clientID;        ///< Identity of the client
+        UINT32      numOfReferences; ///< Number of references for this client
+        MetaBuffer* pMetaBuffer;     ///< Pointer to the source metabuffer
+    };
+
+    UINT32                      m_metaBufferIdentifier;         ///< MetaBuffer structure Identifier
+    // NOWHINE CP006: used for dynamic extensions
+    std::vector<MemoryRegion>   m_memoryRegions;                ///< List of memory regions
+    std::vector<Link>           m_metaBufferDependentLinks;     ///< Pointer to other metabuffers referred by this metabuffer
+    std::vector<ClientInfo>     m_metaBufferClients;            ///< Pointers to the list of metadata clients
+    Mutex*                      m_pMemoryRegionLock;            ///< Lock for memory regions
+    UINT32                      m_externalRefCount;             ///< List of readers for this meta buffer
+    UINT32                      m_maxMetadataTags;              ///< Number of metabuffers linked to this metabuffer
+    Mutex*                      m_pClientLock;                  ///< Lock for clients
+    Map*                        m_pMap;                         ///< Addressing policy container object pointer
+    MapType                     m_mapType;                      ///< Type of the map
+    UINT32                      m_uniqueId;                     ///< UniqueID for the metadata
+    UINT32                      m_internalRefCount;             ///< Count of internal references for this meta buffer
+    UINT32                      m_mergeRefCount;                ///< Count of merge references for this meta buffer
+    std::atomic<BOOL>           m_invalidatePending;            ///< Metabuffer is pending invalidation
+    BOOL                        m_destroyPending;               ///< Metabuffer is pending invalidation
+    ReadWriteLock*              m_pRWLock;                      ///< Read-write lock for hashmap
+    UINT32                      m_propertyBlobId;               ///< Vendor tag Id of the properties
+    VOID*                       m_phPrivateUserHandle;          ///< Pointer to the private handle
+    static UINT32               s_metaBufferIdentifier;         ///< MetaBuffer structure const Identifier
+    MetaBuffer*                 m_pCameraIdSubTree;             ///< Reference to the metabuffer containing the cameraIds. This
+                                                                ///  information is cached to improve the getTag() performance
+    UINT32                      m_cameraId;                     ///< CameraId corresponding to this metadata. -1 if its not
+                                                                ///  associated with any camera
+
+    std::map<UINT32, MetaBuffer*> m_cameraIdMap;                ///< Map of linked per-camera metabuffer instances
+};
+
+CAMX_NAMESPACE_END
+
+#endif // CAMXMETABUFFER_H

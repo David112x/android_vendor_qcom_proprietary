@@ -1,0 +1,197 @@
+{
+    "presets": [
+        {
+            "id": "hqv-off",
+            "display-name": "HQV Off",
+            "controls": [
+                {
+                    "control-group-id": "hqv-off"
+                }
+            ]
+        },
+        {
+            "id": "hqv-sdm845",
+            "display-name": "HQV v1.x",
+            "controls": [
+                {
+                    "control-group-id": "aie-hcp"
+                },
+                {
+                    "control-group-id": "ear"
+                },
+                {
+                    "control-group-id": "qbr"
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "hqv_v1_hcp",
+            "display-name": "HQV v1.x",
+            "controls": [
+                {
+                    "control-group-id": "aie-hcp",
+                    "fields": [
+                        "aie.mode", "HQV_MODE_MANUAL",
+                        "aie.cade-level", "10",
+                        "aie.ltm-sat-gain", "50",
+                        "aie.ltm-sat-offset", "50",
+                        "aie.ltm-ace-str", "40",
+                        "aie.ltm-ace-brightness-low", "0",
+                        "aie.ltm-ace-brightness-high", "10"
+                    ]
+                },
+                {
+                    "control-group-id": "ear",
+                    "fields": [ "ear.mode", "EAR_MODE_HIGH" ]
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "hqv-kona",
+            "display-name": "HQV v2.x",
+            "controls": [
+                {
+                    "control-group-id": "aie-hcp",
+                    "fields": [
+                        "aie.mode", "HQV_MODE_MANUAL",
+                        "aie.cade-level", "10",
+                        "aie.ltm-sat-gain", "50",
+                        "aie.ltm-sat-offset", "50",
+                        "aie.ltm-ace-str", "40",
+                        "aie.ltm-ace-brightness-low", "0",
+                        "aie.ltm-ace-brightness-high", "10"
+                    ]
+                },
+                {
+                    "control-group-id": "ear",
+                    "fields": [ "ear.mode", "EAR_MODE_HIGH" ]
+                },
+                {
+                    "control-group-id": "cnr"
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "hqv_v2_smoothmo",
+            "display-name": "HQV v2.x + Smooth Motion",
+            "controls": [
+                {
+                    "control-group-id": "aie-hcp",
+                    "fields": [
+                        "aie.mode", "HQV_MODE_MANUAL",
+                        "aie.cade-level", "10",
+                        "aie.ltm-sat-gain", "50",
+                        "aie.ltm-sat-offset", "50",
+                        "aie.ltm-ace-str", "40",
+                        "aie.ltm-ace-brightness-low", "0",
+                        "aie.ltm-ace-brightness-high", "10"
+                    ]
+                },
+                {
+                    "control-group-id": "ear",
+                    "fields": [ "ear.mode", "EAR_MODE_HIGH" ]
+                },
+                {
+                    "control-group-id": "cnr"
+                },
+                {
+                    "control-group-id": "frc",
+                    "fields": [ "frc.mode", "FRC_MODE_SMOOTH_MOTION" ]
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "smoothmo",
+            "display-name": "Smooth Motion",
+            "controls": [
+                {
+                    "control-group-id": "frc",
+                    "fields": [ "frc.mode", "FRC_MODE_SMOOTH_MOTION" ]
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "mcnr",
+            "display-name": "MCNR",
+            "controls": [
+                {
+                    "control-group-id": "cnr"
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "hqv-lito",
+            "display-name": "HQV v2.x",
+            "controls": [
+                {
+                    "control-group-id": "aie-hcp"
+                },
+                {
+                    "control-group-id": "ear"
+                },
+                {
+                    "control-group-id": "cnr"
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        },
+        {
+            "id": "hqv-atoll",
+            "display-name": "HQV v1.x",
+            "controls": [
+                {
+                    "control-group-id": "aie-hvx"
+                },
+                {
+                    "control-group-id": "split-screen"
+                },
+                {
+                    "control-group-id": "hqv",
+                    "fields": [ "vpp.mode", "HQV_MODE_MANUAL" ]
+                }
+            ]
+        }
+    ]
+}

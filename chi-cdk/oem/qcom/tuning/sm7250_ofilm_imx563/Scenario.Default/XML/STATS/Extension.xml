@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<Extension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <YHistStretch>
+    <enableYHistStretch type='bool'>false</enableYHistStretch>
+    <tempFilter type='float' range="[0.1,1.0]">0.3</tempFilter>
+    <yHistStretchZone>
+      <zoneTrigger range="[0,500]">
+        <start>0</start>
+        <end>190</end>
+      </zoneTrigger>
+      <zoneData>
+        <darkBinThres type='float' range="[0.0,0.05]">0.03</darkBinThres>
+        <darkBinThresLow type='float' range="[0.0,0.05]">0</darkBinThresLow>
+        <satBinThres type='float' range="[0.92,1.0]">0.97</satBinThres>
+        <satBinThresLow type='float' range="[0.92,1.0]">0</satBinThresLow>
+        <darkTargetLvL type='int' range="[0,5]">2</darkTargetLvL>
+        <satTargetLvL type='int' range="[210,255]">230</satTargetLvL>
+        <satScalingMax type='float' range="[1.0,1.3]">1.25</satScalingMax>
+        <darkClampingMax type='int' range="[0,16]">3</darkClampingMax>
+      </zoneData>
+    </yHistStretchZone>
+    <yHistStretchZone>
+      <zoneTrigger range="[0,500]">
+        <start>230</start>
+        <end>360</end>
+      </zoneTrigger>
+      <zoneData>
+        <darkBinThres type='float' range="[0.0,0.05]">0.03</darkBinThres>
+        <darkBinThresLow type='float' range="[0.0,0.05]">0</darkBinThresLow>
+        <satBinThres type='float' range="[0.92,1.0]">0.97</satBinThres>
+        <satBinThresLow type='float' range="[0.92,1.0]">0</satBinThresLow>
+        <darkTargetLvL type='int' range="[0,5]">2</darkTargetLvL>
+        <satTargetLvL type='int' range="[210,255]">230</satTargetLvL>
+        <satScalingMax type='float' range="[1.0,1.3]">1.25</satScalingMax>
+        <darkClampingMax type='int' range="[0,16]">3</darkClampingMax>
+      </zoneData>
+    </yHistStretchZone>
+    <yHistStretchZone>
+      <zoneTrigger range="[0,500]">
+        <start>420</start>
+        <end>1000</end>
+      </zoneTrigger>
+      <zoneData>
+        <darkBinThres type='float' range="[0.0,0.05]">0.03</darkBinThres>
+        <darkBinThresLow type='float' range="[0.0,0.05]">0</darkBinThresLow>
+        <satBinThres type='float' range="[0.92,1.0]">0.97</satBinThres>
+        <satBinThresLow type='float' range="[0.92,1.0]">0</satBinThresLow>
+        <darkTargetLvL type='int' range="[0,5]">2</darkTargetLvL>
+        <satTargetLvL type='int' range="[210,255]">230</satTargetLvL>
+        <satScalingMax type='float' range="[1.0,1.3]">1.25</satScalingMax>
+        <darkClampingMax type='int' range="[0,16]">3</darkClampingMax>
+      </zoneData>
+    </yHistStretchZone>
+  </YHistStretch>
+  <touchEVScnMonitor>
+    <enableTouchEVScnDet type='bool'>false</enableTouchEVScnDet>
+    <thresLumaDelta type='int' range="[0,32]">16</thresLumaDelta>
+    <thresLumaAvgPct type='float' range="[0.02,0.1]">0.05</thresLumaAvgPct>
+    <minLumaAvg type='float' range="[5,20]">10</minLumaAvg>
+    <frameDelayBeforeStable type='int' range="[2,10]">5</frameDelayBeforeStable>
+    <temporalLumaAverageCount type='int' range="[5,20]">8</temporalLumaAverageCount>
+  </touchEVScnMonitor>
+  <!-- deprecated  -->
+  <dualCam>
+    <enableDualCamExpComp type='bool'>true</enableDualCamExpComp>
+    <dualCamExpCompMultiplier type='float' range="[0.5,2.0]">0.607859</dualCamExpCompMultiplier>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">6098</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1.1085</compensationRatio>
+    </CCTBasedExpComp>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">5062</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1</compensationRatio>
+    </CCTBasedExpComp>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">4670</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1.033</compensationRatio>
+    </CCTBasedExpComp>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">4457</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1.0766</compensationRatio>
+    </CCTBasedExpComp>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">2779</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1.03</compensationRatio>
+    </CCTBasedExpComp>
+    <!-- deprecated  -->
+    <CCTBasedExpComp>
+      <CCT type='int' range="[2000,10000]">2264</CCT>
+      <compensationRatio type='float' range="[0.0,2.0]">1.0558</compensationRatio>
+    </CCTBasedExpComp>
+  </dualCam>
+  <enableLVTest type='bool'>false</enableLVTest>
+  <ApertureControl>
+    <enableApertureControl type='bool'>false</enableApertureControl>
+    <enSettleCntThdforlaunch type='bool'>false</enSettleCntThdforlaunch>
+    <enSensitivityComp type='bool'>false</enSensitivityComp>
+    <defaultApertureFNumber type='float' range="[0.1,1.0]">0</defaultApertureFNumber>
+    <setCntThdforlaunch type='int' range="[2,10]">0</setCntThdforlaunch>
+    <SettleCountThd type='int' range="[30,90]">0</SettleCountThd>
+    <NumofSkipFrame type='int' range="[9,15]">0</NumofSkipFrame>
+    <NumofSkipFrameforSystemlatency type='int' range="[9,15]">0</NumofSkipFrameforSystemlatency>
+    <ApertureControlZone>
+      <zoneTrigger range="[0,500]">
+        <start>0</start>
+        <end>0</end>
+      </zoneTrigger>
+      <zoneData>
+        <FNumber type='float' range="[0.0,0.05]">0</FNumber>
+        <SensitivityFactor type='float' range="[0.0,0.05]">0</SensitivityFactor>
+      </zoneData>
+    </ApertureControlZone>
+  </ApertureControl>
+</Extension>

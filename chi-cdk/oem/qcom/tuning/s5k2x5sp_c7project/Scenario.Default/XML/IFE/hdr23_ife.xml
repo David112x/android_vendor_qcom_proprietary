@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<hdr23_ife
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\hdr_2_3_0.xsd">
+  <enable_section>
+    <hdr_enable>1</hdr_enable>
+  </enable_section>
+  <module_version major_revision="2" minor_revision="3" incr_revision="0"/>
+  <control_variables>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <hdr_recon_en>
+      <enable>1</enable>
+      <hyst_control_var>control_aec_exp_sensitivity_ratio</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </hdr_recon_en>
+    <hdr_mac_en>
+      <enable>1</enable>
+      <hyst_control_var>control_aec_exp_sensitivity_ratio</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </hdr_mac_en>
+  </dynamic_enable_triggers>
+  <chromatix_hdr23_reserve>
+    <hdr_recon_en>1</hdr_recon_en>
+    <hdr_mac_en>1</hdr_mac_en>
+    <hdr_msb_align>0</hdr_msb_align>
+    <hdr_zrec_g_grad_dth_log2>5</hdr_zrec_g_grad_dth_log2>
+    <hdr_zrec_rb_grad_dth_log2>5</hdr_zrec_rb_grad_dth_log2>
+    <recon_edge_lpf_tap0>3</recon_edge_lpf_tap0>
+    <mac_motion_dilation>5</mac_motion_dilation>
+    <mac_motion0_dt0>1</mac_motion0_dt0>
+    <mac_low_light_dth_log2>6</mac_low_light_dth_log2>
+    <mac_smooth_enable>1</mac_smooth_enable>
+    <mac_smooth_th1>192</mac_smooth_th1>
+    <mac_smooth_dth_log2>6</mac_smooth_dth_log2>
+    <mac_smooth_tap0>5</mac_smooth_tap0>
+  </chromatix_hdr23_reserve>
+  <chromatix_hdr23_core>
+    <mod_hdr23_hdr_aec_data>
+      <hdr_aec_trigger>
+        <exp_time_start>1</exp_time_start>
+        <exp_time_end>64</exp_time_end>
+        <aec_sensitivity_start>1</aec_sensitivity_start>
+        <aec_sensitivity_end>64</aec_sensitivity_end>
+        <exp_gain_start>1</exp_gain_start>
+        <exp_gain_end>64</exp_gain_end>
+      </hdr_aec_trigger>
+      <hdr_aec_data>
+        <mod_hdr23_aec_data>
+          <aec_trigger>
+            <lux_idx_start>1</lux_idx_start>
+            <lux_idx_end>900</lux_idx_end>
+            <gain_start>1</gain_start>
+            <gain_end>200</gain_end>
+          </aec_trigger>
+          <hdr23_rgn_data>
+            <recon_min_factor>12</recon_min_factor>
+            <recon_flat_region_th>64</recon_flat_region_th>
+            <recon_h_edge_th1>16</recon_h_edge_th1>
+            <recon_h_edge_dth_log2>4</recon_h_edge_dth_log2>
+            <recon_motion_th1>184</recon_motion_th1>
+            <recon_motion_dth_log2>4</recon_motion_dth_log2>
+            <recon_dark_th1>0</recon_dark_th1>
+            <recon_dark_dth_log2>4</recon_dark_dth_log2>
+            <hdr_zrec_prefilt_tap0>16</hdr_zrec_prefilt_tap0>
+            <hdr_zrec_g_grad_th1>32</hdr_zrec_g_grad_th1>
+            <hdr_zrec_rb_grad_th1>32</hdr_zrec_rb_grad_th1>
+            <mac_motion0_th1>60</mac_motion0_th1>
+            <mac_motion0_th2>24</mac_motion0_th2>
+            <mac_motion0_strength>8</mac_motion0_strength>
+            <mac_low_light_th1>0</mac_low_light_th1>
+            <mac_low_light_strength>8</mac_low_light_strength>
+            <mac_high_light_th1>232</mac_high_light_th1>
+            <mac_high_light_dth_log2>10</mac_high_light_dth_log2>
+          </hdr23_rgn_data>
+        </mod_hdr23_aec_data>
+      </hdr_aec_data>
+    </mod_hdr23_hdr_aec_data>
+  </chromatix_hdr23_core>
+</hdr23_ife>

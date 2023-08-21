@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<bincorr10_bps
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\isp\bincorr_1_0_0.xsd">
+  <enable_section>
+    <bincorr_enable>0</bincorr_enable>
+  </enable_section>
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_post_scale_ratio</control_var_type>
+    <control_var_type>control_pre_scale_ratio</control_var_type>
+  </control_variables>
+  <dynamic_enable_triggers>
+    <bincorr_enable>
+      <enable type='int' range="[0,1]" length="1">1</enable>
+      <hyst_control_var type='uint' range="[0,1]" length="1">control_pre_scale_ratio</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </bincorr_enable>
+  </dynamic_enable_triggers>
+  <chromatix_bincorr10_core>
+    <mod_bincorr10_post_scale_ratio_data>
+      <post_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </post_scale_ratio_trigger>
+      <post_scale_ratio_data>
+        <mod_bincorr10_pre_scale_ratio_data>
+          <pre_scale_ratio_trigger>
+            <start>1</start>
+            <end>100</end>
+          </pre_scale_ratio_trigger>
+          <bincorr10_rgn_data>
+            <ver_bin_corr_w1 type='int' range="[0,128]" length="1">112</ver_bin_corr_w1>
+            <ver_bin_corr_w2 type='int' range="[0,128]" length="1">112</ver_bin_corr_w2>
+            <hor_bin_corr_w1 type='int' range="[0,128]" length="1">112</hor_bin_corr_w1>
+            <hor_bin_corr_w2 type='int' range="[0,128]" length="1">112</hor_bin_corr_w2>
+          </bincorr10_rgn_data>
+        </mod_bincorr10_pre_scale_ratio_data>
+      </post_scale_ratio_data>
+    </mod_bincorr10_post_scale_ratio_data>
+  </chromatix_bincorr10_core>
+</bincorr10_bps>

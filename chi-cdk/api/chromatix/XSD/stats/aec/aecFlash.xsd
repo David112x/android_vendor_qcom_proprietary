@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="aecglobalelements.xsd"/>
+	<!--
+
+Flash Tuning Definition
+
+-->
+	<xs:element name="Flash">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="AECFlashType">
+					<xs:attribute name="description" type="xs:string" default="Flash Module contains everything related to tuning flash metering, convergence and target exposure as well as dual LED tuning and calibration"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="AECFlashType">
+		<xs:sequence>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:attribute name="major_revision" type="xs:int" fixed="8"/>
+					<xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+					<xs:attribute name="incr_revision" type="xs:int" fixed="2"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="parameter_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="revision" type="xs:string" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="flashMtr" type="FlashMeteringType"/>
+			<xs:element name="flashConv" type="FlashConvergenceType"/>
+			<xs:element name="flashArb" type="FlashArbitrationType"/>
+			<xs:element name="flashExt" type="FlashExtensionType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlashLumaTargetType">
+		<xs:sequence>
+			<xs:element name="enableFlashTarget">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable separate luma target for flash snapshot capture"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="flashTarget" type="LuxLumaTargetType"/>
+			<xs:element name="flashInfluenceTargetInterpolation">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Interpolation between normal target and flash target is done by measuring the influence of flash: No influence (min: 1.0) should use normal target whereas strong influence (about 5.0 and above) should use flash target."/>
+							<xs:attribute name="range" type="xs:string" default="[1.0,7.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Tune lux-based luma target specifically for flash"/>
+	</xs:complexType>
+	<xs:complexType name="SmartFlashType">
+		<xs:sequence>
+			<xs:element name="enableSmartFlashEst">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable metering scene using flash influence bias table"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="smartFlashEstStrength" default="1.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Strength of smart flash feature"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minOffStats">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Off stats value will be set to this value as to make the on_stats/off_stats ratio robust to noise"/>
+							<xs:attribute name="range" type="xs:string" default="[1,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="kFloorPct">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Percentile threshold to compress flash influence. The larger this value the more emphasis on small reflective objects"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,0.95]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="satPreventStrength">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Strength of saturation prevention feature"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableSpeckleHandling">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="This feature allows saturation to happen if there is still saturation after flash convergence"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="speckleSatPctRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Saturation pct range within which we will decrease influence of region. Above this range influence of region is decreased to minimum. Lower range to make speckle detection kick in more often."/>
+							<xs:attribute name="range" type="xs:string" default="[0.01,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Smart flash uses a bias table computed by comparing stats before and after preflash to better expose scenes that have both foreground and background features"/>
+	</xs:complexType>
+	<xs:complexType name="AECFaceDetectionFlashType">
+		<xs:sequence>
+			<xs:element name="enableFDFlash">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable face detection ROI metering for flash snapshot"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ledFaceWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Weight range assigned to face depending on face size (small face will use start weight large face will sue end weight). Leverages dominant face AEC"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ledFaceSize">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Face size pct range that controls metering weight. Leverages dominant face AEC"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FDFlashFrameCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Threshold on the maximum number of frames the algorithm will wait for face detection"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FDFlashLumaTarget">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Luma target for face ROIs"/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="faceSizeExpEffect">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Range of face size within which the effect of flash face detection phases in and out. Large face should make full use of FD metering"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsUpdateDelayTimeEnter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in seconds to declare Face ROI officially comes into effect (for detection stability)"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsUpdateDelayTimeExit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in seconds to declare Face ROI officially exits (for detection stability)"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dynamicDelay" type="DynamicDelayType"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="This feature runs face detection during preflash sequence and then exposes the snapshot image using face detection ROI. It can also be tuned to extend the preflash sequence and give more time for face detection to run."/>
+	</xs:complexType>
+        <xs:complexType name="AECTrackerFlashType">
+		<xs:sequence>
+			<xs:element name="enableTrackerFlash">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable track ROI metering for flash snapshot"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ledTrackerWeight">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Weight range assigned to tracker depending on tracker size (small tracker will use start weight large tracker will sue end weight). Leverages tracker AEC"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ledTrackerSize">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Tracker size pct range that controls metering weight. Leverages tracker AEC"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TrackerFlashFrameCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Threshold on the maximum number of frames the algorithm will wait for tracker detection"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TrackerFlashLumaTarget">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Luma target for track ROIs"/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="trackerSizeExpEffect">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Range of tracker size within which the effect of flash tracker detection phases in and out. Large tracker should make full use of tracker metering"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsUpdateDelayTimeEnter">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in seconds to declare Track ROI officially comes into effect (for detection stability)"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="statsUpdateDelayTimeExit">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Specify the delay in seconds to declare Track ROI officially exits (for detection stability)"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dynamicTrackerDelay" type="DynamicTrackerDelayType"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="This feature runs tracker during preflash sequence and then exposes the snapshot image using track ROI. It can also be tuned to extend the preflash sequence and give more time for face detection to run."/>
+	</xs:complexType>
+	<xs:complexType name="FlashStatsPreprocessingType">
+		<xs:sequence>
+			<xs:element name="thresBrightLevelDiff">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="During preflash convergence: Y region is still too bright if larger than thresBrightLevel + thresBrightLevelDiff. The lower this value the more likely convergence will adjust after preflash turns on"/>
+							<xs:attribute name="range" type="xs:string" default="[5,50]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="thresBrightLevel">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Mark Y region as bright when above this threshold"/>
+							<xs:attribute name="range" type="xs:string" default="[0,255]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="thresBrightSatDiff">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="During preflash convergence: Y region is saturated if sat percentage is larger than thresBrightSat + thresBrightSatDiff. The lower this value the more likely convergence will adjust after preflash turns on"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="thresBrightSat">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Mark Y region as bright when above this threshold"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minLuma">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Preflash convergence will stop if luma drops below this threshold"/>
+							<xs:attribute name="range" type="xs:string" default="[1,50]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minLumaAdj">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Minimum adjustment during preflash convergence. The larger this value the more precise convergence but also the longer it takes to converge"/>
+							<xs:attribute name="range" type="xs:string" default="[0.001,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minLumaAdjDynamic" type="FlashDynamicMinAdjType"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Preflash metering defines which regions are influenced by flash. It also speeds up preflash convergence sequence."/>
+	</xs:complexType>
+	<xs:complexType name="FlashMeteringType">
+		<xs:sequence>
+			<xs:element name="flashLumaTarget" type="FlashLumaTargetType"/>
+			<xs:element name="smartFlash" type="SmartFlashType"/>
+			<xs:element name="statsPreprocessing" type="FlashStatsPreprocessingType"/>
+			<xs:element name="FDFlash" type="AECFaceDetectionFlashType"/>
+                        <xs:element name="TrackerFlash" type="AECTrackerFlashType"/>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Metering for flash photography"/>
+	</xs:complexType>
+	<xs:complexType name="TorchConvType">
+		<xs:sequence>
+			<xs:element name="enableTorchConvergence">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="tolMultUnitStepSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="range" type="xs:string" default="[1,5]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="frameSkipMethod">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ConvFrameSkipType">
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="aggressiveness">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="startupAggressiveness">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="range" type="xs:string" default="[0,10]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ADRCConvSpeed">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,0.5]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PreFlashConvergenceType">
+		<xs:sequence>
+			<xs:element name="frameSkipMethod">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ConvFrameSkipType">
+							<xs:attribute name="description" type="xs:string" default="Specifies which type of frame skip is desired: SmoothNoSkip for smooth convergence, SkipOne if there are synchronization concerns, SkipSystemLatency if speed is preferred to smoothness"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="aggressiveness">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="The larger this value the faster the convergence"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="settledFrameCountThres">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of additional frames to wait before declaring settled and computing flash snapshot parameters. Can be reduced if sensor sync is reliable"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="preflashFrameCounterEnter" type="SwitchCounterType"/>
+			<xs:element name="preflashFrameCounterExit" type="SwitchCounterType"/>
+			<xs:element name="dynamicEnterSkip">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="DynamicEnterSkip">
+							<xs:attribute name="description" type="xs:string" default="Optimize duration of preflash sequence: reduce preflash enter frame skip count if frame rate is low"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DynamicEnterSkip">
+		<xs:sequence>
+			<xs:element name="enableDynamicEnterSkip" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable dynamic calculation of preflash enter frame skip count based on FPS"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="preflashMinFrameSkip" default="2">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Frame skip count corresponding to min fps. Max fps corresponds to parameter preflashFrameCounterEnter. Skips for FPS in-between FPSRange start and end are interpolated"/>
+							<xs:attribute name="range" type="xs:string" default="[0,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="FPSRange" type="StartEndType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlashConvergenceType">
+		<xs:sequence>
+			<xs:element name="flashTuningBreak" default="4">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="How many seconds for sensor to cool down after fire during flash tuning"/>
+							<xs:attribute name="range" type="xs:string" default="[1,7]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="preflashConv">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="PreFlashConvergenceType">
+							<xs:attribute name="description" type="xs:string" default="Tuning for convergence during preflash phase of flash snapshot"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="flashMeasurementConv">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="RapidConvType">
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="torchConv">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="TorchConvType">
+							<xs:attribute name="description" type="xs:string" default="deprecated"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FlashArbitrationType">
+		<xs:sequence>
+			<xs:element name="expTableIDPreFlash">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ExposureTableIDType">
+							<xs:attribute name="description" type="xs:string" default="Index of exposure table to use during preflash convergence"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="expTableIDMainFlash">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ExposureTableIDType">
+							<xs:attribute name="description" type="xs:string" default="Index of exposure table to use for flash snapshot"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="expTableIDFlashMeasurement">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="ExposureTableIDType">
+							<xs:attribute name="description" type="xs:string" default="Index of exposure table to use during chromatix flash tuning"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDMixType">
+		<xs:sequence>
+			<xs:element name="LED1Setting">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate LED tuning table. Power level for LED1 in mA. Max value depends on hardware design and driver"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LED2Setting">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate LED tuning table. Power level for LED2 in mA. Max value depends on hardware design and driver"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="RGRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate LED tuning table. Red over green ratio for current mix"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BGRatio">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate LED tuning table. Blue over green ratio for current mix"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="flux">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate LED tuning table. Influence of flash on scene in reference to entry in power level mix 0"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,100.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Tuning of LED parameters for both single and dual LED"/>
+	</xs:complexType>
+	<xs:complexType name="LEDMixCalibEntryType">
+		<xs:sequence>
+			<xs:element name="LEDPowerIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Power index of LED point to calibrate"/>
+							<xs:attribute name="range" type="xs:string" default="[0,5]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDMixIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Mix index of LED point to calibrate"/>
+							<xs:attribute name="range" type="xs:string" default="[0,15]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDRatioOkRangeType">
+		<xs:sequence>
+			<xs:element name="RGRatioOKRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Pass range of the r/g deviation percentage from golden device to device under test, for current calibration index. Calibration will fail if outside of this range."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="BGRatioOKRange">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Pass range of the b/g deviation percentage from golden device to device under test, for current calibration index. Calibration will fail if outside of this range."/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDMixCalibType">
+		<xs:sequence>
+			<xs:element name="numOfCalibration">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Number of points to calibrate"/>
+							<xs:attribute name="range" type="xs:string" default="[0,12]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="enableCornerSampleScreen">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Enable screening calibration point to screen out obvious issues"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="calibEntries" type="LEDMixCalibEntryType" maxOccurs="12"/>
+			<xs:element name="statsRatioOKRange" type="LEDRatioOkRangeType" maxOccurs="12"/>
+			<xs:element name="fixedExpIndex" maxOccurs="12">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Manual exposure index for given "/>
+							<xs:attribute name="range" type="xs:string" default="[0,500]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="LED calibration controls. AEC LED calibration is tightly linked to AEC LED CCT table tuning"/>
+	</xs:complexType>
+	<xs:complexType name="LEDMatchTableType">
+		<xs:sequence>
+			<xs:element name="enableDualLED">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate this parameter. If project is using single LED set to false, if using dual LED set to true."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="dualLEDIntersectSlope">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="For dual LED: intersection slope between measured AWB gray point and LED data in the r/g vs. b/g color domain"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,10.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDPowerSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate this parameter. How many power levels are tuned."/>
+							<xs:attribute name="range" type="xs:string" default="[2,6]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDMixSize">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="Use LED tuning tool to populate this parameter. How many mixes are there for each power level"/>
+							<xs:attribute name="range" type="xs:string" default="[1,16]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CCTTables" type="LEDMixType" maxOccurs="96"/>
+			<xs:element name="CCTTableCalibration" type="LEDMixCalibType"/>
+			<xs:element name="LEDMeasConfig" type="LEDMeasurementType"/>
+			<xs:element name="enableDerating" default="true">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="enable interpolation between power settings if max allowed power is below CCTTable max power"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Tuning of LEDs for flash exposure conistency as well as color matching consistency for dual LED solutions"/>
+	</xs:complexType>
+	<xs:complexType name="FlashExtensionType">
+		<xs:sequence>
+			<xs:element name="flashLuxTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Lux hysteresis thresholds to trigger flash."/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="flashFDRequestDelayLuxTrigger">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="StartEndType">
+							<xs:attribute name="description" type="xs:string" default="Lux hysteresis thresholds to request additional time for face detection to run"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDTable" type="LEDMatchTableType"/>
+			<xs:element name="enableForceAFInLEDOnMode">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="Set to true to always run LED AF when LED is in force ON mode."/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDInlineCalib" type="LEDInlineCalibType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDMeasurementType">
+		<xs:sequence>
+			<xs:element name="frameErrAllowance">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="For either flash calibration or flash tuning: Frame to frame error allowance when computing average r/g and b/g ratios"/>
+							<xs:attribute name="range" type="xs:string" default="[0.001,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfFrames">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="For either flash calibration or flash tuning: How many frames to average the average r/g b/g ratios"/>
+							<xs:attribute name="range" type="xs:string" default="[2,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxNumOfFrames">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="For either flash calibration or flash tuning: Maximum number of frames to try averaging r/g and b/g ratio when stats are not consistent (cf. error allowance) before stopping measurement"/>
+							<xs:attribute name="range" type="xs:string" default="[1,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxNumOfExtraAttempts">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="For either flash calibration or flash tuning: When a measurement fails we can allow some extra attempts. This parameter controls how many extra attempts in total are allowed"/>
+							<xs:attribute name="range" type="xs:string" default="[1,100]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Flash measurement configuration. These parameters apply to both flash tuning and flash calibration"/>
+	</xs:complexType>
+	<xs:complexType name="DynamicDelayType">
+		<xs:sequence>
+			<xs:element name="enableFDDynamicDelay" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="enable additional feature that will not extend preflash sequence if light level is good"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minLumaToSkipPreFD" default="25.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="luma threshold before preflash; if luma higher: no additional preflash delay for running face detection"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,256.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Shorten preflash sequence: Adds more conditions before adding extra FD frame delay during preflash."/>
+	</xs:complexType>
+        <xs:complexType name="DynamicTrackerDelayType">
+		<xs:sequence>
+			<xs:element name="enableTrackerDynamicDelay" default="false">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="type" default="bool"/>
+							<xs:attribute name="description" type="xs:string" default="enable additional feature that will not extend preflash sequence if light level is good"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minLumaToSkipPreTracker" default="25.0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="luma threshold before preflash; if luma higher: no additional preflash delay for running tracker"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,256.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Shorten preflash sequence: Adds more conditions before adding extra FD frame delay during preflash."/>
+	</xs:complexType>
+	<xs:complexType name="FlashDynamicMinAdjType">
+		<xs:sequence>
+			<xs:element name="enableDynamicMinAdj" type="xs:boolean" default="false"/>
+			<xs:element name="percThresh" type="StartEndType"/>
+			<xs:element name="minLumaAdjEnd" default="0.1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="largest adjustment if stats exceed preflashSatRegionPercHigh. minimum adjustment is controlled by minLumaAdj"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="description" type="xs:string" default="Adds flexibility on min adjustment size based on ratio of saturated stats"/>
+	</xs:complexType>
+	<xs:complexType name="LEDInlineCalibTargetZoneType">
+		<xs:sequence>
+			<xs:element name="zoneTrigger" type="TriggerPointType"/>
+			<xs:element name="zoneData" type="LEDInlineCalibTargetDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDInlineCalibTargetDataType">
+		<xs:sequence>
+			<xs:element name="distancePCT" type="xs:float"/>
+			<xs:element name="angleShiftPCT" type="xs:float"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDInlineCalibTargetType">
+		<xs:sequence>
+			<xs:element name="LEDInlineCalibTargetZone" type="LEDInlineCalibTargetZoneType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LEDInlineCalibType">
+		<xs:sequence>
+			<xs:element name="triggerIndex">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="Lux index threshold to trigger Inline calibration"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="refRange">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="range of RG, BG ratio selected as the reference grids to execute inline calibration"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="refRegionPCT">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="control the BG stats grid size to use as reference grid of inline calibration"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="validRefCount">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="valid grid numbers which are within refRange"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="distanceRatioMin">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="minimum acceptable distance range of flash influenced position to the estimated position"/>
+							<xs:attribute name="range" type="xs:string" default="[0.0,1.0]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="distanceRatioMax">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="maximum acceptable distance range of flash influenced position to the estimated position"/>
+							<xs:attribute name="range" type="xs:string" default="[1.0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="angleShiftMax">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="acceptable shift angle range of flash influenced position to the estimated position"/>
+							<xs:attribute name="range" type="xs:string" default="[0,unbounded]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="minKneeCnt">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="minimum number of LED1, LED2 powers at each knee that factoring inline calibration data to bin"/>
+							<xs:attribute name="range" type="xs:string" default="[0,50]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxZoneCnt">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="maximum number of LED1, LED2 powers at each zone that limits the number of accumulated samples at each zone"/>
+							<xs:attribute name="range" type="xs:string" default="[0,50]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="confidencePctThr">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:float">
+							<xs:attribute name="type" default="float"/>
+							<xs:attribute name="description" type="xs:string" default="threshold to determine a knee is confident of not"/>
+							<xs:attribute name="range" type="xs:string" default="[0,1]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="numOfFactoringRegions">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:int">
+							<xs:attribute name="type" default="int"/>
+							<xs:attribute name="description" type="xs:string" default="number of regions that devides between min and max for grouping the accumulated samples"/>
+							<xs:attribute name="range" type="xs:string" default="[1,20]"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="LEDInlineCalibTarget">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="LEDInlineCalibTargetType">
+							<xs:attribute name="description" type="xs:string" default="zone tuning: zone is mixed power table: zone data is distancePCT and angleShiftPCT"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

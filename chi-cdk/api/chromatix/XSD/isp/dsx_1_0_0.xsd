@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:include schemaLocation="ispglobalelements.xsd"/>
+    <xs:element name="dsx10_ife_video_full_dc4" type="chromatix_dsx10Type">
+        <xs:annotation>
+            <xs:documentation>dsx10 ife video full to dc4 module parameters</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="chromatix_dsx10_reserveType">
+        <xs:sequence>
+            <xs:element name="param_calc_mode">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="Determines how kernel weights and padding weights are calculated:. 0 = run-time calculation by SW using ds4 coefficients from DS4 block + ica coefficients from ICA0 block + VSR scale ratio. 1 = use precalculated values from *_kernel_weights_* and *_padding_weights_* parameters, directly based on VSR scale ratio. "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Hide in GUI ! Constant: no dynamic configuration even when control variable change."/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="dsx10_rgn_dataType">
+        <xs:sequence>
+            <xs:element name="luma_kernel_weights_unpacked_horiz_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_kernel_weights_unpacked_horiz">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="192"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Horizontal kernel samples for Luma (provided for phases is greater than or equal to 0 starting with phase=0; negative phases are reflected symmetrically). The kernel is sampled  at 1/32-pixel steps for scale ratios  is less than or equal to  1/1.5 and at 1/64-pixel steps for scale ratios is greater than 1/1.5. Constraints: weights for all pixels for a given phase should sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="152, 153, 153, 153, 153, 153, 153, 152, 153, 152, 153, 153, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 151, 152, 151, 152, 152, 152, 152, 151, 151, 151, 151, 151, 151, 151, 150, 150, 150, 149, 149, 148, 148, 147, 147, 146, 145, 144, 143, 142, 140, 139, 137, 136, 134, 132, 130, 128, 126, 124, 121, 119, 117, 115, 113, 111, 109, 106, 105, 103, 101, 99, 98, 96, 95, 94, 93, 92, 91, 91, 91, 91, 91, 92, 93, 94, 96, 97, 99, 101, 102, 104, 106, 108, 110, 113, 115, 116, 118, 120, 122, 123, 125, 126, 127, 127, 128, 128 , 128, 127, 126, 125, 123, 121, 119, 116, 113, 110, 106, 102, 98, 93, 89, 84, 79, 75, 70, 65, 60, 55, 50, 45, 40, 35, 31, 26, 22, 18, 14, 11, 8, 5, 2, 0, -2, -3, -5, -6, -7, -8, -8, -9, -9, -9, -9, -9, -9, -9, -8, -8, -7, -7, -6, -5, -5, -4, -4, -3, -2, -2, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1024, 1024]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="12s, Q10"/>
+                    <xs:attribute name="length" type="xs:int" fixed="192"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_kernel_weights_unpacked_vert_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_kernel_weights_unpacked_vert">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="192"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Vertical kernel samples for Luma (provided for phases is greater than or equal to 0 starting with phase=0; negative phases are reflected symmetrically). The kernel is sampled either at 1/32-pixel steps (for scale ratios  is less than or equal to  1/1.5) or at 1/64-pixel steps (for scale ratios is greater than 1/1.5). Constraints: weights for all pixels for a given phase should sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="152, 153, 153, 153, 153, 153, 153, 152, 153, 152, 153, 153, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 152, 151, 152, 151, 152, 152, 152, 152, 151, 151, 151, 151, 151, 151, 151, 150, 150, 150, 149, 149, 148, 148, 147, 147, 146, 145, 144, 143, 142, 140, 139, 137, 136, 134, 132, 130, 128, 126, 124, 121, 119, 117, 115, 113, 111, 109, 106, 105, 103, 101, 99, 98, 96, 95, 94, 93, 92, 91, 91, 91, 91, 91, 92, 93, 94, 96, 97, 99, 101, 102, 104, 106, 108, 110, 113, 115, 116, 118, 120, 122, 123, 125, 126, 127, 127, 128, 128 , 128, 127, 126, 125, 123, 121, 119, 116, 113, 110, 106, 102, 98, 93, 89, 84, 79, 75, 70, 65, 60, 55, 50, 45, 40, 35, 31, 26, 22, 18, 14, 11, 8, 5, 2, 0, -2, -3, -5, -6, -7, -8, -8, -9, -9, -9, -9, -9, -9, -9, -8, -8, -7, -7, -6, -5, -5, -4, -4, -3, -2, -2, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1024, 1024]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="12s, Q10"/>
+                    <xs:attribute name="length" type="xs:int" fixed="192"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_kernel_weights_unpacked_horiz_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_kernel_weights_unpacked_horiz">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="96"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Horizontal kernel samples for Chroma (provided for phases is greater than or equal to 0 starting with phase=0; negative phases are reflected symmetrically). The kernel is sampled either at 1/32-pixel steps (for scale ratios  is less than or equal to  1/1.5) or at 1/64-pixel steps (for scale ratios is greater than 1/1.5). Constraints: weights for all pixels for a given phase should sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1024, 1024]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="12s, Q10"/>
+                    <xs:attribute name="length" type="xs:int" fixed="96"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_kernel_weights_unpacked_vert_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_kernel_weights_unpacked_vert">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="96"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Vertical kernel samples for Chroma (provided for phases is greater than or equal to 0 starting with phase=0; negative phases are reflected symmetrically). The kernel is sampled either at 1/32-pixel steps (for scale ratios  is less than or equal to  1/1.5) or at 1/64-pixel steps (for scale ratios is greater than 1/1.5). Constraints: weights for all pixels for a given phase should sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-1024, 1024]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="12s, Q10"/>
+                    <xs:attribute name="length" type="xs:int" fixed="96"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_padding_weights_en">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="enable external configuration of padding weights for Luma (controlled by luma_padding_weights_* parameters). "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                            <xs:attribute name="tool_hint" default="float"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_padding_weights_en">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:unsignedInt">
+                            <xs:attribute name="type" default="uint"/>
+                            <xs:attribute name="description" type="xs:string" default="enable external configuration of padding weights for Chroma (controlled by chroma_padding_weights_* parameters). "/>
+                            <xs:attribute name="default_value" type="xs:string" default="0"/>
+                            <xs:attribute name="range" type="xs:string" default="[0, 1]"/>
+                            <xs:attribute name="bit_depth" type="xs:string" default="1u"/>
+                            <xs:attribute name="length" type="xs:int" fixed="1"/>
+                            <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                            <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                            <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                            <xs:attribute name="tool_hint" default="float"/>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_padding_weights_top_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_padding_weights_top">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="24"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for first 6 input pixels in a column (for each pixel 4 weights, one per accumulator, are provided) - for Luma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="24"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_padding_weights_bot_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_padding_weights_bot">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="24"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for last 6 input pixels in a column (for each pixel 4 weights, one per accumulator, are provided) - for Luma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="24"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_padding_weights_left_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_padding_weights_left">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="24"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for first 6 input pixels in a row (for each pixel 4 weights, one per accumulator, are provided) - for Luma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="24"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="luma_padding_weights_right_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="luma_padding_weights_right">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="24"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for last 6 input pixels in a row (for each pixel 4 weights, one per accumulator, are provided) - for Luma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="24"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_padding_weights_top_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_padding_weights_top">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="8"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for first 4 input pixels in a column (for each pixel 2 weights, one per accumulator, are provided) - for Chroma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="8"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_padding_weights_bot_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_padding_weights_bot">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="8"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for last 4 input pixels in a column (for each pixel 2 weights, one per accumulator, are provided) - for Chroma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="8"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_padding_weights_left_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_padding_weights_left">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="8"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for first 4 input pixels in a row (for each pixel 2 weights, one per accumulator, are provided) - for Chroma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="8"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chroma_padding_weights_right_tab">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="chroma_padding_weights_right">
+                            <xs:simpleType>
+                                <xs:restriction base="intvar">
+                                    <xs:length value="8"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="description" type="xs:string" default="Weights used for last 4 input pixels in a row (for each pixel 2 weights, one per accumulator, are provided) - for Chroma. Constraints: at every output location affected by input pixels with externally-configured padding weights, the weights should approximately sum to one. "/>
+                    <xs:attribute name="default_value" type="xs:string" default="0"/>
+                    <xs:attribute name="range" type="xs:string" default="[-4096, 4095]"/>
+                    <xs:attribute name="bit_depth" type="xs:string" default="13s, Q11"/>
+                    <xs:attribute name="length" type="xs:int" fixed="8"/>
+                    <xs:attribute name="conversion" type="xs:string" default="No Conversion needed "/>
+                    <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                    <xs:attribute name="additional_notes" type="xs:string" default="Nearest neighbor interpolation: discrete values allowed."/>
+                    <xs:attribute name="tool_hint" default="float"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="mod_dsx10_sr_scale_ratio_dataType">
+       <xs:sequence>
+           <xs:element name="sr_scale_ratio_trigger" type="trigger_pt_type"/>
+           <xs:element name="dsx10_rgn_data" type="dsx10_rgn_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_dsx10_coreType">
+                   <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_dsx10_sr_scale_ratio_data" type="mod_dsx10_sr_scale_ratio_dataType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="chromatix_dsx10Type">
+        <xs:sequence>
+            <xs:element name="module_version">
+                <xs:complexType>
+                    <xs:attribute name="major_revision" type="xs:int" default="1"/>
+                    <xs:attribute name="minor_revision" type="xs:int" default="0"/>
+                    <xs:attribute name="incr_revision" type="xs:int" default="0"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="parameter_version">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="revision" type="xs:string" default="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="control_variables">
+                <xs:complexType>
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                        <xs:element name="control_var_type">
+                            <xs:simpleType>
+                                <xs:restriction base="control_var_type">
+                                    <xs:pattern value="control_sr_scale_ratio"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:element>
+                    </xs:sequence>
+                    <xs:attribute name="default_value" type="xs:string" default="control_sr_scale_ratio"/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="chromatix_dsx10_reserve" type="chromatix_dsx10_reserveType"/>
+            <xs:element name="chromatix_dsx10_core" type="chromatix_dsx10_coreType"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

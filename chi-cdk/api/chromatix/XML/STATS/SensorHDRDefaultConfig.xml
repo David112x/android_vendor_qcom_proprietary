@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SensorHDRDefaultConfig
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\xsd\stats\aec\aecSensorConfig.xsd">
+    <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+	<parameter_version>
+		<revision>A</revision>
+	</parameter_version>
+    <SensorLumaComp description="factor to do luma compensation due to LSC loss" range="[0, 5]" tuning_parameter_level="rarely_tune">1.0</SensorLumaComp>
+    <esRatio description="ratio of L/M and M/S" range="[0, 5]" tuning_parameter_level="rarely_tune">1.0</esRatio>
+    <LumaCalculationConfig description="Select Type2 Luma calculation configuration type. LumaCalculationTypeGridPrio means use grid stats; LumaCalculationTypeHistPrio means use histogram stats. Default value: LumaCalculationTypeHistPrio" range="[0,]" tuning_parameter_level="rarely_tune">LumaCalculationTypeHistPrio</LumaCalculationConfig>
+</SensorHDRDefaultConfig>

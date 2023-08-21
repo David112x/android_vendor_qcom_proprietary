@@ -1,0 +1,19 @@
+/*
+* Copyright (c) 2020 Qualcomm Technologies, Inc.
+* All Rights Reserved.
+* Confidential and Proprietary - Qualcomm Technologies, Inc.
+*
+*/
+
+package vendor.qti.ims.callcapability@1.0;
+
+interface ICallCapabilityListener {
+    /**
+     *  Callback to notify peer capabilities received as part of call.
+     *
+     *  @param cbdata Call Capability Info as a key-value
+     *                pair vector.
+     *
+     */
+    oneway onPeerCapabilityUpdate(vec<CallCapabilityInfo> cbdata);
+};

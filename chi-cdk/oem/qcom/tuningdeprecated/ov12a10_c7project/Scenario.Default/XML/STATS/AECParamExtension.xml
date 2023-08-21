@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">3</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">GyroAEC</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+	<data description="#0  gyro filter length" range="[1, 50]" tuning_parameter_level="rarely_tune">30</data>
+    <data description="#1  keyLevel1ZoneType 0: gyro, 1: current exposure time, 2: lux index" range="[0, 2]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#2  keyLevel2ZoneType 0: gyro, 1: current exposure time, 2: lux index" range="[0, 2]" tuning_parameter_level="rarely_tune">1</data>
+    <data description="#3  triggerDataType 0: targeted exposure time, 1: adjustment ratio" range="[0, 1]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#4  number of Level 1 trigger zone" range="[1,8]" tuning_parameter_level="rarely_tune">4</data>
+    <data description="#5  number of level 2 trigger zone" range="[1,8]" tuning_parameter_level="rarely_tune">6</data>
+    <data description="#6  key level 1 trigger zone [0] start" range="[0,100]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#7  key level 1 trigger zone [0] end" range="[0,100]" tuning_parameter_level="rarely_tune">1.5</data>
+    <data description="#8  key level 1 trigger zone [1] start" range="[0,100]" tuning_parameter_level="rarely_tune">2.3</data>
+    <data description="#9  key level 1 trigger zone [1] end" range="[0,100]" tuning_parameter_level="rarely_tune">5.0</data>
+    <data description="#10 key level 1 trigger zone [2] start" range="[0,500]" tuning_parameter_level="rarely_tune">8.0</data>
+    <data description="#11 key level 1 trigger zone [2] end" range="[0,500]" tuning_parameter_level="rarely_tune">12</data>
+    <data description="#12 key level 1 trigger zone [3] start" range="[0,500]" tuning_parameter_level="rarely_tune">18</data>
+    <data description="#13 key level 1 trigger zone [3] end" range="[0,500]" tuning_parameter_level="rarely_tune">100</data>
+    <data description="#14 key level 1 trigger zone [4] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#15 key level 1 trigger zone [4] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#16 key level 1 trigger zone [5] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#17 key level 1 trigger zone [5] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#18 key level 1 trigger zone [6] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#19 key level 1 trigger zone [6] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#20 key level 1 trigger zone [7] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#21 key level 1 trigger zone [7] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#22 key level 2 trigger zone [0] start" range="[0,500]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#23 key level 2 trigger zone [0] end" range="[0,500]" tuning_parameter_level="rarely_tune">10000000</data>
+    <data description="#24 key level 2 trigger zone [1] start" range="[0,500]" tuning_parameter_level="rarely_tune">13000000</data>
+    <data description="#25 key level 2 trigger zone [1] end" range="[0,500]" tuning_parameter_level="rarely_tune">15000000</data>
+    <data description="#26 key level 2 trigger zone [2] start" range="[0,500]" tuning_parameter_level="rarely_tune">18000000</data>
+    <data description="#27 key level 2 trigger zone [2] end" range="[0,500]" tuning_parameter_level="rarely_tune">22000000</data>
+    <data description="#28 key level 2 trigger zone [3] start" range="[0,500]" tuning_parameter_level="rarely_tune">25000000</data>
+    <data description="#29 key level 2 trigger zone [3] end" range="[0,500]" tuning_parameter_level="rarely_tune">28000000</data>
+    <data description="#30 key level 2 trigger zone [4] start" range="[0,500]" tuning_parameter_level="rarely_tune">30000000</data>
+    <data description="#31 key level 2 trigger zone [4] end" range="[0,500]" tuning_parameter_level="rarely_tune">33333333</data>
+    <data description="#32 key level 2 trigger zone [5] start" range="[0,500]" tuning_parameter_level="rarely_tune">45000000</data>
+    <data description="#33 key level 2 trigger zone [5] end" range="[0,500]" tuning_parameter_level="rarely_tune">66666666</data>
+    <data description="#34 key level 2 trigger zone [6] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#35 key level 2 trigger zone [6] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#36 key level 2 trigger zone [7] start" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#37 key level 2 trigger zone [7] end" range="[0,500]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#38 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#39 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">13000000</data>
+    <data description="#40 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">18000000</data>
+    <data description="#41 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">25000000</data>
+    <data description="#42 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">30000000</data>
+    <data description="#43 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">45000000</data>
+    <data description="#44 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#45 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#46 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#47 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">12000000</data>
+    <data description="#48 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">16000000</data>
+    <data description="#49 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">23000000</data>
+    <data description="#50 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">28000000</data>
+    <data description="#51 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">43000000</data>
+    <data description="#52 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#53 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#54 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#55 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">10000000</data>
+    <data description="#56 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">12000000</data>
+    <data description="#57 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">20000000</data>
+    <data description="#58 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">28000000</data>
+    <data description="#59 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">42000000</data>
+    <data description="#60 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#61 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#62 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#63 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">8333333</data>
+    <data description="#64 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">12000000</data>
+    <data description="#65 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">13000000</data>
+    <data description="#66 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">15000000</data>
+    <data description="#67 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">33333333</data>
+    <data description="#68 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#69 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#70 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#71 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#72 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#73 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#74 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#75 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#76 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#77 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#78 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#79 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#80 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#81 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#82 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#83 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#84 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#85 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#86 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#87 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#88 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#89 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#90 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#91 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#92 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#93 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#94 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#95 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#96 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#97 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#98 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#99 exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#100exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+    <data description="#101exposure time in nanosecond" range="[0,60000000000]" tuning_parameter_level="rarely_tune">0</data>
+  </extensionParam>
+</AECParamExtension>

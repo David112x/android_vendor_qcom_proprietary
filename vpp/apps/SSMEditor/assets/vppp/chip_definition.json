@@ -1,0 +1,55 @@
+{
+    "chip-definitions": [
+        {
+            "target": "sdm845",
+            "configs": [
+                {
+                    "os-version": 28,
+                    "preset-ids": [ "hqv-sdm845", "smoothmo" ]
+                }
+            ]
+        },
+        {
+            "target": "msmnile",
+            "configs": [
+                {
+                    "os-version": 28,
+                    "preset-ids": [ "hqv_v1_hcp", "smoothmo" ]
+                }
+            ]
+        },
+        {
+            "target": "kona",
+            "configs": [
+                {
+                    "os-version": 28,
+                    "preset-ids": [ "hqv_v1_hcp",
+                                    "hqv-kona",
+                                    "mcnr",
+                                    "smoothmo",
+                                    "hqv_v2_smoothmo" ]
+                }
+            ]
+        },
+        {
+            "target": "lito",
+            "configs": [
+                {
+                    "os-version": 28,
+                    "preset-ids": [ "hqv_v1_hcp",
+                                    "hqv-lito",
+                                    "mcnr" ]
+                }
+            ]
+        },
+        {
+            "target": "atoll",
+            "configs": [
+                {
+                    "os-version": 28,
+                    "preset-ids": [ "hqv-atoll" ]
+                }
+            ]
+        }
+    ]
+}

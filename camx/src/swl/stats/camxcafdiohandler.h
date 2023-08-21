@@ -1,0 +1,432 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2017-2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  camxcafdiohandler.h
+/// @brief This class provides utility functions to handle input and output of AFD algorithm
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef CAMXCAFDIOHANDLER_H
+#define CAMXCAFDIOHANDLER_H
+
+#include "chiafdinterface.h"
+#include "chistatsproperty.h"
+
+#include "camxhwenvironment.h"
+#include "camxlist.h"
+#include "camxstatscommon.h"
+#include "camxstatsparser.h"
+#include "camxutils.h"
+
+CAMX_NAMESPACE_BEGIN
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief Defines the metadata inputs from HAL, needed to be used by AFD
+/// following metadata from HAL will be defined
+///   StatisticsSceneFlicker  StatisticsSceneFlickerValues
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+struct AFDHALParam
+{
+    ControlAEAntibandingModeValues antiBandingMode;            ///< Banding selection from HAL
+    ControlCaptureIntentValues     captureIntent;              ///< The capture intent value on each request
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @brief This class handles AFD input and output parameters.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class CAFDIOHandler
+{
+public:
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Initialize
+    ///
+    /// @brief  Used to initialize the class.
+    ///
+    /// @param  pInitializeData Pointer to inital settings
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult Initialize(
+        const StatsInitializeData* pInitializeData);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// CAFDIOHandler
+    ///
+    /// @brief  default constructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CAFDIOHandler();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ~CAFDIOHandler
+    ///
+    /// @brief  destructor
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual ~CAFDIOHandler();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PublishOutput
+    ///
+    /// @brief  Publish AFD output
+    ///
+    /// @param  pOutput                         Pointer to the algo output list
+    /// @param  requestId                       Contains request ID
+    ///
+    /// @return Success or failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult PublishOutput(
+        const AFDAlgoOutputList* pOutput,
+        const UINT64             requestId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PublishStatsControlToMainMetadata
+    ///
+    /// @brief  Publish AFD frame control data
+    ///
+    /// @param  pOutput     Pointer to the algo output list
+    /// @param  requestId   Contains request ID
+    ///
+    /// @return Success or failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult PublishStatsControlToMainMetadata(
+        const AFDAlgoOutputList* pOutput,
+        const UINT64             requestId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PublishFrameInfoToMainMetadata
+    ///
+    /// @brief  Publish AFD frame information data
+    ///
+    /// @param  pOutput     Pointer to the algo output list
+    /// @param  requestId   Contains request ID
+    ///
+    /// @return Success or failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult PublishFrameInfoToMainMetadata(
+        const AFDAlgoOutputList* pOutput,
+        const UINT64             requestId);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// PublishExternalCameraMetadata
+    ///
+    /// @brief  Publish AFD output data to meta tag
+    ///
+    /// @param  pOutput     Pointer to the algo output list
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult PublishExternalCameraMetadata(
+        const AFDAlgoOutputList* pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadRowSumStat
+    ///
+    /// @brief  Read RS stats from the property pool
+    ///
+    /// @return Pointer to valid RSStat if successful, NULL if any failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    StatsRowSum* ReadRowSumStat();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadBGStat
+    ///
+    /// @brief  Read BG stats from the property pool
+    ///
+    /// @return Pointer to valid BGStat if successful, NULL if any failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    StatsBayerGrid* ReadBGStat();
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetAlgoOutputBuffers
+    ///
+    /// @brief  Populates the algo output structure with required buffers
+    ///
+    /// @param  pOutput                      Pointer to the core output data
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID GetAlgoOutputBuffers(
+        AFDAlgoOutputList*             pOutput);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAECFrameControlFromMainPool
+    ///
+    /// @brief  Function to retrieve available AEC  per frame information from Main property pool
+    ///
+    /// @param  pVoidInput      Pointer to data in main pool
+    /// @param  pAFDAECInfo     AEC structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveAECFrameControlFromMainPool(
+        VOID*       pVoidInput,
+        AFDAECInfo* pAFDAECInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAECFrameInfoFromMainPool
+    ///
+    /// @brief  Function to retrieve available AEC per frame information from Main property pool
+    ///
+    /// @param  pVoidInput      Pointer to data in main pool
+    /// @param  pAFDAECInfo     AEC structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveAECFrameInfoFromMainPool(
+        VOID*       pVoidInput,
+        AFDAECInfo* pAFDAECInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAFFrameInfoFromMainPool
+    ///
+    /// @brief  Function to retrieve available AF per frame information from Main property pool
+    ///
+    /// @param  pVoidInput   Pointer to data in main pool
+    /// @param  pAFInfo      AF structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveAFFrameInfoFromMainPool(
+        VOID*      pVoidInput,
+        AFDAFInfo* pAFInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAEAntibandingModeFromMetadataPool
+    ///
+    /// @brief  Function to retrieve AE banding mode from meta data pool
+    ///
+    /// @param  pVoidInput      Pointer to data in main pool
+    /// @param  pBandingMode    Pointer to Auto Focus Mode variable to be filled
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID RetrieveAEAntibandingModeFromMetadataPool(
+        VOID*                  pVoidInput,
+        StatisticsAntibanding* pBandingMode);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveBGStatConfig
+    ///
+    /// @brief  Function to retrieve BG stats from property blob BG structure
+    ///
+    ///
+    /// @param  pBGStatConfig    Pointer to ISP stats
+    /// @param  pBGStat          BG stat structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveBGStatConfig(
+        VOID*           pBGStatConfig,
+        StatsBayerGrid* pBGStat);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveBGStatOutput
+    ///
+    /// @brief  Function to retrieve BGStats Output stats
+    ///
+    ///
+    /// @param  pBGStatOutput    Pointer to ISP stats
+    /// @param  pBGStat          BG stat structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveBGStatOutput(
+        VOID*           pBGStatOutput,
+        StatsBayerGrid* pBGStat);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadDataFromInternalPropertyPool
+    ///
+    /// @brief  Function read data with specified property tag from the Internal property pool
+    ///
+    /// @param  propertyId  Tag of the data to get from the pool
+    /// @param  ppDataOut   Pointer to data read
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult ReadDataFromInternalPropertyPool(
+        UINT32 propertyId,
+        VOID** ppDataOut);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadDataFromMainPropertyPool
+    ///
+    /// @brief  Function read data with specified property tag from the main property pool
+    ///
+    /// @param  propertyId  Tag of the data to get from the pool
+    /// @param  ppDataOut   Pointer to data read
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual CamxResult ReadDataFromMainPropertyPool(
+        UINT32 propertyId,
+        VOID** ppDataOut);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadAECInput
+    ///
+    /// @brief  Read AEC input from the property pool
+    ///
+    /// @return Pointer to valid AEC input data if successful, NULL if any failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual AFDAECInfo* ReadAECInput();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadAFInput
+    ///
+    /// @brief  Read AF input from the property pool
+    ///
+    /// @return Pointer to valid AF input data if successful, NULL if any failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual AFDAFInfo* ReadAFInput();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// ReadSensorInput
+    ///
+    /// @brief  Read Sensor input from the property pool
+    ///
+    /// @return Pointer to valid Sensor input data if successful, NULL if any failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    virtual AFDSensorInfo* ReadSensorInput();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveSensorInformationFromUsecasePool
+    ///
+    /// @brief  Function to retrieve sensor information for current mode input from Usecase property pool
+    ///
+    /// @param  pVoidInput      Pointer to data in main pool
+    /// @param  pSensorInfo     Pointer to SensorCurrentMode variable to be filled
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID RetrieveSensorInformationFromUsecasePool(
+        VOID*          pVoidInput,
+        AFDSensorInfo* pSensorInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveSensorCurrentModeFromMainPool
+    ///
+    /// @brief  Function to retrieve sensor current mode input from Main property pool
+    ///
+    /// @param  pVoidInput          Pointer to data in main pool
+    /// @param  pSensorCurrentMode  Pointer to SensorCurrentMode variable to be filled
+    ///
+    /// @return None
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    VOID RetrieveSensorCurrentModeFromMainPool(
+        VOID* pVoidInput,
+        UINT* pSensorCurrentMode);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAECInfoFromInternalPool
+    ///
+    /// @brief  Function to retrieve available AEC input from Internal property pool
+    ///
+    ///
+    /// @param  pAECInfoOutput      Pointer aec stats output
+    /// @param  pAFDAECInfo         AEC structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveAECInfoFromInternalPool(
+        VOID*       pAECInfoOutput,
+        AFDAECInfo* pAFDAECInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveRSStatsInfoFromInternalPool
+    ///
+    /// @brief  Function to retrieve available AEC input from Internal property pool
+    ///
+    ///
+    /// @param  pRowSum             Pointer to af stats output
+    /// @param  pRowSumInfo         AF structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    CamxResult RetrieveRSStatsInfoFromInternalPool(
+        VOID*        pRowSum,
+        StatsRowSum* pRowSumInfo);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveAFInfoFromInternalPool
+    ///
+    /// @brief  Function to retrieve available AEC input from Internal property pool
+    ///
+    ///
+    /// @param  pAFInfoOutput   Pointer to af stats output
+    /// @param  pAFInfo         AF structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult RetrieveAFInfoFromInternalPool(
+        VOID*      pAFInfoOutput,
+        AFDAFInfo* pAFInfo);
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// GetAFDOutputBuffers
+    ///
+    /// @brief  Get output buffers to get algorithm output into
+    ///
+    /// @return Pointer to AFDAlgoOutputList on success, NULL on failure
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    AFDAlgoOutputList* GetAFDOutputBuffers();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// RetrieveRSStatsConfigFromInternalPool
+    ///
+    /// @brief  Function to retrieve RS stats information from Internal property pool
+    ///
+    ///
+    /// @param  pRSConfig         Pointer to internal memory pool to get data from
+    /// @param  pRowSumConfig     RS info structure to be filled
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    CamxResult RetrieveRSStatsConfigFromInternalPool(
+        VOID*        pRSConfig,
+        StatsRowSum* pRowSumConfig);
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// SetHALParam
+    ///
+    /// @brief  Set the HAL settings sent by the application
+    ///
+    /// @param  pHALParam         Pointer to HAL settings sent by the application
+    ///
+    /// @return CamxResultSuccess if successful
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    CamxResult SetHALParam(
+        AFDHALParam* pHALParam);
+
+    Node*                       m_pNode;                                       ///< Pointer to owning StatsProcessor node
+    StatsBayerGrid              m_bayerGridStats;                              ///< Holds interface format bayer grid
+    AFDSensorInfo               m_sensorInfoInput;                             ///< Holds Sensor Information
+    AFDAECInfo                  m_aecInfoInput;                                ///< Holds AEC Information
+    AFDAFInfo                   m_afInfoInput;                                 ///< Holds AF Information
+    StatsRowSum                 m_rowSumInfo;                                  ///< Parsed Row Sum Stats information
+    UINT                        m_sensorModeIndex;                             ///< Hold current sensor mode
+    AFDAlgoOutputList           m_outputList;                                  ///< Output buffer to get algorithm data
+    AFDAlgoFrameSetting         m_frameSetting;                                ///< AFD Mode Setting for the Frame
+    AFDAlgoRowSumConfig         m_rowSumConfig;                                ///< Row Sum Congifuration
+    AFDAlgoOutput               m_outputArray[AFDOutputTypeLastIndex];         ///< Structure to the output parameter for
+                                                                               ///  the interface
+    AFDHALParam                 m_HALParm;                                     ///< Structure to hold HAL settings
+    StatsPropertyReadAndWrite*  m_pStatsAFDPropertyReadWrite;                  ///< Stats AFD Readwrite instance
+    UINT32                      m_lastAFDMode;                                 ///< Last AFD mode
+
+private:
+    CAFDIOHandler(const CAFDIOHandler&) = delete;                 ///< Do not implement copy constructor
+    CAFDIOHandler& operator=(const CAFDIOHandler&) = delete;      ///< Do not implement assignment operator
+};
+
+CAMX_NAMESPACE_END
+#endif // CAMXCAFDIOHANDLER_H

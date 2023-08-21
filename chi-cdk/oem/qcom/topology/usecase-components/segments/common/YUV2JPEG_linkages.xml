@@ -1,0 +1,61 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="YUV2JPEG_linkages">
+    <PortLinkages>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortVideo</PortName>
+                <PortId>9</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName5</NodeInstance>
+                <NodeInstanceId>5</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>JPEGInputPort0</PortName>
+                <PortId>0</PortId>
+                <NodeName>JPEG</NodeName>
+                <NodeId>65537</NodeId>
+                <NodeInstance>JPEGInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+                <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+                <BufferQueueDepth>8</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortDisplay</PortName>
+                <PortId>8</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName5</NodeInstance>
+                <NodeInstanceId>5</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>JPEGInputPort0</PortName>
+                <PortId>0</PortId>
+                <NodeName>JPEG</NodeName>
+                <NodeId>65537</NodeId>
+                <NodeInstance>JPEGInstanceName1</NodeInstance>
+                <NodeInstanceId>1</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatYUV420NV12</BufferFormat>
+                <BufferImmediateAllocCount>0</BufferImmediateAllocCount>
+                <BufferQueueDepth>8</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

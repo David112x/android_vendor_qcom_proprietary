@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<chromatixTOF
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\af\aftofelements.xsd">
+  <module_version major_revision="7" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>"A"</revision>
+  </parameter_version>
+  <sensitivity range="[0,5]">0.52</sensitivity>
+  <outdoorLuxIdx type="int" range="[0,500]">183</outdoorLuxIdx>
+  <TOFFlag>
+    <use_custom_sensitivity type="int" range="[0,1]">0</use_custom_sensitivity>
+    <enable_sad_when_tof_is_conf type="int" range="[0,1]">1</enable_sad_when_tof_is_conf>
+    <run_tof_in_outdoor_light_flag type="int" range="[0,1]">0</run_tof_in_outdoor_light_flag>
+    <aec_wait_check_flag_enable type="int" range="[0,1]">0</aec_wait_check_flag_enable>
+    <far_scene_coarse_srch_enable type="int" range="[0,1]">0</far_scene_coarse_srch_enable>
+  </TOFFlag>
+  <Filter>
+    <median_filter_enable type="int" range="[0,1]">1</median_filter_enable>
+    <median_filter_num_of_samples type="int" range="[0,100]">5</median_filter_num_of_samples>
+    <average_filter_enable type="int" range="[0,1]">0</average_filter_enable>
+    <average_filter_num_of_samples type="int" range="[0,1]">5</average_filter_num_of_samples>
+  </Filter>
+  <FrameDelay>
+    <frame_delay_focus_converge_bright_light type="int" range="[0,10]">0</frame_delay_focus_converge_bright_light>
+    <frame_delay_focus_converge_low_light type="int" range="[0,10]">0</frame_delay_focus_converge_low_light>
+    <frame_delay_fine_search_bright_light type="int" range="[0,10]">0</frame_delay_fine_search_bright_light>
+    <frame_delay_fine_search_low_light type="int" range="[0,10]">0</frame_delay_fine_search_low_light>
+    <frame_delay_outdoor_light type="int" range="[0,10]">0</frame_delay_outdoor_light>
+  </FrameDelay>
+  <SceneChange>
+    <scene_change_distance_std_dev_thres type="int" range="[1,100]">30</scene_change_distance_std_dev_thres>
+    <far_distance_unstable_cnt_factor type="int" range="[1,10]">2</far_distance_unstable_cnt_factor>
+    <panning_stable_cnt type="int" range="[1,10]">3</panning_stable_cnt>
+    <panning_stable_thres type="int" range="[1,100]">8</panning_stable_thres>
+    <normal_light_cnt type="int" range="[0,100]">5</normal_light_cnt>
+    <lowlight_cnt type="int" range="[0,100]">3</lowlight_cnt>
+    <num_monitor_samples type="int" range="[0,100]">8</num_monitor_samples>
+    <scene_change_distance_thres type="int" range="[0,1000]">20</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">40</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">60</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">80</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">100</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">100</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">110</scene_change_distance_thres>
+    <scene_change_distance_thres type="int" range="[0,1000]">120</scene_change_distance_thres>
+    <distance_region type="int" range="[0,10000]">70</distance_region>
+    <distance_region type="int" range="[0,10000]">200</distance_region>
+    <distance_region type="int" range="[0,10000]">350</distance_region>
+    <distance_region type="int" range="[0,10000]">500</distance_region>
+    <distance_region type="int" range="[0,10000]">765</distance_region>
+    <distance_region type="int" range="[0,10000]">900</distance_region>
+    <distance_region type="int" range="[0,10000]">1200</distance_region>
+    <distance_region type="int" range="[0,10000]">1500</distance_region>
+  </SceneChange>
+  <FocusConverge>
+    <jump_to_start_limit type="int" range="[0,300]">30</jump_to_start_limit>
+    <jump_to_start_limit_low_light type="int" range="[0,300]">50</jump_to_start_limit_low_light>
+    <start_pos_for_tof type="int" range="[0,10000]">230</start_pos_for_tof>
+    <far_converge_point type="int" range="[0,10000]">300</far_converge_point>
+  </FocusConverge>
+  <FineScan>
+    <num_near_steps_near_direction type="int" range="[0,10]">3</num_near_steps_near_direction>
+    <num_far_steps_near_direction type="int" range="[0,10]">1</num_far_steps_near_direction>
+    <num_near_steps_far_direction type="int" range="[0,10]">0</num_near_steps_far_direction>
+    <num_far_steps_far_direction type="int" range="[0,10]">3</num_far_steps_far_direction>
+    <num_near_steps_far_converge_point type="int" range="[0,10]">1</num_near_steps_far_converge_point>
+    <num_far_steps_far_converge_point type="int" range="[0,10]">3</num_far_steps_far_converge_point>
+    <near_steps_far_direction_tof_conf type="int" range="[0,10]">2</near_steps_far_direction_tof_conf>
+    <tof_step_size type="int" range="[0,100]">6</tof_step_size>
+    <tof_step_size_low_light type="int" range="[0,100]">8</tof_step_size_low_light>
+    <far_distance_fine_step_size type="int" range="[0,100]">4</far_distance_fine_step_size>
+  </FineScan>
+</chromatixTOF>

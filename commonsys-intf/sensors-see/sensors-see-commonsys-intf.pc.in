@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: sensors-see-commonsys-intf
+Description: sensors-see common system interface library
+Version: @VERSION@
+Libs: -L${libdir} -lsensors-see-commonsys-intf
+Cflags: -I${includedir}/sensors-see-commonsys-intf

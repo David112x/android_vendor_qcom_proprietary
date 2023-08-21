@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">2</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">ADRCSat</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+    <data description="Boolean: enable BG threshold control also if ADRC is used for predictive convergence. Recommended to leave to 0 (disable)" tuning_parameter_level="never_tune">0</data>
+  </extensionParam>
+  <extensionParam>
+    <ID>3</ID>
+    <Name>GyroAEC</Name>
+    <enableFlag>true</enableFlag>
+    <data>30</data>
+    <data>0</data>
+    <data>1</data>
+    <data>0</data>
+    <data>4</data>
+    <data>6</data>
+    <data>0</data>
+    <data>1.5</data>
+    <data>2.3</data>
+    <data>5</data>
+    <data>8</data>
+    <data>12</data>
+    <data>18</data>
+    <data>100</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>8333333</data>
+    <data>1E+07</data>
+    <data>1.3E+07</data>
+    <data>1.5E+07</data>
+    <data>1.8E+07</data>
+    <data>2.2E+07</data>
+    <data>2.5E+07</data>
+    <data>2.8E+07</data>
+    <data>3E+07</data>
+    <data>33333332</data>
+    <data>4.5E+07</data>
+    <data>66666664</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>8333333</data>
+    <data>1.3E+07</data>
+    <data>1.8E+07</data>
+    <data>2.5E+07</data>
+    <data>3E+07</data>
+    <data>4.5E+07</data>
+    <data>0</data>
+    <data>0</data>
+    <data>8333333</data>
+    <data>1.2E+07</data>
+    <data>1.6E+07</data>
+    <data>2.3E+07</data>
+    <data>2.8E+07</data>
+    <data>4.3E+07</data>
+    <data>0</data>
+    <data>0</data>
+    <data>8333333</data>
+    <data>1E+07</data>
+    <data>1.2E+07</data>
+    <data>2E+07</data>
+    <data>2.8E+07</data>
+    <data>4.2E+07</data>
+    <data>0</data>
+    <data>0</data>
+    <data>8333333</data>
+    <data>8333333</data>
+    <data>1.2E+07</data>
+    <data>1.3E+07</data>
+    <data>1.5E+07</data>
+    <data>33333332</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+    <data>0</data>
+  </extensionParam>
+</AECParamExtension>

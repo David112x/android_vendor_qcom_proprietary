@@ -1,0 +1,39 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ */
+
+package vendor.qti.diaghal@1.0;
+import Idiagcallback;
+interface Idiag {
+	/**
+	 * Adds client's callback to the list of clients on diag hal server side
+	 *
+	 * @param callback  callback obj of client
+	 * @return ret indicates whether the open is success or failure
+	 */
+	open(Idiagcallback callback) generates (int32_t ret);
+
+	/**
+	 * Performs the operation requested in cmd_code
+	 * @param cmd_code ioctl command code
+	 * @param buf input buffer
+	 * @param len length of buffer
+	 */
+	ioctl(uint32_t cmd_code, memory buf, uint32_t len) generates (int32_t ret);
+
+	/**
+	 * Write data from diag client to server
+	 * @param buf input buffer
+	 * @param len length of buffer
+	 * @return ret indicates the status of write call
+	 */
+	write(memory buf, uint32_t len) generates (int32_t ret);
+
+	/**
+	 * close the client connection
+	 * @return ret indicates whether close is successful or not
+	 */
+	close() generates (int32_t ret);
+};

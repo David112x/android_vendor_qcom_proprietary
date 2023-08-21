@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<asf30_ipe
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\..\..\..\..\api\chromatix\XSD\isp\asf_3_0_0.xsd">
+  <enable_section>
+    <asf_enable>1</asf_enable>
+    <skin_enable type="int" range="[0,1]" length="1">1</skin_enable>
+    <chroma_gradient_enable type="int" range="[0,1]" length="1">1</chroma_gradient_enable>
+  </enable_section>
+  <module_version major_revision="3" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>0</revision>
+  </parameter_version>
+  <control_variables>
+    <control_var_type>control_total_scale_ratio</control_var_type>
+    <control_var_type>control_drc_gain</control_var_type>
+    <control_var_type>control_aec_exp_sensitivity_ratio</control_var_type>
+    <control_var_type>control_gain</control_var_type>
+  </control_variables>
+  <control_method>
+    <aec_exp_control>control_gain</aec_exp_control>
+    <aec_hdr_control>control_aec_exp_sensitivity_ratio</aec_hdr_control>
+  </control_method>
+  <dynamic_enable_triggers>
+    <asf_enable>
+      <enable type="int" range="[0,1]" length="1">0</enable>
+      <hyst_control_var type="uint" range="[0,1]" length="1">control_gain</hyst_control_var>
+      <hyst_mode>UPWARD</hyst_mode>
+      <hyst_trigger>
+        <start1>1</start1>
+        <end1>900</end1>
+        <start2>1</start2>
+        <end2>600</end2>
+      </hyst_trigger>
+    </asf_enable>
+  </dynamic_enable_triggers>
+  <chromatix_asf30_reserve>
+    <radial_anchor_tab type="float" range="[0.0,1.0]" length="4">
+      <radial_anchor>0.25 0.5 0.75 1</radial_anchor>
+    </radial_anchor_tab>
+    <face_enable type="int" range="[0,1]" length="1">0</face_enable>
+    <edge_alignment_enable type="int" range="[0,1]" length="1">1</edge_alignment_enable>
+    <layer_1_enable type="int" range="[0,1]" length="1">1</layer_1_enable>
+    <layer_2_enable type="int" range="[0,1]" length="1">1</layer_2_enable>
+    <radial_enable type="int" range="[0,1]" length="1">1</radial_enable>
+    <contrast_enable type="int" range="[0,1]" length="1">1</contrast_enable>
+  </chromatix_asf30_reserve>
+  <chromatix_asf30_core>
+    <mod_asf30_total_scale_ratio_data>
+      <total_scale_ratio_trigger>
+        <start>1</start>
+        <end>100</end>
+      </total_scale_ratio_trigger>
+      <total_scalor_ratio_data>
+        <mod_asf30_drc_gain_data>
+          <drc_gain_trigger>
+            <start>1</start>
+            <end>100</end>
+          </drc_gain_trigger>
+          <drc_gain_data>
+            <mod_asf30_hdr_aec_data>
+              <hdr_aec_trigger>
+                <exp_time_start>1</exp_time_start>
+                <exp_time_end>64</exp_time_end>
+                <aec_sensitivity_start>1</aec_sensitivity_start>
+                <aec_sensitivity_end>64</aec_sensitivity_end>
+                <exp_gain_start>1</exp_gain_start>
+                <exp_gain_end>64</exp_gain_end>
+              </hdr_aec_trigger>
+              <hdr_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1</gain_start>
+                    <gain_end>1.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 0 -1 -2 -25 -86 -173 -180 1968</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>2.2 2.25 2.3 2.35 2.4 2.45 2.5 2.55 2.6 2.65 2.7 2.75 2.8 2.85 2.9 2.95 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>2.2 2.25 2.3 2.35 2.4 2.45 2.5 2.55 2.6 2.65 2.7 2.75 2.8 2.85 2.9 2.95 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0.11952 0.119787239 0.123412222 0.137887225 0.177230179 0.2580051 0.387518078 0.55485034 0.7272325 0.8651133 0.9477032 0.983235657 0.993725359 0.9957449 0.9959835 0.9959994 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">20</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-20</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0.252 0.300346166 0.4001423 0.5306654 0.6717692 0.790961564 0.8759077 0.9336577 0.968203843 0.98447305 0.991188467 0.99435 0.995503843 0.99585 0.995965362 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.95 0.9 0.85</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.6</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>1.9</gain_start>
+                    <gain_end>2.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 0 -1 -2 -25 -86 -173 -180 1968</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>1.8 1.85 1.9 1.95 2 2.05 2.1 2.15 2.2 2.25 2.3 2.35 2.4 2.45 2.5 2.55 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>1.8 1.85 1.9 1.95 2 2.05 2.1 2.15 2.2 2.25 2.3 2.35 2.4 2.45 2.5 2.55 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6 2.6</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0.00996 0.0101962248 0.012411111 0.0182603244 0.0333704166 0.08105608 0.179261774 0.3345956 0.5311377 0.726953864 0.8753888 0.9569907 0.9876322 0.9949315 0.995932043 0.995997548 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">18</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-18</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15 0.15</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0.03984002 0.04042102 0.04503742 0.05368921 0.08984247 0.175093412 0.355388075 0.594838858 0.812535465 0.9407725 0.986260831 0.9951264 0.9959667 0.9959996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.95 0.9 0.85</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">2</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.5</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>3.9</gain_start>
+                    <gain_end>4.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 0 -1 -2 -25 -86 -173 -180 1968</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>1.4 1.45 1.5 1.55 1.6 1.65 1.7 1.75 1.8 1.85 1.9 1.95 2 2.05 2.1 2.15 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>1.4 1.45 1.5 1.55 1.6 1.65 1.7 1.75 1.8 1.85 1.9 1.95 2 2.05 2.1 2.15 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2 2.2</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0 0.000185586 0.001407508 0.003665766 0.0118989386 0.0257174522 0.0451213047 0.102869339 0.198076338 0.3412122 0.507621467 0.6730928 0.8141593 0.914048433 0.967753232 0.9869313 0.993840456 0.995672762 0.995972455 0.9959988 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">16</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-16</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0.03984002 0.04004046 0.04136014 0.04435869 0.0552149266 0.07641064 0.142751187 0.262578636 0.4342871 0.6298372 0.8031393 0.918540239 0.9737474 0.9917409 0.995498359 0.9959667 0.9959988 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.95 0.9 0.85</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.6</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>7.9</gain_start>
+                    <gain_end>8.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 0 -1 -2 -25 -86 -173 -180 1968</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.55 1.6 1.65 1.7 1.75 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.55 1.6 1.65 1.7 1.75 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8 1.8</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0 0.000132561 0.000709267 0.001730116 0.003343158 0.008370436 0.0175804179 0.03423622 0.0720838 0.14997524 0.272886 0.432824284 0.6033296 0.758617461 0.877503633 0.9496021 0.9809841 0.9918905 0.9952067 0.995904565 0.995993555 0.995999753 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">14</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-14</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0.03984002 0.03991866 0.04054737 0.04172615 0.04680896 0.056092158 0.06957573 0.113285623 0.188454 0.2991642 0.440465152 0.5963294 0.74321425 0.8594084 0.934873641 0.974090338 0.989931941 0.9947505 0.9958164 0.9959816 0.9959988 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.95 0.9 0.85</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.5</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>15.9</gain_start>
+                    <gain_end>16.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 0 -1 -2 -25 -86 -173 -180 1968</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0 0.000109412 0.00040156 0.001120094 0.00220454 0.003532927 0.008024504 0.0148003353 0.03075831 0.06300059 0.137089655 0.256655067 0.4176065 0.5918293 0.7519093 0.874945939 0.94940567 0.981334865 0.9921685 0.9953206 0.9959298 0.995996356 0.9959999 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">12</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-12</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0 0.000140359 0.00063342 0.001949455 0.00456115 0.008036619 0.016464429 0.03091856 0.0723320246 0.135906383 0.230179042 0.3587255 0.501822054 0.648642957 0.777041256 0.875077248 0.9428006 0.9751032 0.9888437 0.994451642 0.995716035 0.995954 0.995996952 0.9959999 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.95 0.9 0.85</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.5</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>31.9</gain_start>
+                    <gain_end>32.1</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 -3 -5 -10 -57 -106 -132 65 1232</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0 9.14286E-05 0.000183286 0.000454715 0.001443293 0.00243189 0.004293806 0.007465692 0.0122464094 0.0221086368 0.0360927358 0.0909223258 0.183739349 0.311656445 0.46824488 0.633379936 0.77795 0.8864236 0.9523878 0.981413364 0.9919648 0.995297134 0.99593097 0.9959932 0.9959996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">10</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-10</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0 0.000123724 0.00042017 0.000889339 0.00274029 0.005803852 0.0100800237 0.0179940257 0.03405802 0.0625474 0.10856197 0.1681465 0.251935631 0.34951365 0.461330473 0.576043 0.6884772 0.784706235 0.867860734 0.920044839 0.962179065 0.9778633 0.9899204 0.9933839 0.9953656 0.995798469 0.99596566 0.9959933 0.995999157 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.9 0.8 0.7</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.5</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+                <mod_asf30_aec_data>
+                  <aec_trigger>
+                    <lux_idx_start>1</lux_idx_start>
+                    <lux_idx_end>900</lux_idx_end>
+                    <gain_start>63.9</gain_start>
+                    <gain_end>64</gain_end>
+                  </aec_trigger>
+                  <asf30_rgn_data>
+                    <layer_1_hpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_hpf_symmetric_coeff>0 0 -3 -5 -10 -57 -106 -132 65 1232</layer_1_hpf_symmetric_coeff>
+                    </layer_1_hpf_symmetric_coeff_tab>
+                    <layer_1_lpf_symmetric_coeff_tab type="int" range="[[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-511,511],[-1023,1023],[-2047,2047]]" length="10">
+                      <layer_1_lpf_symmetric_coeff>4 8 12 16 16 24 32 36 48 64</layer_1_lpf_symmetric_coeff>
+                    </layer_1_lpf_symmetric_coeff_tab>
+                    <layer_1_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_1_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_1_activity_band_pass_coeff>
+                    </layer_1_activity_band_pass_coeff_tab>
+                    <layer_1_activity_normalization_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_activity_normalization_lut>
+                    </layer_1_activity_normalization_lut_tab>
+                    <layer_1_weight_modulation_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_weight_modulation_lut>
+                    </layer_1_weight_modulation_lut_tab>
+                    <layer_1_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_1_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_1_soft_threshold_lut>
+                    </layer_1_soft_threshold_lut_tab>
+                    <layer_1_gain_positive_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_positive_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_positive_lut>
+                    </layer_1_gain_positive_lut_tab>
+                    <layer_1_gain_negative_lut_tab type="float" range="[0.0,7.96875]" length="64">
+                      <layer_1_gain_negative_lut>0.7 0.75 0.8 0.85 0.9 0.95 1 1.05 1.1 1.15 1.2 1.25 1.3 1.35 1.4 1.45 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5 1.5</layer_1_gain_negative_lut>
+                    </layer_1_gain_negative_lut_tab>
+                    <layer_1_gain_weight_lut_tab type="float" range="[0.0,0.99609375]" length="64">
+                      <layer_1_gain_weight_lut>0 8E-05 0.00016025 0.000240875 0.0009485 0.001813131 0.002678789 0.004690292 0.007465692 0.0102410922 0.01597197 0.0261360612 0.05791297 0.131703839 0.24450238 0.392655015 0.563198566 0.724928 0.8540343 0.938837469 0.9767384 0.990440369 0.994995654 0.9959037 0.9959905 0.995999455 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_1_gain_weight_lut>
+                    </layer_1_gain_weight_lut_tab>
+                    <layer_1_gamma_corrected_luma_target type="int" range="[0,255]" length="1">128</layer_1_gamma_corrected_luma_target>
+                    <layer_1_gain_cap type="float" range="[0.0,7.96875]" length="1">7.9</layer_1_gain_cap>
+                    <layer_1_clamp_ul type="int" range="[-255,255]" length="1">8</layer_1_clamp_ul>
+                    <layer_1_clamp_ll type="int" range="[-255,255]" length="1">-8</layer_1_clamp_ll>
+                    <layer_1_norm_scale type="float" range="[0.0,3.984375]" length="1">3.98</layer_1_norm_scale>
+                    <layer_1_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_1_activity_clamp_threshold>
+                    <layer_1_l2_norm_en type="int" range="[0,1]" length="1">0</layer_1_l2_norm_en>
+                    <layer_1_median_blend_upper_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_upper_offset>
+                    <layer_1_median_blend_lower_offset type="float" range="[0,0.9375]" length="1">0</layer_1_median_blend_lower_offset>
+                    <layer_1_sp type="uint" range="[0,100]" length="1">100</layer_1_sp>
+                    <layer_2_hpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_hpf_symmetric_coeff>-1 -4 -6 -16 -24 220</layer_2_hpf_symmetric_coeff>
+                    </layer_2_hpf_symmetric_coeff_tab>
+                    <layer_2_lpf_symmetric_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_lpf_symmetric_coeff>4 16 24 64 96 144</layer_2_lpf_symmetric_coeff>
+                    </layer_2_lpf_symmetric_coeff_tab>
+                    <layer_2_activity_band_pass_coeff_tab type="int" range="[[-127,127],[-127,127],[-127,127],[-127,127],[-255,255],[-511,511]]" length="6">
+                      <layer_2_activity_band_pass_coeff>-4 -16 -24 0 32 112</layer_2_activity_band_pass_coeff>
+                    </layer_2_activity_band_pass_coeff_tab>
+                    <layer_2_activity_normalization_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_activity_normalization_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_activity_normalization_lut>
+                    </layer_2_activity_normalization_lut_tab>
+                    <layer_2_weight_modulation_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_weight_modulation_lut>0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_weight_modulation_lut>
+                    </layer_2_weight_modulation_lut_tab>
+                    <layer_2_soft_threshold_lut_tab type="uint" range="[0,255]" length="64">
+                      <layer_2_soft_threshold_lut>255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255 255</layer_2_soft_threshold_lut>
+                    </layer_2_soft_threshold_lut_tab>
+                    <layer_2_gain_positive_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_positive_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_positive_lut>
+                    </layer_2_gain_positive_lut_tab>
+                    <layer_2_gain_negative_lut_tab type="float" range="[0,7.96875]" length="64">
+                      <layer_2_gain_negative_lut>0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2 0.2</layer_2_gain_negative_lut>
+                    </layer_2_gain_negative_lut_tab>
+                    <layer_2_gain_weight_lut_tab type="float" range="[0,0.99609375]" length="64">
+                      <layer_2_gain_weight_lut>0 0.000111351 0.000222703 0.000334054 0.00199991 0.003665766 0.005331622 0.0124542248 0.0195768271 0.02669943 0.0558673963 0.08787738 0.144044459 0.206473842 0.29238683 0.384457648 0.489870369 0.5937954 0.695674956 0.7833263 0.8581723 0.9109038 0.950735331 0.9718926 0.9863805 0.991504967 0.9948737 0.995491147 0.9959331 0.9959681 0.9959977 0.995999 0.995999932 0.995999932 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996 0.996</layer_2_gain_weight_lut>
+                    </layer_2_gain_weight_lut_tab>
+                    <layer_2_clamp_ul type="int" range="[-255,255]" length="1">2</layer_2_clamp_ul>
+                    <layer_2_clamp_ll type="int" range="[-255,255]" length="1">-2</layer_2_clamp_ll>
+                    <layer_2_norm_scale type="float" range="[0,3.984375]" length="1">3.98</layer_2_norm_scale>
+                    <layer_2_activity_clamp_threshold type="int" range="[0,255]" length="1">255</layer_2_activity_clamp_threshold>
+                    <layer_2_l2_norm_en type="int" range="[0,1]" length="1">0</layer_2_l2_norm_en>
+                    <radial_activity_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_activity_adj>1 0.9 0.8 0.7</radial_activity_adj>
+                    </radial_activity_adj_tab>
+                    <radial_gain_adj_tab type="float" range="[0,7.96875]" length="4">
+                      <radial_gain_adj>1 0.87 0.74 0.61</radial_gain_adj>
+                    </radial_gain_adj_tab>
+                    <skin_hue_min type="float" range="[-3.0,-1.0]" length="1">-1.7</skin_hue_min>
+                    <skin_hue_max type="float" range="[-0.99609375,0.99609375]" length="1">-0.5</skin_hue_max>
+                    <skin_y_min type="float" range="[0,0.99609375]" length="1">0.1</skin_y_min>
+                    <skin_y_max type="float" range="[0,0.99609375]" length="1">0.9</skin_y_max>
+                    <skin_saturation_min_ymax type="float" range="[0,1.0]" length="1">0.05</skin_saturation_min_ymax>
+                    <skin_saturation_max_ymax type="float" range="[0,1.0]" length="1">0.25</skin_saturation_max_ymax>
+                    <skin_saturation_min_ymin type="float" range="[0.0,0.5]" length="1">0.25</skin_saturation_min_ymin>
+                    <skin_saturation_max_ymin type="float" range="[0.2,0.99609375]" length="1">0.65</skin_saturation_max_ymin>
+                    <skin_boundary_probability type="uint" range="[1,15]" length="1">8</skin_boundary_probability>
+                    <skin_percent type="float" range="[0,100]" length="1">12</skin_percent>
+                    <skin_nonskin_to_skin_qratio type="float" range="[0.1,10.0]" length="1">0.5</skin_nonskin_to_skin_qratio>
+                    <flat_thresold type="int" range="[0,25]" length="1">8</flat_thresold>
+                    <max_smoothing_clamp type="int" range="[0,25]" length="1">8</max_smoothing_clamp>
+                    <corner_threshold type="float" range="[0,63.9990234375]" length="1">1.5</corner_threshold>
+                    <smoothing_strength type="float" range="[0,0.9990234375]" length="1">0.5</smoothing_strength>
+                    <gain_contrast_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_positive>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_positive>
+                    </gain_contrast_positive_tab>
+                    <gain_contrast_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_contrast_negative>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</gain_contrast_negative>
+                    </gain_contrast_negative_tab>
+                    <skin_gain_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_gain>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_gain>
+                    </skin_gain_tab>
+                    <skin_activity_tab type="float" range="[0.00390625,1]" length="17">
+                      <skin_activity>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</skin_activity>
+                    </skin_activity_tab>
+                    <gain_chroma_positive_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_positive>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_positive>
+                    </gain_chroma_positive_tab>
+                    <gain_chroma_negative_tab type="float" range="[0.00390625,1]" length="32">
+                      <gain_chroma_negative>1 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 0.82 0.8 0.78 0.76 0.74 0.72 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7 0.7</gain_chroma_negative>
+                    </gain_chroma_negative_tab>
+                    <face_boundary type="float" range="[0,8]" length="1">1</face_boundary>
+                    <face_transition type="float" range="[0,8]" length="1">1.1</face_transition>
+                  </asf30_rgn_data>
+                </mod_asf30_aec_data>
+              </hdr_aec_data>
+            </mod_asf30_hdr_aec_data>
+          </drc_gain_data>
+        </mod_asf30_drc_gain_data>
+      </total_scalor_ratio_data>
+    </mod_asf30_total_scale_ratio_data>
+  </chromatix_asf30_core>
+</asf30_ipe>

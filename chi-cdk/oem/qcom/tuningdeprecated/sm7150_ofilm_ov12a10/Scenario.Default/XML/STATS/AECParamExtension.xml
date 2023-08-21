@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018-2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<AECParamExtension
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecParamExtension.xsd">
+  <module_version major_revision="8" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <extensionParam>
+    <ID>2</ID>
+    <Name>ADRCSat</Name>
+    <enableFlag>TRUE</enableFlag>
+    <data>1</data>
+  </extensionParam>
+  <extensionParam description="extension feature" tuning_parameter_level="rarely_tune">
+    <ID description="extension feature ID, defined in the algorithm code so please do not change" tuning_parameter_level="never_tune">6</ID>
+    <Name description="extension feature name" tuning_parameter_level="never_tune">LLS</Name>
+    <enableFlag description="enable flag">true</enableFlag>
+    <data description="Boolean: enable ADRC + LLS snapshot use case" tuning_parameter_level="never_tune">1</data>
+    <data description="Boolean: enable LLS max sensitivity is LLS_time * LLS_max_gain" tuning_parameter_level="never_tune">1</data>
+   </extensionParam>
+</AECParamExtension>

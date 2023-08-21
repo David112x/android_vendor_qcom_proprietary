@@ -1,0 +1,22 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Usecase>
+  <UsecaseName>UsecaseRaw8</UsecaseName>
+  <Targets>
+    <Target>
+      <TargetName>TARGET_BUFFER_RAW8</TargetName>
+      <TargetDirection>TargetOutput</TargetDirection>
+      <CamxInclude target_segment="0_0_2400_2400_ChiFormatRawMIPI8"/>
+    </Target>
+  </Targets>
+  <StreamConfigMode>0</StreamConfigMode>
+  <SystemwideSetting>
+    <SettingName>EIS</SettingName>
+    <SettingDataType>BOOL</SettingDataType>
+    <SettingMatch>FALSE</SettingMatch>
+  </SystemwideSetting>
+  <CamxInclude href="../../pipelines/g_camxRaw8.xml"/>
+</Usecase>

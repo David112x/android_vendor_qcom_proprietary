@@ -1,0 +1,27 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<Pipeline>
+    <PipelineName>Merge3YuvCustomTo1Yuv</PipelineName>
+    <CamxInclude segment="Merge3CustomYUV_linkages"/>
+    <NodesList>
+        <Node>
+            <NodeName>ChiNode</NodeName>
+            <NodeId>255</NodeId>
+            <NodeInstance>ChiNodeInstanceName0</NodeInstance>
+            <NodeInstanceId>0</NodeInstanceId>
+            <NodeProperty>
+                <NodePropertyName>NodePropertyCustomLib</NodePropertyName>
+                <NodePropertyId>1</NodePropertyId>
+                <NodePropertyDataType>STRING</NodePropertyDataType>
+                <NodePropertyValue>com.qti.node.memcpy</NodePropertyValue>
+            </NodeProperty>
+        </Node>
+    </NodesList>
+    <PortLinkages>
+        <TargetName>TARGET_BUFFER_YUV</TargetName>
+        <TargetDirection>TargetBidirectional</TargetDirection>
+    </PortLinkages>
+</Pipeline>

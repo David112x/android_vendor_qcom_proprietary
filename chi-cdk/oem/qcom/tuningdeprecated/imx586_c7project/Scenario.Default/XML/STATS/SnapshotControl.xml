@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright(c) 2018 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SnapshotControl
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\aec\aecSnapshotCtrl.xsd">
+  <module_version major_revision="1" minor_revision="0" incr_revision="0"/>
+  <parameter_version>
+    <revision>A</revision>
+  </parameter_version>
+  <snapCtrlArb>
+    <expTableIDSnapshot>0</expTableIDSnapshot>
+    <bracketingAdjForEVPos2 type='float' range="[0,2]">1</bracketingAdjForEVPos2>
+    <bracketingAdjForEVNeg2 type='float' range="[0,2]">1</bracketingAdjForEVNeg2>
+    <maxLLSExtendedGain type='float' range="[1,512]">256</maxLLSExtendedGain>
+  </snapCtrlArb>
+  <snapCtrlExt>
+    <enableLLS type='bool'>false</enableLLS>
+    <!--
+
+Base Type Tuning Definition
+
+ -->
+    <LLSLuxHysteresis>
+      <start>370</start>
+      <end>390</end>
+    </LLSLuxHysteresis>
+    <LLSExpTimeLUT>
+      <thresLuxIndex type='float' range="[0,1000]">399</thresLuxIndex>
+      <requiredExpTime type='ulong' range="[1,60000000000]">76923000</requiredExpTime>
+    </LLSExpTimeLUT>
+  </snapCtrlExt>
+</SnapshotControl>

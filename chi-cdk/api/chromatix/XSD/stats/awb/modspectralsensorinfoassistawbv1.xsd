@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2019 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="..\..\common\globalelements.xsd"/>
+	<xs:include schemaLocation="awbglobalelements.xsd"/>
+	<xs:include schemaLocation="modgeneralwvv1.xsd"/>
+	<xs:element name="SFSpectralSensorAssistV1" type="chromatixSpectralSensorInfoAssistV1Type">
+		<xs:annotation>
+			<xs:documentation>chromatix spectral sensor info assist awb </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="modTemporalFilterCtrlType">
+		<xs:sequence>
+			<xs:element name="enableTempFilterForSpectralSensorInfoFlag" type="enableFlagType"/>
+            <xs:element name="NormalConvSpeed" type="xs:float" default="0.3"/>
+			<xs:element name="LockThreshold" type="xs:int" default="20"/>
+			<xs:element name="LockFrameNumber" type="xs:int" default="3"/>
+			<xs:element name="LockConvSpeed" type="xs:float" default="0.03"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="modgeneralizedWVCtrlType">
+		<xs:sequence>
+			<xs:element name="enableFlag" type="enableFlagType"/>
+            <xs:element name="triggerInfo" type="awbGWVTriggerConfigType"/>
+			<xs:element name="triggerPt">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="triggerPointType">
+							<xs:attribute name="description" type="xs:string" default="Dummy data for consistent data structure"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="never_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="triggerData" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="modGeneralWVV1Level1TriggerDataType">
+							<xs:attribute name="description" type="xs:string" default="1st trigger level, Trigger control type: Lux index"/>
+							<xs:attribute name="tuning_parameter_level" type="tuning_level" default="often_tune"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="chromatixSpectralSensorInfoAssistV1Type">
+		<xs:sequence>
+			<xs:element name="moduleID" type="moduleIDType"/>
+			<xs:element name="module_version">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="major_revision" type="xs:int" default="1"/>
+						<xs:element name="minor_revision" type="xs:int" default="0"/>
+						<xs:element name="incr_revision" type="xs:int" default="0"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="TemporalFilterForSpectralSensorInfoCtrl" type="modTemporalFilterCtrlType"/>
+			<xs:element name="OutdoorScenesWeightCtrl" type="modgeneralizedWVCtrlType"/>
+			<xs:element name="IndoorAHScenesWeightCtrl" type="modgeneralizedWVCtrlType"/>
+			<xs:element name="OutdoorScenesConfidenceCtrl" type="modgeneralizedWVCtrlType"/>
+			<xs:element name="IndoorAHScenesConfidenceCtrl" type="modgeneralizedWVCtrlType"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

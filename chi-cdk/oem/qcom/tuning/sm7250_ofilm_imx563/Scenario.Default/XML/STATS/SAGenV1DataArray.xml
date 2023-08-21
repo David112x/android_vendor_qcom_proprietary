@@ -1,0 +1,1868 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+========================================================================
+   Copyright (c) 2019 Qualcomm Technologies, Inc.
+   All Rights Reserved.
+   Confidential and Proprietary - Qualcomm Technologies, Inc.
+========================================================================
+-->
+<SAGenV1DataArray
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="..\..\..\..\..\..\..\api\chromatix\XSD\stats\awb\modsagenv1.xsd">
+  <module_version>
+    <major_revision>1</major_revision>
+    <minor_revision>0</minor_revision>
+    <incr_revision>0</incr_revision>
+  </module_version>
+  <SAGenV1Data>
+    <Description>SA Outdoor Green</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">1</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Yellowish Green Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">145</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.265833</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6109998</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.4363412</rg>
+            <bg type='float' range="[0.0,15000.0]">0.512224257</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">220</start>
+          <end type='float' range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.265833</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6109998</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.4363412</rg>
+            <bg type='float' range="[0.0,15000.0]">0.512224257</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Bluish Green Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">145</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.273800731</rg>
+            <bg type='float' range="[0.0,15000.0]">0.512641</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.452552</rg>
+            <bg type='float' range="[0.0,15000.0]">0.271928549</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">220</start>
+          <end type='float' range="[-100.0,15000.0]">317</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.273800731</rg>
+            <bg type='float' range="[0.0,15000.0]">0.512641</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.452552</rg>
+            <bg type='float' range="[0.0,15000.0]">0.271928549</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Day Stats Detect</Description>
+        <groupID type='int' range="[0,10]">1</groupID>
+        <zoneType type='awbZoneType'>CCT</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4500</rg>
+            <bg type='float' range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">172</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.15</start>
+            <end type='float' range="[-100.0,15000.0]">0.25</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.4</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">210</start>
+          <end type='float' range="[-100.0,15000.0]">220</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.25</start>
+            <end type='float' range="[-100.0,15000.0]">0.35</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.25</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.55</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">290</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup1CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.2</start>
+            <end type='float' range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.6</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetFixedPoint</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">172</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.489739</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6797481</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.48750928</rg>
+            <bg type='float' range="[0.0,15000.0]">0.655265331</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">220</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.467327774</rg>
+            <bg type='float' range="[0.0,15000.0]">0.704116464</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.469108075</rg>
+            <bg type='float' range="[0.0,15000.0]">0.723664761</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">260</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.490489</rg>
+            <bg type='float' range="[0.0,15000.0]">0.611332357</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.491863</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6272582</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Outdoor Blue Sky(type1)</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">2</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Blue Sky Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">136</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.186146274</rg>
+            <bg type='float' range="[0.0,15000.0]">1.10368824</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.437436</rg>
+            <bg type='float' range="[0.0,15000.0]">0.9010137</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">163</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.186146274</rg>
+            <bg type='float' range="[0.0,15000.0]">1.10368824</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.437436</rg>
+            <bg type='float' range="[0.0,15000.0]">0.9010137</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Blue Sky Detect 2</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Triangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">0</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">165</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125243</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453288</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.35</rg>
+            <bg type='float' range="[0.0,15000.0]">1.22</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">198</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125243</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453288</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.35</rg>
+            <bg type='float' range="[0.0,15000.0]">1.22</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Day stats Detect</Description>
+        <groupID type='int' range="[0,10]">1</groupID>
+        <zoneType type='awbZoneType'>CCT</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4500</rg>
+            <bg type='float' range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">145</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.2</start>
+            <end type='float' range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">154</start>
+          <end type='float' range="[-100.0,15000.0]">163</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.2</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.3</start>
+            <end type='float' range="[-100.0,15000.0]">0.4</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.6</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">190</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup1CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.02</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.07</start>
+            <end type='float' range="[-100.0,15000.0]">0.5</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.6</start>
+            <end type='float' range="[-100.0,15000.0]">0.8</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.9</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetGAZone1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">145</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.486634344</rg>
+            <bg type='float' range="[0.0,15000.0]">0.68016</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.484404624</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6556772</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">190</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.4644382</rg>
+            <bg type='float' range="[0.0,15000.0]">0.704664</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.4662185</rg>
+            <bg type='float' range="[0.0,15000.0]">0.7242122</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Outdoor Blue Sky(type2: no Day stats)</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">3</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Blue Sky Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">165</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125242651</rg>
+            <bg type='float' range="[0.0,15000.0]">0.90984416</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453287661</rg>
+            <bg type='float' range="[0.0,15000.0]">0.686981</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">198</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125242651</rg>
+            <bg type='float' range="[0.0,15000.0]">0.90984416</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453287661</rg>
+            <bg type='float' range="[0.0,15000.0]">0.766980469</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Blue Sky Detect 2</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Triangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">0</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">165</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125243</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453288</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.35</rg>
+            <bg type='float' range="[0.0,15000.0]">1.22</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">198</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.125243</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.453288</rg>
+            <bg type='float' range="[0.0,15000.0]">0.909844</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.35</rg>
+            <bg type='float' range="[0.0,15000.0]">1.22</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Day stats Detect</Description>
+        <groupID type='int' range="[0,10]">1</groupID>
+        <zoneType type='awbZoneType'>CCT</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4500</rg>
+            <bg type='float' range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">91</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">118</start>
+            <end type='float' range="[-100.0,15000.0]">136</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">154</start>
+            <end type='float' range="[-100.0,15000.0]">929</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">187</start>
+          <end type='float' range="[-100.0,15000.0]">198</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.2</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.3</start>
+            <end type='float' range="[-100.0,15000.0]">0.4</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.6</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">230</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup1CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.02</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.07</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetFixedPoint</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">176</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">91</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.499725431</rg>
+            <bg type='float' range="[0.0,15000.0]">0.662524</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">118</start>
+            <end type='float' range="[-100.0,15000.0]">127</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.5006156</rg>
+            <bg type='float' range="[0.0,15000.0]">0.6722981</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">154</start>
+            <end type='float' range="[-100.0,15000.0]">929</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.4959987</rg>
+            <bg type='float' range="[0.0,15000.0]">0.676138759</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">200</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">0.51</rg>
+            <bg type='float' range="[0.0,15000.0]">0.57</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Bright Outdoor</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">4</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Day stat Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>CCT</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">140</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4800</rg>
+            <bg type='float' range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">160</start>
+          <end type='float' range="[-100.0,15000.0]">180</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4800</rg>
+            <bg type='float' range="[0.0,15000.0]">6800</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">200</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">4500</rg>
+            <bg type='float' range="[0.0,15000.0]">6500</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">96</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">120</start>
+            <end type='float' range="[-100.0,15000.0]">140</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.85</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">160</start>
+            <end type='float' range="[-100.0,15000.0]">180</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">210</start>
+            <end type='float' range="[-100.0,15000.0]">969</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">200</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.15</start>
+            <end type='float' range="[-100.0,15000.0]">0.25</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.4</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">260</start>
+          <end type='float' range="[-100.0,15000.0]">330</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.25</start>
+            <end type='float' range="[-100.0,15000.0]">0.35</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.55</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.8</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">380</start>
+          <end type='float' range="[-100.0,15000.0]">990</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetGAAGWPoint</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">140</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1</rg>
+            <bg type='float' range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">160</start>
+            <end type='float' range="[-100.0,15000.0]">180</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1</rg>
+            <bg type='float' range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">210</start>
+            <end type='float' range="[-100.0,15000.0]">969</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1</rg>
+            <bg type='float' range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Night Outdoor</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">5</subModuleID>
+    </moduleID>
+    <enableFlag>0</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Night stats Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">270</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.15900755</rg>
+            <bg type='float' range="[0.0,15000.0]">0.36154148</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.37395322</rg>
+            <bg type='float' range="[0.0,15000.0]">0.09645346</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">290</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.406815678</rg>
+            <bg type='float' range="[0.0,15000.0]">0.9403914</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.5259396</rg>
+            <bg type='float' range="[0.0,15000.0]">0.7145232</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Night stats Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">270</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.35324824</rg>
+            <bg type='float' range="[0.0,15000.0]">0.5115004</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.85325372</rg>
+            <bg type='float' range="[0.0,15000.0]">0.09134128</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">377</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.5165458</rg>
+            <bg type='float' range="[0.0,15000.0]">0.724153757</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0.7161046</rg>
+            <bg type='float' range="[0.0,15000.0]">0.5499198</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">290</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">310</start>
+          <end type='float' range="[-100.0,15000.0]">324</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.05</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.3</start>
+            <end type='float' range="[-100.0,15000.0]">0.5</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.4</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.8</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">337</start>
+          <end type='float' range="[-100.0,15000.0]">929</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetGAAGWPoint</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">290</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1</rg>
+            <bg type='float' range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">337</start>
+            <end type='float' range="[-100.0,15000.0]">929</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1</rg>
+            <bg type='float' range="[0.0,15000.0]">1</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">380</start>
+            <end type='float' range="[-100.0,15000.0]">999</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1.025</rg>
+            <bg type='float' range="[0.0,15000.0]">1.07</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <SAGenV1Data>
+    <Description>SA Low CCT Single Outdoor</Description>
+    <moduleID>
+      <moduleID type='int' range="[1,1000]">102</moduleID>
+      <subModuleID type='int' range="[1,1000]">6</subModuleID>
+    </moduleID>
+    <enableFlag>1</enableFlag>
+    <weight>1</weight>
+    <detectionZone>
+      <zoneConfigData>
+        <Description>Low CCT stats Detect</Description>
+        <groupID type='int' range="[0,10]">0</groupID>
+        <zoneType type='awbZoneType'>Rectangle</zoneType>
+        <triggerLevel type='int' range="[1,10]">1</triggerLevel>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+        <triggerCtrlType>TriggerCtrlLuxIdx</triggerCtrlType>
+      </zoneConfigData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.3</rg>
+            <bg type='float' range="[0.0,15000.0]">0.4</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">1.8</rg>
+            <bg type='float' range="[0.0,15000.0]">0.08</bg>
+          </vertex>
+          <vertex>
+            <rg type='float' range="[0.0,15000.0]">0</rg>
+            <bg type='float' range="[0.0,15000.0]">0</bg>
+          </vertex>
+        </triggerData>
+      </triggerData>
+    </detectionZone>
+    <configenceCmpt>SAConfidenceMultiply</configenceCmpt>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0CntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">330</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">350</start>
+          <end type='float' range="[-100.0,15000.0]">364</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.5</start>
+            <end type='float' range="[-100.0,15000.0]">0.6</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.3</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.8</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">400</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.3</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.4</start>
+            <end type='float' range="[-100.0,15000.0]">0.6</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.7</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <confidenceLevel>
+      <commonData>
+        <attribute type='float' range="[0.0,100.0]">1</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlValidStatsCntRatio</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">999</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0</start>
+            <end type='float' range="[-100.0,15000.0]">0.01</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">1</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.05</start>
+            <end type='float' range="[-100.0,15000.0]">0.1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0.5</data>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">0.2</start>
+            <end type='float' range="[-100.0,15000.0]">1</end>
+          </triggerPt>
+          <triggerData>
+            <data type='float' range="[0.0,9999.9]">0</data>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </confidenceLevel>
+    <targetAdjustment>
+      <commonData>
+        <attribute>SATargetGAZone0</attribute>
+        <triggerType>TriggerCtrlLuxIdx</triggerType>
+        <triggerType>TriggerCtrlZoneGroup0Rg</triggerType>
+      </commonData>
+      <triggerPt>
+        <start type='float' range="[-100.0,15000.0]">0</start>
+        <end type='float' range="[-100.0,15000.0]">0</end>
+      </triggerPt>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">0</start>
+          <end type='float' range="[-100.0,15000.0]">330</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">1.3</start>
+            <end type='float' range="[-100.0,15000.0]">1.32</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1.01</rg>
+            <bg type='float' range="[0.0,15000.0]">0.99</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">1.78</start>
+            <end type='float' range="[-100.0,15000.0]">2</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1.18</rg>
+            <bg type='float' range="[0.0,15000.0]">0.82</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+      <triggerData>
+        <triggerPt>
+          <start type='float' range="[-100.0,15000.0]">400</start>
+          <end type='float' range="[-100.0,15000.0]">969</end>
+        </triggerPt>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">1.3</start>
+            <end type='float' range="[-100.0,15000.0]">1.32</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1.01</rg>
+            <bg type='float' range="[0.0,15000.0]">0.99</bg>
+          </triggerData>
+        </triggerData>
+        <triggerData>
+          <triggerPt>
+            <start type='float' range="[-100.0,15000.0]">1.78</start>
+            <end type='float' range="[-100.0,15000.0]">2</end>
+          </triggerPt>
+          <triggerData>
+            <rg type='float' range="[0.0,15000.0]">1.18</rg>
+            <bg type='float' range="[0.0,15000.0]">0.82</bg>
+          </triggerData>
+        </triggerData>
+      </triggerData>
+    </targetAdjustment>
+  </SAGenV1Data>
+  <enableFlag>1</enableFlag>
+</SAGenV1DataArray>

@@ -1,0 +1,53 @@
+<!--========================================================================-->
+<!-- Copyright (c) 2016-2018 Qualcomm Technologies, Inc.                    -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<CamxSegment name="YUV2YUV_linkages">
+    <PortLinkages>
+        <Link>
+            <SrcPort>
+                <PortName>TARGET_BUFFER_CUSTOM_YUV</PortName>
+                <PortId>0</PortId>
+                <NodeName>SourceBuffer</NodeName>
+                <NodeId>4</NodeId>
+                <NodeInstance>SourceInstanceName0</NodeInstance>
+                <NodeInstanceId>0</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>IPEInputPortFull</PortName>
+                <PortId>0</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName20</NodeInstance>
+                <NodeInstanceId>20</NodeInstanceId>
+            </DstPort>
+            <BufferProperties>
+                <BufferFormat>ChiFormatUBWCTP10</BufferFormat>
+                <BufferImmediateAllocCount>8</BufferImmediateAllocCount>
+                <BufferQueueDepth>8</BufferQueueDepth>
+                <BufferHeap>Ion</BufferHeap>
+                <BufferFlags>BufferMemFlagHw</BufferFlags>
+                <BufferFlags>BufferMemFlagLockable</BufferFlags>
+            </BufferProperties>
+        </Link>
+        <Link>
+            <SrcPort>
+                <PortName>IPEOutputPortVideo</PortName>
+                <PortId>9</PortId>
+                <NodeName>IPE</NodeName>
+                <NodeId>65538</NodeId>
+                <NodeInstance>IPEInstanceName20</NodeInstance>
+                <NodeInstanceId>20</NodeInstanceId>
+            </SrcPort>
+            <DstPort>
+                <PortName>TARGET_BUFFER_YUV</PortName>
+                <PortId>0</PortId>
+                <NodeName>SinkBuffer</NodeName>
+                <NodeId>2</NodeId>
+                <NodeInstance>SinkInstanceName1</NodeInstance>
+                <NodeInstanceId>1</NodeInstanceId>
+            </DstPort>
+        </Link>
+    </PortLinkages>
+</CamxSegment>

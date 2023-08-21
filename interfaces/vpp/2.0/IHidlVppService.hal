@@ -1,0 +1,18 @@
+/*!
+ * @file IHidlVppService.hal
+ *
+ * @cr
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ * @services Defines the interface for VPP.
+ */
+
+package vendor.qti.hardware.vpp@2.0;
+
+import vendor.qti.hardware.vpp@2.0::IHidlVpp;
+
+interface IHidlVppService {
+    getNewVppSession_2_0(uint32_t u32Flags) generates (IHidlVpp vppInstance);
+};

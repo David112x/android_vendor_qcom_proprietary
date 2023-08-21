@@ -1,0 +1,282 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 2019 Qualcomm Technologies, Inc.
+// All Rights Reserved.
+// Confidential and Proprietary - Qualcomm Technologies, Inc.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// @file  chifeature2qcfa.cpp
+/// @brief CHI feature2 QCFA implementation
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include "chifeature2qcfa.h"
+#include "chifeature2base.h"
+
+static const UINT32 Feature2MajorVersion  = 0;
+static const UINT32 Feature2MinorVersion  = 1;
+static const CHAR*  VendorName            = "QTI";
+
+static const CHAR*  Feature2QCFACaps[] =
+{
+    "QuadCFA",
+};
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::Create
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ChiFeature2QCFA* ChiFeature2QCFA::Create(
+    ChiFeature2CreateInputInfo* pCreateInputInfo)
+{
+    ChiFeature2QCFA*    pFeature    = CHX_NEW(ChiFeature2QCFA);
+    CDKResult           result      = CDKResultSuccess;
+
+    if (NULL == pFeature)
+    {
+        CHX_LOG_ERROR("Out of memory: pFeature is NULL");
+    }
+    else
+    {
+        result = pFeature->Initialize(pCreateInputInfo);
+        if (CDKResultSuccess != result)
+        {
+            CHX_LOG_ERROR("Feature failed to initialize!!");
+            pFeature->Destroy();
+            pFeature = NULL;
+        }
+    }
+
+    return pFeature;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::Destroy
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID ChiFeature2QCFA::Destroy()
+{
+    CHX_DELETE this;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::~ChiFeature2QCFA
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+ChiFeature2QCFA::~ChiFeature2QCFA()
+{
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoQueryCaps
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::DoQueryCaps(
+    ChiFeature2QueryInfo * pQueryInfo)
+{
+    CDK_UNUSED_PARAM(pQueryInfo);
+    return CDKResultSuccess;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoInitialize
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::DoInitialize(
+    ChiFeature2CreateInputInfo * pCreateInputInfo)
+{
+    CDK_UNUSED_PARAM(pCreateInputInfo);
+    return CDKResultSuccess;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoPrepareRequest
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::DoPrepareRequest(
+    ChiFeature2RequestObject * pRequestObject
+    ) const
+{
+    CDK_UNUSED_PARAM(pRequestObject);
+    return CDKResultSuccess;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::OnExecuteProcessRequest
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::OnExecuteProcessRequest(
+    ChiFeature2RequestObject* pRequestObject
+    ) const
+{
+    CDKResult result            = CDKResultSuccess;
+    UINT8     stageId           = InvalidStageId;
+    UINT8     nextStageId       = InvalidStageId;
+    UINT8     stageSequenceId   = InvalidStageSequenceId;
+    UINT8     numDependencyLists = 0;
+
+    const ChiFeature2StageDescriptor*   pStageDescriptor    = NULL;
+    ChiFeature2StageInfo                stageInfo           = { 0 };
+    ChiFeature2PortIdList               outputList          = { 0 };
+    ChiFeature2PortIdList               inputList           = { 0 };
+
+    result = GetCurrentStageInfo(pRequestObject, &stageInfo);
+
+    if (CDKResultSuccess == result)
+    {
+        stageId         = stageInfo.stageId;
+        stageSequenceId = stageInfo.stageSequenceId;
+        nextStageId     = stageId + 1;
+
+        if (InvalidStageId == stageId)
+        {
+            // Setting this tells the request object how many overall sequences we will run
+            SetConfigInfo(pRequestObject, 2);
+            pStageDescriptor = GetStageDescriptor(nextStageId);
+
+            if (NULL != pStageDescriptor)
+            {
+                numDependencyLists = GetNumDependencyListsFromStageDescriptor(pStageDescriptor, 0, 0);
+                SetNextStageInfoFromStageDescriptor(pRequestObject, pStageDescriptor, 0, numDependencyLists);
+                PopulateDependency(pRequestObject);
+            }
+        }
+        else
+        {
+            result = PopulateConfiguration(pRequestObject);
+            if (CDKResultSuccess == result)
+            {
+                result = SubmitRequestToSession(pRequestObject);
+                if ((CDKResultSuccess == result) && (nextStageId < GetNumStages()))
+                {
+                    pStageDescriptor = GetStageDescriptor(nextStageId);
+
+                    if (NULL != pStageDescriptor)
+                    {
+                        numDependencyLists = GetNumDependencyListsFromStageDescriptor(pStageDescriptor, 0, 0);
+                        SetNextStageInfoFromStageDescriptor(pRequestObject, pStageDescriptor, 0, 1);
+                        PopulateDependency(pRequestObject);
+                    }
+                }
+            }
+            else
+            {
+                CHX_LOG_ERROR("Unable to get port information for stage %d", stageId);
+            }
+        }
+    }
+
+    return result;
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoProcessResult
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID ChiFeature2QCFA::DoProcessResult(
+    CHICAPTURERESULT * pResult,
+    VOID * pPrivateCallbackData)
+{
+    CDK_UNUSED_PARAM(pResult);
+    CDK_UNUSED_PARAM(pPrivateCallbackData);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoProcessMessage
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID ChiFeature2QCFA::DoProcessMessage(
+    const CHIMESSAGEDESCRIPTOR * pMessageDescriptor,
+    VOID * pPrivateCallbackData)
+{
+    CDK_UNUSED_PARAM(pMessageDescriptor);
+    CDK_UNUSED_PARAM(pPrivateCallbackData);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoProcessPartialResult
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID ChiFeature2QCFA::DoProcessPartialResult(
+    CHIPARTIALCAPTURERESULT * pCaptureResult,
+    VOID * pPrivateCallbackData)
+{
+    CDK_UNUSED_PARAM(pCaptureResult);
+    CDK_UNUSED_PARAM(pPrivateCallbackData);
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoCleanupRequest
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::DoCleanupRequest(
+    ChiFeature2RequestObject * pRequestObject
+    ) const
+{
+    CDK_UNUSED_PARAM(pRequestObject);
+    return CDKResultSuccess;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2QCFA::DoFlush
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult ChiFeature2QCFA::DoFlush()
+{
+    return CDKResultSuccess;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// CreateFeature
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID* CreateFeature(
+    ChiFeature2CreateInputInfo* pCreateInputInfo)
+{
+    ChiFeature2QCFA* pFeatureGeneric = ChiFeature2QCFA::Create(pCreateInputInfo);
+    return static_cast<CHIHANDLE>(pFeatureGeneric);;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DoQueryCaps
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDKResult DoQueryCaps(
+    VOID*                 pConfig,
+    ChiFeature2QueryInfo* pQueryInfo)
+{
+    CDK_UNUSED_PARAM(pConfig);
+
+    CDKResult result = CDKResultSuccess;
+
+    if (NULL != pQueryInfo)
+    {
+        pQueryInfo->numCaps        = CHX_ARRAY_SIZE(Feature2QCFACaps);
+        pQueryInfo->ppCapabilities = &Feature2QCFACaps[0];
+    }
+    else
+    {
+        result = CDKResultEInvalidArg;
+    }
+
+    return result;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GetVendorTags
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+VOID GetVendorTags(
+    VOID* pVendorTags)
+{
+    CDK_UNUSED_PARAM(pVendorTags);
+}
+
+#ifdef __cplusplus
+extern "C" {
+#endif // __cplusplus
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ChiFeature2OpsEntry
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+CDK_VISIBILITY_PUBLIC VOID ChiFeature2OpsEntry(
+    CHIFEATURE2OPS* pChiFeature2Ops)
+{
+    if (NULL != pChiFeature2Ops)
+    {
+        pChiFeature2Ops->size                   = sizeof(CHIFEATURE2OPS);
+        pChiFeature2Ops->majorVersion           = Feature2MajorVersion;
+        pChiFeature2Ops->minorVersion           = Feature2MinorVersion;
+        pChiFeature2Ops->pVendorName            = VendorName;
+        pChiFeature2Ops->pCreate                = CreateFeature;
+        pChiFeature2Ops->pQueryCaps             = DoQueryCaps;
+        pChiFeature2Ops->pGetVendorTags         = GetVendorTags;
+    }
+}
+#ifdef __cplusplus
+}
+#endif // __cplusplus

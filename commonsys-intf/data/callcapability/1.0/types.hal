@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 2020 Qualcomm Technologies, Inc.
+ * All Rights Reserved.
+ * Confidential and Proprietary - Qualcomm Technologies, Inc.
+ *
+ */
+
+package vendor.qti.ims.callcapability@1.0;
+
+/**
+ * IMS Call Capability Status codes
+ */
+enum CallCapStatusCode : uint32_t {
+    OK            = 0,
+    FAIL          = 1,
+    NOT_SUPPORTED = 2
+};
+
+struct KeyValuePairBoolType{
+    uint32_t key;
+    bool value;
+};
+
+struct KeyValuePairStringType {
+    uint32_t key;
+    string value;
+};
+
+enum CallCapabilityInfoKeys : uint32_t {
+    /** This key expects uint8_t value, expects 0 or 1 */
+    PEER_CALL_COMPOSER_CAPABILITY_SUPPORTED_KEY = 1,
+
+    /** This key expects uint8_t value, expects 0 or 1 */
+    RTT_CAPABILITY_SUPPORTED_KEY,
+
+    /** This key expects uint8_t value, expects 0 or 1 */
+    CONF_CAPABILITY_SUPPORTED_KEY,
+
+    /** This key expects string value, expects "TX","RX","BOTH" */
+    VIDEO_CAPABILITY_SUPPORTED_KEY,
+
+    /** This key expects string value, expects "TX","RX","BOTH" */
+    AUDIO_CAPABILITY_SUPPORTED_KEY,
+};
+
+struct CallCapabilityInfo {
+    string contactNumber;
+    vec<KeyValuePairBoolType> boolData;
+    vec<KeyValuePairStringType> stringData;
+};

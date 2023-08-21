@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--========================================================================-->
+<!-- Copyright (c) 2018-2019 Qualcomm Technologies, Inc.                         -->
+<!-- All Rights Reserved.                                                   -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.             -->
+<!--========================================================================-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="ispglobalelements.xsd"/>
+  <xs:element name="bincorr10_bps" type="chromatix_bincorr10Type">
+    <xs:annotation>
+      <xs:documentation>bincorr10 bps module parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="bincorr10_ife" type="chromatix_bincorr10Type">
+    <xs:annotation>
+      <xs:documentation>bincorr10 ife module parameters</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="chromatix_bincorr10Type">
+    <xs:sequence>
+      <xs:element name="enable_section">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="bincorr_enable" type="enable_flag_type" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="module_version">
+        <xs:complexType>
+          <xs:attribute name="major_revision" type="xs:int" fixed="1"/>
+          <xs:attribute name="minor_revision" type="xs:int" fixed="0"/>
+          <xs:attribute name="incr_revision" type="xs:int" fixed="0"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="parameter_version">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="revision" type="xs:string" default="0"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="control_variables">
+        <xs:complexType>
+          <xs:sequence minOccurs="2" maxOccurs="2">
+            <xs:element name="control_var_type">
+              <xs:simpleType>
+                <xs:restriction base="control_var_type">
+                  <xs:pattern value="control_post_scale_ratio"/>
+                  <xs:pattern value="control_pre_scale_ratio"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:sequence>
+          <xs:attribute name="default_value" type="xs:string" default="control_post_scale_ratio, control_pre_scale_ratio"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dynamic_enable_triggers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="bincorr_enable">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="enable">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="enable_flag_type">
+                          <xs:attribute name="type" default="int"/>
+                          <xs:attribute name="description" type="xs:string" default="Enable of the module"/>
+                          <xs:attribute name="default_value" type="xs:string" default="1"/>
+                          <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+                          <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+                          <xs:attribute name="length" type="xs:int" fixed="1"/>
+                          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+                          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                          <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="hyst_control_var">
+                    <xs:complexType>
+                      <xs:simpleContent>
+                        <xs:extension base="control_var_type">
+                          <xs:attribute name="type" default="uint"/>
+                          <xs:attribute name="description" type="xs:string" default="Enable binning correction 1.0"/>
+                          <xs:attribute name="default_value" type="xs:string" default="control_pre_scale_ratio"/>
+                          <xs:attribute name="range" type="xs:string" default="[0,1]"/>
+                          <xs:attribute name="bit_depth" type="xs:string" default="1uQ0"/>
+                          <xs:attribute name="length" type="xs:int" fixed="1"/>
+                          <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+                          <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+                          <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+                        </xs:extension>
+                      </xs:simpleContent>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="hyst_mode" type="hyst_direction" default="UPWARD"/>
+                  <xs:element name="hyst_trigger" type="trigger_pt_couplet_type"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="chromatix_bincorr10_core" type="chromatix_bincorr10_coreType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="chromatix_bincorr10_coreType">
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="mod_bincorr10_post_scale_ratio_data" type="mod_bincorr10_post_scale_ratio_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_bincorr10_post_scale_ratio_dataType">
+    <xs:sequence>
+      <xs:element name="post_scale_ratio_trigger" type="trigger_pt_type"/>
+      <xs:element name="post_scale_ratio_data">
+        <xs:complexType>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="mod_bincorr10_pre_scale_ratio_data" type="mod_bincorr10_pre_scale_ratio_dataType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mod_bincorr10_pre_scale_ratio_dataType">
+    <xs:sequence>
+      <xs:element name="pre_scale_ratio_trigger" type="trigger_pt_type"/>
+      <xs:element name="bincorr10_rgn_data" type="bincorr10_rgn_dataType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bincorr10_rgn_dataType">
+    <xs:sequence>
+      <xs:element name="ver_bin_corr_w1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:int">
+              <xs:attribute name="type" default="int"/>
+              <xs:attribute name="description" type="xs:string" default="vertical weight w1"/>
+              <xs:attribute name="default_value" type="xs:int" default="112"/>
+              <xs:attribute name="range" type="xs:string" default="[0,128]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ7"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ver_bin_corr_w2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:int">
+              <xs:attribute name="type" default="int"/>
+              <xs:attribute name="description" type="xs:string" default="vertical weight w2"/>
+              <xs:attribute name="default_value" type="xs:int" default="112"/>
+              <xs:attribute name="range" type="xs:string" default="[0,128]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ7"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hor_bin_corr_w1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:int">
+              <xs:attribute name="type" default="int"/>
+              <xs:attribute name="description" type="xs:string" default="horizontal weight w1"/>
+              <xs:attribute name="default_value" type="xs:int" default="112"/>
+              <xs:attribute name="range" type="xs:string" default="[0,128]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ7"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hor_bin_corr_w2">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:int">
+              <xs:attribute name="type" default="int"/>
+              <xs:attribute name="description" type="xs:string" default="horizontal weight w2"/>
+              <xs:attribute name="default_value" type="xs:int" default="112"/>
+              <xs:attribute name="range" type="xs:string" default="[0,128]"/>
+              <xs:attribute name="bit_depth" type="xs:string" default="8uQ7"/>
+              <xs:attribute name="length" type="xs:int" fixed="1"/>
+              <xs:attribute name="conversion" type="xs:string" default="no conversion needed"/>
+              <xs:attribute name="tuning_parameter_level" type="tuning_level" default="rarely_tune"/>
+              <xs:attribute name="additional_notes" type="xs:string" default="none"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

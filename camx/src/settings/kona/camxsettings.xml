@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!-- *********************************************************************************************************************** -->
+<!-- Copyright (c) 2016-2019 Qualcomm Technologies, Inc.                                                                     -->
+<!-- All Rights Reserved.                                                                                                    -->
+<!-- Confidential and Proprietary - Qualcomm Technologies, Inc.                                                              -->
+<!-- *********************************************************************************************************************** -->
+
+<!-- *********************************************************************************************************************** -->
+<!-- CamX Hardware Independent Settings Definition File                                                                      -->
+<!--                                                                                                                         -->
+<!-- Each setting definition will contain the following fields:                                                              -->
+<!--    Name:           Human readable name of the setting, used as the title of the comment block in the auto-generated     -->
+<!--                    override settings text file                                                                          -->
+<!--    Help:           The text describing the setting that is copied to the auto-generated override settings text file     -->
+<!--    VariableName:   The name of the setting as used in the auto-generated header, source, and override settings text     -->
+<!--                    files                                                                                                -->
+<!--    VariableType:   The type of the variable as used in the auto-generated header, source, and override settings         -->
+<!--                    text files. Allowable types include:                                                                 -->
+<!--                        BOOL, CHAR (string), INT, UINT, FLOAT, <User-defined enumerated type>                            -->
+<!--    SetpropKey:     (Optional for static settings, required for dynamic settings; default empty string) The key name of  -->
+<!--                    the Android System Property Store (aka setprop)                                                      -->
+<!--                    property that may optionally be used to control this setting                                         -->
+<!--    DefaultValue:   The default value for the setting that is set in the auto-generated source file                      -->
+<!--    MinimumValue:   (Optional; default FALSE/NULL/minimum integer/first enumerator, depending on type) The minimum value -->
+<!--                    for the setting                                                                                      -->
+<!--    MaximumValue:   (Optional; default TRUE/0xFFFFFFFF/maximum integer/last enumerator, depending on type) The maximum   -->
+<!--                    value for the setting                                                                                -->
+<!--    Dynamic:        (Optional; default FALSE) A Boolean flag indicating whether this setting may be dynamically updated  -->
+<!--                    using the Android System Property Store                                                              -->
+<!--    Public:         (Optional; default is FALSE, i.e. private) A Boolean flag indicating whether this setting is public  -->
+<!--                    or not. Public properties will be accessible to OEMs via friendly names.                             -->
+<!--                                                                                                                         -->
+<!-- Each user-defined enumerated type will contain the following fields:                                                    -->
+<!--    Name:           The name of the enumerated type that will appear in the auto-generated header file. Should not be    -->
+<!--                    prefixed with 'Camx' as the type is in the CamX namespace.  This much match the VariableType for the -->
+<!--                    corresponding setting.                                                                               -->
+<!--    Description:    A description of the enumerated type that will appear as a comment for the enum in the               -->
+<!--                    auto-generated header file                                                                           -->
+<!--                                                                                                                         -->
+<!-- Each user-defined enumerator will contain the following fields:                                                         -->
+<!--    Name:           The name of the enumerator                                                                           -->
+<!--    Description:    A description of the enumerator that will appear as a comment for the enumerator in the              -->
+<!--                    auto-generated header file                                                                           -->
+<!--    Number:         (Optional) Force the enumerator to this value                                                        -->
+
+<!-- *********************************************************************************************************************** -->
+<!--   Target specific Override Camxsettings settings are allowed to add in this File                                                       -->
+<!-- *********************************************************************************************************************** -->
+<!-- *********************************************************************************************************************** -->
+
+<settingsGroup Name="Hardware Independent Settings">
+    <!-- Settings definitions                                                                                                -->
+    <settingsSubGroup Name="Pipeline Settings">
+        <setting>
+            <Name>Output Format</Name>
+            <Help>Output format for IPE Preview and Video output</Help>
+            <VariableName>outputFormat</VariableName>
+            <VariableType>OutputFormatType</VariableType>
+            <SetpropKey>persist.vendor.camera.outputFormat</SetpropKey>
+            <DefaultValue>UBWCNV12</DefaultValue>
+            <Dynamic>FALSE</Dynamic>
+            <Public>TRUE</Public>
+        </setting>
+    </settingsSubGroup>
+</settingsGroup>
+
